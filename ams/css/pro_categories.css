@@ -1,0 +1,97 @@
+.main{
+    width:100%;
+    padding:1.8rem 0 1.2rem;
+    display:flex;
+    flex-flow:wrap row;
+    justify-content: space-between;
+}
+.slidebar{
+    width:2rem;
+}
+.slidebar h3{
+    height:0.9rem;
+    width:100%;
+    color:#cc3333;
+    font-size:0.36rem;
+    line-height:0.9rem;
+    text-align:center;
+    border-left:0.02rem solid #cc3333;
+}
+.hot_recommend{
+    width:100%;
+}
+.hot_recommend li{
+    width:100%;
+    height:0.9rem;
+    border-bottom:0.01rem solid white;
+    background: #e8e8e8;
+}
+.hot_recommend li a{
+    width:100%;
+    height:100%;
+    display:block;
+    font-size:0.36rem;
+    line-height:0.9rem;
+    text-align: center;
+    color:#333;
+}
+.hot_section{
+    width:4.86rem;
+}
+.hot_section>div{
+    width:70%;
+    height:0.9rem;
+    display:flex;
+    flex-flow:wrap row;
+    justify-content: space-around;
+}
+.hot_section>div span{
+    width:0.6rem;
+    height:0.24rem;
+    border-bottom:0.02rem solid #e8e8e8;
+}
+.hot_section>div h3{
+    color:#c4c4c4;
+    font-size:0.36rem;
+}
+.hot_section .hot_list{
+    width:100%;
+}
+.hot_list ul{
+    width:100%;
+    display:flex;
+    flex-flow:wrap row;
+    justify-content: space-around;
+}
+.hot_section .hot_list ul li{
+   width:1.6rem;
+}
+.hot_list ul li a{
+    width:1.4rem;
+    height:1.4rem;
+    border:0.01rem solid #e8e8e8;
+    display:block;
+}
+.hot_list ul li a img{
+    width:100%;
+    height:100%;
+}
+.hot_list ul li p{
+    width:100%;
+    text-align:center;
+}
+.hot_list ul li p a{
+    display:inline;
+    border: 0;
+    width:auto;
+    height:auto;
+}
+
+
+
+
+
+
+
+
+

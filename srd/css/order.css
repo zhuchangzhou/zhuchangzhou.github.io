@@ -1,0 +1,236 @@
+.order{
+    width: 1200px;
+    margin:0 auto;
+    overflow: hidden;
+}
+/*个人中心*/
+.order .left{
+    width:242px;
+    float: left;
+    overflow: hidden;
+    margin-right: 28px;
+}
+.order.container{
+    width: 1200px;
+    overflow: hidden;
+    margin-bottom: 245px;
+}
+.personal-center{
+    height:650px;
+}
+.personal-center dd a b{
+    font-weight:normal;
+    color: #000;
+}
+.personal-center dd a b:hover{
+    color: #8D2628;
+}
+.personal-center .my-order a{
+    color: #8D2628;
+}
+/*订单详情*/
+.order .right{
+    width:930px;
+    overflow: hidden;
+    float: left;
+}
+.order-status{
+    width:928px;
+    border: 1px solid #989696;
+    float:left;
+    margin-bottom: 34px;
+}
+.all{
+    padding:28px 80px 36px 80px;
+    overflow: hidden;
+}
+.all li{
+    float: left;
+    cursor: pointer;
+    color: #000;
+    letter-spacing: 1px;
+    font-size: 16px;
+    margin-right:88px;
+}
+.all li:hover{
+    color: #8D2628;
+}
+.all .on{
+    width:68px;
+    color: #8D2628;
+}
+.all .current{
+    margin:0;
+}
+.status{
+    padding: 0 86px 30px 80px;
+    overflow: hidden;
+}
+.status li{
+    float: left;
+    font-size: 16px;
+    line-height: 42px;
+    color: #000;
+    margin-right: 38px;
+    letter-spacing:1px;
+}
+.status li input{
+    height:40px;
+    border:1px solid #989696;
+    padding-left:8px;
+    line-height: 42px;
+}
+.num input[type="text"]{
+    width:310px;
+}
+.status .time{
+    margin:0;
+}
+.time input[type="text"]{
+    width:92px;
+}
+.status .situation{
+    margin-top: 14px;
+}
+.situation select{
+    width:102px;
+    height:40px;
+    padding-left: 8px;
+    border:1px solid #989696;
+    letter-spacing: 2px;
+    float: left;
+    margin-left: 7px;
+    font-size:16px;
+}
+.situation select option{
+    text-align: center;
+}
+.situation span{
+    font-size: 16px;
+    float: left;
+}
+/*购买详情*/
+.detail{
+    width:928px;
+    border: 1px solid #989696;
+    float:left;
+    overflow: hidden;
+    margin-bottom: 34px;
+}
+.detail .infor{
+    padding: 52px 92px 66px 80px;
+}
+.detail .infor p{
+    float: left;
+    font-size: 16px;
+    color: #000;
+    margin-right:124px;
+    letter-spacing: 1px;
+}
+.detail .infor b{
+    float: left;
+    font-size: 16px;
+    color: #000;
+    font-weight: normal;
+    margin-right: 128px;
+    letter-spacing: 1px;
+}
+.detail .infor span{
+    float: left;
+    font-size: 16px;
+    color: #000;
+    margin-right: 16px;
+    letter-spacing: 1px;
+}
+.detail .infor i{
+    float: left;
+    font-size: 16px;
+    color: #000;
+    font-style: normal;
+}
+.detail .pro{
+    padding: 0 82px 0 56px;
+    overflow: hidden;
+}
+.pro li{
+    overflow: hidden;
+    margin-bottom: 82px;
+}
+.pro .current{
+    margin:0;
+}
+.pro li div{
+    width:284px;
+    float: left;
+}
+.pro li div img{
+    float: left;
+    margin-right: 28px;
+}
+.pro li div p{
+    width:198px;
+    text-align: justify;
+    color: #000;
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 30px;
+    float: left;
+    margin-bottom: 22px;
+}
+.pro li div span{
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 30px;
+    float: left;
+    color: #000;
+    margin-right: 34px;
+}
+.pro li div b{
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 30px;
+    float: left;
+    color: #000;
+    font-weight: normal;
+}
+.pro li i{
+    margin: 28px 144px 0 60px;
+    float: left;
+    font-style: normal;
+    font-size: 16px;
+    color: #000;
+    letter-spacing: 1px;
+}
+.pro li ul{
+    float: left;
+    margin-top: 30px;
+}
+.pro li ul li{
+    margin-bottom: 2px;
+}
+.pro li ul li input[type="button"]{
+    width:82px;
+    height:32px;
+    background: #fff;
+    color: #000;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.pro li ul .on input[type="button"]{
+    background: #7D0000;
+    color: #fff;
+}
+.pro a{
+    display: block;
+    color: #000;
+    font-size: 16px;
+    float: left;
+    margin:34px 0 0 45px;
+}
+/*页*/
+.page{
+    margin: 0 auto;
+}

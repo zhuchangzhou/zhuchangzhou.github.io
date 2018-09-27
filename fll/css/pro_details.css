@@ -1,0 +1,551 @@
+.header {
+  width: 100%;
+  height: 7.00rem;
+  background: #E8E9EB;
+}
+
+.header .section {
+  width: 7.20rem;
+  height: 0.70rem;
+  margin: 0 auto;
+}
+
+.header .section .return1 {
+  display: block;
+  width: 0.70rem;
+  height: 0.70rem;
+  float: left;
+  margin-right: 4.94rem;
+}
+
+.header .section .return1 img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.header .section .cart {
+  display: block;
+  width: 0.70rem;
+  height: 0.70rem;
+  float: left;
+  margin-right: 0.16rem;
+}
+
+.header .section .cart img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.header .section .more_operator {
+  display: block;
+  width: 0.70rem;
+  height: 0.70rem;
+  float: left;
+}
+
+.header .section .more_operator img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.header .pro_bg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.header .pro_bg img {
+  display: block;
+  width: 6.00rem;
+  height: 2.70rem;
+  margin-left: 0.90rem;
+  margin-top: 0.82rem;
+}
+
+.content {
+  width: 100%;
+}
+
+.content .section {
+  width: 7.20rem;
+  height: auto;
+  margin: 0.18rem auto;
+  border-top: 0;
+}
+
+.content .section .pro_gram {
+  width: 100%;
+  height: 2.30rem;
+}
+
+.content .section .pro_gram li:nth-child(1) {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.content .section .pro_gram li:nth-child(1) h3, .content .section .pro_gram li:nth-child(1) h4 {
+  width: auto;
+  height: 0.32rem;
+  float: left;
+  margin-right: 0.10rem;
+  text-align: center;
+  line-height: 0.32rem;
+  font-size: 0.18rem;
+  color: #000000;
+}
+
+.content .section .pro_gram li:nth-child(1) img {
+  display: block;
+  width: 0.46rem;
+  height: 0.38rem;
+  float: right;
+  margin-right: 0.20rem;
+}
+
+.content .section .pro_gram li:nth-child(2) {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.content .section .pro_gram li:nth-child(2) h5, .content .section .pro_gram li:nth-child(2) h6 {
+  width: auto;
+  height: 0.32rem;
+  float: left;
+  margin-right: 0.10rem;
+  text-align: center;
+  line-height: 0.32rem;
+  font-size: 0.18rem;
+  color: #000000;
+}
+
+.content .section .pro_gram li:nth-child(2) i {
+  display: block;
+  width: auto;
+  float: right;
+  height: 0.40rem;
+  text-align: center;
+  line-height: 0.40rem;
+  font-size: 0.16rem;
+  font-style: normal;
+  color: #666666;
+}
+
+.content .section .pro_gram li:nth-child(3) {
+  width: 100%;
+  height: auto;
+}
+
+.content .section .pro_gram li:nth-child(3) p {
+  width: auto;
+  height: 0.80rem;
+  font-weight: normal;
+  text-align: left;
+  line-height: 0.80rem;
+  font-size: 0.24rem;
+  color: #CF3636;
+}
+
+.content .section .pro_gram li:nth-child(3) p b {
+  width: auto;
+  height: 0.80rem;
+  font-weight: normal;
+  text-align: right;
+  line-height: 0.80rem;
+  font-size: 0.24rem;
+  color: #CF3636;
+}
+
+.content .section .pro_gram li:nth-child(4) {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.content .section .pro_gram li:nth-child(4) span {
+  display: block;
+  width: auto;
+  height: 0.32rem;
+  text-align: center;
+  line-height: 0.32rem;
+  font-size: 0.16rem;
+  color: #666666;
+}
+
+.content .pro_choice {
+  width: 100%;
+  height: 0.68rem;
+  background: #F9F9F9;
+}
+
+.content .pro_choice li {
+  width: auto;
+  height: 0.46rem;
+  float: left;
+  padding-top: 0.21rem;
+  margin-right: 0.20rem;
+}
+
+.content .pro_choice li label {
+  display: block;
+  width: 0.26rem;
+  height: 0.26rem;
+  background: url("../img/pro_details_12.png") no-repeat center;
+  background-size: 0.26rem 0.26rem;
+  margin-left: 0.15rem;
+  float: left;
+}
+
+.content .pro_choice li label input[type=checkbox] {
+  display: none;
+}
+
+.content .pro_choice li span {
+  display: block;
+  width: auto;
+  height: 0.26rem;
+  margin-left: 0.20rem;
+  font-size: 0.16rem;
+  color: #666666;
+  float: left;
+  text-align: center;
+  line-height: 0.26rem;
+}
+
+.content .pro_choice li:nth-child(5) {
+  float: right;
+  margin-right: 0.24rem;
+}
+
+.content .pro_choice li:nth-child(5) i {
+  display: block;
+  width: auto;
+  height: 0.28rem;
+  text-align: right;
+  line-height: 0.28rem;
+  font-size: 0.16rem;
+  color: #E2E2E2;
+  font-style: normal;
+}
+
+.content div {
+  width: 7.20rem;
+  border-top: 0.01rem solid #E8E8E8;
+  margin: 0 auto;
+}
+
+.content .integral {
+  width: 100%;
+  height: 0.68rem;
+  background: #F9F9F9;
+}
+
+.content .integral li {
+  width: auto;
+  height: 0.46rem;
+  padding-top: 0.21rem;
+  float: left;
+  margin-left: 0.24rem;
+}
+
+.content .integral li a {
+  display: block;
+  width: 0.52rem;
+  height: 0.28rem;
+  border: 0.01rem solid #CF3636;
+  padding: 0 0.05rem;
+  float: left;
+  text-align: center;
+  line-height: 0.24rem;
+  font-size: 0.16rem;
+  color: #CF3636;
+}
+
+.content .integral li span {
+  display: block;
+  width: auto;
+  height: 0.28rem;
+  float: left;
+  margin-left: 0.20rem;
+  text-align: center;
+  line-height: 0.28rem;
+  font-size: 0.16rem;
+  color: #666666;
+}
+
+.content .integral li:nth-child(2) {
+  width: auto;
+  height: 0.46rem;
+  padding-top: 0.21rem;
+  float: right;
+  margin-right: 0.24rem;
+}
+
+.content .integral li:nth-child(2) i {
+  display: block;
+  width: auto;
+  height: 0.28rem;
+  text-align: right;
+  line-height: 0.28rem;
+  font-size: 0.16rem;
+  color: #E2E2E2;
+  font-style: normal;
+}
+
+.content .parm {
+  width: 100%;
+  height: auto;
+}
+
+.content .parm li:nth-child(1) {
+  width: 100%;
+  height: 0.26rem;
+  background: #F2F2F2;
+  margin-top: 0.16rem;
+}
+
+.content .parm li:nth-child(2) {
+  width: 100%;
+  height: 0.78rem;
+}
+
+.content .parm li:nth-child(2) span {
+  display: block;
+  width: auto;
+  height: 0.70rem;
+  float: left;
+  text-align: center;
+  line-height: 0.70rem;
+  font-size: 0.16rem;
+  color: #000000;
+  margin-left: 0.24rem;
+}
+
+.content .parm li:nth-child(2) i {
+  display: block;
+  width: auto;
+  height: 0.70rem;
+  float: right;
+  text-align: center;
+  line-height: 0.70rem;
+  font-size: 0.16rem;
+  font-style: normal;
+  color: #E5E5E5;
+  margin-right: 0.24rem;
+}
+
+.content .comment-title {
+  width: 100%;
+  height: 0.68rem;
+  background: #F2F2F2;
+}
+
+.content .comment-title a {
+  display: block;
+  width: 2.90rem;
+  height: 100%;
+  margin: 0 auto;
+  background: url("../img/pro_details_14.png") no-repeat center;
+}
+
+.content .comment-title a img {
+  display: block;
+  width: 0.34rem;
+  height: 0.34rem;
+  margin-top: 0.17rem;
+  float: left;
+  margin-left: 1.00rem;
+}
+
+.content .comment-title a h3 {
+  width: auto;
+  height: 0.68rem;
+  margin-left: 0.05rem;
+  float: left;
+  text-align: center;
+  line-height: 0.68rem;
+  font-size: 0.20rem;
+  color: #999999;
+}
+
+.content .comment-kind {
+  width: 7.20rem;
+  height: auto;
+  margin: 0.30rem auto;
+  border: 0;
+}
+
+.content .comment-kind h3 {
+  width: auto;
+  height: 0.42rem;
+  text-align: left;
+  line-height: 0.42rem;
+  font-size: 0.24rem;
+  color: #333333;
+  margin-bottom: 0.42rem;
+}
+
+.content .comment-kind ul {
+  width: 100%;
+  height: auto;
+}
+
+.content .comment-kind ul li {
+  width: 100%;
+  height: 0.60rem;
+  margin-bottom: 0.24rem;
+}
+
+.content .comment-kind ul li a {
+  display: block;
+  width: auto;
+  height: 0.60rem;
+  background: #FDF5F5;
+  border-radius: 0.20rem;
+  float: left;
+  margin-right: 0.16rem;
+  padding: 0.02rem 0.26rem;
+  text-align: center;
+  line-height: 0.60rem;
+  font-size: 0.20rem;
+  color: #333333;
+}
+
+.content .evaluate {
+  width: 7.20rem;
+  height: auto;
+  margin: 0.20rem auto;
+  border: 0;
+}
+
+.content .evaluate li {
+  width: 100%;
+  height: auto;
+}
+
+.content .evaluate li a {
+  display: block;
+  width: 0.46rem;
+  height: 0.46rem;
+  float: left;
+  background: url("../img/pro_details_07.png") no-repeat center;
+  background-size: cover;
+}
+
+.content .evaluate li h3 {
+  width: auto;
+  height: 0.46rem;
+  margin-left: 0.24rem;
+  text-align: center;
+  line-height: 0.46rem;
+  font-size: 0.16rem;
+  color: #333333;
+  float: left;
+}
+
+.content .evaluate li img {
+  display: block;
+  width: 1.04rem;
+  height: 0.24rem;
+  margin-left: 0.24rem;
+  margin-top: 0.12rem;
+  float: left;
+}
+
+.content .evaluate li p {
+  width: auto;
+  height: auto;
+  text-align: justify;
+  letter-spacing: 0.04rem;
+  line-height: 0.42rem;
+  font-size: 0.16rem;
+  color: #333333;
+  clear: both;
+}
+
+.content .all-comment {
+  width: 100%;
+  height: auto;
+  margin: 0.40rem auto;
+  border: 0;
+}
+
+.content .all-comment a {
+  display: block;
+  width: 2.04rem;
+  height: 0.54rem;
+  margin: 0 auto;
+  border: 0.01rem solid #D34747;
+  border-radius: 0.30rem;
+  text-align: center;
+  line-height: 0.54rem;
+  font-size: 0.26rem;
+  color: #CF3636;
+}
+
+.footer {
+  width: 100%;
+  height: 0.96rem;
+}
+
+.footer .option {
+  width: auto;
+  height: 100%;
+  border-top: 0.01rem solid #EBEBEB;
+  float: left;
+}
+
+.footer .option a {
+  display: block;
+  width: 0.96rem;
+  height: 100%;
+  float: left;
+}
+
+.footer .option a img {
+  display: block;
+  width: 0.36rem;
+  height: 0.36rem;
+  padding-top: 0.16rem;
+  margin: 0 auto;
+}
+
+.footer .option a span {
+  display: block;
+  width: auto;
+  height: 0.32rem;
+  text-align: center;
+  line-height: 0.32rem;
+  font-size: 0.16rem;
+  color: #666666;
+}
+
+.footer .addToCart {
+  width: auto;
+  height: 100%;
+  padding: 0 0.48rem;
+  background: #F38F33;
+  text-align: center;
+  line-height: 0.96rem;
+  font-size: 0.30rem;
+  color: #ffffff;
+  float: right;
+}
+
+.footer .toBuy {
+  width: auto;
+  height: 100%;
+  padding: 0 0.40rem;
+  background: #D73C3D;
+  text-align: center;
+  line-height: 0.96rem;
+  font-size: 0.30rem;
+  color: #ffffff;
+  float: right;
+}

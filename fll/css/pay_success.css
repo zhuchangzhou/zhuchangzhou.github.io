@@ -1,0 +1,192 @@
+.header {
+  position: relative;
+}
+
+.header .more_operator {
+  position: absolute;
+  right: 0.26rem;
+  top: 0.26rem;
+  width: 0.36rem;
+  height: 0.36rem;
+}
+
+.header .more_operator img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  height: auto;
+}
+
+.content a {
+  display: block;
+  width: 100%;
+  height: 2.12rem;
+  cursor: pointer;
+}
+
+.content a img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.content .pay_success_list {
+  width: 100%;
+  height: auto;
+  margin-top: 0.50rem;
+}
+
+.content .pay_success_list li:nth-child(1) {
+  width: 6.90rem;
+  height: 0.36rem;
+  margin: 0 auto;
+}
+
+.content .pay_success_list li:nth-child(1) span {
+  display: block;
+  text-align: left;
+  line-height: 0.36rem;
+  font-size: 0.16rem;
+  color: #666666;
+}
+
+.content .pay_success_list li:nth-child(1) span b {
+  text-align: left;
+  line-height: 0.36rem;
+  font-size: 0.16rem;
+  color: #666666;
+  margin-left: 0.20rem;
+  font-weight: normal;
+}
+
+.content .pay_success_list li:nth-child(2) {
+  width: 6.90rem;
+  height: 0.36rem;
+  margin: 0 auto;
+}
+
+.content .pay_success_list li:nth-child(2) p {
+  text-align: left;
+  line-height: 0.36rem;
+  font-size: 0.16rem;
+  color: #666666;
+}
+
+.content .pay_success_list li:nth-child(3) {
+  width: 6.90rem;
+  height: 0.36rem;
+  margin: 0.40rem auto;
+}
+
+.content .pay_success_list li:nth-child(3) h3 {
+  width: 6.90rem;
+  height: 0.36rem;
+  text-align: left;
+  line-height: 0.36rem;
+  font-size: 0.18rem;
+  color: #666666;
+}
+
+.content .pay_success_list li:nth-child(4) {
+  width: 5.50rem;
+  height: 0.72rem;
+  margin: 0.20rem auto;
+}
+
+.content .pay_success_list li:nth-child(4) a {
+  display: block;
+  width: 2.36rem;
+  height: 0.72rem;
+  border: 0.01rem solid #D6D6D6;
+  border-radius: 0.08rem;
+  text-align: center;
+  line-height: 0.72rem;
+  font-size: 0.30rem;
+  color: #666666;
+  float: left;
+  margin-left: 0.30rem;
+}
+
+.content .pay_success_list li:nth-child(4) a:hover {
+  border: 0.01rem solid #CF3636;
+  color: #CF3636;
+}
+
+.content .pay_success_list li:nth-child(5) {
+  width: 6.90rem;
+  height: 0.70rem;
+  margin: 0.20rem auto;
+}
+
+.content .pay_success_list li:nth-child(5) p {
+  text-align: justify;
+  line-height: 0.35rem;
+  font-size: 0.16rem;
+  color: #666666;
+}
+
+.content .pay_success_list li:nth-child(5) a {
+  display: block;
+  width: 2.16rem;
+  height: 0.36rewm;
+  margin-top: 0.10rem;
+  margin-left: 4.68rem;
+  text-align: center;
+  line-height: 0.36rem;
+  font-size: 0.20rem;
+  color: #868686;
+}
+
+.content .wantBuy {
+  width: 100%;
+  height: auto;
+  border-top: 0.01rem solid #E5E5E5;
+  margin-top: 0.60rem;
+}
+
+.content .wantBuy li:nth-child(1) {
+  width: 100%;
+  height: 1.68rem;
+  position: relative;
+}
+
+.content .wantBuy li:nth-child(1) span, .content .wantBuy li:nth-child(1) i {
+  display: block;
+  width: 2.70rem;
+  height: 0.42rem;
+  position: absolute;
+  left: 2.80rem;
+  top: 0.56rem;
+  text-align: center;
+  line-height: 0.42rem;
+  font-size: 0.32rem;
+  color: #666666;
+}
+
+.content .wantBuy li:nth-child(1) i {
+  left: 0.08rem;
+  top: 1.18rem;
+  font-style: normal;
+}
+
+.content .wantBuy li:nth-child(2) {
+  width: 6.92rem;
+  height: 3.26rem;
+  margin: 0 auto;
+}
+
+.content .wantBuy li:nth-child(2) a {
+  display: block;
+  width: 3.46rem;
+  height: 3.26rem;
+  float: left;
+}
+
+.content .wantBuy li:nth-child(2) a img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

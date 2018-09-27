@@ -1,0 +1,103 @@
+.address{
+    width: 1200px;
+    margin:0 auto;
+    overflow: hidden;
+}
+/*个人中心*/
+.address .left{
+    width:242px;
+    float: left;
+    overflow: hidden;
+    margin-right: 28px;
+}
+.order.container{
+    width: 1200px;
+    overflow: hidden;
+    margin-bottom: 245px;
+}
+.personal-center{
+    height:628px;
+}
+.personal-center dd a b{
+    font-weight:normal;
+    color: #000;
+}
+.personal-center dd a b:hover{
+    color: #8D2628;
+}
+.personal-center .my-order a{
+    color: #8D2628;
+}
+.address .container .right{
+    width:930px;
+    overflow: hidden;
+    float: left;
+}
+.personal-center .Maddress a{
+    color: #8D2628;
+}
+/*地址管理*/
+.address .container h1{
+    float: left;
+    margin:15px 0 0 28px;
+}
+.address .container h2{
+    float: right;
+    margin:15px 28px 0 0;
+    color: #000;
+    font-weight:normal;
+    font-size:16px;
+    cursor: pointer;
+}
+.address .container h1 a,.address .container h2 a{
+    display: block;
+    font-size:16px;
+    font-weight:normal;
+}
+.address .container h1 a{
+    color: #8D2628;
+}
+.address .container .right div{
+    width:863px;
+    border-bottom: 1px solid #989696;
+    float: left;
+    margin:12px 0 18px 34px;
+}
+.address table{
+    border:1px solid #989696;
+    border-bottom:0;
+}
+.address table td{
+    border-bottom:1px solid #989696;
+    height:116px;
+    word-break: break-all;
+    padding: 0 8px;
+}
+.address table tr:first-child td{
+    line-height:54px;
+    border-bottom:1px solid #989696;
+    font-weight:normal;
+}
+.address table .current{
+    line-height: 30px;
+}
+.address table td input[type="button"]{
+    background: none;
+    font-size:16px;
+    cursor: pointer;
+}
+.address .default{
+    display: block;
+    color: #8D2628;
+}
+.address .page{
+    padding: 55px 0 45px 135px;
+}
+.add{
+    text-align: center;
+    font-size:24px;
+    color: #707070;
+    letter-spacing:2px;
+    cursor: pointer;
+    display: none;
+}

@@ -1,0 +1,249 @@
+.app{
+    margin-top:1.5rem;
+}
+.address_box{
+    width:100%;
+    height:2.42rem;
+    padding:0.24rem 0.16rem;
+    box-sizing: border-box;
+    border-bottom:0.02rem solid #f1f1f1;
+}
+.address_box h3{
+    font-size:0.35rem;
+    color:#333;
+}
+.address_info{
+    width:100%;
+    overflow: hidden;
+    display: flex;
+    flex-flow: wrap row;
+    align-items: center;
+}
+.address_info ul{
+    width:90%;
+    float:left;
+}
+.address_info ul li{
+    width:100%;
+    margin-top:0.16rem;
+    overflow: hidden;
+}
+.address_info span{
+    font-size:0.24rem;
+    color:#666;
+    float:left;
+}
+.address_info p{
+    font-size:0.26rem;
+    color:#333;
+    float:left;
+}
+.address_info img{
+    float:right;
+    width:0.26rem;
+    height:0.5rem;
+}
+
+.order_box{
+    width:100%;
+    border-bottom:0.02rem solid #f1f1f1;
+    box-sizing: border-box;
+    padding:0.24rem 0.16rem;
+}
+.order_box h3{
+    font-size:0.35rem;
+    color:#333;
+    float:left;
+}
+.order_id{
+    float:right;
+    font-size:0.2rem;
+    color:#999;
+    margin-top:0.1rem;
+}
+.pro_list{
+    width:100%;
+    clear:both;
+}
+.pro_list li{
+    width:100%;
+    height:2rem;
+    padding:0.2rem 0.4rem;
+    box-sizing: border-box;
+}
+.pro_list li>a{
+    width:1.5rem;
+    height:1.54rem;
+    display:block;
+    margin-right:0.3rem;
+    float:left;
+}
+.pro_list img{
+    width:100%;
+    height:100%;
+}
+.pro_list p{
+    width:4.28rem;
+    height:0.66rem;
+    float:left;
+    margin-bottom:0.1rem;
+}
+.pro_list p a{
+    font-size:0.26rem;
+    color:#333;
+}
+.pro_list span{
+    font-size:0.2rem;
+    color:#999;
+    margin-right:0.1rem;
+    float:left;
+    margin-bottom:0.12rem;
+}
+.pro_list strong{
+    font-size:0.32rem;
+    color:#cc0000;
+    font-weight:normal;
+    display: block;
+    float:left;
+    width:2rem;
+}
+
+.pay_box{
+    width:100%;
+    padding:0.24rem 0.16rem;
+    box-sizing: border-box;
+    margin-bottom:1.48rem;
+    position: relative;
+}
+.bordertip{
+    width:96%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0.1rem;
+    box-sizing: border-box;
+    border:0.04rem solid red;
+    color:red;
+    font-size:0.34rem;
+    padding-left:2rem;
+    padding-top:0.08rem;
+}
+.flash-enter-active{
+    animation:flash1 1s;
+}
+@keyframes  flash1{
+    0%{
+        border:0;
+    }
+    15%{
+        border:0.04rem solid red;
+    }
+    30%{
+        border:0;
+    }
+    45%{
+        border:0.04rem solid red;
+    }
+    50%{
+        border:0;
+    }
+}
+
+.pay_box h3{
+    font-size:0.35rem;
+    color:#333;
+}
+.pay_box .pay{
+    width:100%;
+}
+.pay li{
+    height:1.24rem;
+    border-bottom:0.02rem solid #f1f1f1;
+    padding:0.14rem 0.24rem;
+}
+.pay img{
+    width:0.74rem;
+    height:0.74rem;
+    margin:0;
+    margin-right:0.2rem;
+    float:left;
+
+}
+.pay p{
+    font-size:0.35rem;
+    color:#333;
+    width:4rem;
+}
+.pay span{
+    width:4rem;
+    font-size:0.24rem;
+    color:#999;
+}
+.pay label{
+    width:100%;
+    height:100%;
+    background:url("../img/pay_select.png") no-repeat right center;
+    background-size:0.7rem 0.7rem;
+    display:flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+.pay .on{
+    background:url("../img/pay_select_on.png") no-repeat right center;
+    background-size:0.7rem 0.7rem;
+}
+.pay input{
+    visibility: hidden;
+}
+
+.alertMsg{
+    width:4rem;
+    height:2.46rem;
+    position: fixed;
+    left:0;right:0;top:0;bottom:0;
+    margin:auto;
+    background:white;
+    border:0.04rem solid #d3f3ff;
+}
+.alertMsg p{
+    margin-top:0.46rem;
+    width:100%;
+    height: 0.3rem;
+    font-size:0.3rem;
+    color:#333;
+    text-align:center;
+    line-height:0.3rem;
+}
+.alertMsg button{
+    width:1rem;
+    height:0.5rem;
+    display:block;
+    float:left;
+    margin:0.6rem 0.5rem;
+    background: #d42626;
+    color:white;
+    text-align:center;
+    line-height:0.5rem;
+    font-size:0.24rem;
+}
+
+
+footer>input{
+    width:100%;
+    height:1rem;
+    text-align: center;
+    line-height:1rem;
+    background: #ba1b1b;
+    font-size: 0.45rem;
+    color:#fff;
+}
+
+
+
+
+
+
+
+
+
+

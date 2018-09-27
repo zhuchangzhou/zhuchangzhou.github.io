@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+    <title>支付页</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/pay.css">
+</head>
+<body>
+<header>
+    <div class="back"><img src="img/categories_left_row_03.png" alt=""></div>
+    <div>
+        <h2>支付订单</h2>
+    </div>
+    <div></div>
+</header>
+<div class="container">
+    <ul class="pro_list">
+    </ul>
+    <div class="pay_box">
+        <h3>支付方式：</h3>
+        <ul class="pay_method">
+            <li>
+                <label>
+                    <img src="img/pay1.png" alt="">
+                    <span>银行卡支付</span>
+                    <input type="radio" name="pay">
+                </label>
+                <div class="select">中国邮政储蓄卡（2720）<span>∨</span>
+                </div>
+                <ul class="select_option">
+                    <li>中国邮政储蓄卡（2720）</li>
+                    <li>中国建设储蓄卡（1020）</li>
+                </ul>
+            </li>
+            <li>
+                <label>
+                    <img src="img/pay2.png" alt="">
+                    <span>微信支付</span>
+                    <input type="radio" name="pay">
+                </label>
+            </li>
+            <li>
+                <label>
+                    <img src="img/pay3.png" alt="">
+                    <span>支付宝支付</span>
+                    <input type="radio" name="pay">
+                </label>
+            </li>
+        </ul>
+        <p>查看更多支付方式∨</p>
+    </div>
+    <div class="total">
+        <div>
+            <p>总计：<span>￥0(共0件)</span></p>
+            <p>包含运费</p>
+        </div>
+        <input type="button" value="确认">
+    </div>
+</div>
+
+</body>
+<script src="js/rem.js"></script>
+<script src="js/touch.min.js"></script>
+<script src="js/zepto.js"></script>
+<script src="js/common.js"></script>
+<script src="js/pay.js"></script>
+</html>

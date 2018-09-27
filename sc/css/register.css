@@ -1,0 +1,128 @@
+body{
+    overflow: hidden;
+}
+section{
+    width:100%;
+    background:url("../img/register_bg_03.jpg") no-repeat center 0.9rem;
+    background-size: contain;
+}
+section .mask_bg{
+    width:5.24rem;
+    height:8.94rem;
+    left:50%;
+    margin-top:2.06rem;
+    margin-left: -2.82rem;
+    padding:0.46rem 0.4rem 0 0;
+    background: #df7839;
+    opacity: 0.4;
+    filter:alpha(opacity=40);
+    position:absolute;
+}
+section ul{
+    width:5.24rem;
+    left:50%;
+    margin-top:2.06rem;
+    margin-left: -2.82rem;
+    padding:0.6rem 0 0 0;
+    /*background: #df7839;*/
+    /*opacity: 0.4;*/
+    /*filter:alpha(opacity=40);*/
+    position:absolute;
+}
+section ul li{
+    width:100%;
+    height:0.48rem;
+    margin-bottom:0.05rem;
+}
+section ul li p{
+    margin-left:0.34rem;
+    color: #bc0b09;
+    font-size:0.20rem;
+    visibility: hidden;
+}
+section span{
+    font-size:0.28rem;
+    color:white;
+    text-align:right;
+    width:28%;
+    height:100%;
+    display: block;
+    line-height:0.48rem;
+    float:left;
+}
+section input{
+    width:3.52rem;
+    height:100%;
+    line-height:0.48rem;
+    margin-left:0.1rem;
+    padding-left:0.06rem;
+    background: white;
+    color:#333;
+}
+section .code{
+    width:2rem;
+    float:left;
+}
+section #v_container{
+    width:1.37rem;
+    height:100%;
+    margin-left:0.14rem;
+    float:left;
+    display: inline;
+    background: #f9f9f9;
+    text-align: center;
+    line-height:0.48rem;
+    color: #d4b9bf;
+    font-size:0.3rem;
+    letter-spacing:0.04rem;
+}
+section label{
+    background: url("../img/register_check01.png") no-repeat 0.18rem center;
+    background-size:0.2rem 0.2rem;
+    height:100%;
+    display:inline-block;
+    line-height:0.48rem;
+}
+section li:nth-last-child(1){
+    margin-top:0.58rem;
+}
+section input[type=checkbox]{
+    visibility: hidden;
+    width:0.22rem;
+    float:left;
+    margin-right:0.2rem;
+}
+section label span{
+    width:auto;
+    display: inline-block;
+    color:white;
+    font-size:0.28rem;
+    float:left;
+}
+section a{
+    color:white;
+    text-decoration: none;
+    font-size:0.28rem;
+}
+section li:nth-last-child(1),section li:nth-last-child(2){
+    display: flex;
+    justify-content: center;
+}
+section input[type=button]{
+    width:3.5rem;
+    height:0.44rem;
+    color:#f19657;
+    font-size:0.3rem;
+    text-align: center;
+    line-height: 0.44rem;
+    border-radius: 0.1rem;
+}
+
+
+
+
+
+
+
+
+

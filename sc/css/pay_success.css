@@ -1,0 +1,125 @@
+.pay_suc{
+    margin-top:1rem;
+    background:url("../img/Pay_success.jpg") no-repeat center 0.4rem;
+    overflow: hidden;
+    background-size: 1.64rem 1.52rem;
+    margin-bottom: 1.08rem;
+}
+.pay_suc .container{
+    width: 100%;
+    height:3.52rem;
+    background: #edcdb6;
+    margin-top:1.9rem;
+    overflow: hidden;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.pay_suc .container p{
+    font-size:0.3rem;
+    text-align: center;
+    margin-top:0.44rem;
+}
+.pay_suc div{
+    text-align: center;
+    width:100%;
+    margin:0 auto;
+    /*margin-top:0.56rem;*/
+}
+.pay_suc span{
+    font-size: 0.26rem;
+    color:#666;
+    margin:0 0.16rem;
+}
+.pay_suc s{
+    height:0.23rem;
+    border:0.01rem solid white;
+}
+.pay_suc input{
+    width:1.94rem;
+    height:0.74rem;
+    font-size:0.3rem;
+    line-height:0.74rem;
+    text-align: center;
+    background:white;
+    border-radius: 0.1rem;
+    margin:0 0.34rem;
+}
+.guesslike{
+    display: flex;
+    justify-content: space-between;
+    flex-flow:row wrap;
+    position: relative;
+}
+.guesslike s{
+    width:34%;
+    height:0.14rem;
+    border-bottom: 0.02rem dashed #ECC5AD;
+    display: block;
+}
+.guesslike s:nth-of-type(1){
+    float: left;
+}
+.guesslike s:nth-of-type(2){
+    float: right;
+}
+.guesslike h4{
+    color:#333;
+    font-size: 0.26rem;
+    font-weight:normal;
+    position:absolute;
+    top:0.14rem;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+.pro_list{
+    width:90%;
+    margin:0.28rem auto 0;
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+}
+.pro_list li{
+    width:47%;
+    height:3.56rem;
+    margin-bottom: 0.52rem;
+    border:0.02rem solid #BABABA;
+}
+.pro_list li a{
+    width:100%;
+    height:64%;
+    display:block;
+}
+.pro_list li img{
+    width:100%;
+    height:100%
+}
+.pro_list li h3{
+    font-weight:normal;
+    margin-left:0.06rem;
+}
+.pro_list li h3 a{
+    font-size:0.24rem;
+    color:#333;
+    text-decoration: none;
+    word-break: keep-all;
+    overflow: hidden;
+}
+.pro_list li span{
+    color:#ff6000;
+    font-size: 0.32rem;
+    float:right;
+    margin-right:0.2rem;
+}
+.pro_list li input[type=button]{
+    width:1.66rem;
+    height:0.38rem;
+    line-height:0.38rem;
+    color:white;
+    font-size:0.24rem;
+    text-align: center;
+    margin-left:0.62rem;
+    border-radius: 0.08rem;
+    background:#ff6000;
+}

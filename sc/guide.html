@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+    <title>导航页</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/guide.css">
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"></div>
+    </div>
+    <!--<div class="swiper-pagination"></div>-->
+</div>
+</body>
+<script src="js/rem.js"></script>
+<script src="js/swiper.min.js"></script>
+<script>
+    var cliH;
+    function getH(){
+        return document.body.clientHeight;
+    }
+    cliH=getH();
+    var div=document.querySelectorAll("div")[0];
+    var swiper = new Swiper('.swiper-container');
+
+    var last_page=div.querySelectorAll("div")[3];
+    last_page.addEventListener("touchstart",function(){
+        location.href="homepage.html";
+    },false)
+</script>
+</html>

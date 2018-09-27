@@ -1,0 +1,70 @@
+.user{
+    width: 1200px;
+    margin:0 auto;
+    overflow: hidden;
+}
+/*个人中心*/
+.user .container{
+    width: 1200px;
+    overflow: hidden;
+    margin-bottom: 245px;
+}
+.user .container .left{
+    width:242px;
+    float: left;
+    overflow: hidden;
+    margin-right: 28px;
+}
+/*个人资料*/
+.user .container .right{
+    width:930px;
+    overflow: hidden;
+    float: left;
+}
+.personal-data{
+    width:928px;
+    border: 1px solid #989696;
+    float:left;
+    margin-bottom: 8px;
+}
+.personal-center .person a{
+    color: #8D2628;
+}
+.personal{
+    float: left;
+    margin: 18px 142px 46px 82px;
+}
+.personal h1{
+    font-size: 24px;
+    font-weight:normal;
+    padding-bottom: 12px;
+    letter-spacing: 2px;
+}
+.data{
+    float: left;
+    margin-top:62px ;
+}
+.data p{
+    line-height: 30px;
+}
+.data p span{
+    padding-left:15px ;
+}
+.data ul li{
+    line-height:32px ;
+    letter-spacing: 1px;
+}
+/*个人信息*/
+.information{
+    width:928px;
+    border: 1px solid #989696;
+    float:left;
+}
+.information ul{
+    padding: 16px 0 24px 40px;
+}
+.information ul li{
+    line-height: 36px;
+    letter-spacing: 1px;
+    font-size: 16px;
+}

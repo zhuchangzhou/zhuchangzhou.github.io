@@ -1,0 +1,88 @@
+.hot_search {
+    margin-top:1.5rem;
+    width:100%;
+    box-sizing: border-box;
+    padding:0.2rem 0.3rem;
+}
+.hot_search h3{
+    font-size:0.22rem;
+    color:#999;
+    margin-left:0.1rem;
+}
+.search_list{
+    margin:0.24rem 0 0.4rem;
+    width:100%;
+    display:flex;
+    flex-flow:wrap row;
+    justify-content: flex-start;
+    align-content: space-around;
+}
+.search_list li{
+    padding:0 0.32rem;
+    height:0.4rem;
+    border-radius: 0.2rem;
+    line-height:0.4rem;
+    text-align: center;
+    margin-bottom:0.22rem;
+    margin-right:0.2rem;
+    border:0.01rem solid #E5E5E5;
+}
+.search_list li a{
+    width:100%;
+    height:100%;
+    display:block;
+    font-size:0.25rem;
+    color:#333;
+}
+.history_search{
+    width:100%;
+}
+.history_search h3{
+    font-size:0.22rem;
+    color:#999;
+    margin-left:0.1rem;
+}
+.history_record{
+    width:100%;
+}
+.history_record li{
+    width:100%;
+    height:0.76rem;
+    line-height:0.76rem;
+    border-bottom:0.01rem solid #EDEDED;
+    font-size:0.28rem;
+    color:#333;
+    background:url("../img/pro_search_clock.png") no-repeat 0.36rem center;
+    background-size: 0.3rem 0.3rem;
+    padding-left:0.94rem;
+    box-sizing: border-box;
+}
+.history_record li a{
+    width:100%;
+    height:100%;
+    display:block;
+    font-size:0.28rem;
+    color:#333;
+}
+.history_record li:last-child{
+    border:0;
+}
+button{
+    width:2.5rem;
+    height:0.62rem;
+    line-height: 0.62rem;
+    text-align: center;
+    font-size:0.26rem;
+    color:white;
+    background: #cb1717;
+    display: block;
+    margin: 0 auto;
+    border-radius: 0.3rem;
+}
+
+
+
+
+
+
+

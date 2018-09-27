@@ -1,0 +1,100 @@
+.sorting{
+    background:url("../img/pro_list_jiandao.png") no-repeat left 4px;
+    width:100%;
+    height:0.54rem;
+    background-size: 0.64rem 0.52rem;
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top:1.22rem;
+    /*padding-left:0.4rem;*/
+}
+.dash{
+    display: block;
+    width:94%;
+    margin-left:0.4rem;
+    border-top:0.06rem dashed #9b9b9b;
+}
+.sorting li{
+    width:15%;
+    height:0.54rem;
+    line-height:0.54rem;
+    color:#666;
+    font-size: 0.24rem;
+}
+.sorting .on{
+    color:#ff6000;
+}
+.sorting li img{
+    width:0.13rem;
+    height:0.16rem;
+}
+.pro_list{
+    width:90%;
+    margin:0.28rem auto 0;
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-around;
+}
+.pro_list li{
+    width:46%;
+    height:3.56rem;
+    margin-bottom: 0.52rem;
+    border:0.02rem solid #BABABA;
+}
+.pro_list li a{
+    width:100%;
+    height:66%;
+    display:block;
+}
+.pro_list li img{
+    width:100%;
+    height:100%
+}
+.pro_list li h3{
+    font-size:0.24rem;
+    font-weight:normal;
+    margin-left:0.06rem;
+}
+.pro_list li h3 a{
+    color:#333;
+    text-decoration: none;
+    word-break: keep-all;
+    overflow: hidden;
+}
+.pro_list li span{
+    color:#ff6000;
+    font-size: 0.32rem;
+    float:right;
+    margin-right:0.2rem;
+}
+.pro_list li input[type=button]{
+    width:1.66rem;
+    height:0.38rem;
+    line-height:0.38rem;
+    color:white;
+    font-size:0.24rem;
+    text-align: center;
+    margin-left:0.62rem;
+    border-radius: 0.08rem;
+    background:#ff6000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

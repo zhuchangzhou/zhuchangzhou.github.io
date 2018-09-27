@@ -1,0 +1,147 @@
+.order_nav{
+    display: flex;
+    flex-flow:row wrap;
+    width:100%;
+    height:0.6rem;
+    background: url("../img/order_border_o.jpg") no-repeat 0 0.58rem;
+    background-size:contain;
+    margin-top:1.3rem;
+    justify-content: space-around;
+}
+.order_nav li{
+    width:0.92rem;
+    height:100%;
+    color:#272636;
+    font-size:0.3rem;
+    line-height:0.6rem;
+}
+.order_nav .on{
+    color:#ff9453;
+}
+.order_title{
+    margin-top:0.36rem;
+    width:100%;
+    height:0.62rem;
+    background: #e3e3e3;
+    display: flex;
+    flex-flow:row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.order_title span{
+    color:#666;
+    font-size:0.26rem;
+}
+.order_title span:nth-of-type(1){
+    margin-right:0.68rem;
+}
+.order_title span:nth-of-type(5){
+    margin-left:0.24rem;
+}
+.list_box>div{
+    display: none;
+}
+.order_list{
+    width:100%;
+    margin-bottom: 1.2rem;
+}
+.order_list li{
+    width:100%;
+    height:1.94rem;
+    background:url("../img/order_border.jpg") no-repeat 0 1.92rem;
+    background-size: contain;
+    padding-left:0.28rem;
+    box-sizing: border-box;
+}
+.order_list li a{
+    margin-top:0.44rem;
+    width:0.9rem;
+    height:0.66rem;
+    display:block;
+    float:left;
+    border:0.02rem solid #bababa;
+    margin-right:0.1rem;
+
+}
+.order_list li a img{
+    width:100%;
+    height:100%;
+}
+.order_list li h3{
+    margin-top:0.44rem;
+    float:left;
+    font-weight:normal;
+    width:1.2rem;
+    height:1rem;
+    overflow: hidden;
+    padding-right:0.22rem;
+}
+.order_list li h3 a{
+    font-size:0.26rem;
+    color:#333;
+    text-decoration: none;
+    display: inline;
+    width:1.2rem;
+    height:1rem;
+    margin:0;
+    border:0;
+}
+.order_list li span{
+    width:0.5rem;
+    text-align: left;
+    color:#333;
+    font-size:0.24rem;
+    display:block;
+    float:left;
+    margin-top:0.44rem;
+}
+.order_list li .color{
+    margin-top:0.46rem;
+    width:0.28rem;
+    height:0.28rem;
+    float:left;
+    margin-left:0.4rem;
+}
+.order_list li span:nth-of-type(2){
+    color:#fc721f;
+    font-size:0.28rem;
+    margin-top:0.44rem;
+    display:block;
+    float:left;
+    width:1.8rem;
+    text-align: center;
+}
+.order_list .option{
+    float:right;
+    margin-top:0.44rem;
+    margin-right:0.4rem;
+}
+.order_list .option div{
+    font-size:0.28rem;
+    color:#666;
+    text-align: center;
+    height:0.36rem;
+}
+.order_list .option div a{
+    color:#666;
+    text-decoration: none;
+    display: inline;
+    border:none;
+    height:auto;
+    margin:0;
+    font-size:inherit;
+    width:inherit;
+}
+.order_list .option div:nth-of-type(1){
+    font-size:0.28rem;
+    color:#999;
+}
+
+
+
+
+
+
+
+
+

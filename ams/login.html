@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>login</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+<header>
+    <v-touch v-on:tap="goBack">
+        <img src="img/register_arrow_03.png" alt="">
+    </v-touch>
+    <div>登录</div>
+    <div><a href="regist.html">注册</a></div>
+</header>
+<section>
+    <div class="top clear">
+        <img src="img/login_tx.png" alt="">
+    </div>
+    <div class="login_info">
+        <form action="">
+            <label>
+                <span>帐号：</span>
+                <input type="text" placeholder="手机号/邮箱、用户名" v-model="name">
+                <v-touch v-on:tap="cancelValue">
+                    <img src="img/login_cancel.png" alt="" >
+                </v-touch>
+            </label>
+            <label>
+                <span>密码：</span>
+                <input type="text" placeholder="请输入6~20位密码" :type="isCouldSee?'password':''" v-model="psw">
+                <v-touch v-on:tap="isSee">
+                    <img :src="isCouldSee?'img/register_eye_close.png':'img/register_see.png'" alt="" >
+                </v-touch>
+            </label>
+            <p class="errorTip">{{errorTip}}</p>
+            <a href="###">忘记密码？</a>
+            <v-touch v-on:tap="toLogin">
+                <input type="button" value="注册" class="clear">
+            </v-touch>
+        </form>
+    </div>
+    <div class="other">
+        <div class="top">
+            <span></span>
+            <h5>第三方账号登录</h5>
+            <span></span>
+        </div>
+        <ul>
+            <li>
+                <a href="###"><img src="img/register_icon1.png" alt=""></a>
+                <p>微信</p>
+            </li>
+            <li>
+                <a href="###"><img src="img/register_icon2.png" alt=""></a>
+                <p>QQ</p>
+            </li>
+            <li>
+                <a href="###"><img src="img/register_icon3.png" alt=""></a>
+                <p>微博</p>
+            </li>
+            <li>
+                <a href="###"><img src="img/register_icon4.png" alt=""></a>
+                <p>支付宝</p>
+            </li>
+        </ul>
+
+    </div>
+</section>
+
+
+<script src="js/rem.js"></script>
+<script type="text/javascript" src="js/hammer.js" ></script>
+<script src="js/vue.js"></script>
+<script src="js/vue-touch.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,354 @@
+.header h3 {
+  width: auto;
+  height: 0.96rem;
+  text-align: center;
+  line-height: 0.96rem;
+  font-size: 0.32rem;
+  color: #000000;
+}
+
+.header span {
+  display: block;
+  position: absolute;
+  right: 0.15rem;
+  top: 0;
+  width: auto;
+  height: 0.96rem;
+  text-align: center;
+  line-height: 0.96rem;
+  font-size: 0.32rem;
+  color: #000000;
+}
+
+.content {
+  width: 100%;
+  height: auto;
+}
+
+.content .pro_title {
+  width: 100%;
+  height: auto;
+  background: #F5D7D7;
+  overflow: hidden;
+}
+
+.content .pro_title h3 {
+  width: 2.70rem;
+  height: 0.84rem;
+  margin-left: 0.15rem;
+  text-align: center;
+  line-height: 0.84rem;
+  font-size: 0.18rem;
+  color: #CF3636;
+  float: left;
+}
+
+.content .pro_title span, .content .pro_title i {
+  display: block;
+  width: auto;
+  height: 0.84rem;
+  text-align: center;
+  line-height: 0.84rem;
+  font-size: 0.18rem;
+  color: #CF3636;
+  float: left;
+  margin-left: 3.20rem;
+}
+
+.content .pro_title i {
+  margin-left: 0.20rem;
+  font-style: normal;
+}
+
+.content .present {
+  width: 7.20rem;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 0.10rem;
+  overflow: hidden;
+}
+
+.content .present a {
+  display: block;
+  width: auto;
+  height: 0.36rem;
+  border: 0.01rem solid #CF3636;
+  border-radius: 0.10rem;
+  padding: 0 0.30rem;
+  text-align: center;
+  line-height: 0.36rem;
+  font-size: 0.16rem;
+  color: #CF3636;
+  float: left;
+}
+
+.content .present h3 {
+  width: auto;
+  height: 0.42rem;
+  margin-left: 0.10rem;
+  text-align: center;
+  line-height: 0.42rem;
+  font-size: 0.16rem;
+  color: #333333;
+  float: left;
+}
+
+.content .present i {
+  display: block;
+  width: auto;
+  height: 0.42rem;
+  margin-left: 0.10rem;
+  text-align: center;
+  line-height: 0.42rem;
+  font-size: 0.16rem;
+  font-style: normal;
+  color: #333333;
+  float: left;
+}
+
+.content .pro_list {
+  width: 7.20rem;
+  height: auto;
+  margin: 0 auto;
+}
+
+.content .pro_list ul {
+  width: 100%;
+  height: auto;
+  border-top: 0.01rem solid #E8E8E8;
+  border-bottom: 0.01rem solid #E8E8E8;
+  overflow: hidden;
+  position: relative;
+}
+
+.content .pro_list ul li:nth-child(1) {
+  width: auto;
+  height: auto;
+  float: left;
+}
+
+.content .pro_list ul li:nth-child(1) .gener {
+  display: block;
+  width: 0.38rem;
+  height: 0.38rem;
+  background: url(../img/shop_cart_03.png) no-repeat center;
+  background-size: 100% 100%;
+  margin-top: 0.84rem;
+}
+
+.content .pro_list ul li:nth-child(1) .gener input[type=checkbox] {
+  visibility: hidden;
+  width: 0.38rem;
+  float: left;
+}
+
+.content .pro_list ul li:nth-child(2) {
+  width: auto;
+  height: auto;
+  float: left;
+  margin: 0.24rem 0.34rem 0.80rem 0.24rem;
+}
+
+.content .pro_list ul li:nth-child(2) a {
+  display: block;
+  width: 0.92rem;
+  height: 1.08rem;
+  padding: 0 0.36rem 0.46rem 0.36rem;
+  background: #F4F4F4;
+}
+
+.content .pro_list ul li:nth-child(2) a img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.content .pro_list ul li:nth-child(3) {
+  width: auto;
+  height: auto;
+  margin-top: 0.24rem;
+}
+
+.content .pro_list ul li:nth-child(3) h3 {
+  width: auto;
+  height: 0.42rem;
+  margin-top: 0.10rem;
+  text-align: left;
+  line-height: 0.42rem;
+  font-size: 0.16rem;
+  color: #333333;
+}
+
+.content .pro_list ul li:nth-child(3) h4 {
+  width: auto;
+  height: 0.42rem;
+  margin-top: 0.10rem;
+  text-align: left;
+  line-height: 0.42rem;
+  font-size: 0.16rem;
+  color: #333333;
+}
+
+.content .pro_list ul li:nth-child(3) p {
+  width: auto;
+  height: 0.32rem;
+  margin-top: 0.14rem;
+  text-align: left;
+  line-height: 0.32rem;
+  font-size: 0.16rem;
+  font-style: normal;
+  color: #CF3636;
+  float: left;
+}
+
+.content .pro_list ul li:nth-child(3) p i {
+  display: block;
+  width: auto;
+  height: 0.32rem;
+  text-align: center;
+  line-height: 0.32rem;
+  font-size: 0.16rem;
+  color: #CF3636;
+  float: right;
+  font-style: normal;
+}
+
+.content .pro_list ul li:nth-child(3) h5 {
+  width: auto;
+  height: 0.32rem;
+  margin-top: 0.44rem;
+  text-align: left;
+  line-height: 0.32rem;
+  font-size: 0.16rem;
+  font-style: normal;
+  color: #CF3636;
+  float: right;
+  margin-right: 1.50rem;
+}
+
+.content .pro_list ul li:nth-child(3) h5 .zongjia {
+  display: block;
+  width: auto;
+  height: 0.32rem;
+  text-align: center;
+  line-height: 0.32rem;
+  font-size: 0.16rem;
+  color: #CF3636;
+  float: right;
+  font-weight: normal;
+}
+
+.content .pro_list ul li:nth-child(3) .number-reduce, .content .pro_list ul li:nth-child(3) .number, .content .pro_list ul li:nth-child(3) .number-increase {
+  display: block;
+  width: 0.86rem;
+  height: 0.54rem;
+  border: 0.01rem solid #7F7F7F;
+  border-radius: 0.05rem;
+  text-align: center;
+  line-height: 0.54rem;
+  font-size: 0.16rem;
+  color: #666666;
+  float: left;
+  margin-top: 0.54rem;
+}
+
+.content .pro_list ul li:nth-child(3) .number-reduce {
+  border-right: 0;
+  margin-left: 0.66rem;
+}
+
+.content .pro_list ul li:nth-child(3) .number {
+  border-radius: 0;
+}
+
+.content .pro_list ul li:nth-child(3) .number-increase {
+  border-left: 0;
+}
+
+.content .pro_list ul li:nth-child(3) .delete {
+  display: block;
+  width: 0.24rem;
+  height: 0.24rem;
+  position: absolute;
+  right: 0.15rem;
+  top: 0;
+}
+
+.content .pro_list ul li:nth-child(3) .delete img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.content .total {
+  width: 100%;
+  height: 0.82rem;
+  border: 0.01rem solid #E8E8E8;
+}
+
+.content .total label {
+  display: block;
+  width: 0.38rem;
+  height: 0.38rem;
+  background: url(../img/shop_cart_03.png) no-repeat center;
+  background-size: 100% 100%;
+  margin-left: 0.15rem;
+  margin-top: 0.22rem;
+  float: left;
+}
+
+.content .total label input {
+  display: none;
+}
+
+.content .total span, .content .total p, .content .total input[type=button] {
+  display: block;
+  width: auto;
+  height: 0.82rem;
+  margin-left: 0.32rem;
+  text-align: center;
+  line-height: 0.82rem;
+  font-size: 0.16rem;
+  color: #666666;
+  float: left;
+}
+
+.content .total span b {
+  display: block;
+  width: 0.30rem;
+  height: 0.82rem;
+  margin-left: 0.20rem;
+  text-align: right;
+  line-height: 0.82rem;
+  font-size: 0.16rem;
+  color: #666666;
+  float: right;
+}
+
+.content .total p {
+  color: #CF3636;
+  margin-left: 1.72rem;
+}
+
+.content .total p i {
+  display: block;
+  width: 0.30rem;
+  height: 0.82rem;
+  text-align: right;
+  line-height: 0.82rem;
+  font-size: 0.16rem;
+  color: #666666;
+  float: right;
+  font-style: normal;
+}
+
+.content .total input[type=button] {
+  float: right;
+  color: #ffffff;
+  padding: 0  0.80rem;
+  background: #CF3636;
+}
+
+.footer {
+  margin-top: 0;
+}

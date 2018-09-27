@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/pro_details.css">
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+    <title>商品详情页</title>
+</head>
+<body>
+<header>
+    <img src="img/top_back.png" alt="" class="back" @click="goBack">
+    <ul class="middle">
+        <li class="on">商品</li>
+        <li>详情</li>
+        <li>评价</li>
+    </ul>
+    <img src="img/pro_details_top_cart.png" alt="" class="cart">
+    <img src="img/homepage_word.png" alt="" class="word">
+</header>
+<div class="app">
+    <v-touch class="pro_img_box" @swipeLeft="bannerSwipe"  @swipeRight="bannerSwipe">
+        <ul ref="slideUI">
+            <li v-for="item in banner":key="item.id">
+                <img :src="item.imgSrc">
+            </li>
+        </ul>
+    </v-touch>
+    <div class="page">
+         {{index+1}}/8
+    </div>
+    <div class="main">
+        <h2>{{pro.name}}</h2>
+        <h4>[大品牌！值得信赖！]  全家适用 送货入户 免安装 </h4>
+        <ul class="price_area">
+            <li>
+                <span>参考价：</span>
+                <del>￥{{pro.salePrice}}</del>
+            </li>
+            <li>
+                <span>活动价：</span>
+                <strong>￥{{pro.salePrice}}</strong>
+            </li>
+            <li class="promotion">
+                <span>促&nbsp;&nbsp;&nbsp;销：</span>
+                <div>
+                    <div>
+                        <span>满减</span>
+                        <p>满2000元减50元，满4000元减200元，</p>
+                    </div>
+                    <div>
+                        <span>返券</span>
+                        <p>满2000元减50元，满4000元减200元，</p>
+                    </div>
+                    <div>
+                        <span>配件</span>
+                        <p>满2000元送毛毯</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <form action="">
+            <ul class="type_select_area">
+                <li>
+                    <span>已&nbsp;&nbsp;&nbsp;选：</span>
+                    <ul class="color_select">
+                        <li v-for="item in pro.color">{{item}}</li>
+                    </ul>
+                </li>
+                <li>
+                    <span>送&nbsp;&nbsp;&nbsp;至：</span>
+                    <select-city></select-city>
+                </li>
+                <li>
+                    <span>运&nbsp;&nbsp;&nbsp;费：</span>
+                    <p>免运费</p>
+                </li>
+                <li>
+                    <span>数&nbsp;&nbsp;&nbsp;量：</span>
+                    <select-num :residue="pro.number" :flag="show" @show-error="toShow" ></select-num>
+                    <transition name="custom-classes-transition" enter-active-class="animated jello" leave-active-class="animated bounceOutRight">
+                        <p v-if="show" class="errorTip">库存不足!</p>
+                    </transition>
+                </li>
+            </ul>
+        </form>
+        <div class="pro_comment">
+            <div class="pro_comment_top">
+                <h3>商品评价（{{totalComNum}}+）</h3>
+                <span>好频率:99%</span>
+            </div>
+            <ul class="pro_comment_tab">
+                <li v-for="item in pro.commentTab":key="item.id">{{item.tabName}}({{item.num}})</li>
+            </ul>
+            <ul class="pro_comment_details">
+                <li v-for="item in pro.commentDetails":key="item.id">
+                    <div class="star">
+                        <div>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <span>{{item.user}}</span>
+                    </div>
+                    <p>{{item.text}}</p>
+                    <ul class="photo">
+                        <li v-for="photo in item.imgUrl">
+                            <img :src="photo.img" alt="">
+                        </li>
+                    </ul>
+                    <span>{{item.type}}</span>
+                </li>
+            </ul>
+            <button>查看全部评价</button>
+        </div>
+        <!--推荐搭配-->
+        <div class="match">
+            <div class="title">
+                <h3>推荐搭配</h3>
+                <span>搭配购买更优惠</span>
+            </div>
+            <div class="more">
+                <h4>优惠套餐</h4>
+                <a href="###">查看更多优惠></a>
+            </div>
+            <div class="pro_match">
+                <img src="img/pro_details_match.png" alt="">
+                <span>+</span>
+                <img src="img/pro_details_match.png" alt="">
+                <span>+</span>
+                <img src="img/pro_details_match.png" alt="">
+                <div class="total">
+                    <span>总价格</span>
+                    <span>￥2080.00</span>
+                </div>
+            </div>
+        </div>
+        <div class="guess_like">
+            <div class="title">
+                <h3>猜你喜欢</h3>
+                <span>卖得越多越优惠</span>
+            </div>
+            <ul class="pro_list">
+                <li v-for="item in guess_like_pro":key="item.id">
+                    <a href="pro_details.html"><img :src="item.imgUrl" alt=""></a>
+                    <p><a href="pro_details.html">{{item.name}}</a></p>
+                    <span>￥{{item.price}}</span>
+                </li>
+            </ul>
+            <button>查看更多推荐</button>
+        </div>
+        <div class="pro_details">
+            <div>
+                <span></span>
+                <h5>上拉查看全部图文详情</h5>
+                <span></span>
+            </div>
+            <img src="img/pro_details_02.png" alt="">
+            <div class="pro_details_title">
+                <h3>产品展示</h3>
+                <span>Product display</span>
+            </div>
+            <img src="img/pro_details_04.png" alt="">
+            <img src="img/pro_details_05.png" alt="">
+            <div class="pro_details_title">
+                <h3>细节展示</h3>
+                <span>show details</span>
+            </div>
+            <img src="img/pro_details_07.png" alt="">
+            <img src="img/pro_details_08.png" alt="">
+            <img src="img/pro_details_09.png" alt="">
+            <img src="img/pro_details_10.png" alt="">
+            <div class="pro_details_title">
+                <h3>产品信息</h3>
+                <span>product information</span>
+            </div>
+            <img src="img/pro_details_12.png" alt="">
+            <div class="pro_details_title">
+                <h3>产品尺码</h3>
+                <span>size</span>
+            </div>
+            <img src="img/pro_details_14.png" alt="">
+            <img src="img/pro_details_15.png" alt="">
+            <img src="img/pro_details_16.png" alt="">
+            <div class="pro_details_title">
+                <h3>产品对比</h3>
+                <span>Product Comparison</span>
+            </div>
+            <img src="img/pro_details_18.png" alt="">
+            <img src="img/pro_details_19.png" alt="">
+        </div>
+    </div>
+    <footer class="buyButton">
+        <div>
+            <a href="###"><img src="img/pro_details_icon_06.png" alt=""></a>
+            <span>客服</span>
+        </div>
+        <div>
+            <a href="###"><img src="img/pro_details_icon_03.png" alt=""></a>
+            <span>分享</span>
+        </div>
+        <input type="button" value="立即购买" class="toBuy">
+        <input type="button" value="加入购物车" class="toAddCart">
+    </footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
+<script src="js/citys.js"></script>
+<script src="js/hammer.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/vue-touch.js"></script>
+<script src="js/zepto.js"></script>
+<script src="js/pro_details.js"></script>
+<script src="js/rem.js"></script>
+
+</body>
+</html>

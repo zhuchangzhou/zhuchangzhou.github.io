@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/pay_failure.css">
+    <title>支付失败页</title>
+</head>
+<body>
+<header>
+    <v-touch v-on:tap="goBack">
+        <img src="img/register_arrow_03.png" alt="">
+    </v-touch>
+    <div>订单支付失败</div>
+    <div></div>
+</header>
+<div class="app">
+    <img src="img/pay_failure.png" alt="">
+    <h3>订单支付失败</h3>
+    <div class="backIndex">
+        <a href="pay.html">重新支付</a>
+    </div>
+    <ul class="orderInfo">
+        <li>
+            <span>订单编号：</span>
+            <span>{{orderInfo[0].orderId}}</span>
+        </li>
+        <li>
+            <span>交易方式：</span>
+            <span>支付宝支付</span>
+        </li>
+        <li>
+            <span>下单时间：</span>
+            <span>{{orderInfo[0].date}}</span>
+        </li>
+    </ul>
+    <a href="order.html">查看订单详情</a>
+</div>
+
+<script src="js/vue.js"></script>
+<script src="js/rem.js"></script>
+<script src="js/zepto.js"></script>
+<script src="js/pay_failure.js"></script>
+</body>
+</html>

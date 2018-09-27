@@ -1,0 +1,117 @@
+.pro_details{
+    width:1200px;
+    overflow:hidden;
+    margin:0 auto;
+    padding-bottom:72px;
+}
+.pro_details .title{
+    width: 1207px; height: 66px;
+    margin: 0 auto;
+    margin-top: 26px;
+    background: url(../img/pro02.png) no-repeat;
+}
+.pro_details .title h1{
+    font-size:18px;
+    color:#000;
+    font-weight:bold;
+    height:26px;
+    padding-top:9px;
+}
+.pro_details h4{
+    color: #333;
+    font-weight: normal;
+    font-size:30px;
+    text-transform: uppercase;
+    margin-top:64px;
+}
+.pro_details h5{
+    font-size: 18px;
+    margin-top: 28px;
+    line-height: 30px;
+    font-weight:normal;
+}
+.pro_details h6{
+
+}
+.pro_details p{
+    font-size: 18px;
+    clear:both;
+    margin-bottom:10px;
+}
+.pro_box{
+    width: 759px; height:577px;
+    float: left;
+    position: relative;
+    /*相对定位*/
+    margin-top:40px;
+    /*超出隐藏限定*/
+}
+.pro_img{
+    width: 100%; height: 100%;
+}
+.pro_img li{
+    width: 100%; height: 100%;
+    position: absolute;
+    /*绝对定位*/
+    left: 0; top:0;
+}
+.pro_img .on {
+    z-index: 99;
+}
+.pro_img li a{
+    display: block;
+    width: 100%; height: 100%;
+}
+.pro_btn{
+    width: 350px; height:20px;
+    position: absolute;
+    /*绝对定位*/
+    left: 50% ;bottom: 54px;
+    margin-left: -86px;
+    z-index: 100;
+}
+.pro_btn li{
+    width: 22px; height: 22px;
+    float: left;
+    margin-right:30px;
+    background: url(../img/pro_btn.png) no-repeat center;
+    /*background:red;*/
+    cursor:pointer;
+}
+.pro_btn .on{
+    background: url(../img/pro_btn1.png) no-repeat center;
+    /*background:blue;*/
+}
+.pro_list{
+    width:390px;
+    float:right;
+    margin-top:154px;
+    overflow:hidden;
+}
+.pro_list h2{
+    font-size: 18px;
+    color: rgb( 51, 51, 51 );
+    text-transform: uppercase;
+    line-height: 1.556;
+    font-weight:normal;
+}
+.pro_details  span{
+    margin-left:20px;
+}
+.pro_list h3{
+    font-size: 18px;
+    color: rgb( 51, 51, 51 );
+    text-transform: uppercase;
+    line-height: 1.556;
+    font-weight:normal;
+}
+.pro_list p{
+    margin-top:34px;
+}
+.line{
+    width:1200px;
+    height:8px;
+    background: url("../img/pro03.png") no-repeat center;
+    clear:both;
+    margin-bottom:28px;
+}

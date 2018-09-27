@@ -1,0 +1,97 @@
+.pay_success{
+	width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.pay_success .container{
+	width: 1198px;
+	height: 100%;
+	border: 1px solid #707070;
+	overflow: hidden;
+	margin-bottom: 60px;
+}
+.success{
+	width: 530px;
+	height: 100%;
+	padding: 105px 0 0 298px;
+	overflow: hidden;
+	float: left;
+}
+.success img{
+	float: left;
+	padding-right: 8px 
+}
+.success h1{
+	font-weight: normal;
+	float: left;
+	letter-spacing: 2px;
+}
+.success span{
+	float: left;
+	font-size: 16px;
+	color: #777373;
+	line-height: 54px;
+	letter-spacing: 2px;
+}
+.success i{
+	font-style: normal;
+}
+.success b{
+	float:left;
+	font-weight: normal;
+	line-height: 54px;
+	font-size: 12px;
+	color: #000;
+	padding:0 10px;
+}
+.success ul{
+	width: 400px;
+	height: 32px;
+	float: left;
+	margin-left: 50px;
+}
+.success ul li{
+	width: 92px;
+	height: 30px;
+	border:1px solid #707070;
+	margin-right: 45px;
+	float: left;
+	line-height: 32px;
+	text-align: center;
+	letter-spacing: 1px;
+}
+.success ul li a{
+	display: block;
+	color: #777373;
+	font-size: 16px;
+}
+.success ul .current{
+	width: 104px;
+	margin: 0;
+	border: none;
+}
+.success ul .current a{
+	width: 100%;
+	height: 100%;
+	color: #8D2628;
+}
+.pay_img{
+	float: right;
+	margin:130px 95px 52px 0;
+}
+.return{
+	width: 118px;
+	height: 46px;
+	margin: 0 auto;
+	margin-bottom: 65px;
+	background: url(../img/pay_01.png) no-repeat center;
+	text-align: center;
+	line-height: 46px;
+	letter-spacing: 1px;
+}
+.return a{
+	width: 100%;
+	height: 100%;
+	display: block;
+	color: #777373;
+}

@@ -1,0 +1,103 @@
+.content {
+  height: auto;
+}
+
+.content .nation_area, .content .tel {
+  width: 100%;
+  height: 0.94rem;
+  border-top: 0.01rem solid #F3F3F3;
+  border-bottom: 0.01rem solid #F3F3F3;
+  position: relative;
+}
+
+.content .nation_area h3, .content .tel h3 {
+  float: left;
+  margin-left: 0.32rem;
+  text-align: left;
+  line-height: 0.94rem;
+  font-size: 0.18rem;
+  color: #000;
+}
+
+.content .nation_area input, .content .tel input {
+  display: block;
+  float: left;
+  width: 5.84rem;
+  height: 0.94rem;
+  padding-left: 0.08rem;
+  margin-left: 0.24rem;
+  text-align: left;
+  line-height: 0.88rem;
+  font-size: 0.14rem;
+  color: #ccc;
+}
+
+.content .nation_area span, .content .tel span {
+  display: block;
+  width: 1.98rem;
+  height: 0.94rem;
+  position: absolute;
+  left: 4.94rem;
+  top: 0.32rem;
+  text-align: center;
+  font-size: 0.14rem;
+  color: #666666;
+}
+
+.content .tel input {
+  width: 5.00rem;
+  margin-left: 0.40rem;
+}
+
+.content .next_step {
+  width: 100%;
+  height: 1.02rem;
+}
+
+.content .next_step input[type=button] {
+  display: block;
+  width: 6.94rem;
+  height: 1.02rem;
+  margin: 0 auto;
+  background: #CF3636;
+  border-radius: 0.16rem;
+  text-align: center;
+  line-height: 1.02rem;
+  font-size: 0.24rem;
+  color: #FFFFFF;
+}
+
+.content .accept_agreement {
+  width: 100%;
+  height: 0.44rem;
+  margin: 0.24rem auto;
+}
+
+.content .accept_agreement label {
+  margin-left: 1.60rem;
+  background: url(../img/register1_01.png) no-repeat center;
+  background-size: 0.26rem 0.26rem;
+  width: 0.26rem;
+  height: 0.26rem;
+  display: block;
+  line-height: 0.26rem;
+}
+
+.content .accept_agreement label input[type=checkbox] {
+  display: none;
+}
+
+.content .accept_agreement label span {
+  width: 3.90rem;
+  color: #727272;
+  font-size: 0.18rem;
+  margin-left: 0.25rem;
+  float: left;
+  margin-left: 0.50rem;
+}
+
+.content .accept_agreement label span a {
+  color: #727272;
+  text-decoration: none;
+  font-size: 0.18rem;
+}

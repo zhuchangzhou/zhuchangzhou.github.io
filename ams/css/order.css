@@ -1,0 +1,146 @@
+.app{
+    margin-top:1.48rem;
+}
+body{
+    background: #eeecec;
+}
+.nav{
+    width:100%;
+    height:0.74rem;
+    position: fixed;
+    top:1.48rem;
+    left:0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background: white;
+}
+.nav li{
+    /*width:20%;*/
+    padding:0 0.08rem;
+    box-sizing: border-box;
+    text-align:center;
+    line-height: 0.74rem;
+    height:100%;
+    font-size:0.26rem;
+    color:#333;
+}
+.nav li:hover{
+    color: #c02c2c;
+    border-bottom:0.02rem solid #c02c2c;
+}
+.order_list{
+    width:6.8rem;
+    box-sizing: border-box;
+    margin:2.22rem auto;
+    overflow: hidden;
+
+}
+.order_list li{
+    width:100%;
+    /*height:3rem;*/
+    margin-top:0.2rem;
+    background: white;
+}
+.order_list .top{
+    width:100%;
+    height:0.46rem;
+    border-bottom:0.01rem solid #cbcbcb;
+    line-height:0.46rem;
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.order_list .top span{
+    font-size:0.18rem;
+    color:#ccc;
+    margin-left:0.2rem;
+}
+.order_list .top i{
+    font-size:0.18rem;
+    color:#cc0000;
+    font-style: normal;
+    margin-right:0.2rem;
+}
+.pro_list{
+    width:100%;
+    border-bottom:0.01rem solid #cbcbcb;
+}
+.pro_list li{
+    width:100%;
+    height:1.94rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+.pro_list li a{
+    width:1.46rem;
+    height:1.46rem;
+    display: block;
+}
+.pro_list li img{
+    width:100%;
+    height:100%;
+    margin-left:0.1rem;
+}
+.pro_list li div{
+    width:4.36rem;
+}
+.pro_list li h3{
+    width:4.36rem;
+    height:0.7rem;
+}
+.pro_list li h3 a{
+    width:auto;
+    height:auto;
+    display: inline;
+}
+.pro_list li span{
+    font-size:0.2rem;
+    color:#999;
+}
+.pro_list strong{
+    font-size:0.32rem;
+    color:#cc0000;
+    font-weight: normal;
+    margin-top:0.1rem;
+    display: block;
+}
+.option{
+    width:100%;
+    padding:0.17rem 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.option input{
+    width:1.2rem;
+    height:0.32rem;
+    line-height:0.32rem;
+    border-radius:0.1rem;
+    border:0.01rem solid #cbcbcb;
+    background:white;
+    color:#333;
+    font-size:0.16rem;
+    margin-right:0.5rem;
+}
+header .search_img a{
+    display: block;
+    width:0.48rem;
+    height:0.48rem;
+}
+header .search_img a img{
+    width:100%;
+    height:100%;
+}
+
+
+
+
+
+
+
+
+
+

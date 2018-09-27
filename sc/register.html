@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+    <title>注册页</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+<header>
+    <div class="back"><img src="img/categories_left_row_03.png" alt=""></div>
+    <div>
+        <h2>注册</h2>
+    </div>
+    <div class="right">
+        <a href="login.html">登录</a>
+    </div>
+</header>
+<section>
+    <div class="mask_bg"></div>
+    <form action="" method="post">
+        <ul class="container">
+        <li>
+            <span>会员名：</span>
+            <input type="text" class="username" placeholder="6-18位字母，数子或下划线">
+        </li>
+        <li>
+            <p class="usernameTip">*会员名由6-18位字母，数子或下划线组成</p>
+        </li>
+        <li>
+            <span>手机号：</span>
+            <input type="text" class="phone">
+        </li>
+        <li>
+            <p class="phoneTip">*请输入正确手机号</p>
+        </li>
+        <li>
+            <span>邮箱：</span>
+            <input type="text" class="email">
+        </li>
+        <li>
+            <p class="emailTip">*邮箱格式不正确</p>
+        </li>
+        <li>
+            <span>密码：</span>
+            <input type="password" class="passward">
+        </li>
+        <li>
+            <p class="passwordTip">*请输入密码</p>
+        </li>
+        <li>
+            <span>确认密码：</span>
+            <input type="password" class="confirmPass">
+        </li>
+        <li>
+            <p class="confirmPassTip">*两次密码不一样</p>
+        </li>
+        <li>
+            <span>验证码：</span>
+            <input type="text" class="code">
+            <div id="v_container"></div>
+        </li>
+        <li>
+            <p class="codeTip">*验证码不正确</p>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <span>我同意并接受 <a href="###">《司晨用户协议》</a></span>
+            </label>
+        </li>
+        <li>
+            <input type="button" value="立即注册">
+        </li>
+    </ul>
+    </form>
+</section>
+</body>
+<script src="js/gVerify.js"></script>
+<!-- <script src="js/jquery.js"></script> -->
+<script src="js/rem.js"></script>
+<script src="js/zepto.js"></script>
+<script src="js/touch.min.js"></script>
+<script src="js/register1.js"></script>
+</html>

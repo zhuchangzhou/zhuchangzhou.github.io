@@ -1,0 +1,131 @@
+.shop_cart{
+    width:1200px;
+    overflow: hidden;
+    margin:0 auto;
+}
+/*购物信息*/
+.shop_cart table{
+    border:1px solid #989696;
+    border-bottom: 0;
+}
+.shop_cart table th{
+    line-height: 98px;
+    border-bottom:1px solid #989696;
+    font-weight: normal;
+    font-size: 24px;
+    color: #707070;
+}
+.shop_cart table td{
+    border-bottom:1px solid #989696;
+    line-height: 298px;
+    color: #9B9B9B;
+}
+.shop_cart table td label{
+    width:22px;height:26px;
+    border:1px solid #707070;
+    display:block;
+    float:left;
+    margin: 60px 12px 0 22px;
+}
+.shop_cart table td input[type="checkbox"]{
+   display:none;
+}
+.shop_cart table td img{
+    float: left;
+}
+.shop_cart table p{
+    width:206px;
+    font-size:16px;
+    line-height: 30px;
+    float: left;
+    margin:36px 0 0 18px
+}
+.shop_cart table .number input[type="button"]{
+    border: 1px solid #A0A0A0;
+    background: none;
+    color:#707070 ;
+    cursor: pointer;
+    line-height:10px;
+    width:48px;height:48px;
+    float: left;
+}
+.shop_cart table .number input[type="text"]{
+    width:80px;height:46px;
+    border: 1px solid #A0A0A0;
+    border-left: 0;
+    border-right: 0;
+    color:#707070 ;
+    font-size: 16px;
+    text-align: center;
+    line-height: 46px;
+    padding:0;
+    float: left;
+}
+.shop_cart table .money{
+    color: #8D2628;
+    text-align: center;
+}
+.shop_cart table .operation input[type="button"]{
+    font-size: 16px;
+    line-height:20px;
+    display: block;
+    background: none;
+    color:#707070 ;
+}
+.del{
+    cursor: pointer;
+}
+/*结算*/
+label{
+    cursor: pointer;
+}
+.settlement .radio{
+    float: left;
+    margin:48px 0 0 22px;
+}
+.settlement .radio label{
+    width:22px;height:26px;
+    border:1px solid #707070;
+    float: left;
+    display:block;
+}
+.settlement input[type="checkbox"]{
+    display:none;
+}
+.settlement b{
+    float: left;
+    font-size:24px;
+    line-height: 28px;
+    font-weight:normal;
+    color: #2C2C2C;
+    margin-left: 24px;
+}
+.settlement .settle{
+    float: right;
+    overflow: hidden;
+    margin:48px 0 18px 0;
+}
+.settlement p{
+    float: right;
+    font-size:24px;
+    color: #2C2C2C;
+    letter-spacing: 2px;
+}
+.settlement span{
+    float: right;
+    font-size:24px;
+    color: #2C2C2C;
+    letter-spacing: 3px;
+    margin-right: 20px;
+}
+.settlement input[type="button"]{
+    width:114px;
+    height:50px;
+    background: #8D2628;
+    color: #fff;
+    font-size: 24px;
+    letter-spacing: 1px;
+    float: right;
+    margin: 20px 12px 0 0;
+    cursor: pointer;
+}

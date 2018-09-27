@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/shop_cart.css">
+    <title>我的购物车</title>
+</head>
+<body>
+<div class="app">
+<header>
+    <v-touch v-on:tap="goBack">
+        <img src="img/register_arrow_03.png" alt="">
+    </v-touch>
+    <div>我的购物车</div>
+    <div class="edit" @click="toEdit" v-show="!istoEdit">编辑</div>
+    <div class="finish" @click="finishEdit" v-show="istoEdit">完成</div>
+</header>
+    <ul class="pro_list" ref="proUL" >
+        <li is="pro-list" :shop-cart="item" v-for="(item,key,index) in shopCartInfo":key="item.id"  :is-edit="istoEdit"></li>
+    </ul>
+    <div class="alertMsg" v-show="isconfirm" >
+        <p>确认删除？</p>
+        <button @click="doDelete">确定</button>
+        <button @click="isconfirm=false">取消</button>
+    </div>
+    <footer>
+        <label :style="isCheckedAll?selectStyle:notSelectStyle">
+            <input type="checkbox" class="selectall" @click="all" :checked="isCheckedAll">
+            <span>全选</span>
+        </label>
+        <!--<input type="button" :value="去结算（{{selectedNum}}）">-->
+        <div v-show="!istoEdit" class="show_box">
+            <button @click="toOrder">去结算（{{selectedNum}}）</button>
+            <div class="total">
+                <p>总计：<span>￥{{totalPrice}}</span></p>
+                <p>已优惠：<i>￥1466.00</i></p>
+            </div>
+        </div>
+       <div v-show="istoEdit" class="show_box">
+           <button @click="mulDelete">删除</button>
+           <p class="has_select">（已选：{{selectedNum}}）</p>
+       </div>
+
+    </footer>
+</div>
+
+
+<script type="text/javascript" src="js/hammer.js" ></script>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/vue-touch.js"></script>
+<script type="text/javascript" src="js/rem.js"></script>
+<script type="text/javascript" src="js/zepto.js"></script>
+<script type="text/javascript" src="js/shop_cart.js"></script>
+</body>
+</html>

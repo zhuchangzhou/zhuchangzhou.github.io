@@ -1,0 +1,106 @@
+.content {
+  height: auto;
+}
+
+.content .content-title {
+  width: 100%;
+  height: 0.30rem;
+  background-color: #F3F3F3;
+}
+
+.content .account, .content .login_password {
+  width: 100%;
+  height: 0.88rem;
+  border-top: 0.01rem solid #F3F3F3;
+  border-bottom: 0.01rem solid #F3F3F3;
+}
+
+.content .account h3, .content .login_password h3 {
+  float: left;
+  margin-left: 0.32rem;
+  text-align: left;
+  line-height: 0.88rem;
+  font-size: 0.18rem;
+  color: #000;
+}
+
+.content .account input, .content .login_password input {
+  display: block;
+  float: left;
+  width: 5.84rem;
+  height: 0.88rem;
+  padding-left: 0.08rem;
+  margin-left: 0.24rem;
+  text-align: left;
+  line-height: 0.88rem;
+  font-size: 0.14rem;
+  color: #ccc;
+}
+
+.content .account input {
+  margin-left: 0.76rem;
+}
+
+.content .login_btn {
+  width: 100%;
+  height: 0.88rem;
+  margin-top: 0.34rem;
+}
+
+.content .login_btn input {
+  display: block;
+  width: 6.90rem;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background: #CF3636;
+  text-align: center;
+  line-height: 0.88rem;
+  font-size: 0.18px;
+  color: #E76868;
+}
+
+.content .register_forget {
+  width: 100%;
+  height: 1.10rem;
+}
+
+.content .register_forget .nu_register, .content .register_forget .forget_pass {
+  display: block;
+  width: 1.46rem;
+  height: 0.34rem;
+  margin-top: 0.34rem;
+  float: left;
+  margin-left: 0.30rem;
+  text-align: center;
+  line-height: 0.34rem;
+  font-size: 0.14rem;
+  color: #555555;
+}
+
+.content .register_forget .forget_pass {
+  width: 1.14rem;
+  float: right;
+  margin-right: 0.30rem;
+}
+
+.content .quick_sign {
+  width: 2.62rem;
+  height: 0.92rem;
+  margin: 0 auto;
+  border: 0.01rem solid #CF3636;
+  background: #fff;
+}
+
+.content .quick_sign a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 0.92rem;
+  font-size: 0.20rem;
+  color: #CF3636;
+}

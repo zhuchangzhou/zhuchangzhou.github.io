@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" contnet="ie=edge">
+    <title>确认订单页</title>
+    <link rel="stylesheet" href="css/confirm_order.css">
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+    <!-- 头部 -->
+    <div class="header">
+        <div class="return" onclick="javascript:history.go(-1)">
+            <!-- 跳转位置 -->
+            <a href="###">
+                <img src="img/header01.png" alt="">
+            </a>
+        </div>
+        <h3>确认订单</h3>
+    </div>
+    <!-- 内容 -->
+    <div class="content">
+        <!-- 地址 -->
+        <ul class="address">
+            <li>
+                <span>小明</span>
+                <span>187****2563</span>
+            </li>
+            <li>
+                <a href="">默认</a>
+                <p>上海市浦东新区金桥福建天安大厦1322号708室</p>
+                <i>></i>
+            </li>
+        </ul>
+        <!-- 优惠券 -->
+        <div class="coupon">
+            <span>优惠券：暂无可用</span>  
+            <b>0张</b>
+            <i>></i>      
+        </div>
+        <!-- 礼品卡余额 -->
+        <div class="gift_card">
+            <!-- 复选框有问题 -->
+            <label>
+                <input type="checkbox">
+            </label>
+            <b>
+                礼品卡余额:￥0.00
+            </b>
+            <i>
+                >
+            </i>
+        </div>
+        <!-- 商品合计 -->
+        <div class="pro_total">
+            <span>商品合计</span>
+            <b>￥9500.93</b>
+        </div>
+        <!-- 运费 -->
+        <div class="freight">
+            <span>运费</span>
+            <b>￥0.00</b>
+        </div>
+        <!-- 发票 -->
+        <div class="invoice">
+                <!-- 复选框有问题 -->
+                <label>
+                    <input type="checkbox">
+                </label>
+                <b>
+                    我要开发票
+                </b>
+                <i>
+                    >
+                </i>
+            </div>
+            <!-- 产品列表 -->
+            <ul class="pro_list">
+                <li>
+                    <a href="">
+                        <img src="img/confirm_order_02.png" alt="">
+                    </a>
+                    <h3>潮宏基18K镂空项链</h3>
+                    <span>项链</span>
+                    <b>￥5888</b>
+                    <i>x1</i>
+                    <img src="img/confirm_order_04.png" alt="" class="care"><p>不支持无理由退换货</p>
+                </li>
+                <li>
+                        <a href="">
+                            <img src="img/confirm_order_03.png" alt="">
+                        </a>
+                        <h3>18K金镶钻星月项链</h3>
+                        <span>项链</span>
+                        <i>x1</i>
+                    </li>
+            </ul>
+             <!--提交订单  -->
+
+             <div class="place_order">
+                 <p>
+                     共<i>4</i>件,合计: <span>￥5186.00</span>   
+                 </p>
+                 <input type="button" value="提交订单" class="placeOrder"> 
+             </div>
+             <div class="pop-up">
+                <ul class="pay_list">
+                    <li>
+                        <span>x</span>
+                        <h3>付款详情</h3>
+                        <img src="img/pay_01.png" alt="">
+                    </li>
+                    <li>
+                        <h4>支付宝账号</h4>
+                        <span>187****8956</span>
+                    </li>
+                    <li>
+                        <h4>付款方式</h4>
+                        <span>中国银行储蓄卡(1569)</span>
+                    </li>
+                    <li>
+                        <h5>推荐使用花呗,笔笔可挖宝</h5>
+                        <a href="###">立即使用</a>
+                    </li>
+                    <li>
+                        <h6>需付款</h6>
+                        <span>4569.00元</span>
+                    </li>
+                </ul>
+                <div class="footer">
+                    <input type="button" value="确定付款">
+                </div>         
+             </div>
+                                        
+    </div>
+    <div class="mask">
+
+    </div>
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <script type="text/javascript" src="js/rem.js"></script>
+    <script type="text/javascript" src="js/confirm_order.js"></script>
+    <script type="text/javascript" src="js/touch.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+.sideMune {
+    background: #ffa16b;
+    height: 100%;
+    padding: 10px;
+    position: fixed;
+    top: 0.90rem;
+    right: -2.9rem;
+    width: 2.4rem;
+    z-index: 4;
+    color:white;
+    transition:all 0.4s ease-in-out;
+    display:flex;
+    flex-flow: column wrap;
+    align-content: center;
+    align-items: center;
+}
+.on{
+    right:0;
+}
+.sideMune a{
+    width:0.98rem;
+    height:0.98rem;
+    display: block;
+}
+.sideMune img{
+    width:100%;
+    height:100%;
+}
+.sideMune p{
+    width:100%;
+    text-align:center;
+    color:#333;
+    margin-top:0.1rem;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
+    margin:-0.1rem 0.14rem;
+}
+.swiper-pagination-bullet{
+    width:0.12rem;
+    height:0.12rem;
+}
+.swiper-container {
+    margin-top:0.9rem;
+    width: 100%;
+    height: 3.2rem;
+}
+.swiper-pagination-bullet{
+    opacity:1;
+    background:#ff8d53;
+}
+.swiper-pagination-bullet-active{
+    opacity:1;
+    background:#fe6553;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.swiper-slide:nth-of-type(1){
+    background: url("../img/banner.jpg") no-repeat center;
+    background-size: contain;
+}
+.swiper-slide:nth-of-type(2){
+    background: url("../img/banner1.jpg") no-repeat center;
+    background-size: contain;
+}
+.swiper-slide:nth-of-type(3){
+    background: url("../img/banner2.jpg") no-repeat center;
+    background-size: contain;
+}
+nav{
+    width:100%;
+    height:2rem;
+}
+nav ul{
+    width:100%;
+    height:2rem;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+nav ul li{
+    width:1.24rem;
+    height:1.1rem;
+}
+nav ul li a{
+    width:94%;
+    height:0.8rem;
+    display:block;
+    font-size: 0.26rem;
+}
+nav img{
+    width:100%;
+    height:0.8rem;
+}
+nav span{
+    width:100%;
+    text-align: center;
+    display: inline-block;
+    font-size: 0.26rem;
+}
+nav ul li span a{
+    display:inline;
+    text-decoration: none;
+    color:#333;
+}
+.commond,.hot_pro,.bargin{
+    margin-bottom:0.6rem;
+}
+.title{
+    margin-left: 0.36rem;
+    font-size: 0.34rem;
+    font-weight:normal;
+}
+.main{
+    width:100%;
+    border-top:0.04rem solid #fd9353;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: center;
+    align-content: space-around;
+}
+.commond li{
+    width:90%;
+    height:3.1rem;
+    border:0.02rem solid #fd9353;
+    margin-top: 0.22rem;
+}
+.commond div{
+    width:50%;
+    height:100%;
+    float:left;
+}
+.commond li a{
+    width:50%;
+    height:100%;
+    display: block;
+    float:right;
+}
+.commond li img{
+    width:100%;
+    height:100%;
+}
+.commond h2{
+    margin-top:0.22rem ;
+    margin-left:0.3rem;
+    font-weight:normal;
+    margin-bottom:0.3rem;
+}
+.commond li h2 a{
+    font-size: 0.28rem;
+    color:#333;
+    display: inline;
+    text-decoration: none;
+    float:none;
+}
+.commond span{
+    color:#ff5400;
+    font-size:0.34rem;
+    margin-left:0.5rem;
+
+}
+.commond del{
+    color:#999;
+    font-size:0.26rem;
+}
+.commond p{
+    color:#666;
+    font-size:0.26rem;
+    margin-top:0.14rem;
+    margin-left:0.5rem;
+    margin-bottom:0.16rem;
+}
+.commond input{
+    width:2.22rem;
+    height:0.5rem;
+    background: #fe259e;
+    color:white;
+    font-size:0.28rem;
+    line-height:0.5rem;
+    text-align:center;
+    border-radius:0.02rem;
+    margin-left:0.22rem;
+}
+.hot_pro ul{
+    width:90%;
+    overflow: hidden;
+    margin:0 auto;
+
+}
+.hot_pro ul li:first-child{
+    width:50%;
+    margin-right:3%;
+    border:0.02rem solid #fd9353;
+    height:4.32rem;
+    margin-top: 0.22rem;
+    float:left;
+}
+.hot_pro ul li:first-child a{
+    width:100%;
+    height:74%;
+    display:block;
+    float:left;
+}
+.hot_pro ul li:first-child img{
+    width:100%;
+    height:100%;
+}
+.hot_pro ul li:first-child h3{
+    color:#333;
+    margin-left:0.04rem;
+    font-weight:normal;
+}
+.hot_pro ul li:first-child h3 a{
+    font-size:0.24rem;
+    display:inline;
+    float:none;
+    text-decoration: none;
+    color:#333;
+}
+
+.hot_pro ul li:first-child span{
+    color:#ff6000;
+    font-size:0.28rem;
+    float:right;
+    margin-right:0.4rem
+}
+.hot_pro ul li{
+    width:45%;
+    margin-top: 0.22rem;
+    height:2.06rem;
+    float:left;
+    border:0.02rem solid #fd9353;
+}
+/*.hot_pro ul li{*/
+    /*width:100%;*/
+    /*border:0.02rem solid #fd9353;*/
+    /*margin-bottom:6%;*/
+    /*height:47%;*/
+/*}*/
+.hot_pro ul li a{
+    width:57%;
+    height:100%;
+    float:left;
+    display: block;
+}
+.hot_pro ul li div{
+    width:43%;
+    height: 100%;
+    float:right;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+}
+.hot_pro ul li img{
+    width:100%;
+    height:100%;
+}
+.hot_pro ul li h3{
+    margin-left:-2%;
+    color:#333;
+    font-weight:normal;
+    float:left;
+}
+.hot_pro ul li h3 a{
+    font-size:0.24rem;
+    text-decoration: none;
+    display: inline;
+    height:auto;
+    width:auto;
+}
+.hot_pro ul li span{
+    font-size:0.28rem;
+    color:#ff6000;
+    margin-left: 0.38rem;
+}
+.bargin{
+    margin-bottom: 1.8rem;
+}
+.bargin .pro_list{
+    margin-top:0.3rem;
+    display: flex;
+    width:90%;
+    flex-flow:row wrap;
+    align-content: space-between;
+    justify-content: space-between;
+}
+.bargin li{
+    width:48%;
+    height:3rem;
+    border:0.02rem solid #fd9353;
+    margin-bottom: 3%;
+}
+.bargin li a{
+    width:100%;
+    height:74%;
+    display:block;
+}
+.bargin li img{
+    width:100%;
+    height:100%;
+}
+.bargin .pro_list h3{
+    color:#333;
+    margin-left:0.28rem;
+    font-weight:normal;
+    margin-top:-2%;
+}
+.bargin .pro_list h3 a{
+    font-size:0.24rem;
+    display: inline;
+    color:#333;
+    text-decoration: none;
+}
+.bargin span{
+    font-size:0.28rem;
+    color:#ff6000;
+    margin-left: 1.96rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

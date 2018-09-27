@@ -1,0 +1,290 @@
+.pay{
+    width:1200px;
+    overflow: hidden;
+    margin:0 auto;
+}
+.order{
+    width:1198px;
+    border:1px solid #B0ADAD;
+    overflow: hidden;
+    margin-bottom: 46px;
+}
+.order img{
+    float: left;
+    margin:30px 24px 34px 32px;
+}
+.order ul{
+    float: left;
+    margin:12px 0;
+}
+.order ul li{
+    line-height:30px;
+    letter-spacing: 1px;
+}
+.order ul li span{
+    font-size: 16px;
+    color: #8D2729;
+}
+.order ul li b{
+    font-size: 16px;
+    font-weight:normal;
+}
+.order ul li p{
+    font-size: 16px;
+    color: #9E9B9B;
+    float: left;
+}
+.order ul li i{
+    font-size: 16px;
+    color: #8D2729;
+    font-style: normal;
+    float: left;
+}
+/*付款方式*/
+.pay_method{
+    width:426px;
+    height:68px;
+    border:1px solid #B0ADAD;
+    line-height: 68px;
+    text-align: center;
+    color: #000;
+    border-bottom: 0;
+}
+.pay .pay_table{
+    border:1px solid #B0ADAD;
+    border-bottom: 0;
+}
+.pay .pay_table td{
+    border-bottom: 1px solid #B0ADAD;
+}
+.pay .pay_table td h1{
+    font-size: 16px;
+    font-weight:normal;
+    line-height: 70px;
+    padding:0 0 10px 118px;
+}
+.pay .pay_table td .bank{
+    padding: 0 68px 42px 68px;
+    overflow: hidden;
+}
+.pay .pay_table td .bank li{
+    width:192px;
+    height:36px;
+    border:1px solid #000;
+    margin:0 94px 20px 0;
+    float: left;
+}
+.pay .pay_table td .bank .current{
+    margin:0;
+}
+.pay .pay_table td .bank li label{
+    width:100%;height:100%;
+    display:block;
+    background:url('../img/pay_danxuan_01.png') no-repeat 12px 10px;
+    cursor:pointer;
+}
+.pay .pay_table td .bank li .on{
+    background:url('../img/pay_danxuan_02.png') no-repeat 12px 10px;
+}
+input[type="radio"]{
+    display:none;
+}
+.pay .pay_table td .bank li img{
+    float: right;
+    margin:8px 20px 0 0;
+}
+/*平台支付*/
+.pay .pay_table td h2{
+    font-size: 16px;
+    font-weight:normal;
+    line-height: 68px;
+    padding:0 0 0 118px;
+}
+.pay .pay_table td .platform{
+    padding: 0 0 0 68px;
+    overflow: hidden;
+}
+.pay .pay_table td .platform li{
+    width:192px;
+    height:36px;
+    border:1px solid #000;
+    margin:0 94px 27px 0;
+    float: left;
+    cursor:pointer;
+}
+.pay .pay_table td .platform li label{
+    width:16px;height:16px;
+    float: left;
+    margin:10px 16px 10px 12px;
+    display:block;
+    background:url('../img/pay_danxuan_01.png') no-repeat center;
+}
+.pay .pay_table td .platform li .on{
+    background:url('../img/pay_danxuan_02.png') no-repeat center;
+}
+.pay .pay_table td .platform li img{
+    float: left;
+    margin:4px 0;
+}
+.pay .pay_table td .shortcut{
+    height:50px;
+    float: left;
+}
+.pay .pay_table td .shortcut label{
+    width:16px;height:16px;
+    float: left;
+    margin:30px 8px 0 30px;
+    display:block;
+    background:url('../img/pay_danxuan_02.png') no-repeat center;
+}
+.pay .pay_table td .shortcut img{
+    float: left;
+    margin:27px 0;
+}
+.pay .pay_table td .shortcut p{
+    line-height: 74px;
+    color: #000;
+    float: left;
+    font-size: 14px;
+    margin:0 35px 0 120px;
+}
+.pay .pay_table td .shortcut span{
+    line-height: 74px;
+    color: #000;
+    float: left;
+    font-size: 14px;
+    margin-right:12px;
+}
+.pay .pay_table td .shortcut b{
+    line-height: 74px;
+    color: #000;
+    float: left;
+    font-size: 14px;
+    font-weight: normal;
+}
+.pay .pay_table td .pay_shortcut{
+    float: right;
+    margin-right: 72px;
+    letter-spacing: 1px;
+}
+.pay .pay_table td .pay_shortcut b{
+    line-height: 74px;
+    color: #000;
+    float: left;
+    font-size: 16px;
+    font-weight: normal;
+}
+.pay .pay_table td .pay_shortcut span{
+    line-height: 74px;
+    color: #8D2729;
+    float: left;
+    font-size: 16px;
+}
+/*确认支付*/
+.confirm{
+    margin-top: 14px;
+    overflow: hidden;
+}
+.confirm img{
+    float: left;
+    margin:0 12px 0 82px;
+}
+.confirm p{
+    font-size:12px;
+    letter-spacing:1px;
+    color: #000;
+}
+.confirm h3{
+    letter-spacing: 1px;
+    font-weight: normal;
+    color: #000;
+    margin-left: 120px;
+    line-height:40px;
+    font-size: 20px;
+}
+.confirm a{
+    width: 64px;
+    line-height: 40px;
+    font-size: 12px;
+    color: #A5A2A2;
+    /*display: block;*/
+}
+.confirm span{
+    display: block;
+    font-size: 12px;
+    color: #A5A2A2;
+    margin-left: 128px;
+    line-height: 30px;
+}
+.confirm input[type="button"]{
+    width:174px;
+    height:46px;
+    background: #8B3537;
+    color: #fff;
+    text-align: center;
+    line-height: 46px;
+    font-size: 24px;
+    margin:22px 0 78px 120px;
+    cursor: pointer;
+}
+.alieditContainer{
+    position:relative;
+    width:236px;
+    height:40px;
+    border:0;
+    float: left;
+    margin:0 8px 0 120px;
+}
+.alieditContainer .i-text{
+    position: absolute;
+    color: #fff;opacity:0.2;
+    width:236px; height:38px;
+    font-size:12px;
+    left:0;
+    -webkit-user-select:initial;  /*取消禁用选择页面元素*/
+    z-index:9;
+}
+.alieditContainer .sixDigitPassword {
+    width:235px;
+    height:38px;
+    cursor:text;
+    background:#fff;
+    outline:none;
+    position:relative;
+    border:1px solid #ddd;
+    line-height: 38px;
+}
+.alieditContainer .sixDigitPassword i {
+    width:38px; height:38px;
+    float:left;
+    display:block;
+    border-left:1px solid #cccccc;
+}
+.alieditContainer .sixDigitPassword i:first-child{
+    border-left:0;
+}
+.alieditContainer .sixDigitPassword i.active{
+    background-image: url("https://t.alipayobjects.com/images/rmsweb/T1nYJhXalXXXXXXXXX.gif");background-repeat: no-repeat;
+    background-position: center center;
+}
+.alieditContainer .sixDigitPassword b{
+    margin:15px auto 10px auto;
+    width:7px; height:7px;
+    overflow:hidden;
+    display:none;
+    background:#000;
+    border-radius:100%;
+}
+.alieditContainer .sixDigitPassword .guangbiao{
+    line-height:normal;
+    margin:0;
+    width:38px; height:38px;
+    position:absolute;
+    display:block;
+    left:0px; top:-1px;
+    border:1px solid rgba(82, 168, 236, .8);
+    /*border:1px solid #00ffff;*/
+    visibility:hidden;
+    -webkit-box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.75), 0 0 8px rgba(82, 168, 236, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}

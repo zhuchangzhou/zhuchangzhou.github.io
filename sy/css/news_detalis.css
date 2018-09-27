@@ -1,0 +1,83 @@
+.main{
+    width: 100%;
+    background: url(../img/news01.png)  no-repeat center;
+    overflow:hidden;
+}
+.main .content{
+    width: 1200px;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 20px;
+    overflow:hidden;
+}
+.main .content h1{
+    width: 1200px; height: 40px;
+    font-size: 36px;
+    color: rgb( 102, 102, 102 );
+}
+.main .content span{
+    font-size: 14px;
+    color: #ccc;
+    margin-top: 26px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.main .title{
+    width:1200px;height:70px;
+    margin:0 auto;
+    padding-top:4px;
+}
+.main .title h1{
+    padding:0;
+    color:#000;
+    font-size:24px;
+    margin-top:6px;
+}
+.main .title h3{
+    text-align: center;
+    color:#666666;
+    font-weight:normal;
+}
+.main p{
+    width: 1200px;
+    text-indent: 2em;
+    text-align: justify;
+    font-size: 18px;
+    color: #333;
+    margin:0 auto;
+    margin-top: 30px;
+    margin-bottom:40px;
+}
+.prev,.next{
+    display:block;
+    font-size: 18px;
+    color: rgb( 51, 51, 51 );
+}
+.filp{
+    float:right;
+    margin-right:216px;
+}
+.prev{
+    width:216px;
+    height:40px;
+    background:url("../img/news04.png") no-repeat  0 bottom;
+    margin-bottom:10px;
+}
+.next{
+    margin-bottom:86px;
+}
+.prev:hover{
+    color:#666;
+}
+.next:hover{
+    color:#666;
+}
+.container{
+    width:1200px;
+    overflow:hidden;
+    margin:0 auto;
+}
+.wrpper .sidebar{
+    margin-top:14px;
+}

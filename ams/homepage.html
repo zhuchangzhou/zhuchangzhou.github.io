@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>homepage</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <title>首页</title>
+</head>
+
+<body>
+<header>
+    <img src="img/homepage_scan.png" alt="" class="scan">
+    <div class="search">
+        <input type="text" placeholder="限时特惠 快来收啦">
+        <img src="img/homepage_say.png" alt="">
+    </div>
+    <img src="img/homepage_word.png" alt="" class="word">
+</header>
+<!--滑动有问题-->
+<!--<v-touch class="banner" @swipeLeft="bannerSwipe"  @swipeRight="bannerSwipe">-->
+    <!--<ul ref="slideUI">-->
+        <!--<li v-for="item in banner">-->
+            <!--<img :src="item.imgSrc">-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</v-touch>-->
+<!--滑动有问题-->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"></div>
+            <div class="swiper-slide"></div>
+            <div class="swiper-slide"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+<div class="app">
+    <nav>
+        <ul class="home_menu">
+            <li v-for="item in menus":key="item.id">
+                <a href="###"><img :src="item.imgSrc" alt=""></a>
+                <p><a href="###">{{item.name}}</a></p>
+            </li>
+        </ul>
+    </nav>
+    <div class="sec_kill">
+        <h2>秒杀特惠</h2>
+        <div class="countdown">
+            <div class="hour">{{chour}}</div>
+            <span>:</span>
+            <div class="minute">{{cminute}}</div>
+            <span>:</span>
+            <div class="second">{{second}}</div>
+        </div>
+        <div class="more">
+            <a href="pro_list.html">秒抢好货</a>
+            <span>></span>
+        </div>
+        <v-touch @swipeLeft="sec_kill_swipe" @swipeRight="sec_kill_swipe">
+            <ul class="sec_kill_pro" ref="seckill_UL">
+                <li v-for="item in secKillPro":key="item.id">
+                    <a href="#pro_details.html"><img :src="item.imgSrc"></a>
+                    <p>￥{{item.price}}</p>
+                    <span>仅剩：{{item.unit}}件</span>
+                    <div class="mark" v-if="item.mark!=''">{{item.mark}}</div>
+                </li>
+            </ul>
+        </v-touch>
+    </div>
+    <img src="img/homepage_ads1.png" class="ads">
+    <div class="title">
+        <span></span>
+        <h3>商品精选</h3>
+        <span></span>
+    </div>
+    <ul class="choice">
+        <li>
+            <a href="pro_categories.html" class="img"><img src="img/homepage_jingxuan1.png" alt=""></a>
+            <div>
+                <h3><a href="pro_categories.html">舒心</a></h3>
+                <p><a href="pro_categories.html">尽享舒适生活</a></p>
+            </div>
+        </li>
+        <li>
+            <a href="pro_categories.html" class="img"><img src="img/homepage_jingxuan2.png" alt=""> </a>
+            <div>
+                <h3><a href="pro_categories.html">高品质</a></h3>
+                <p><a href="pro_categories.html">面子里子都有了</a></p>
+            </div>
+
+        </li>
+        <li>
+            <a href="pro_categories.html" class="img"><img src="img/homepage_jingxuan3.png" alt=""></a>
+            <div>
+                <h3><a href="pro_categories.html">高保障</a></h3>
+                <p><a href="pro_categories.html">从内到外都是自信</a></p>
+            </div>
+        </li>
+        <li>
+            <a href="pro_categories.html" class="img"><img src="img/homepage_jingxuan4.png" alt=""> </a>
+            <div>
+                <h3><a href="pro_categories.html">高销售</a></h3>
+                <p><a href="pro_categories.html">人手一椅才有料</a></p>
+            </div>
+        </li>
+        <li>
+            <a href="pro_categories.html" class="img"><img src="img/homepage_jingxuan5.png" alt=""> </a>
+            <div>
+                <h3><a href="pro_categories.html">高品质</a></h3>
+                <p><a href="pro_categories.html">品味的验证</a></p>
+            </div>
+        </li>
+    </ul>
+    <div class="title">
+        <span></span>
+        <h3>返利专区</h3>
+        <span></span>
+    </div>
+    <ul class="rebate">
+        <li>
+            <a href="pro_categories.html"><img src="img/homepage_fan1(1).png" alt=""></a>
+            <h3><a href="pro_categories.html">节日返利</a></h3>
+        </li>
+        <li>
+            <a href="pro_categories.html"><img src="img/homepage_fan2.png" alt=""></a>
+            <h3><a href="pro_categories.html">天天返利</a></h3>
+        </li>
+        <li>
+            <a href="pro_categories.html"><img src="img/homepage_fan3.png" alt=""></a>
+            <h3><a href="pro_categories.html">假日返利</a></h3>
+        </li>
+        <li>
+            <a href="pro_categories.html"><img src="img/homepage_fan4.png" alt=""> </a>
+            <h3><a href="pro_categories.html">出口产品</a></h3>
+            <h3><a href="pro_categories.html">特殊返利</a></h3>
+        </li>
+        <li>
+            <a href="pro_categories.html"><img src="img/homepage_fan5.png" alt=""></a>
+            <h3><a href="pro_categories.html">进口产品</a></h3>
+            <h3><a href="pro_categories.html">购你喜欢</a></h3>
+        </li>
+    </ul>
+    <div class="title">
+        <span></span>
+        <h3>特区销售</h3>
+        <span></span>
+    </div>
+    <ul class="sp_zone">
+        <li>
+            <a href="pro_categories.html"><img src="img/homepage_sp4.png" alt=""></a>
+            <h3><a href="pro_categories.html">高薪专区</a></h3>
+        </li>
+        <li>
+            <a href="pro_categories.html"><img src="img/homepage_sp3.png" alt=""></a>
+            <h3><a href="pro_categories.html">低薪售区</a></h3>
+        </li>
+        <li>
+            <a href="pro_categories.html"><img src="img/homepage_sp2.png" alt=""></a>
+            <h3><a href="pro_categories.html">中薪专区</a></h3>
+        </li>
+        <li>
+            <a href="pro_categories.html"><img src="img/homepage_sp5.png" alt=""></a>
+            <h3><a href="pro_categories.html">福利大放送</a></h3>
+            <h3><a href="pro_categories.html">优惠多到你想不到</a></h3>
+        </li>
+    </ul>
+    <div class="title guess">
+        <span></span>
+        <h3>猜你喜欢</h3>
+        <span></span>
+    </div>
+    <ul class="guess_pro">
+        <li v-for="item in guessPro":key="item.id">
+            <a href="pro_details.html"><img :src="item.imgSrc" alt=""></a>
+            <h3>{{item.name}}</h3>
+            <span>￥{{item.price}}</span>
+        </li>
+    </ul>
+    <button >+ &nbsp;加载更多</button>
+</div>
+<footer>
+    <ul>
+        <li class="on">
+            <a href="homepage.html"><img src="img/icon_nav_1_on.png" alt=""></a>
+            <span>首页</span>
+        </li>
+        <li>
+            <a href="pro_details.html"><img src="img/icon_nav_2.png" alt=""></a>
+            <span>分类</span>
+        </li>
+        <li>
+            <a href="shop_cart.html"><img src="img/icon_nav_3.png" alt=""></a>
+            <span>购物车</span>
+        </li>
+        <li>
+            <a href="user.html"><img src="img/icon_nav_3.png" alt=""></a>
+            <span>我的迈</span>
+        </li>
+    </ul>
+</footer>
+
+<script type="text/javascript" src="js/hammer.js" ></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/zepto.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/vue-touch.js"></script>
+<script type="text/javascript" src="js/homepage.js"></script>
+<script type="text/javascript" src="js/rem.js"></script>
+</body>
+</html>

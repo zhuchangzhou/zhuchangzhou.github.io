@@ -1,0 +1,228 @@
+.confirm_order{
+    width:1200px;
+    overflow: hidden;
+    margin:0 auto;
+}
+/*添加地址*/
+.table_add{
+    border-top:1px solid #B0ADAD;
+    border-right:1px solid #B0ADAD;;
+    margin-bottom: 112px;
+}
+.table_add tr td{
+    border: 1px solid #B0ADAD;
+    border-top:0;
+    border-right: 0;
+}
+.table_add .add td{
+    line-height: 98px;
+    font-size: 24px;
+    color: #000;
+    padding-left: 68px;
+}
+.table_add .add_infor td div{
+    width:195px;
+    float: left;
+    line-height: 32px;
+    font-size: 16px;
+    color: #2C2C2C;
+    padding: 60px 58px 60px 58px;
+}
+.table_add .add_infor td span{
+    float: left;
+}
+.table_add .add_infor td b{
+    font-weight:normal;
+    float: left;
+}
+.table_add .add_infor td p{
+    float: left;
+}
+.table_add .add_infor td input[type="button"]{
+    background: none;
+    font-size:24px;
+    color: #000;
+    line-height: 222px;
+    cursor: pointer;
+}
+/*购物信息*/
+.confirm_order .infor{
+
+}
+.confirm_order .infor li{
+    float: left;
+    text-align: center;
+    line-height:98px;
+    font-size: 24px;
+    color: #707070;
+}
+.confirm_order .infor li:first-child{
+    width:356px;
+}
+.confirm_order .infor li:first-child+li{
+    width:234px;
+}
+.confirm_order .infor li:first-child+li+li{
+    width:176px;
+}
+.confirm_order .infor li:first-child+li+li+li{
+    width:235px;
+}
+.operation{
+    width:195px;
+}
+.table_infor{
+    border:1px solid #989696;
+    border-bottom: 0;
+}
+.table_infor td{
+    border-bottom: 1px solid #989696;
+    line-height: 298px;
+    color: #000;
+}
+.table_infor td .table_infor_img{
+    float: left;
+    margin-left: 28px;
+}
+.table_infor p{
+    width:206px;
+    font-size:16px;
+    line-height: 30px;
+    float: left;
+    color: #000;
+    margin:36px 0 0 18px
+}
+.table_infor div{
+    width:80px;
+    height:48px;
+    border:1px solid #B0ADAD;
+    color: #B0ADAD;
+    line-height: 48px;
+}
+.table_infor .money{
+    color: #8D2628;
+}
+.table_infor td input[type="button"]{
+    font-size: 16px;
+    line-height:20px;
+    display: block;
+    background: none;
+    color:#000 ;
+    cursor:pointer;
+}
+/*开票*/
+.table_infor ul li{
+    width:100%;
+    line-height: 40px;
+    float: left;
+}
+.table_infor ul li h1{
+    font-size:24px;
+    color: #000;
+    float: left;
+    font-weight: normal;
+    margin:0 0 12px 55px;
+}
+.table_infor ul li b{
+    font-size:24px;
+    color: #000;
+    float: left;
+    font-weight: normal;
+}
+.table_infor ul li label{
+    width:92px;
+    height:40px;
+    margin:10px 0 0 30px;
+    cursor: pointer;
+}
+.table_infor ul li label div{
+    width:16px;
+    height:16px;
+    border:1px solid #707070;
+    float: left;
+    margin:12px 8px 0 30px;
+}
+.table_infor ul li label .on{
+    background: url("../img/dui.png") no-repeat -2px 1px;
+}
+.table_infor ul li label input[type="radio"]{
+    display: none;
+}
+.table_infor ul li label span{
+    font-size: 24px;
+    color:#000;
+    float:left;
+}
+.table_infor ul li select{
+    width:133px;
+    height:38px;
+    border:1px solid #B0ADAD;
+    display:block;
+    font-size: 18px;
+    padding-left: 10px;
+}
+.table_infor ul .coupon h1{
+    margin:0 0 12px 31px;
+}
+.table_infor ul .coupon a{
+    width:178px;
+}
+.table_infor ul .coupon a span{
+    margin-left: 30px;
+}
+.table_infor ul li textarea{
+    width:746px;
+    height:146px;
+    resize:none;
+    margin-bottom: 28px;
+    padding: 8px 0 0 8px;
+    outline: none;
+}
+/*提交订单*/
+.submit{
+    float: right;
+    overflow: hidden;
+    margin-top: 8px;
+}
+.submit li{
+    overflow: hidden;
+    font-size: 24px;
+    line-height: 42px;
+    color: #2C2C2C;
+    letter-spacing: 2px;
+}
+.submit p{
+    float: left;
+}
+.submit b{
+    float: left;
+    font-weight:normal;
+    color: #777777;
+}
+.submit li h2{
+    font-weight:normal;
+    font-size: 24px;
+    float: left;
+    margin-left: 208px;
+}
+.submit li span{
+    float: left;
+}
+.submit li h3{
+    font-weight:normal;
+    font-size: 24px;
+    float: left;
+    margin-left: 156px;
+}
+.submit li input[type="button"]{
+    width:158px;
+    height:60px;
+    background: #8D2628;
+    line-height: 60px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    float: right;
+    margin-top: 10px;
+}

@@ -1,0 +1,376 @@
+.shop{
+    width:1200px;
+    margin:0 auto;
+    overflow: hidden;
+}
+/*商品菜单栏*/
+.menu{
+    width:1198px;
+    height:400px;
+    border: 1px solid #DCDBDB;
+}
+.menu li{
+    width:100%;
+    height:49px;
+    border-bottom: 1px solid #DCDBDB;
+}
+.menu li:nth-child(2){
+    position: relative;
+}
+.menu dl{
+    width:100%;height:100%;
+    line-height: 49px;
+    padding-left: 20px;
+    font-size: 14px;
+
+}
+.menu li .more ul{
+    width:678px;height:30px;
+    padding-left: 62px;
+    position: absolute;
+    left:0;top:50px;
+    line-height: 30px;
+    font-size: 14px;
+    z-index: 99;
+    background: #ccc;
+    border-bottom:1px solid #DCDBDB;
+    display: none;
+}
+.menu li .more ul li{
+    width:84px;
+    height:30px;
+    float: left;
+    /*padding-right:25px;*/
+    color: #000;
+    letter-spacing: 2px;
+}
+.menu li .more ul li:hover{
+    color: #8D2628;
+}
+.menu dt{
+    float: left;color: #000;
+}
+.menu dd{
+    float: left;
+    color: black;
+    padding-right:25px;
+}
+.menu dd a{
+    color: #000;
+    letter-spacing: 2px;
+}
+.menu dd a:hover{
+    color: #8D2628;
+}
+.menu li dl dd .on{
+    color: #8D2628;
+}
+.menu li:nth-child(1) dd{
+    color: #8D2628;
+}
+.menu li:last-child{
+    border-bottom: none;
+}
+/*更多*/
+.menu .more a span{
+    color: #8D2628;
+}
+.menu .duoxuan{
+    width:100px;
+}
+.menu .duoxuan a{
+    display: block;
+    width:48px;height:16px;
+    border:1px solid #E6DFDF;
+    padding:0 6px 0 14px;
+    color:#8D2628;
+    margin-top:16px;
+    line-height:12px;
+}
+.duoxuan span{
+    font-size: 18px;
+}
+/*价格*/
+.menu .jg{
+    width:170px;
+    height:18px;
+    padding-left: 110px;
+}
+.jg input[type="text"]{
+    width:70px;
+    height:18px;
+    border:1px solid #E6DFDF;
+    padding-left:4px;
+    font-size:12px;
+    line-height:18px;
+}
+.jg span{
+    font-size: 18px;
+}
+/*提示信息*/
+.msg{
+    width:255px;
+    height:20px;
+    border:1px solid #E6DFDF;
+    margin-top: 30px;
+    float: left;
+}
+.msg li{
+    width:63px;
+    height:20px;line-height: 20px;
+    border-right:1px solid #E6DFDF;
+    text-align: center;
+    float: left;
+}
+.msg li a{
+    display: block;
+    width:100%;
+    height:100%;
+}
+.msg li a span{
+    font-size: 14px;
+    color: #000;
+    margin-left: 12px;
+    float: left;
+}
+.msg li a img{
+    float: left;
+    margin: 3px 0 0 2px;
+}
+.msg li:last-child{
+    border-right: none;
+}
+.msg li:last-child div{
+    width:9px;
+    height:20px;
+    float: left;
+    margin-left: 6px;
+}
+.msg li:last-child div img{
+    margin:2px 0 0 0;
+}
+/*收货地*/
+.receiving-place{
+    overflow: hidden;
+    float: left;
+    margin-top: 30px;
+    margin-left: 76px;
+}
+.receiving-place li{
+    float: left;
+    line-height: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+.receiving-place li a{
+     display: block;
+    color: #000;
+ }
+.receiving-place .place{
+    width:126px;
+}
+.receiving-place .place span{
+    color: #000;
+    float: left;
+}
+.receiving-place .place select{
+    width:70px;
+    height:100%;
+    color: #8D2628;
+    padding-left: 4px;
+}
+.receiving-place .place select option{
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+    color: #000;
+}
+.receiving-place .on{
+    width:148px;
+    height:20px;
+    margin-left:20px;
+}
+.receiving-place .on .xl{
+    display: block;
+    width:50px;
+    overflow: hidden;
+    float: left;
+    cursor: pointer;
+    margin-right: 8px;
+}
+.receiving-place .on .dplj{
+    width:88px;
+    overflow: hidden;
+    float: left;
+    cursor: pointer;
+    display: block;
+}
+.receiving-place .on input[type="checkbox"]{
+    display: none;
+}
+.receiving-place .on label div{
+    width:12px;
+    height:12px;
+    border:1px solid #8D2628;
+    float: left;
+    margin:4px 8px 0 0;
+}
+.receiving-place .on span{
+    float: left;
+    line-height: 20px;
+}
+.receiving-place .on .cheaked{
+    background: #000;
+}
+/*商品列表*/
+.shop-list{
+    width:1200px;
+    margin:0 auto;
+    overflow: hidden;
+}
+.goods{
+    width: 1200px;
+    overflow: hidden;
+    margin-bottom: 130px;
+}
+.goods li{
+    width: 356px;
+    height: 510px;
+    background: #fff;
+    float: left;
+    margin:40px 66px 0 0;
+    text-align:center;
+}
+.goods li div{
+    width:278px;
+    height:94px;
+    margin:4px auto;
+    position: relative;
+    background: url("../img/jz_01.png") no-repeat center;
+}
+.goods li:nth-child(3){
+    margin-right: 0
+}
+.goods li:nth-child(6){
+    margin-right: 0
+}
+.goods li:nth-child(9){
+    margin-right: 0
+}
+.goods li:nth-child(12){
+    margin-right: 0
+}
+.goods li:hover{
+    background: url("../img/box-shadow.png") no-repeat center;
+}
+.goods li a{
+    width: 100%;
+    height: 100%;
+    display: block;
+    letter-spacing: 1px;
+}
+.goods li a img{
+    padding-top: 4px;
+}
+.goods li a h2{
+    font-size: 20px;
+    font-weight: normal;
+    color: #8D2628;
+    position: absolute;
+    left: 82px;bottom: 42px;
+}
+.goods li a b{
+    font-size: 14px;
+    color: #8D2628;
+    position: absolute;
+    left: 123px;bottom: 21px;
+}
+/*页*/
+.page{
+    margin-bottom: 55px;
+}
+/*店长推荐*/
+.shopowner-recommended{
+    width: 1200px;
+    margin:0 auto;
+    overflow: hidden;
+    margin-top: 55px;
+    margin-bottom:102px;
+}
+.recommend{
+    width: 834px;
+    height: 62px;
+    border: 1px solid #707070;
+}
+.recommend li{
+    width: 138px;
+    height: 100%;
+    line-height: 62px;
+    text-align:center;
+    color: #9B9B9B;
+    float: left;
+    border-right: 1px solid #707070;
+}
+.recommend li:nth-child(3){
+    margin-right: 0;
+}
+.recommend .on{
+    border: none;
+}
+.recommend li a{
+    display: block;
+    line-height: 62px;
+    text-align:center;
+    color: #9B9B9B;
+}
+.shopowner-recommended h4{
+    font-size: 30px;color: #707070;
+    font-weight: normal;
+    padding:72px 0 0 12px;
+}
+.recommend-list{
+    width: 1200px;
+}
+.recommend-list li{
+    width: 350px;
+    height: 510px;
+    background: #fff;
+    float: left;
+    margin:16px 75px 0 0;
+    text-align:center;
+}
+.recommend-list li div{
+    width:278px;
+    height:94px;
+    margin:4px auto;
+    position: relative;
+    background: url("../img/jz_01.png") no-repeat center;
+}
+.recommend-list li:last-child{
+    margin-right: 0;
+}
+.recommend-list li:hover{
+    background: url("../img/box-shadow.png") no-repeat center;
+}
+.recommend-list li a{
+    width: 100%;
+    height: 100%;
+    display: block;
+    letter-spacing: 1px;
+}
+.recommend-list li a img{
+    padding-top: 4px;
+}
+.recommend-list li a h2{
+    font-size: 20px;
+    font-weight: normal;
+    color: #8D2628;
+    position: absolute;
+    left: 82px;bottom: 42px;
+}
+.recommend-list li a b{
+    font-size: 14px;
+    color: #8D2628;
+    position: absolute;
+    left: 123px;bottom: 21px;
+}

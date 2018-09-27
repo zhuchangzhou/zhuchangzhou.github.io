@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+<!--头部-->
+<div class="header">
+    <!--  头部 -->
+    <div class="top">
+        <div class="container">
+            <div class="left">
+                <p>欢迎您来到SRIDI商城！</p>
+                <a href="login.html">请登录</a>
+                <span>/</span>
+                <a href="register.html" class="current">免费注册</a>
+            </div>
+            <ul class="right">
+                <li><a href="###">我的斯瑞达</a></li>
+                <li><a href="user.html">会员中心</a></li>
+                <li><a href="order.html">我的订单</a></li>
+                <li><a href="shop_cart.html">查看购物车</a></li>
+                <li><a href="###">客户服务</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- logo -->
+    <div class="content">
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logo.png" alt="">
+            </a>
+        </div>
+        <div class="search">
+            <div class="wz">
+                <img src="img/wz_01.png" alt="" class="on">
+                <form action="">
+                    <input type="text" readonly="readonly" value="杭州" placeholder="杭州"  id="inputTest" />
+                </form>
+            </div>
+            <div class="sch">
+                <div class="mask"></div>
+                <form action="">
+                    <input type="text" value="" onFocus="if(value==defaultValue){value='';}" onBlur="if(!value){value=defaultValue;}">
+                    <input type="button">
+                </form>
+            </div>
+            <div class="gwc">
+                <a href="shop_cart.html">
+                    <img src="img/gwc_01.png" alt="">
+                    <div>0</div>
+                    <span >我的购物车</span>
+                </a>
+            </div>
+            <ul class="list">
+                <li>热词：</li>
+                <li><a href="###" class="current">今日特惠</a></li>
+                <li><a href="###">干红</a></li>
+                <li><a href="###">白干地</a></li>
+                <li><a href="###">拉菲</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 导航 -->
+    <div class="nav">
+        <div class=" navCom">
+            <div class="navLeft">
+                <a href="###">
+                    <b>全部商品分类</b>
+                    <img src="img/jt_02.png" alt="">
+                </a>
+                <div class="nav_bottom">
+                    <span></span>
+                    <ul class="nav_title">
+                        <li>
+                            <div>
+                                <img src="img/putaojiu.png" alt="">
+                                <h1>葡萄酒</h1>
+                            </div>
+                            <ul>
+                                <li><a href="shop_list.html">白葡萄酒</a></li>
+                                <li><a href="shop_list.html">红葡萄酒</a></li>
+                                <li><a href="shop_list.html">绿葡萄酒</a></li>
+                                <li><a href="shop_list.html">白葡萄酒</a></li>
+                                <li><a href="shop_list.html">白葡萄酒</a></li>
+                                <li><a href="shop_list.html">白葡萄酒</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="img/pijiu.png" alt="">
+                                <h1>啤酒</h1>
+                            </div>
+                            <ul>
+                                <li><a href="shop_list.html">艾丁黑啤</a></li>
+                                <li><a href="shop_list.html">德国黑啤</a></li>
+                                <li><a href="shop_list.html">青岛扎啤</a></li>
+                                <li><a href="shop_list.html">哈滨哈啤</a></li>
+                                <li><a href="shop_list.html">哈滨哈啤</a></li>
+                                <li><a href="shop_list.html">哈滨哈啤</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="img/yangshengjiu.png" alt="">
+                                <h1>养生酒</h1>
+                            </div>
+                            <ul>
+                                <li><a href="shop_list.html">绍兴花雕</a></li>
+                                <li><a href="shop_list.html">云南白酒</a></li>
+                                <li><a href="shop_list.html">广西小酒</a></li>
+                                <li><a href="shop_list.html">贵州老酒</a></li>
+                                <li><a href="shop_list.html">女儿红</a></li>
+                                <li><a href="shop_list.html">三金白</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="navRight">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="shop_list.html">葡萄酒</a></li>
+                <li><a href="shop_list.html">啤酒</a></li>
+                <li><a href="shop_list.html">花酒</a></li>
+                <li><a href="shop_list.html">果酒</a></li>
+                <li><a href="shop_list.html">鸡尾酒</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--会员注册-->
+<div class="register">
+    <div class="container">
+        <div class="title">
+            会员注册
+        </div>
+        <form action="" onsubmit="return checkForm()">
+            <ul>
+                <li class="nickname">
+                    <b>昵称：</b>
+                    <input type="text" onblur="checkName()">
+                    <span>*请输入昵称，6-8位数字母结合，不区别大小写</span>
+                </li>
+                <li class="phone-number">
+                    <b>手机号：</b>
+                    <input type="text" onblur="checkPhone()">
+                    <span>*请填写你的真实号码</span>
+                </li>
+                <li class="code">
+                    <b>验证码：</b>
+                    <input type="text" onblur="checkCode()">
+                    <div class="code_right" >sson</div>
+                    <span>*请输入验证码</span>
+                </li>
+                <li class="password">
+                    <b>密码：</b>
+                    <input type="password" onblur="checkPass()">
+                    <span>*登录密码，6-18位数字母结合，不区分大小写</span>
+                </li>
+                <li class="confirm-password">
+                    <b>确认密码：</b>
+                    <input type="password" onblur="checkConfirm()">
+                    <span>*再次输入您的密码</span>
+                </li>
+                <li class="protocol">
+                    <label for="read">
+                        <div></div>
+                        <input type="checkbox" id="read">
+                        <p>我已阅读并同意 用户服务协议</p>
+                    </label>
+                </li>
+            </ul>
+        </form>
+        <div class="free-registration">
+            免费注册
+        </div>
+    </div>
+</div>
+<!--尾部-->
+<div class="footer">
+    <div class="top">
+        <ul class="service">
+            <li>
+                <img src="img/foot_01.png" alt="">
+                <span>100%正品</span>
+            </li>
+            <li>
+                <img src="img/foot_03.png" alt="">
+                <span>七天无理由退换</span>
+            </li>
+            <li>
+                <img src="img/foot_02.png" alt="">
+                <span>信誉保障</span>
+            </li>
+        </ul>
+    </div>
+    <ul class="guild">
+        <li>
+            <dl>
+                <dt>购物指南</dt>
+                <dd><a href="###">特价商品</a></dd>
+                <dd><a href="###">会员商品</a></dd>
+                <dd><a href="###">购物贴士</a></dd>
+                <dd><a href="###">会员卡</a></dd>
+                <dd><a href="###">充值卡</a></dd>
+            </dl>
+        </li>
+        <li>
+            <dl>
+                <dt>配送方式</dt>
+                <dd><a href="###">长途运输</a></dd>
+                <dd><a href="###">短途运输</a></dd>
+                <dd><a href="###">就近门店</a></dd>
+                <dd><a href="###">自取服务</a></dd>
+                <dd><a href="###">寄存服务</a></dd>
+            </dl>
+        </li>
+        <li>
+            <dl>
+                <dt>支付方式</dt>
+                <dd><a href="###">在线支付</a></dd>
+                <dd><a href="###">货到付款</a></dd>
+                <dd><a href="###">他人代付</a></dd>
+                <dd><a href="###">物流垫付</a></dd>
+                <dd><a href="###">信用支付</a></dd>
+            </dl>
+        </li>
+        <li>
+            <dl>
+                <dt>帮助中心</dt>
+                <dd><a href="###">商品破损</a></dd>
+                <dd><a href="###">运输问题</a></dd>
+                <dd><a href="###">质量问题</a></dd>
+                <dd><a href="###">购物指南</a></dd>
+                <dd><a href="###">大宗购买</a></dd>
+            </dl>
+        </li>
+    </ul>
+    <ul class="friendlink">
+        <li><a href="index.html">返回首页</a></li>
+        <li><a href="###">联系我们</a></li>
+        <li><a href="###">商家入驻</a></li>
+        <li><a href="###">友情链接</a></li>
+    </ul>
+    <ul class="copyright">
+        <li>2017-1-19</li>
+        <li>Sridi</li>
+        <li>斯瑞达商城</li>
+        <li>版权所有</li>
+    </ul>
+</div>
+<script type="text/javascript" src="js/function.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/lazyload-min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script src="js/register.js"></script>
+</body>
+</html>

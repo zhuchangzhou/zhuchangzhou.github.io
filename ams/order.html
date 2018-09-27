@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/order.css">
+    <title>我的订单</title>
+</head>
+<body>
+<header>
+    <img src="img/top_back.png" alt="" class="back" @click="goBack">
+    <div>我的订单</div>
+    <div class="search_img"><a href="pro_search.html"><img src="img/homepage_search.png"></a></div>
+</header>
+<div class="app">
+    <ul class="nav">
+        <li>全部</li>
+        <li>代付款</li>
+        <li>待发货</li>
+        <li>待收货</li>
+        <li>待评价</li>
+    </ul>
+    <ul class="order_list">
+        <li v-for="item in orderInfo">
+            <div class="top">
+                <span>交易单号：{{item.orderId}}</span>
+                <i>代付款</i>
+            </div>
+            <ul class="pro_list">
+                <li v-for="pro in item.proList">
+                    <a href="pro_details.html"><img :src="pro.imgUrl" alt=""></a>
+                    <div>
+                        <h3><a href="pro_details.html">{{pro.name}}</a></h3>
+                        <span>颜色：{{pro.color}}</span>
+                        <span>型号：{{pro.type}}</span>
+                        <strong>￥{{pro.price}}</strong>
+                    </div>
+
+                </li>
+            </ul>
+            <div class="option">
+                <input type="button" value="取消订单">
+                <input type="button" value="立即支付">
+            </div>
+        </li>
+    </ul>
+</div>
+<footer>
+    <ul>
+        <li>
+            <a href="homepage.html"><img src="img/icon_nav_1.png" alt=""></a>
+            <span>首页</span>
+        </li>
+        <li>
+            <a href="pro_categories.html"><img src="img/icon_nav_2.png" alt=""></a>
+            <span>分类</span>
+        </li>
+        <li>
+            <a href="shop_cart.html"><img src="img/icon_nav_3.png" alt=""></a>
+            <span>购物车</span>
+        </li>
+        <li class="on">
+            <a href="user.html"><img src="img/icon_nav_4_on.png" alt=""></a>
+            <span>我的迈</span>
+        </li>
+    </ul>
+</footer>
+<script src="js/vue-touch.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/rem.js"></script>
+<script src="js/zepto.js"></script>
+<script src="js/order.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+
+.content{
+	width: 1206px;
+	height:784px;
+	margin: 0 auto;
+	background: url(../img/rp0.png) no-repeat center;
+	overflow:hidden;
+	margin-bottom:74px;
+	padding-top:34px;
+}
+.content li{
+	width: 356px; height: 212px;
+	float: left;
+	background: url(../img/list_bg.png) no-repeat;
+	opacity:0.7;
+	margin-top: 28px;
+	margin-right:62px;
+	position:relative;
+	padding:0 2px;
+	overflow:hidden;
+}
+.content li a{
+	display: block;
+	font-size: 14px;
+	color:#000;
+}
+.content li img{
+	margin-top: 30px;
+	margin-left: 8px;
+}
+.content li p{
+	position:absolute;
+	left:0;bottom:2px;
+	width:354px;height:24px;
+}
+.content li p a{
+	padding-left:8px;
+	line-height:24px;
+}
+.content li span{
+	float:right;
+	border:1px solid #C9C9C9;
+	line-height:22px;
+	font-size:12px;
+	text-align:center;
+	width:84px;height:22px;
+	background:#fff;
+	margin-right:2px;
+	padding-left:6px;
+}
+.content li b{
+	font-size:12px;
+}
+.content li b:hover{
+	color: rgb( 255, 0, 0 );
+}
+.about{
+	width: 1200px; height: 520px;
+	clear: both;
+	margin: 0	auto;
+	cursor: pointer;
+	background: url(../img/banner3.png) no-repeat;
+}
+.about div{
+	width: 442px; height: 180px;
+	margin-left: 152px;
+	padding-top: 64px;
+}
+.about div h1 {
+	font-size: 54px;
+	color: #ffffff;
+}
+.about div h1 span{
+	font-size: 18px;
+	color: #cccccc;
+	margin-left: -16px;
+}
+.about div h2{
+	font-size: 18px;
+	color: #999;
+	font-weight: 400;
+}
+.about div p{
+	width: 417px; height: 1px;
+	background: #ffffff;
+	margin: 22px 0 22px 0;
+}
+.about div span{
+	font-size: 16px;
+	color: #f1efef;
+}
+.news_list{
+	width: 1200px; height: 750px;
+	margin: 0 auto;
+}
+.news_list li {
+	width: 800px; height:120px;
+	margin-top: 24px;
+}
+.news_list li .news_img{
+	width: 195px; height: 99px;
+	margin-top: 26px;
+	margin-left: 4px;
+}
+.news_list li h1{
+	display: block;
+	width:600px; height: 30px;
+	cursor: pointer;
+	margin:-100px 0 0 238px;
+	font-size: 18px;
+	font-weight: 400;
+	letter-spacing: 4px;
+}
+.news_list li span{
+	display: block;
+	width: 60px; height: 30px;
+	font-size: 15px;
+	margin-left:246px;
+	letter-spacing: 4px;
+	margin-top: -20px;
+	color: #333;
+}
+.news_list li .more{
+	display: block;
+	width: 80px; height: 22px;
+	background: #D6D6D6;
+	text-align: center;
+	line-height: 22px;
+	margin-top: 10px;
+	margin-left: 246px;
+	letter-spacing: 2px;
+	font-size: 12px;
+	color: rgb( 0, 0, 0 );
+}
+.news_list li .more:hover{
+	color: #000066;
+}
+.news_list .line{
+	width: 672px; height: 3px;
+	margin-top: 28px;
+	background: url(../img/line1.png) no-repeat;
+}

@@ -1,0 +1,143 @@
+.register{
+    width:1200px;
+    margin:0 auto;
+    overflow: hidden;
+}
+.register .container{
+    width:948px;
+    border:1px solid #707070;
+    margin:0 auto;
+    margin-top: 40px;
+    margin-bottom: 82px;
+}
+.register .title{
+    width:100%;
+    height:65px;
+    background: #EEEEEE;
+    text-align: center;
+    line-height: 65px;
+    font-size: 24px;
+    color: #707070;
+    letter-spacing: 2px;
+}
+.register ul{
+    padding-top: 54px;
+}
+.register ul li{
+    font-size: 24px;
+    color: #707070;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+.register ul li input{
+    height:46px;
+    border:1px solid #707070;
+    line-height: 48px;
+    padding:0 0 0 8px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #707070;
+}
+.register ul li span{
+    font-size: 14px;
+    color: #B1AEAE;
+    padding-left: 8px;
+}
+.register b{
+    font-size: 24px;
+    color: #707070;
+    letter-spacing: 2px;
+    font-weight: normal;
+    float: left;
+    padding-top: 8px;
+}
+.nickname{
+    padding-left:180px ;
+}
+.nickname input{
+    width:260px;
+}
+.phone-number{
+    padding-left: 154px;
+}
+.phone-number input{
+    width:306px;
+}
+.code{
+    height:48px;
+    padding-left: 154px;
+}
+.code_right{
+    width:118px;
+    height:48px;
+    background:#DFDDDD;
+    line-height: 48px;
+    text-align: center;
+    color:#8D7E7E;
+    font-size:28px;
+    float: left;
+    margin-left:10px;
+    cursor: pointer;
+}
+.code input[type="text"]{
+    width:260px;
+    float: left;
+}
+.code span{
+    float: left;
+    line-height: 48px;
+    margin-left: 10px;
+}
+.password{
+    padding-left:180px ;
+}
+.password input[type="password"]{
+    width:260px;
+}
+.confirm-password{
+    padding-left: 126px;
+}
+.confirm-password input[type="password"]{
+    width:404px;
+    margin-left: 2px;
+}
+.protocol{
+    height:32px;
+    padding-left:225px;
+    padding-bottom: 16px;
+    cursor: pointer;
+}
+.protocol label{
+    overflow: hidden;
+    display: block;
+    cursor: pointer;
+}
+.protocol div{
+    width:18px;
+    height:14px;
+    border:1px solid #707070;
+    display: block;
+    float: left;
+    margin:10px 12px 0 0;
+}
+.protocol input[type="checkbox"]{
+    width:18px;
+    height:14px;
+    display: none;
+}
+.protocol p{
+    float: left;
+}
+.free-registration{
+    width:230px;
+    height:50px;
+    background: url("../img/register_02.png") no-repeat center;
+    line-height: 50px;
+    text-align: center;
+    margin:0 auto;
+    margin-bottom: 60px;
+    color: #fff;
+    font-size: 24px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}

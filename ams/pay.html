@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/pay.css">
+    <title>确认支付页</title>
+</head>
+<body>
+<header>
+    <img src="img/top_back.png" alt="" class="back" @click="goBack">
+    <div>确认支付</div>
+    <div></div>
+</header>
+<div class="app">
+    <div class="address_box">
+        <h3>收货地址</h3>
+        <div class="address_info">
+            <ul>
+                <li><span>收货人：</span><p>会飞的鱼</p></li>
+                <li><span>联系号码：</span><p>15084650151</p></li>
+                <li><span>收货地址：</span><p>广东省广州市天河区永泰区石尖路154号</p></li>
+            </ul>
+            <img src="img/pay_arrow_right.png" alt="">
+        </div>
+    </div>
+    <div class="order_box">
+        <h3>订单详情</h3>
+        <span class="order_id">订单编号：{{orderInfo[0].orderId}}</span>
+        <ul class="pro_list">
+            <li v-for="item in orderInfo[0].proList":key="item.id">
+                <a href="pro_details.html"><img :src="item.imgUrl"></a>
+                <p><a href="pro_details.html">{{item.name}}</a></p>
+                <span>颜色：{{item.color}}</span>
+                <span>型号：{{item.type}}</span>
+                <strong>￥{{item.price}}</strong>
+            </li>
+        </ul>
+    </div>
+    <div class="pay_box">
+        <h3>支付方式</h3>
+        <ul class="pay">
+            <li is="pay" v-for="item in pay_method":key="item.id" :item="item"></li>
+        </ul>
+        <transition name="flash">
+            <div class="bordertip" v-if="isShow">请选择支付方式</div>
+        </transition>
+    </div>
+
+    <div class="alertMsg" v-show="isconfirm" >
+        <p>确认支付？</p>
+        <button @click="pay">确定</button>
+        <button @click="cancelPay">取消</button>
+    </div>
+    <footer>
+        <input type="button" value="确认支付" @click="toPay">
+    </footer>
+</div>
+
+
+<script src="js/vue.js"></script>
+<script src="js/rem.js"></script>
+<script src="js/zepto.js"></script>
+<script src="js/pay.js"></script>
+</body>
+</html>

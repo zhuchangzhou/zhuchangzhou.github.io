@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/pro_categories.css">
+    <title>商品中心页</title>
+</head>
+<body>
+<header>
+    <img src="img/top_back.png" alt="" class="back">
+    <div class="search">
+        <a href="###">
+            <input type="text" placeholder="限时特惠 快来收啦">
+            <img src="img/pro_categories_cancel.png" alt="" class="cancel">
+        </a>
+    </div>
+    <img src="img/homepage_word.png" alt="" class="word">
+</header>
+<div class="main" id="app">
+    <div class="slidebar">
+        <h3>热门推荐</h3>
+        <ul class="hot_recommend" >
+            <li><router-link to="/">按摩椅</router-link></li>
+            <li><router-link to="/app/bangong">办公椅</router-link></li>
+            <li><router-link to="/app/zhumian">助眠椅</router-link></li>
+            <li><router-link to="/app/anmoqi">按摩器</router-link></li>
+        </ul>
+    </div>
+    <div class="hot_section">
+        <div>
+            <span></span>
+            <h3>热门专场</h3>
+            <span></span>
+        </div>
+        <div class="hot_list">
+            <router-view></router-view>
+        </div>
+    </div>
+</div>
+<footer>
+    <ul>
+        <li>
+            <a href="homepage.html"><img src="img/icon_nav_1.png" alt=""></a>
+            <span>首页</span>
+        </li>
+        <li class="on">
+            <a href="pro_categories.html"><img src="img/icon_nav_2_on.png" alt=""></a>
+            <span>分类</span>
+        </li>
+        <li>
+            <a href="shop_cart.html"><img src="img/icon_nav_3.png" alt=""></a>
+            <span>购物车</span>
+        </li>
+        <li>
+            <a href="user.html"><img src="img/icon_nav_4.png" alt=""></a>
+            <span>我的迈</span>
+        </li>
+    </ul>
+</footer>
+<script src="js/vue.js"></script>
+<script src="js/rem.js"></script>
+<script src="js/vue-router.js"></script>
+<script src="js/pro_categories.js"></script>
+</body>
+</html>

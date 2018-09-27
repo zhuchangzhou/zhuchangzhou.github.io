@@ -1,0 +1,756 @@
+.product{
+    width:1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+/*当前位置*/
+.breadCrumb{
+    width:308px;
+    height:20px;
+    padding: 28px 0 25px 16px;
+}
+.breadCrumb li{
+    font-size: 12px;
+    line-height: 20px;
+    color: #777777;
+    float: left;
+}
+.breadCrumb li a{
+    color: #777777;
+}
+.breadCrumb .current{
+    color: #8D2628;
+}
+.breadCrumb li a:hover{
+    color: #8D2628;
+}
+/*选项轮播*/
+.proLeft{
+    width:606px;
+    float: left;
+}
+.pro_display{
+    width:520px;
+    height:480px;
+    float: left;
+    margin:36px 46px 45px 40px;
+}
+.pro_banner_img li{
+    width:100%;
+    height:100%;
+    display: none;
+    position: absolute;
+    left:0;top:0;
+    overflow:hidden; 
+    zoom:1;
+}
+.pro_banner_img li img{
+    width:520px;
+    height:480px;
+}
+.pro_banner_img li:first-child{
+    display: block;
+}
+.mod_zoom{
+    overflow:hidden;
+    zoom:1;
+    width:1060px;
+}
+.mod_zoom .mod {
+    float:left;
+    position:relative;
+    height:520px;
+    width:480px;
+    margin-right:5px;
+}
+.mod_zoom .mod img{
+    height:520px;
+    width:480px;
+}
+.mod_zoom .mod .mask{
+    position:absolute;
+    left:0; top:0;
+    width:175px; height:175px;
+    background-color:#fede4f;
+    opacity:0.3; filter: alpha(opacity=30);
+    display:none;
+}
+.mod_zoom .mZoom{
+    position:relative;
+    width:300px; height:300px;
+    overflow:hidden;
+    display:none;
+    border:1px solid #999;
+    background: #fff;
+    box-sizing: border-box;
+}
+.mod_zoom .mZoom .img{
+    position:absolute;
+    left:0; top:0;
+    width:520px;
+    height:480px;
+}
+.mod_zoom .ph{
+    width:100%; height:480px;
+    position:absolute;
+    top:0; left:0;
+    cursor:crosshair;
+}
+/*淘宝轮播*/
+.banner_btn{
+    width:1068px;height:150px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    margin:10px 0 62px 0;
+}
+.banner_box{
+    width:532px;
+    height:100%;
+    overflow: hidden;
+    position: absolute;
+    left:40px;
+    top:0;
+}
+.banner_btn .pro_prev{
+    width: 33px;height:53px;
+    background:url("../img/pro_prev_01.png") no-repeat center;
+    float: left;
+    position: absolute;
+    left:0;
+    top:50%;
+    margin-top: -24px;
+    cursor: pointer;
+}
+.banner_btn .pro_next{
+    width: 33px;height:53px;
+    background: url("../img/pro_next_01.png") no-repeat center;
+    float: left;
+    cursor: pointer;
+    position: absolute;
+    right:50%;
+    top:50%;
+    margin: -26px -68px 0 0;
+}
+.banner_btn .pro_prev:hover{
+    background:url("../img/pro_prev_02.png") no-repeat center;
+}
+.banner_btn .pro_next:hover{
+    background: url("../img/pro_next_02.png") no-repeat center;
+}
+.pro_banner_btn{
+    width:1068px;
+    height:100%;
+    float: left;
+    position: absolute;
+}
+.pro_banner_btn li{
+    width:158px;height:146px;
+    border:2px solid #707070;
+    float: left;
+    margin-right: 16px;
+    cursor: pointer;
+}
+.pro_banner_btn li img{
+    width:100%;
+    height:100%;
+}
+.pro_banner_btn .on{
+    border:2px solid #8D2628;
+}
+.pro_banner_btn li:hover{
+    border:2px solid #8D2628;
+}
+/*商品信息*/
+.proRight{
+    width:594px;
+    float: left;
+    margin-top: 26px;
+    overflow: hidden;
+}
+.pro-info {
+    width:586px;
+    overflow: hidden;
+}
+.info{
+    width:600px;
+    float: right;
+}
+.info h1{
+    font-size:30px;
+    font-weight:normal;
+    color: #707070;
+    padding: 88px 0 8px 44px;
+}
+.info h2{
+    font-size: 16px;
+    font-weight:normal;
+    color: #ED6F6F;
+    padding-left: 90px;
+}
+.info ul{
+    margin:56px 0 40px 40px;
+}
+.info ul li{
+    line-height: 36px;
+    font-size: 16px;
+    color: #707070;
+    letter-spacing: 1px;
+    overflow:hidden;
+}
+.info ul li span{
+    padding-left: 14px;
+}
+.info ul li b{
+    font-weight:normal;
+    float: left;
+}
+.info ul li form{
+    float: left;
+}
+.info ul li input{
+    display:block;
+    float:left;
+    margin-right:8px;
+    margin-top: 2px;
+}
+.info ul li input[type="button"]{
+    border: 1px solid #A0A0A0;
+    font-size: 20px;
+    background: none;
+    color:#707070 ;
+    cursor: pointer;
+    line-height:10px;
+    width:38px;height:30px;
+}
+.info ul li input[type="text"]{
+    width:52px;height:28px;
+    border: 1px solid #A0A0A0;
+    color:#707070 ;
+    font-size: 16px;
+    text-align: center;
+    line-height: 28px;
+    padding:0;
+}
+.info ul li input[type="button"]:hover{
+    border:1px solid #8B3537;
+    color: #8B3537;
+}
+.info .shop-now{
+    width:186px;
+    height:48px;
+    border:1px solid #707070;
+    line-height: 48px;
+    text-align: center;
+    color: #707070;
+    cursor: pointer;
+    background: #fff;
+    font-size: 24px;
+    margin:0 76px 0 40px;
+}
+.info .add-cart{
+    width:190px;
+    height:48px;
+    background: #8B3537;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    font-size: 24px;
+}
+/*商品分类*/
+.product .container{
+    width:1200px;
+    overflow: hidden;
+}
+.product .container .left{
+    float: left;
+    margin-right: 30px;
+    overflow: hidden;
+}
+.product .type{
+    width:258px;
+    border:1px solid #707070;
+    overflow: hidden;
+    margin-bottom: 46px;
+}
+.product .type h1{
+    border-bottom:1px solid #707070;
+    line-height: 38px;
+    text-align: center;
+    color: #707070;
+    font-size: 24px;
+    font-weight: normal;
+}
+.product .type ul{
+    padding:14px 74px 18px 66px;
+    overflow: hidden;
+}
+.product .type ul li{
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.product .type ul li a{
+    display: block;
+}
+.product .type ul li a img{
+    margin-right: 2px;
+    float: left;
+}
+.product .type ul li a span{
+    line-height: 18px;
+    font-size: 16px;
+    color: #707070;
+    float: left;
+}
+/*热门商品*/
+.product .hot_shop{
+    width:258px;
+    border:1px solid #707070;
+    border-bottom: 0;
+    overflow: hidden;
+    margin-bottom: 46px;
+}
+.product .hot_shop h2{
+    border-bottom:1px solid #707070;
+    line-height: 88px;
+    text-align: center;
+    color: #707070;
+    font-size: 24px;
+    font-weight: normal;
+}
+.product .hot_shop ul{
+    width:100%;
+    overflow: hidden;
+}
+.product .hot_shop ul li{
+    border-bottom: 1px solid #707070;
+    overflow: hidden;
+    text-align: center;
+}
+.product .hot_shop ul li a{
+    display: block;
+}
+.product .hot_shop ul li a img{
+    padding: 0 40px;
+}
+.product .hot_shop ul li a p{
+    letter-spacing: 1px;
+    line-height: 28px;
+    color: #707070;
+}
+.product .hot_shop ul li a span{
+    letter-spacing: 2px;
+    line-height: 36px;
+    color: #ED6F6F;
+}
+/*关联商品*/
+.product .correlation{
+    width:258px;
+    border:1px solid #707070;
+    border-bottom: 0;
+    overflow: hidden;
+}
+.product .correlation h3{
+    border-bottom:1px solid #707070;
+    line-height: 88px;
+    text-align: center;
+    color: #707070;
+    font-size: 24px;
+    font-weight: normal;
+}
+.product .correlation ul{
+    width:100%;
+    overflow: hidden;
+}
+.product .correlation ul li{
+    border-bottom: 1px solid #707070;
+    overflow: hidden;
+    text-align: center;
+}
+.product .correlation ul li a{
+    display: block;
+}
+.product .correlation ul li a img{
+    padding: 0 40px 8px 40px;
+}
+.product .correlation ul li a p{
+    letter-spacing: 1px;
+    line-height: 28px;
+    color: #707070;
+}
+.product .correlation ul li a span{
+    letter-spacing: 2px;
+    line-height: 38px;
+    color: #ED6F6F;
+}
+/*商品详情*/
+/*商品详情*/
+.right{
+    width:910px;
+    float: left;
+    margin-bottom: 28px;
+}
+.proDetail{
+    overflow:hidden;
+}
+.proDetail .detail{
+    width:600px;
+    border:1px solid #707070;
+    border-bottom: 0;
+    border-right: 0;
+    overflow: hidden;
+}
+.proDetail .detail li{
+    width:199px;
+    border-right: 1px solid #707070;
+    line-height: 38px;
+    text-align: center;
+    float: left;
+    cursor:pointer;
+    font-size: 24px;
+    color: #707070;
+    letter-spacing: 2px;
+}
+.proDetail .detail .on{
+    color: #8B3537;
+}
+.proDetail .detail li:hover{
+    color: #8B3537;
+}
+.proDetail .shop_detail{
+    width:908px;
+    border:1px solid #707070;
+    overflow: hidden;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+.proDetail .shop_detail div{
+    font-size: 16px;
+    color: #707070;
+    padding: 58px 0 38px 40px;
+}
+.proDetail .shop_detail div span{
+    color: #8B3537;
+}
+.proDetail .shop_detail ul{
+    overflow: hidden;
+    padding: 0 0 40px 40px;
+}
+.proDetail .shop_detail ul li{
+    margin-bottom: 8px;
+    overflow: hidden;
+    color: #707070;
+    font-size: 16px;
+}
+.proDetail .shop_img{
+    overflow: hidden;
+}
+.proDetail .shop_img h3{
+    font-size:36px;
+    color: #707070;
+    text-align: center;
+    font-weight:normal;
+    letter-spacing: 2px;
+    margin-top: 58px;
+}
+.proDetail .shop_img p{
+    text-indent: 2em;
+    font-size:16px;
+    color: #707070;
+    letter-spacing: 1px;
+    line-height: 24px;
+    margin:54px 0 30px 0;
+}
+.proDetail .shop_img ul{
+    overflow: hidden;
+}
+.proDetail .shop_img ul li{
+    float: left;
+    overflow: hidden;
+    margin-right: 14px;
+}
+.proDetail .shop_img ul .current{
+    margin:0;
+}
+/*评价详情*/
+.comDetail{
+    overflow:hidden;
+    display:none;
+}
+.comDetail .detail{
+    width:600px;
+    height:38px;
+    border:1px solid #707070;
+    border-bottom: 0;
+    border-right: 0;
+    overflow: hidden;
+}
+.comDetail .detail li{
+    width:199px;
+    height:100%;
+    border-right: 1px solid #707070;
+    float: left;
+    text-align: center;
+    cursor:pointer;
+    line-height: 38px;
+    color: #707070;
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+.comDetail .detail .on{
+    color: #8B3537;
+}
+.comDetail .detail .on span{
+    font-size: 16px;
+}
+/*好评*/
+.comDetail .evaluation{
+    width:908px;
+    height:156px;
+    border:1px solid #707070;
+    border-bottom: 0;
+}
+.comDetail .evaluation div{
+    width:90px;
+    float: left;
+    margin:24px 94px 0 40px;
+    text-align: center;
+}
+.comDetail .evaluation div span{
+    color: #F64545;
+    font-size:16px;
+    letter-spacing: 1px;
+}
+.comDetail .evaluation div h1{
+    color: #F64545;
+    font-size:32px;
+    font-weight:normal;
+    letter-spacing: 2px;
+    line-height: 50px;
+}
+.comDetail .evaluation div ul{
+    overflow: hidden;
+}
+.comDetail .evaluation div ul li{
+    float: left;
+}
+.comDetail .ev_detail{
+    overflow: hidden;
+    padding:32px 120px 0 0;
+}
+.comDetail .ev_detail li{
+    width:162px;
+    border:1px solid #707070;
+    float: left;
+    margin:0 22px 18px 0;
+    line-height:34px ;
+    color: #707070;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: center;
+    cursor: pointer;
+}
+/*form表单*/
+.com_xz{
+    width:908px;
+    height:100px;
+    border:1px solid #707070;
+    border-bottom: 0;
+    overflow: hidden;
+}
+.com_xz ul{
+    float: left;
+    margin:40px 0 0 36px;
+    overflow: hidden;
+}
+.com_xz ul li{
+    float: left;
+    margin-right: 18px;
+    color: #707070;
+    cursor:pointer;
+}
+.com_xz ul li input{
+    display: none;
+}
+.com_xz ul li label{
+    display: block;
+    overflow: hidden;
+    float: left;
+    cursor: pointer;
+}
+.com_xz ul li label div{
+    width:14px;
+    height:14px;
+    float: left;
+    margin:4px 4px 0 0;
+    background: url("../img/com-details_03.png") no-repeat center;
+    cursor: pointer;
+}
+.com_xz ul li label .on{
+    background: url("../img/com-details_04.png") no-repeat center;
+}
+.com_xz ul li span{
+    width:116px;
+    margin-left: -20px;
+    text-align: right;
+    float: right;
+    display: block;
+}
+.com_xz select{
+    width:85px;
+    height:33px;
+    border:1px solid #707070;
+    float: right;
+    padding-left: 8px;
+    letter-spacing: 2px;
+    margin:32px 42px 0 0;
+    cursor: pointer;
+    font-size: 16px;
+    color: #707070;
+}
+/*评论*/
+.comDetail .comment{
+    overflow: hidden;
+    border:1px solid #707070;
+    border-bottom: 0;
+}
+.comDetail .comment li{
+    border-bottom:1px solid #707070;
+    overflow: hidden;
+}
+.comDetail .comment li ul{
+    overflow: hidden;
+}
+.comDetail .comment li ul li{
+    float: left;
+    border-bottom: 0;
+}
+.comDetail .comment li div{
+    width:140px;
+    overflow: hidden;
+    float: left;
+    margin:56px 48px 0 34px;
+}
+.comDetail .comment li div ul{
+    float: left;
+    margin-bottom: 10px;
+}
+.comDetail .comment li div p{
+    float: left;
+    color: #9B9B9B;
+    font-size: 14px;
+}
+.comDetail  .comment li div b{
+    float: left;
+    color: #9B9B9B;
+    font-size: 14px;
+    font-weight:normal;
+    line-height: 24px;
+    margin-right: 8px;
+}
+.comDetail  .comment li div span{
+    float: left;
+    color: #9B9B9B;
+    font-size: 14px;
+    line-height: 24px;
+}
+.comDetail  .comment li div i{
+    float: left;
+    color: #9B9B9B;
+    font-size: 14px;
+    font-style: normal;
+}
+.comDetail  .comment li .com_pj{
+    float: left;
+    margin:56px 0 40px 0;
+}
+.comDetail  .comment li .com_pj li{
+    width:162px;
+    height:34px;
+    border:1px solid #707070;
+    margin-right: 24px;
+    letter-spacing: 1px;
+    color: #707070;
+    text-align: center;
+    line-height: 34px;
+}
+.comDetail .comment li .com_qk{
+    float: left;
+    margin-left: 48px;
+}
+.comDetail  .comment li .com_qk li{
+    margin-right: 22px;
+    color: #707070;
+    font-size: 14px;
+    cursor: pointer;
+}
+.comDetail  .comment li .com_qk li p{
+    line-height: 20px;
+}
+.comDetail  .comment li .com_qk li span{
+    line-height: 20px;
+}
+.comDetail  .comment li textarea{
+    width:200px;height:20px;
+    padding-left: 8px;
+    font-size: 12px;
+    border:1px dotted #000;
+    float: left;
+    display: none;
+    resize: none;
+    line-height: 20px;
+    overflow: hidden;
+    outline: none;
+}
+.comDetail  .comment li .liuyan{
+    width:546px;
+    overflow: hidden;
+    line-height: 30px;
+    font-size: 14px;
+    word-break: break-all;
+    letter-spacing: 1px;
+    margin:4px 0 30px 220px;
+    float:left;
+}
+.product .right .comDetail .page{
+    margin-top:156px ;
+}
+/*产品参数*/
+.parameter{
+    overflow:hidden;
+    display:none;
+}
+.parameter .detail{
+    width:600px;
+    height:38px;
+    border:1px solid #707070;
+    border-bottom: 0;
+    border-right: 0;
+    overflow: hidden;
+}
+.parameter .detail li{
+    width:199px;
+    height:100%;
+    border-right: 1px solid #707070;
+    float: left;
+    text-align: center;
+    cursor:pointer;
+    line-height: 38px;
+    color: #707070;
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+.parameter .detail .on{
+    color: #8B3537;
+}
+.parameter div{
+    width:908px;
+    height:100px;
+    line-height: 100px;
+    text-align: center;
+    color: #707070;
+    border:1px solid #707070;
+    overflow: hidden;
+    letter-spacing: 1px;
+}

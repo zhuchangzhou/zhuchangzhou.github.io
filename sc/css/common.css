@@ -1,0 +1,164 @@
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    font-size:0.16rem;
+    font-family:"微软雅黑";
+    border:0;
+    color:#333;
+    outline: none;
+}
+/*.top{*/
+    /*height:0.42rem;*/
+    /*width:100%;*/
+    /*background: #BD6F41;*/
+    /*position:fixed;*/
+    /*top:0;*/
+    /*z-index:100;*/
+/*}*/
+header{
+    width:100%;
+    background: #fd9353;
+    height:0.9rem;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: space-between;
+    align-items: center;
+    position:fixed;
+    top:0;
+    z-index:100;
+}
+
+.logo img{
+    width:0.6rem;
+    height:0.5rem;
+}
+.back img{
+    width:0.19rem;
+    height:0.33rem;
+}
+.mune{
+    width:0.4rem;
+    height:0.4rem;
+}
+div span{
+    color:white;
+    font-size: 0.3rem;
+}
+header div:first-child{
+    margin-left: 0.58rem;
+}
+header div:last-child{
+    margin-right: 0.58rem;
+}
+header input{
+    height:0.36rem;
+    border-radius:0.10rem;
+    border:1px solid #363636;
+    background:url("../img/search.png") no-repeat 0.04rem center;
+    background-size:0.32rem 0.32rem;
+    background-color:white;
+    padding-left:0.4rem;
+    font-size: 0.24rem;
+    color:#999;
+    outline: none;
+}
+header div h2{
+    color:white;
+    font-size: 0.3rem;
+    font-weight: normal;
+}
+header .mune_icon{
+    height:0.4rem;
+    background:white;
+}
+header .right{
+    background: #FF9454;
+}
+header .right a{
+    text-decoration: none;
+    color:white;
+    font-size: 0.3rem;
+}
+footer{
+    width:100%;
+    height:1rem;
+    background:#FF9454;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom:0;
+    left: 0;
+    z-index:999;
+}
+footer div{
+    width:1.24rem;
+}
+footer div a{
+    display:block;
+    margin:0 auto;
+    width:0.36rem;
+    height:0.36rem;
+}
+footer div img{
+   width:100%;
+    height:100%;
+}
+footer div span{
+    display:block;
+    width:100%;
+    height:auto;
+    text-align: center;
+    font-size:0;
+}
+footer div span a{
+    font-size:0.18rem;
+    display: inline;
+    height:auto;
+    color:white;
+    text-decoration: none;
+}
+footer div .on a{
+    color:#ff6000;
+}
+footer .container{
+    width:91%;
+    height:100%;
+}
+footer .container .option{
+    width:32%;
+    height:100%;
+    float: left;
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+}
+footer .container .option a{
+    width:auto;
+    margin:0;
+    margin-right: 0.34rem;
+    margin-left:0.08rem;
+    font-size: 0.3rem;
+}
+footer .container .option img{
+    width:0.44rem;
+    height:0.44rem;
+}
+footer .container input{
+    width:33%;
+    height:100%;
+    font-size:0.36rem;
+    color:white;
+    text-align: center;
+    line-height:1rem;
+}
+footer .container .addToCart{
+    background: #FF8400;
+}
+footer .container .toBuy{
+    background: #FF0000;
+}
+

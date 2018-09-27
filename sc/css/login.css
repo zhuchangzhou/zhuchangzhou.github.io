@@ -1,0 +1,143 @@
+body{
+    overflow: hidden;
+}
+section{
+    width:100%;
+    background:url("../img/login_bg.jpg") no-repeat center 0.8rem;
+    background-size:contain;
+}
+section .mask_bg{
+    width:5.24rem;
+    height:8.38rem;
+    left:50%;
+    margin-top:2.06rem;
+    margin-left: -2.82rem;
+    padding:0.46rem 0.4rem 0 0;
+    background: #df7839;
+    opacity: 0.4;
+    filter:alpha(opacity=40);
+    position:absolute;
+}
+section .container{
+    padding:0.6rem 0 0 0;
+    position:absolute;
+    width:5.64rem;
+    left:50%;
+    margin-top:2.46rem;
+    margin-left: -2.82rem;
+    height:8.94rem;
+}
+section ul{
+    width:100%;
+}
+section ul li{
+    width:100%;
+    height:0.48rem;
+    margin-bottom:0.08rem;
+}
+.container ul li p{
+    height:100%;
+    text-align:left;
+    padding-left:0.74rem;
+    color:#bc0b09;
+    visibility: hidden;
+}
+section span{
+    font-size:0.28rem;
+    color:white;
+    text-align:right;
+    width:28%;
+    height:100%;
+    display: block;
+    line-height:0.48rem;
+    float:left;
+}
+section input{
+    width:3.52rem;
+    height:100%;
+    line-height:0.48rem;
+    margin-left:0.1rem;
+    padding-left:0.06rem;
+    background: white;
+    color:#333;
+}
+section .code{
+    width:2rem;
+    float:left;
+}
+section .code_right{
+    width:1.37rem;
+    height:100%;
+    margin-left:0.14rem;
+    float:left;
+    display: inline;
+    background: #f9f9f9;
+    text-align: center;
+    line-height:0.48rem;
+    color: #d4b9bf;
+    font-size:0.3rem;
+    letter-spacing:0.04rem;
+}
+section li:nth-last-child(1){
+    display: flex;
+    justify-content: center;
+    margin-bottom:0.36rem;
+}
+section input[type=button]{
+    width:3.5rem;
+    height:0.44rem;
+    color:#f19657;
+    font-size:0.3rem;
+    text-align: center;
+    line-height: 0.44rem;
+    border-radius: 0.1rem;
+}
+.container p{
+    text-align:right;
+}
+.container p a{
+    color:white;
+    text-decoration: none;
+    font-size: 0.28rem;
+}
+.other{
+    width:100%;
+    margin-top:0.92rem;
+    display: flex;
+    justify-content: space-between;
+    flex-flow:row wrap;
+}
+.other span{
+    width:30%;
+    height:0.14rem;
+    border-bottom: 0.02rem solid white;
+    display: block;
+}
+.other span:nth-of-type(1){
+    float: left;
+}
+.other span:nth-of-type(2){
+    float: right;
+}
+.other h3{
+    color:white;
+    font-size: 0.26rem;
+    font-weight:normal;
+}
+.other ul{
+    width:3.6rem;
+    margin:0.23rem auto;
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+}
+.other ul li{
+    width:0.9rem;
+    height:0.9rem;
+}
+.other img{
+    width:0.9rem;
+    height:0.9rem;
+}
+
+

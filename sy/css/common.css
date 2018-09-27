@@ -1,0 +1,346 @@
+*{
+    padding: 0; border: 0;
+    margin: 0;
+    list-style: none;
+    outline: none;
+    text-decoration: none;
+    color: #000;
+    font-family: "微软雅黑";
+}
+.wrpper{
+    width:100%;
+    height:1200px;
+}
+
+.head{
+    width: 1200px; height: 118px;
+    margin:0 auto;
+
+}
+.logo{
+    width: 430px; height: 100%;
+    cursor: pointer;
+    margin-left: -36px;
+    cursor: pointer;
+}
+.logo a{
+    width: 100%; height: 100%;
+}
+.nav{
+    width:780px; height: 100%;
+    margin-top: -118px;
+    margin-left: 510px;
+}
+.nav li{
+    width: 80px; height: 70px;
+    float: left;
+    margin-right:70px;
+    margin-top: 46px;
+    text-align: center;
+    line-height: 50px;
+}
+.nav .on a{
+    color: #FF3333;
+    background: url(../img/logo2.png) 32px 0 no-repeat;
+}
+.nav li a{
+    display: block;
+    background: url(../img/logo1.png) 32px 0  no-repeat;
+
+}
+.nav li a:hover{
+    background: url(../img/logo2.png) 32px 0 no-repeat;
+    color: #FF3333;
+}
+
+.nav li a {
+    display: block;
+    width: 100%; height: 100%;
+    font-size: 18px;
+}
+
+.banner{
+    width: 100%; height: 600px;
+    margin:0 auto;
+    margin-top: -60px;
+    position: relative;
+    /*相对定位*/
+    overflow: hidden;
+    /*超出隐藏限定*/
+}
+.banner_img{
+    width: 100%; height: 100%;
+
+}
+.banner_img li{
+    width: 100%; height: 100%;
+    position: absolute;
+    /*绝对定位*/
+    left: 0; top:0;
+}
+.img .on {
+    z-index: 99;
+}
+.banner_img li a{
+    display: block;
+    width: 100%; height: 100%
+}
+.banner_img li a img{
+    width: 1920px; height: 100%;
+    position: relative;
+    /*相对定位*/
+    left: 50%;
+    margin-left: -960px;
+}
+.banner_btn{
+    width: 350px; height:20px;
+    position: absolute;
+    /*绝对定位*/
+    left: 50% ;bottom: 54px;
+    margin-left: -86px;
+    z-index: 100;
+}
+.banner_btn li{
+    width: 22px; height: 23px;
+    float: left;
+    margin-right:46px;
+    cursor: pointer;
+    background: url(../img/btn.png) no-repeat;
+}
+.banner_btn .on{
+    background: url(../img/btn1.png) no-repeat;
+}
+
+/*标题*/
+.title{
+    width: 100%; height:106px;
+    margin-top: 16px;
+    background: url(../img/column.png) repeat-x ;
+}
+.title h1{
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+    padding-top: 10px;
+    color: rgb( 102, 102, 102 );
+}
+.title span{
+    display: block;
+    margin:0 auto;
+    margin-top: 4px;
+    margin-bottom: 12px;
+    width: 177px; height: 3px;
+    background: url(../img/line.png) no-repeat center;
+}
+.title h2{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: "Arial";
+    letter-spacing: 5px;
+    color: rgb( 153, 153, 153 );
+}
+.contact{
+    width: 100%; height: 220px;
+    background: #EFEFEF;
+    padding-top:26px;
+}
+.contact ul{
+    width: 800px;
+    margin: 0 auto;
+    float:left;
+    overflow: hidden;
+    margin-left:250px;
+}
+.contact ul li{
+    width: 250px; height: 20px;
+    float: left;
+    padding-left: 100px;
+    margin-top: 24px;
+    margin-right: 46px;
+}
+.contact ul li span{
+    padding-left: 12px;
+    font-size: 14px;
+    font-family: "SimSun";
+    color: rgb( 102, 102, 102 );
+}
+.contact .partner{
+    width: 118px; height:134px;
+    line-height: 30px;
+    float:right;
+}
+.contact p{
+    width: 800px; height: 60px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 30px;
+    float:left;
+    margin-top:48px;
+    margin-left:200px;
+}
+.contact p a{
+    font-size: 18px;
+    color: rgb( 51, 51, 51 );
+}
+.contact .partner {
+    width: 120px; height:170px;
+    cursor: pointer;
+    float: right;
+}
+.contact .partner a{
+    display: block;
+    float: left;
+    margin-right: 8px;
+}
+.footer{
+    width:100%;
+    background: #B5B4B4;
+}
+.foot{
+    width:1200px; height: 62px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 62px;
+    font-size:19px;
+    color: #333333;
+}
+.sidebar{
+    width: 1200px; height: 104px;
+    background: url(../img/about.png) no-repeat;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.sidebar li{
+    width: 240px; height: 104px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 104px;
+    float: left;
+}
+.sidebar li a{
+    font-size: 18px;
+    color: #fff;
+    display:block;
+    width:100%;height:100%;
+}
+.sidebar li:hover{
+    background:  url(../img/about1.png) 0 2px no-repeat;
+}
+.sidebar .on{
+    background:  url(../img/about1.png) 0 2px no-repeat;
+}
+.container{
+    width:1200px;
+    overflow:hidden;
+    margin:0 auto;
+}
+/*面包屑导航*/
+.location{
+    width:1200px;
+    margin:0 auto;
+    overflow:hidden;
+    margin-top:16px;
+}
+.breadcrumb{
+    float:right;
+}
+.breadcrumb span{
+    font-size: 16px;
+    color: rgb( 102, 102, 102 );
+}
+.breadcrumb a{
+    font-size: 16px;
+    color:#666;
+}
+.breadcrumb a:hover{
+    color: #003399;
+}
+.breadcrumb .on{
+    color: #003399;
+}
+/*分页*/
+.page{
+    width: 1211px; height: 106px;
+    margin:0 auto;
+    margin-top: -28px;
+    margin-bottom: 16px;
+    background: url(../img/news3.png) no-repeat;
+}
+.page ul{
+    margin-top: 44px;
+    overflow: hidden;
+    float:left;
+    margin-left:254px;
+}
+.page ul li{
+    width:15px;height:15px;
+    margin-right:10px;
+    float: left;
+    border:1px solid #959595;
+}
+.page ul li:hover{
+    border:1px solid #707070;
+}
+.page ul li a{
+    display:block;
+    width:100%;height:100%;
+    font-size:12px;
+    text-align:center;
+    line-height:15px;
+    color: rgb( 0, 102, 255 );
+}
+.page .page_prev{
+    width:68px;height:15px;
+    background: url("../img/page_prev.png") no-repeat;
+    background-position:6px center;
+}
+.page .page_next{
+    width:68px;height:15px;
+    background: url("../img/page_next.png") no-repeat;
+    background-position:56px center;
+    border:1px solid #707070;
+}
+.page .on{
+    border:0;
+    width:50px;
+}
+.page form{
+    width:176px;height:20px;
+    float:left;
+    margin-top:46px;
+}
+.page form span{
+    font-size: 12px;
+    font-family: "SimSun";
+    color:#666;
+    text-align: center;
+    float:left;
+}
+.page form input[type="text"]{
+    width:34px;height:14px;
+    border:1px solid #666;
+    text-align:center;
+    line-height:15px;
+    color:#000;
+    font-size:12px;
+    float:left;
+    margin-left:4px;
+    margin-right:4px;
+}
+.page input[type="submit"]{
+    width:34px;height:16px;
+    border:1px solid #6666C4;
+    text-align:center;
+    font-size:12px;
+    background:#F3F3F3;
+    color: #000;
+    cursor:pointer;
+    float:left;
+    margin-left:6px;
+    line-height:12px;
+}
+.page .on:hover{
+    border:0;
+}

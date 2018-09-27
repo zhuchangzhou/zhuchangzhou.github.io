@@ -1,0 +1,133 @@
+.header{
+    position: relative;
+    .pro_search{
+        width:4.72rem;
+        height:0.70rem;
+        position: absolute;
+        left:1.24rem;
+        top:0.10rem;
+        a{
+            display: block;
+            width:100%;
+            height:100%;
+            input[type=text]{
+                display: block;
+                width:100%;
+                height:100%; 
+                background: url(../img/pro_sort_01.png) no-repeat left;
+                background-size:0.26rem 0.26rem;
+                text-align:left;
+                line-height:0.70rem;
+                font-size:0.16rem;
+                color:#A6A6A6;
+                padding-left:0.52rem;
+            }
+        }
+    }
+    .more_operator{
+        position: absolute;
+        right:0.26rem;
+        top:0.26rem;
+        width:0.36rem;
+        height:0.36rem;
+        img{
+            display:block;
+            width:100%;
+            height:100%;
+        }
+    }
+}
+.content{
+    height:auto;
+    border-top:0.01rem solid #B2B2B2;
+    .for_you_recommend{
+        width:1.98rem;
+        height:1.20rem;
+        border-left:0.08rem solid #FF3B44;
+        float:left;
+        .recommend{
+            margin-top:0.32rem;
+            margin-left:0.20rem;
+            display:block;
+            width:1.44rem;
+            height:0.34rem;
+            border-radius:0.12rem;
+            padding:0.10rem 0.16rem;
+            background-color: #FF3B44;
+            text-align:center;
+            line-height:0.34rem;
+            font-size:0.32rem;
+            color:#ffffff;
+        }
+    }
+    .necklace,.bracelet{
+        width:5.40rem;
+        height:5.08rem;
+        float:right;
+        li:nth-child(1){
+            width: 5.54rem;
+            height:0.42rem;
+            margin-bottom:0.30rem;
+            h3{
+                width:100%;
+                height:100%;
+                text-align:center;
+                line-height:0.42rem;
+                font-size:0.24rem;
+                color:#cccccc;
+                margin:0.20rem auto;
+                span{
+                    color:#000000;
+                    margin:0 0.10rem 0 0.10rem;
+                }
+            }
+        }
+        li{
+            width:1.58rem;
+            height:2.04rem;
+            float:left;
+            margin-top:0.20rem;
+            margin-right:0.20rem;
+            a{
+                display: block;
+                width:1.18rem;
+                height:1.08rem;
+                img{
+                    display: block;
+                    width:100%;
+                    height:100%;
+                    margin-left:0.30rem;
+                }
+                h4{
+                    width:1.80rem;
+                    height:0.32rem;
+                    margin-top:0.26rem;
+                    text-align:center;
+                    line-height:0.32rem;
+                    font-size:0.12rem;
+                    color:#000000;
+                }
+            }
+        }
+    }
+    .active{
+        width:2.00rem;
+        height:auto;
+        margin-top:1.26rem;
+        li{
+            width:2.00rem;
+            height:1.20rem;
+            margin-bottom:0.06rem;
+            a{
+                display: block;
+                width:100%;
+                height:100%;
+                background:#ECE4E4;
+                text-align:center;
+                line-height:1.20rem;
+                font-size:0.32rem;
+                color:#666666;
+            }
+        }
+    }    
+}

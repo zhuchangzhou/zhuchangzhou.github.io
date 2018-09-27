@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/pro_search.css">
+    <title>商品搜索页</title>
+</head>
+<body>
+<div class="search_page">
+    <header>
+        <img src="img/top_back.png" alt="" class="back" @click="goBack">
+        <div class="search">
+                <input type="text" placeholder="限时特惠 快来收啦" v-model="search_text" v-focus="search_text">
+                <img src="img/pro_categories_cancel.png" alt="" class="cancel" @click="cancelSearch">
+        </div>
+        <img src="img/homepage_word.png" alt="" class="word">
+    </header>
+    <div class="hot_search">
+        <h3>热门搜索</h3>
+        <ul class="search_list">
+            <li v-for="item in hot_search":key="item.id"><a href="pro_details.html">{{item}}</a></li>
+        </ul>
+    </div>
+    <div class="history_search">
+        <h3>历史搜索</h3>
+        <ul class="history_record">
+            <li  v-for="item in history_record":key="item.id">
+                <a href="pro_details.html">{{item}}</a>
+            </li>
+        </ul>
+        <button @click="clearHistory" v-show="history_record.length!=0">清除历史记录</button>
+    </div>
+</div>
+</body>
+<script src="js/vue.js"></script>
+<script src="js/pro_search.js"></script>
+<script src="js/rem.js"></script>
+</html>

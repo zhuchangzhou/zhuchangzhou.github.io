@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/pro_list.css">
+    <title>商品列表</title>
+</head>
+<body>
+
+<header>
+    <img src="img/top_back.png" alt="" class="back">
+    <div class="search">
+        <a href="pro_search.html">
+            <input type="text" placeholder="限时特惠 快来收啦">
+            <img src="img/pro_categories_cancel.png" alt="" class="cancel">
+        </a>
+    </div>
+    <img src="img/homepage_word.png" alt="" class="word">
+</header>
+<div class="main">
+    <ul class="sorting">
+        <li @click="sortByDefault">默认</li>
+        <li @click="sortByProceed">销量</li>
+        <li @click="sortByPrice">价格</li>
+        <li @click="filterShow">筛选</li>
+    </ul>
+    <ul class="pro_list">
+        <li v-for="item in pro_list":key="item.id">
+            <a href="pro_details.html"><img :src="item.imgUrl" alt=""></a>
+            <h3><a href="pro_details.html">{{item.name}}</a></h3>
+            <span>￥{{item.price}}</span>
+            <input type="button" value="加入购物车" @click="addToCart">
+        </li>
+    </ul>
+    <div class="mask" v-show="filter_is_show">
+        <div class="mask_bg"  @click="filterHide"></div>
+        <div class="filter">
+            <form>
+                <h5>种类</h5>
+                <ul class="type">
+                    <li v-for="item in filter_selection.type">
+                    <label>
+                        <input type="checkbox" :value="item.name" @click="selectType" >{{item.name}}
+                    </label>
+                    </li>
+                </ul>
+                <h5>材质</h5>
+                <ul class="material">
+                    <li v-for="item in filter_selection.material">
+                        <label>
+                            <input type="checkbox"  :value="item.name" @click="selectMaterial">{{item.name}}
+                        </label>
+                    </li>
+                </ul>
+                <h5>大小</h5>
+                <ul class="size">
+                    <li v-for="item in filter_selection.size">
+                        <label>
+                            <input type="checkbox"  :value="item" @click="selectSize">{{item}}
+                        </label>
+                    </li>
+                </ul>
+                <h5>价格</h5>
+                <ul class="price">
+                    <li v-for="item in filter_selection.price">
+                        <label>
+                            <input type="radio" name="price" :value="item" @click="selectPrice">{{item}}
+                        </label>
+                    </li>
+                </ul>
+                <h5>取货</h5>
+                <ul class="method">
+                    <li v-for="item in filter_selection.method">
+                        <label>
+                            <input type="checkbox"  :value="item"  @click="selectmethod">{{item}}
+                        </label>
+                    </li>
+                </ul>
+                <input type="button" value="确认筛选" class="confirm" @click="confirmFilter">
+                <input type="button" value="取消筛选" class="cancel" @click="filterHide">
+            </form>
+        </div>
+    </div>
+    <div class="alertMsg" v-show="isconfirm">
+        <p>加入购物车成功！</p>
+        <button @click="isconfirm=false">确定</button>
+    </div>
+</div>
+
+
+<script src="js/vue.js"></script>
+<script src="js/rem.js"></script>
+<script src="js/zepto.js"></script>
+<script src="js/pro_list.js"></script>
+</body>
+</html>
