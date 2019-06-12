@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>创建班级</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<link rel="stylesheet" href="../css/layer.css">
+		<link rel="stylesheet" href="../css/common_zcz.css">
+
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem;">
+				<div class="bui-bar-left">
+					<a href="./tea_course_classRoom_makeThree.html" class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a>
+				</div>
+				<div class="bui-bar-main" style="color:#000000">创建班级</div>
+				<div class="bui-bar-right load" style="margin-top:0.20rem">确定</div>
+			</header>
+			<main style="background: #ECECEC;">
+				<ul class="bui-list" style="padding-top:0.25rem">
+					<li class="bui-btn bui-box clearactive">
+						<div class="span1" style="margin-left:0.20rem">
+							<div class="bui-input" id="classNameInput">
+								<input id="inputClassName" type="text" placeholder="请输入班级名称">
+							</div>
+						</div>
+					</li>
+				</ul>
+			</main>
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script src="../js/common_zcz.js"></script>
+	<script>
+		bui.ready(function() {
+			//学期的创建
+			var classNameFlag = true;
+			var classNameFlagReg = /^[\u4e00-\u9fa5]{1,10}$|^[\dA-Za-z_]{1,20}$/;
+			var loginId = localStorage.getItem("loginId");
+			var termId = localStorage.getItem("termId");
+			
+			//bui.load Class 页面的跳转
+			//课程名称不能为空
+			checkInputDom("classNameInput", "inputClassName", classNameFlagReg, '最长不得超过10个汉字，或个20字节(数字，字母和下划线)', classNameFlag);
+			$(".load").on("click", function() {
+				$(".load").attr("disabled", "disabled");
+				if (classNameFlag == true) {
+					var className = $("#inputClassName").val();
+					bui.ajax({
+						method: "POST",
+						url: ctxLocal + 'classRoom/addClassRoom.action',
+						data: {
+							chargeId:loginId,
+							cRomName: className,
+							semesterId: termId
+						},
+					}).then(function(res) {
+
+						if (res.code == 1) {
+							console.log("班级上传成功");
+							$(".load").removeAttr("disabled");
+							bui.load({
+								url: "./tea_course_classRoom_makeThree.html",
+							})
+						} else {
+							console.log("数据库异常，班级创建失败");
+
+
+						}
+					}, function(res, status) {
+						console.log(status);
+						$(".load").removeAttr("disabled");
+					})
+				}
+			})
+		})
+	</script>
+</html>

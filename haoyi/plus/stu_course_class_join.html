@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>加入班级</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<link rel="stylesheet" href="../css/layer.css">
+		<link rel="stylesheet" href="../css/common_zcz.css">
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem;">
+				<div class="bui-bar-left">
+					<a href="javascript:void(0)" class="bui-btn" style="color:#fff"><i class="icon-back" style="color:#fff"></i>返回</a>
+				</div>
+				<div class="bui-bar-main" style="color:#000000">加入班级</div>
+				<div class="bui-bar-right load" style="margin-top:0.20rem">确定</div>
+			</header>
+			<main style="background: #ECECEC;">
+				<ul class="bui-list" style="padding-top:0.25rem">
+					
+					<li class="bui-btn bui-box clearactive">
+						<div class="span1" style="margin-left:0.20rem">
+							<div class="bui-input" id="classCodeInput">
+								<input id="inputClassCode" type="text" placeholder="请输入班级码">
+							</div>
+						</div>
+					</li>
+				</ul>
+			</main>
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script src="../js/common_zcz.js"></script>
+	<script>
+		bui.ready(function() {
+			//班级的加入
+			
+			var classCodeFlag = true;
+			var classCodeFlagReg = /^[\dA-Z]{1,6}$/
+			var loginId = localStorage.getItem("loginId");
+			
+			//bui.load Class 页面的跳转
+			//课程名称不能为空
+			checkInputDom("classCodeInput", "inputClassCode", classCodeFlagReg, '最长不得超过6个的数字字母', classCodeFlag);
+			$(".load").on("click", function() {
+				$(".load").attr("disabled", "disabled");
+				if (classCodeFlag==true) {
+					
+					var classCode = $("#inputClassCode").val();
+					bui.ajax({
+						method: "POST",
+						url: ctxLocal + 'classRoom/addClassBM.action',
+						data: {
+							userId:loginId,
+							classBM:classCode
+						},
+					}).then(function(res) {
+						if (res.code == 1) {
+							bui.alert("班级加入成功");
+							$(".load").removeAttr("disabled");
+							bui.load({
+								url: "./tea_course_list.html"
+							})
+						} else {
+							console.log("数据库异常，班级创建失败");
+
+
+						}
+					}, function(res, status) {
+						console.log(status);
+						$(".load").removeAttr("disabled");
+					})
+				}
+			})
+		})
+	</script>
+</html>

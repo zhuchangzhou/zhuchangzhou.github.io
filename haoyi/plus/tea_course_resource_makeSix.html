@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>文件夹的编辑</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<link rel="stylesheet" href="../font/iconfont.css">
+		<link rel="stylesheet" href="../css/attachList.css">
+		<link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+		<style>
+
+			input::-webkit-input-placeholder{ /*WebKit browsers*/
+						color: #DCDCDC;
+					}
+input::-moz-input-placeholder{ /*Mozilla Firefox*/
+						color: #DCDCDC;
+					}
+input::-ms-input-placeholder{ /*Internet Explorer*/ 
+						color: #DCDCDC;
+					}
+						textarea::-webkit-input-placeholder{ /*WebKit browsers*/
+											padding-left:0.20rem;
+											color: #DCDCDC;
+										}
+					textarea::-moz-input-placeholder{ /*Mozilla Firefox*/
+											padding-left:0.20rem;
+											color: #DCDCDC;
+										}
+					textarea::-ms-input-placeholder{ /*Internet Explorer*/ 
+											padding-left:0.20rem;
+											color: #DCDCDC;
+										}
+								
+		</style>
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem">
+				<div class="bui-bar-left">
+					<a href="tea_course_resource_makeTwo.html" class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a>
+				</div>
+				<div class="bui-bar-main" style="color:#000000">编辑文件夹</div>
+				<a href="return false" class="bui-bar-right load" style="width:auto;height:0.88rem;line-height:0.88rem;color:#000">确定</a>
+			</header>
+			<main>
+				<ul class="bui-list" style="padding-top:0.20rem">
+					<li class="bui-btn bui-box clearactive">
+						<label class="bui-label" for="folderName" style="width:3.60rem;color:#343434;padding-left:0.20rem">文件夹名称</label>
+						<div class="span1">
+							<div class="bui-input user-input" id="folderNameInput">
+								<input id="folderName" type="text" value="" placeholder="文件夹名称" style="text-align: right;padding-right:0.20rem">
+							</div>
+						</div>
+					</li>
+					
+				</ul>
+				<a href="return false" class="bui-btn primary ring bui-box-vertical del" style="width:80%;margin:0.60rem auto;text-align: center;font-size:0.32rem;color:#fff;background: #FF5F5F;border:0.01rem solid #FF5F5F">删除文件夹</a>
+			</main>
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script src="../js/common_zcz.js"></script>
+	<script src="../js/common_audio.js"></script>
+	<script>
+		var folderNameFlag = true;
+		var loginId = localStorage.getItem("loginId");
+		var courseId = localStorage.getItem("courseId");
+		var folerId = localStorage.getItem("folerId");
+		
+		
+		//回显
+		bui.ready(function() {
+			bui.ajax({
+				url: ctxLocal + 'resourceInfo/getCourseResourceData.action',
+				data: {
+					uId:loginId,
+					courseId:courseId,
+					resourceIndex:folerId
+				},
+			}).then(function(res) {
+				if (res.code == 0) {
+					if(res.data !=null && res.data !=''){
+						var resouceNameVal = res.data[0].resouceName;
+						
+						$("#folderName").val(resouceNameVal);
+					}
+					
+				}
+			}, function(res, status) {
+				console.log(status);
+			})
+			//编辑课程:
+			//正则的判断:
+			
+			checkInputDom("folderNameInput","folderName", /^[\u4e00-\u9fa5]{1,7}$|^[\dA-Za-z_]{1,14}$/, "最长不得超过7个汉字，或14个字节(数字，字母和下划线)", folderNameFlag);
+			// checkInputDom("folderInfoInput", /^[\u4e00-\u9fa5]{1,7}$|^[\dA-Za-z_]{1,14}$/, "最长不得超过7个汉字，或14个字节(数字，字母和下划线)", folderInfoFlag);
+			//进入页面时先获取到对应的值,因为新增课程的时候做过正则判断所有不需要再做
+			//保存
+			
+			$(".load").on("click", function() {
+				$(".load").attr("disabled", "disabled");
+				// if (folderNameFlag == true && folderInfoFlag == true) {
+					if(folderNameFlag == true){
+						
+					var folderName = $("#folderName").val();
+					
+					alert(folderName);
+					// var folderInfo = $("#folderInfo").val();
+					bui.ajax({
+						url: ctxLocal + 'resourceInfo/updateResourceIndex.action',
+						data: {
+							resourceSrc: folderName,
+							id:folerId
+						},
+					}).then(function(res) {
+						if (res.code == 1) {
+							console.log("保存成功");
+							bui.load({
+								url: "./tea_course_resource_makeTwo.html",
+							})
+						} else {
+							console.log("数据库异常");
+							$(".load").removeAttr("disabled");
+						}
+					}, function(res, status) {
+						console.log(status);
+						$(".load").removeAttr("disabled");
+					})
+				}
+
+			})
+			//删除课程
+			$(".del").on("click", function() {
+				$(".del").attr("disabled", "disabled");
+				bui.ajax({
+					url: ctxLocal + 'resourceInfo/delResourceInfo.action',
+					data: {
+							id :folerId
+					},
+				}).then(function(res) {
+					if (res.code == 1) {
+						console.log("删除成功");
+						bui.load({
+							url: "./tea_course_resource_makeTwo.html",
+						})
+					} else {
+						console.log("数据库异常，课程增加失败");
+						$(".del").removeAttr("disabled");
+					}
+				}, function(res, status) {
+					console.log(status);
+					$(".del").removeAttr("disabled");
+				})
+
+			})
+		})
+	</script>
+</html>

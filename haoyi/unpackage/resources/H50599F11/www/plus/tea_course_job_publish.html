@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>老师发布作业页面</title>
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+			<link rel="stylesheet" href="../font/iconfont.css">
+			<link rel="stylesheet" href="../css/common_zcz.css">
+			<link rel="stylesheet" href="../css/tea_course_list.css">
+			<style>
+					input::-webkit-input-placeholder{ /*WebKit browsers*/
+						color: #666666;
+					}
+input::-moz-input-placeholder{ /*Mozilla Firefox*/
+						color: #666666;
+					}
+input::-ms-input-placeholder{ /*Internet Explorer*/ 
+						color: #666666;
+					}
+					.icon-fj{
+						display: inline-block;
+						width:0.32rem;
+						height:0.32rem;
+						background: url(../img/fujian_zc.png) no-repeat center;
+						background-size:100% 100%;
+						margin-right:0.08rem;
+					}
+					.icon-ly{
+						display: inline-block;
+						width:0.32rem;
+						height:0.32rem;
+						background: url(../img/luying_zc.png) no-repeat center;
+						background-size:100% 100%;
+						margin-right:0.08rem;
+					}
+			</style>
+		</head>
+		<body>
+			<div class="bui-page">
+				<!-- 固定顶部区 -->
+				<header class="bui-bar" style="border-bottom:0.01rem solid #E0E1E1;background: #F0F3F2;height:0.88rem;">
+					<div class="bui-bar-left">
+						<a  href="tea_course_job.html" class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a>
+					</div>
+					<div class="bui-bar-main" style="color:#000000">布置作业</div>
+					<div class="bui-bar-right"></div>
+				</header>
+				<main>
+					<!-- 内容区滚动 -->
+					<ul class="bui-list">
+						<li class="bui-btn bui-box clearactive">
+							<label class="bui-label" for="jobname">作业名称</label>
+							<div class="span1">
+								<div class="bui-input user-input">
+									<input id="jobname" type="text" value="" placeholder="请输入作业名称" style="text-align: right;padding-right:0.20rem">
+								</div>
+							</div>
+						</li>
+						<li class="bui-btn bui-box clearactive">
+							<label class="bui-label" for="jobcontent">作业内容</label>
+							<div class="span1">
+								
+							</div>
+						</li>
+						<ul class="bui-list">
+							<li class="bui-btn clearactive" style="overflow: hidden;">
+								<div id="commentContent" class="bui-input">
+									<textarea class="bui-input" id="" cols="30" rows="4" placeholder="请输入作业内容"></textarea>
+								</div>
+								<a class="bui-btn" style="float:right;padding:0.08rem 0.18rem;background: #EDF0F2;border-radius: 0.30rem;color:#3791E7"><i class="icon-ly" style="color:#3791E7"></i>录音</a>
+								<a class="bui-btn" style="float:right;padding:0.08rem 0.18rem;background: #EDF0F2;border-radius: 0.30rem;color:#3791E7;margin-right:0.16rem"><i class="icon-fj" style="color:#3791E7"></i>附件</a>
+							</li>
+						</ul>
+						<li class="bui-btn bui-box clearactive" style="margin-top:0.16rem;border-top:0.01rem solid #EEEEEE;">
+							<label class="bui-label" for="fullscore">满分值</label>
+							<div class="span1">
+								<div class="bui-input user-input">
+									<input id="fullscore" type="text" value="" placeholder="请输入满分值" style="text-align: right;padding-right:0.20rem">
+								</div>
+							</div>
+						</li>
+						<li class="bui-btn bui-box">
+							<label class="bui-label">发布班级</label>
+							<div class="span1">
+							</div>
+							<div id="select" class="bui-select">请选择</div>
+							<i class="icon-listright"></i>
+						</li>
+						<li class="bui-btn bui-box clearactive">
+							<label class="bui-label" for="selectAttach" style="width:auto">作业附件格式</label>
+							<div class="span1">
+							</div>
+							<div id="selectAttach" class="bui-select">请选择附件格式</div>
+							<i class="icon-listright"></i>
+						</li>
+						<li class="bui-btn bui-box clearactive">
+							<label class="bui-label" for="deadline_input" style="width:auto">截止时间</label>
+							<div class="span1">
+								<input type="text" id="deadline_input" readonly class="bui-input" style="text-align: right;padding-right:0.20rem;">
+							</div>
+							<i class="icon-listright"></i>
+						</li>
+						
+						<li class="bui-btn bui-box clearactive">
+                <div class="span1">
+                    <label>逾期迟交作业</label>
+                </div>
+                <input id="canOpen" type="checkbox" class="bui-switch-text success" value="1" uncheck="OFF" check="ON" >
+            </li>
+					</ul>
+				<div class="item-center" style="width:90%;height:1.00rem;margin:0 auto;margin-top:0.80rem;margin-bottom:0.92rem;">
+					<div class="bui-btn primary mini ring" style="float:left;text-align:center;font-size:0.34rem;padding: 0.24rem 1.20rem">保存</div>
+					<div class="bui-btn primary mini ring" style="background:#FFBC4C;border:0.01rem solid #FFBC4C;float:right;text-align:center;font-size:0.34rem;padding: 0.24rem 0.70rem">保存并发布</div>
+				</div>	
+				</main>
+				<!-- <footer>
+					<ul id="tabFootNav" class="bui-nav">
+				<li class="bui-btn bui-box-vertical active"><i class="icon-home"></i><div class="span1">首页</div></li>
+				<li class="bui-btn bui-box-vertical"><i class="icon-edit"></i><div class="span1">课程</div></li>
+				<li class="bui-btn bui-box-vertical"><i class="icon-chat"></i><div class="span1">作业</div></li>
+				<li class="bui-btn bui-box-vertical"><i class="icon-setting"></i><div class="span1">我的</div></li>
+			</ul>
+				</footer> -->
+			</div>
+		</body>
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/touch.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+		<script src="../js/ctx.js"></script>
+		<script src="../js/layer.js"></script>
+		<script src="../js/vue.js"></script>
+		<script src="../js/rem.js"></script>
+		<script>
+			bui.ready(function() {
+				 //按钮在tab外层,需要传id
+				var tab = bui.tab({
+					id:"#tabFoot",
+					menu:"#tabFootNav"
+				})
+				
+				    //动态绑定
+				var uiSelect = bui.select({
+					trigger: "#select",
+					title: "请选择班级",
+					type: "checkbox",
+					direction:"right",
+					data: [{
+						"name": "9501",
+						"value":"11"
+					}, {
+						"name": "9502",
+						"value":"12"
+					}, {
+						"name": "9503",
+						"value":"13"
+					}, {
+						"name": "9504",
+						"value":"14"
+					}]
+				});
+				// 附件的格式有doc/docx/xls/xlsx/ppt/pptx/pdf/txt/jpg/jpeg/jpe/jfif/gif/png/bmp/ico/ eml /rar/zip/7z
+				var uiSelect = bui.select({
+					trigger: "#selectAttach",
+					title: "请选择附件格式",
+					type: "checkbox",
+					direction:"right",
+					data: [{
+						"name": ".doc",
+						"value":"11"
+					}, {
+						"name": "docx",
+						"value":"12"
+					}, {
+						"name": "xls",
+						"value":"13"
+					}, {
+						"name": "ppt",
+						"value":"14"
+					}, {
+						"name": "pdf",
+						"value":"14"
+					},
+					{
+						"name": "txt",
+						"value":"14"
+					}]
+				});
+					//截止的时间
+				    var input = $("#deadline_input");
+					var uiPickerdate = bui.pickerdate({
+						handle: "#deadline_input",
+						// input 显示的日期格式
+						formatValue: "yyyy年-MM月-dd日 hh时:mm分",
+						cols:{
+							second:'none'
+						},
+						onChange: function(value) {
+							input.val(value);
+						},
+						callback: function(e) {
+						},
+					});
+				})
+		</script>
+	</html>

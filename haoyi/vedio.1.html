@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>课程详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="css/veido_2css.css" />
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
+		<link rel="stylesheet" href="css/jquery.emoji.css" />
+		<link rel="stylesheet" href="css/railscasts.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet"  href="css/layui.css">
+		<link rel="stylesheet"  href="css/general_learning_course.css">
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/layui.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=你的appkey"></script>
+		<script src="https://cdn.bootcss.com/layer/2.3/layer.js"></script>
+		<script src="js/ctx.js"></script>
+		<script src="js/veido.js"></script>
+		<script src="js/highlight.pack.js"></script>
+		<script src="js/jquery.mousewheel-3.0.6.min.js"></script>
+		<script src="js/jquery.mCustomScrollbar.min.js"></script>
+		<script src="js/jquery.emoji.min.js"></script>
+</head>
+	</head>
+	<body>
+		<div id="video">
+			<div class="fanhui text">
+				<a href="javascript:;" id="back"><img src="img/fanhui.png" /></a>
+			</div>
+			<div id="sangedian" class="dropdown zhuti open">
+					 <span style="    display:block;height:30px;line-height:30px;width:30px;margin:0px!important;position:absolute;right:2px;top:-10px" type="button" class="text" 
+					id="dropdownMenu1"data-toggle="dropdown" aria-expanded="true">
+					● ● ●
+				    </span>
+					<!-- <ul class="dropdown-menu dropdown-menu2 pull-right" role="menu" aria-labelledby="dropdownMenu1">
+						<li role="presentation">
+							<img role="menuitem" src="img/xiaosanj.png" id="xiaosanjiao">
+						</li>
+					</ul>
+					<ul class="dropdown-menu pull-right" style="width: 122px;" role="menu" aria-labelledby="dropdownMenu1">
+						<li role="presentation">
+							<a role="menuitem " class="sann xuanze" tabindex="-1" href="#" onclick="shoucang3()"><img src="img/xinxin.png">收藏</a>
+						</li>
+						<div class="fengexian"></div>
+						<li role="presentation">
+							<a role="menuitem" class="sann -mob-share-ui-button -mob-share-open" style="text-align: left;" tabindex="-1" href="#" onclick="fenxiang()"><img src="img/fenxiang.png">分享</a>
+						</li>
+					</ul> -->
+				</div>
+			<div class="-mob-share-ui" style="display: none">
+				<ul class="-mob-share-list">
+					<li class="-mob-share-weibo" onclick="jiushi(this)">
+						<p>新浪微博</p>
+					</li>
+					<li class="-mob-share-qzone">
+						<p>QQ空间</p>
+					</li>
+					<li class="-mob-share-qq">
+						<p>QQ好友</p>
+					</li>
+					<li class="-mob-share-douban">
+						<p>豆瓣</p>
+					</li>
+					<li class="-mob-share-facebook">
+						<p>Facebook</p>
+					</li>
+					<li class="-mob-share-twitter">
+						<p>Twitter</p>
+					</li>
+				</ul>
+				<div class="-mob-share-close">取消</div>
+			</div>
+			<div class="-mob-share-ui-bg"></div>
+			<video id="spspsp"  src="" controls="controls" autoplay="true"  controlslist="nodownload" preload="auto" height="100%" width="100%">
+			</video>
+		</div>
+		<div id="daohang">
+			<ul>
+				<li class="active">
+					<b href="#keChengName" data-toggle="tab" aria-expanded="true">
+						<div id="jianjie" onclick="yincang()">
+								<span>简介</span>
+						</div>
+					</b>
+				</li>
+				<li>
+					<b href="#kechengmulu" data-toggle="tab" aria-expanded="false">
+						<div id="mulu" style="border: none;" onclick="yincang()">
+								<span>目录</span>
+						</div>
+					</b>
+				</li>
+				<li>
+					<b href="#taolun" src="taolun.html" data-toggle="tab" aria-expanded="false">
+						<div id="pinfen" onclick="xianshiyincang()">
+								<span>讨论</span>
+						</div>
+					</b>
+				</li>
+				<li>
+					<b href="#xiti" data-toggle="tab" aria-expanded="false">
+						<div id="mulu" style="border: none;" onclick="yincang()">
+								<span>习题</span>
+						</div>
+					</b>
+				</li>
+			</ul>
+		</div>
+		<div id="clear"></div>
+		<div style="height: 10px;width: 100%;background-color: #f2f5f7;"></div>
+		<div id="myTabContent" class="tab-content" >
+			<div id="keChengName" class="tab-pane fade in active ">
+				<div id="kechengtecher">
+					<div>
+						<strong>教师</strong>
+					</div>
+				</div>
+				<div id="techertouxiang">
+					<div class="touxiang">
+						<img id="teacherJacket" class="top" src="" />
+					</div>
+					<div class="jieshao">
+						<strong id="tName"></strong></br>
+						<div class="jobkk" id="jobTitle">
+						</div>
+					</div>
+					<div id="clear"></div>
+				</div>
+				<div style="height: 10px;width: 100%;background-color: #f2f5f7;"></div>
+				<div id="kechengtitlefu">
+				<div id="kechengtitle">
+					<div><strong id="name"></strong></div>
+					<div>
+						<div id="contentSummary">
+						</div>
+						<div style="height: 40px; margin-bottom: 20px;">
+							<div class="mianfei">
+								<span>免费</span>
+							</div>
+							<div class="renshu">
+								<span id="learning_num"></span><span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="kechengmulu">
+				<div id="mulu">
+					<div>
+						<strong>课程目录</strong></h4>
+					</div>
+				</div>
+				<div class="kecheng">
+					<div class="zhangjie">
+					</div>
+				</div>
+			</div>
+			<div class="taolun tab-pane fade " id="taolun">
+			</div>
+			<div class="tab-pane fade" class="xiti"  id="xiti" style=" background-color: white;width: 100%;height: auto;">
+			</div>
+			<div class="shudiansha" style="height:60px;">
+				<form id="huifuneirong">
+					<span>
+						<div id="editor" contenteditable="true"></div>
+						<img src="img/haha.png" class="btnLoad2 btn btn-sm btn-default btn23" id="btn" >
+						<div type="button" style="text-align: center;" id="fasong" onclick="hui()">发送</div>
+					</span>
+				</form>
+			</div>
+		</div>
+	</body>
+   
+	<script type="text/javascript">
+		$("#editor").emoji({
+			button: "#btn",
+			showTab: false,
+			animation: 'slide',
+			icons: [{
+				name: "QQ表情",
+				path: "img/qq/",
+				maxNum: 30,
+				excludeNums: [41, 45, 54],
+				file: ".gif"
+			}]
+		});
+		
+	</script>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>课程的作业列表</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<link rel="stylesheet" href="../font/iconfont.css">
+		<link rel="stylesheet" href="../css/attachList.css">
+		<link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8"/>
+		
+		<style>
+			
+			input::-webkit-input-placeholder{ /*WebKit browsers*/
+						color: #DCDCDC;
+					}
+input::-moz-input-placeholder{ /*Mozilla Firefox*/
+						color: #DCDCDC;
+					}
+input::-ms-input-placeholder{ /*Internet Explorer*/ 
+						color: #DCDCDC;
+					}
+						textarea::-webkit-input-placeholder{ /*WebKit browsers*/
+											color: #DCDCDC;
+										}
+					textarea::-moz-input-placeholder{ /*Mozilla Firefox*/
+											color: #DCDCDC;
+										}
+					textarea::-ms-input-placeholder{ /*Internet Explorer*/ 
+											color: #DCDCDC;
+										}
+								
+		</style>
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem">
+				<div class="bui-bar-left">
+					<a href="tea_course_job_mark.html" class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a>
+				</div>
+				<div class="bui-bar-main" style="color:#000000">批量批阅</div>
+				<a href="tea_course_job_publish.html" class="bui-bar-right" style="width:auto;height:0.88rem;line-height:0.88rem;color:#fff">xxx</a>
+			</header>
+			<main>
+				<ul class="bui-list">
+					<li class="bui-btn bui-box clearactive">
+						<label class="bui-label" for="jobname">作业评分</label>
+						<div class="span1">
+							<div class="bui-input user-input">
+								<input id="jobname" type="text" value="" placeholder="请输入分值" style="text-align: right;padding-right:0.20rem">
+							</div>
+						</div>
+					</li>
+					<li class="bui-btn bui-box clearactive">
+						<label class="bui-label" for="jobcontent">作业评语</label>
+						<div class="span1">
+
+						</div>
+					</li>
+					<ul class="bui-list">
+						<li class="bui-btn clearactive" style="overflow: hidden;">
+							<div id="commentContent" class="bui-input">
+								<textarea class="bui-input" id="tea_comment" cols="30" rows="4" placeholder="请输入作业评语"></textarea>
+							</div>
+						</li>
+					</ul>
+				</ul>
+			    <div id="btnOpen" class="button">添加附件</div>
+				<div class="button" onclick="startRecord()">开始录音</div>
+						<!-- History list -->
+						<ul id="history" class="dlist" style="text-align:left;">
+							<li id="empty" class="ditem-empty">无历史记录</li>
+						</ul>
+						<br/>
+						<div class="button button-waring" onclick="cleanHistory()">清空历史记录</div>
+						<div id="play" class="rp">
+							<div id="ptime" class="ptime">00:00:00/00:00:00</div><br/>
+							<div id="progress" class="progress"><div id="schedule" class="schedule"></div></div>
+							<br/>
+							<div class="stop" onclick="stopPlay(),outSet('停止播放！')"></div>
+						</div>
+						<div id="record" class="rp">
+							<div style="width:100%;height:20%;"></div>
+							<div class="rprogress"><div class="rschedule"></div></div>
+							<br/>
+							<div id="rtime" class="rtime">00:00:00</div><br/>
+							<div class="stop" onclick="stopRecord()"></div>
+						</div>
+				<a href="#" class="bui-btn primary ring bui-box-vertical markSelect" style="width:70%;margin:0.72rem auto;text-align: center;font-size:0.32rem;color:#fff;">批量提交</a>
+			</main>
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script src="../js/common_zcz.js"></script>
+	<script src="../js/common_audio.js"></script>
+	<script>
+		
+		bui.ready(function() {
+			//录音操作
+			getAttachList();
+			$(".markSelect").click(function() {
+				//表单部分的提交
+				// inputPost()
+				//附件文件的提交函数
+				upload(files,server)
+			})
+		})
+		function inputPost(){
+				//评分
+			var markScore = $("#jobname").val();
+			//评语
+			var tea_comment = $("#tea_comment").val();
+			// var Files = localStorage.getItem("Files");
+			//批量批阅
+			bui.ajax({
+				url: ctxLocal+'homeWork/batchMarking.action',
+				data: {
+					score:markScore,
+					markContent:tea_comment,
+				},
+			}).then(function(res){
+				console.log(res);
+			},function(res,status){
+				console.log(status);
+			})
+		}
+		function toMarkStu(){
+			window.location.href="./tea_course_job_mark.html"
+		}
+	
+	</script>
+</html>

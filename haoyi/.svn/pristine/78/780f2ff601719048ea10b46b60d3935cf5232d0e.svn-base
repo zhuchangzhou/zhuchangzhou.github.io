@@ -1,0 +1,8 @@
+var ctx ="http://47.92.104.238:8080/general/";
+var ctxImg ="http://47.92.104.238:8080/schoolLog/";
+// var ctxLocal = "http://47.92.104.238:8080/general/";
+var ctxImgLocalStu = "http://47.92.104.238:8080/userhomework/";
+var ctxImgLocalTea = "http://47.92.104.238:8080/homework/";
+var ctxLocal = "http://127.0.0.1:8080/general/";
+// var ctxImgLocal = "http://127.0.0.1:8080/schoolLog/";
+// var server = 'http://127.0.0.1:8080/general/pic/uploadAttachement'

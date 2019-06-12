@@ -1,0 +1,250 @@
+.lesson_title{
+		background-color: #222;
+	    color: white;
+	    position: fixed;
+	    width: 100%;
+	    height: 50px;
+	    z-index: 99999;
+	}  
+	 
+	.lesson-dashboard .toolbar{
+		top:50px!important;
+	}
+	
+	.lesson-dashboard .toolbar-pane-container{
+		top:50px!important;
+		position: relative !important;
+		width: 320px; 
+		height: 100%; 
+		float: right; 
+		margin-right: 60px; 
+		display: block
+	}
+	
+	.course_cls{
+		display: block; 
+		overflow: auto; 
+		height: 100%;
+	}
+	
+	/*笔记 begin  */
+	.course_note{
+		height: 100%;
+	}
+	
+	#note_list{
+		margin-left: 5px;
+		overflow: auto;
+		height: 55%;
+		min-height: 363px;
+	}
+	
+	.user_div{
+		width: 100%;
+		height: 40px;
+		background-color: #f4f4f4;
+    	padding:  5px;
+	}
+	
+	.user_name{
+		color: #999;
+		font-size: 14px;
+	}
+	
+	.user_div>img{
+		height: 30px;
+		width: 30px;
+	}
+	
+	#note_content{
+		height: 164px;
+		overflow: auto;
+		padding-top: 10px; 
+    	padding-left: 5px;
+    	color: #ddd;
+    	font-size: 14px;
+    	outline:0px;
+	}
+	
+	.save_note{
+		width: 100%;
+		background-color: #49af4f!important;
+		height: 40px;
+	}
+	
+	/* 笔记end */
+	
+	/*评价 begin  */
+	
+	#to_review{
+		height: 100%;
+	}
+	
+	#review_list-info{
+		margin-left: 5px;
+		overflow: auto;
+		height: 55%;
+		min-height: 363px;
+		/* max-height: 363px; */
+	}
+	
+	.save_reiew{
+		width: 100%;
+		background-color: #49af4f!important;
+		height: 40px;
+	}
+	
+	
+	
+	
+	#reiew_content{
+		height: 164px;
+		overflow: auto;
+		padding-top: 10px; 
+    	padding-left: 5px;
+    	color: #ddd;
+    	font-size: 14px;
+    	outline:0px;
+	}
+	
+    /*评价 end  */
+    
+	
+	.dashboard-content{
+		right: 382px;
+		top: 50px!important;
+		left: 0px!important;
+	}
+	
+	.lesson-dashboard .title-group .chapter-label{
+		font-size: 16px;
+		color: #fff;
+	}
+	
+	.dashboard-body{
+		background-color: #484848;
+		top:0!important;
+		bottom:5px!important;
+	}
+	
+	audio::-webkit-media-controls-panel, video::-webkit-media-controls-panel{
+		background-color: #353535!important;
+	}
+	
+	audio::-webkit-media-controls-current-time-display, video::-webkit-media-controls-current-time-display{
+		font-size: 14px!important;
+		color: #ffffff!important;
+	}
+	
+	audio::-webkit-media-controls-time-remaining-display, video::-webkit-media-controls-time-remaining-display{
+		font-size: 14px!important;
+		color: #ffffff!important;
+	}
+	
+	input[pseudo="-webkit-media-controls-timeline" i]::-internal-track-segment-highlight-after, input[pseudo="-webkit-media-controls-volume-slider" i]::-internal-track-segment-highlight-after {
+   	 	background-color: #49af4f!important;
+	}
+	
+	.edui-editor{
+		width: 318px!important;
+	}
+	
+	
+	
+	#question_div{
+		width: 804px;
+		height: auto;
+		padding: 15px;
+		padding-top: 10px;
+		padding-left: 36px;
+		
+	}
+	
+	.que_top{
+		height:auto;
+	}
+	
+	.que_queContent{
+		color: #333;
+		font-size: 14px;
+		width: 65%;
+		display: inline-block;
+	}
+	
+	.que_Check{
+		width: 33%;
+		vertical-align: top;
+	    text-align: center;
+	    position: relative;
+	    top: 65px;
+	    display:none
+	}
+	
+	.btn-success {
+	    border:none;
+	    background-color: #bababa;
+	    color: #fff;
+	    width: 114px;
+	    height: 38px;
+	    border-radius: 20px;
+	    line-height: 24px;
+	    margin-bottom: 14px;
+	    margin-right: 20px;
+	}
+
+
+   .btn-success:HOVER{
+   	 background-color: #49af4f;
+   }
+	.que_analysis {
+		width: 100%;
+	}
+
+	label{
+		margin-left: 4px;
+		font-weight: normal;
+	}
+	
+	input[type=checkbox], input[type=radio]{
+		margin-right:8px;
+		width: 16px;
+		height: 16px;
+		position: relative;
+    	top: 3px;
+	}
+	
+	.que_title{
+		margin-top: 16px;
+	}
+	
+	.que_type{
+		font-size: 16px;color: #777;
+	}
+	
+	.que_content{
+		margin-top: 25px!important;
+    	margin-left: 15px!important;
+	}
+	
+	.que_content_d{
+		margin-bottom: 30px;
+	}
+	
+	.que_ms{
+		font-size: 16px;color: #333;font-weight: 700;
+	}
+	
+	.submit_div{
+		width: 100%;height: 95px;text-align: center;
+	}
+	
+	.next_t{
+		color: #49af4f!important;font-size: 14px;
+		display: none;
+		cursor: pointer;
+	}
+	
+	.ca_kx{
+		color: #49af4f!important;font-size: 14px;margin-bottom: 30px;
+		display: none;
+	}

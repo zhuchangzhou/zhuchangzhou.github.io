@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>学生做作业</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<link rel="stylesheet" href="../font/iconfont.css">
+		<link rel="stylesheet" href="../css/attachList.css">
+		<link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8"/>
+		<style>
+			.line-vertical {
+				color: #2F8CE5;
+				font-size: 0.36rem;
+				font-weight: 700;
+				font-style: normal;
+				margin-right: 0.16rem;
+			}
+
+			.job-detail {
+				background: #fff;
+				padding: 0.28rem 0.32rem;
+			}
+
+			.job-detail table {
+				color: #A9A9A9;
+				font-size: 0.28rem;
+				line-height: 200%;
+			}
+
+			.job-detail-left {
+				width: 1.60rem;
+				text-align: right;
+			}
+
+			.job-detail-right {
+				text-align: left;
+				padding-left: 0.30rem
+			}
+
+			.job-content {
+				margin-top: 0.20rem;
+				background: #fff;
+				padding: 0.28rem 0;
+			}
+
+			.job-content-title {
+				padding-bottom: 0.28rem;
+				border-bottom: 0.01rem solid #ECECEC;
+				padding-left: 0.34rem;
+			}
+
+			.job-content-title h3 {
+				display: inline-block;
+				text-align: left;
+				font-size: 0.36rem;
+			}
+			input::-webkit-input-placeholder {
+				/*WebKit browsers*/
+				color: #666666;
+			}
+
+			input::-moz-input-placeholder {
+				/*Mozilla Firefox*/
+				color: #666666;
+			}
+
+			input::-ms-input-placeholder {
+				/*Internet Explorer*/
+				color: #666666;
+			}
+
+			.tea-comment h3,.tea-comment h4,.tea-comment h5{
+				font-size:0.28rem;
+				color:#777777;
+				line-height: 180%;
+				padding-left:0.08rem;
+			}
+			.tea-comment h3 span,.tea-comment h4 span,.tea-comment h5 span{
+				margin-left:0.20rem;
+			}
+			.tea-comment h5 span i{
+				font-style: normal;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem">
+				<div class="bui-bar-left">
+					<a href="tea_course_list.html" class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a>
+				</div>
+				<div class="bui-bar-main" style="color:#000000">作业</div>
+				<a href="#" onclick="return false" class="bui-bar-right" style="width:auto;height:0.88rem;line-height:0.88rem;color:#fff">xxx</a>
+			</header>
+			<main>
+				<!-- 作业详情 -->
+				<dl id="accordion" class="bui-accordion job-detail-box">
+					<dt class="bui-btn bui-box" style="padding:0.32rem 0.28rem;">
+						<i class="line-vertical">|</i>
+						<div class="span1" style="font-size:0.32rem;color:#222222">第八章作业</div>
+						<span style="margin-right:0.06rem;font-size:0.32rem;color:#2F8CE5">详情</span><i class="icon-accordion" style="color:#2F8CE5"></i>
+					</dt>
+					<dd>
+						<div class="job-detail">
+							<table>
+								<tr>
+									<td class="job-detail-left">作业内容：</td>
+									<td class="job-detail-right">完成书本109页练习题</td>
+								</tr>
+								<tr>
+									<td class="job-detail-left">作业附件：</td>
+									<td class="job-detail-right">共两个</td>
+								</tr>
+								<tr>
+									<td class="job-detail-left">满分值：</td>
+									<td class="job-detail-right">共两个</td>
+								</tr>
+								<tr>
+									<td class="job-detail-left" style="vertical-align: text-top;">作业附件：</td>
+									<td class="job-detail-right">允许上传mp3、mp4、pdf、doc、docx、ppt、pptx、xls、wps、jpg、jpeg、bmp、png、gif等格式</td>
+								</tr>
+								<tr>
+									<td class="job-detail-left">截止日期：</td>
+									<td class="job-detail-right">2019.04.26 14:00</td>
+								</tr>
+								<tr>
+									<td class="job-detail-left">逾期迟交：</td>
+									<td class="job-detail-right">允许</td>
+								</tr>
+							</table>
+						</div>
+					</dd>
+				</dl>
+				<!-- 作业内容 -->
+				<div class="job-content">
+					<div class="job-content-title">
+						<i class="line-vertical">|</i>
+						<h3>作业内容</h3>
+					</div>
+					<ul class="bui-list">
+						<li class="bui-btn clearactive" style="overflow: hidden;">
+							<div id="jobContent" class="bui-input" style="padding-top:0.06rem;padding-left:0.18rem">
+								<textarea class="bui-input" id="" cols="30" rows="6" placeholder="为中华崛起而读书."></textarea>
+							</div>
+						</li>
+					</ul>
+					 <div id="btnOpen" class="button">添加附件</div>
+					<div class="button" onclick="startRecord()">开始录音</div>
+						<!-- History list -->
+						<ul id="history" class="dlist" style="text-align:left;">
+							<li id="empty" class="ditem-empty">无历史记录</li>
+						</ul>
+						<br/>
+						<div class="button button-waring" onclick="cleanHistory()">清空历史记录</div>
+						<div id="play" class="rp">
+							<div id="ptime" class="ptime">00:00:00/00:00:00</div><br/>
+							<div id="progress" class="progress"><div id="schedule" class="schedule"></div></div>
+							<br/>
+							<div class="stop" onclick="stopPlay(),outSet('停止播放！')"></div>
+						</div>
+						<div id="record" class="rp">
+							<div style="width:100%;height:20%;"></div>
+							<div class="rprogress"><div class="rschedule"></div></div>
+							<br/>
+							<div id="rtime" class="rtime">00:00:00</div><br/>
+							<div class="stop" onclick="stopRecord()"></div>
+						</div>
+				</div>
+				<!-- 提交按钮 -->
+				<a class="bui-btn primary ring bui-box-vertical" href="stu_course_job.html" style="width:70%;margin:0.72rem auto;text-align: center;font-size:0.32rem;color:#fff;">保存并提交作业</a>
+			</main>
+			<!-- <footer>
+				<ul id="tabFootNav" class="bui-nav">
+					<li class="bui-btn bui-box-vertical active"><i class="icon-home"></i>
+						<div class="span1">首页</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-edit"></i>
+						<div class="span1">课程</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-chat"></i>
+						<div class="span1">作业</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-setting"></i>
+						<div class="span1">我的</div>
+					</li>
+				</ul>
+			</footer> -->	
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script src="../js/common_zcz.js"></script>
+	<script src="../js/common_audio.js"></script>
+	<script>
+		bui.ready(function() {
+			var uiAccordion = bui.accordion({
+				id: "#accordion"
+			});
+
+			// 展开第一个
+			uiAccordion.showFirst();
+			$(".edit").click(function() {
+				window.location.href = "./stu_course_job_complete.html";
+			})
+			
+			//作业详情的获取,因为涉及到表格渲染通过vue来实现
+			var vm = new Vue({
+						el:".job-detail-box",
+						data:{
+							objectArray:[]
+						},
+						methods:{
+						}
+					})
+					//通过$.ajax来获取数据
+					var hwId = localStorage.getItem("hwId");
+					$.ajax({
+						type:"POST",
+						url:ctxLocal+'homeWork/getHomWorkInfo.action',
+						data:{
+							id:hwId
+						},
+						success:function(res){
+							if(res.code==1){
+								//图片的路径的处理
+								for(var i=0;i<res.data.length;i++){
+									res.data[i].courseJacket = ctxLocal+res.data[i].courseJacket;
+								}
+								vm.$data.objectArray = res.data;
+							}
+						},
+						error:function(){
+							vm.$data.objectArray = [{
+								hwName:"第八章作业",
+								
+							}]
+						}
+					})
+		})
+	</script>
+</html>

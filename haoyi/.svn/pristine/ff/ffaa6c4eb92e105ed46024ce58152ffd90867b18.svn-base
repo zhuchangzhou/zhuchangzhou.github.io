@@ -1,0 +1,60 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,input,p,th,td,table,textarea,select{margin:0;padding:0;}
+a{text-decoration: none;}
+ul{list-style:none;}
+.center_main{width: 100%;height:85%;overflow-y: scroll;}
+.top_t{width: 100%;height:8.5%;background-color:#f5f8f7;/* box-shadow:inset 0px -15px 8px -19px #000; */}
+.top_t_left{width:30%;height:100%;float: left;}
+.top_t_left_a{font-size:20px;margin-left: 12px;display: block;}
+.top_t_left_a_span{color:black;display: block;float: left;font-family:"Microsoft YaHei";}
+.top_t_left_a_span_zou{display: block;float: left;color:black;font-family:"Microsoft YaHei";}
+.top_t_center{width: 40%;height: 100%;float: left;}
+.top_t_center_span{font-size: 21px;height: 100%;color:#333333;text-align: center; display: block;}
+.top_t_right{width: 30%;height: 100%;float: left;}
+.top_t_right_search{display: block;color:black;font-size: 18px;text-align:right;margin-right: 15px;}
+.top_banner{width: 100%;height:6.9%;box-shadow:inset 0px 15px 10px -19px #000;background-color:rgb(241,245,248);}
+.top_banner_left{width: 88%;height:100%;float: left;background-color: rgb(246,248,247);box-shadow:inset 0px 15px 10px -20px #000;background-color:rgb(241,245,248);}
+.top_banner_right{width: 12%;height: 100%;float: left;background-color:rgb(241,245,248);box-shadow:inset 0px 15px 10px -20px #000;}
+.rotation_chart{width: 100%; height:162.3px; background-color:rgb(241,245,248);}
+.carousel-inner_img_img{width:100%;height:160px;}
+.center_a{width: 100%;height: 9%;background-color: rgb(241,245,248);}
+.center_a_span_left{width:80%;height: 100%;background-color:rgb(241,245,248);float: left;}
+.center_a_span_right{width:20%;height: 100%;background-color:rgb(241,245,248);float: left;}
+.center_a_span_left_span{display: block;font-size: 18px;margin-left: 15px;float: left; color:#000000;}
+.center_a_span_right_span{display: block;font-size: 14px;text-align: center;float:right;margin-right: 10px;color:#777777;}
+.course{width: 100%;height:100%; background-color:rgb(241,245,248);float: left;}
+.course_one_a{display:block;width: 45%;height:175px;float: left;margin-left:12px;margin-right: 1px;margin-top: 5px;margin-bottom: 5px;}
+.oourse_one_a:hover{box-shadow:#313944 0 0 2px;}
+.course_one{width: 100%;height:173px;}
+.course_one_top{width: 100%;height: 63%;}
+.course_one_top_img{width:100%;height:100%;border-top-left-radius:5px;border-top-right-radius:5px;}
+.course_one_center{width: 100%;height: 22.25%;background-color:white;}
+.course_one_center_span{font-size: 15px;line-height:38.05px;padding-left: 12px;padding-top: 5px;display: block;font-family:"Microsoft YaHei";}
+.course_one_bottom{width: 100%;height: 15%;background-color:white;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}
+.course_one_bottom_left_span{display: block;font-size: 13px;float: left;margin-left: 12px;color: #04c677;}
+.course_one_bottom_right_span{display: block;font-size:12px;float:right;margin-right: 12px;color: #c5cbd3;}
+.bottom{width: 100%;height:8%;background-color: white;box-shadow: inset 0px 15px 10px -19px rgba(0,0,0,0.8);float: left;}
+.bottom_left_left{float: left;width: 25%;height: 80%;font-size: 12px;line-height:25px;color:rgb(184,184,184);}
+.bottom_span{display: block;width: 40px;height: 25px;margin-top: 10px;margin-left: 52px;}
+.bottom_text{display: block;float: left;width: 30px;color:rgb(148,148,148);margin-left: 52px;}
+.bottom_text:hover{color: rgb(47,125,234);text-decoration: none;}
+.bottom_img1{display: block;width:25px;}
+.bottom_img1:hover{filter：drop-shadow(0 0 0 rgb(47,125,234));}
+.bottom_img2{display: block;width:25px;}
+.bottom_img2:hover{filter：drop-shadow(0 0 0 rgb(47,125,234));}
+.bottom_img3{display: block;width:25px;}
+.bottom_img3:hover{filter：drop-shadow(0 0 0 rgb(47,125,234));}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+th,em{font-style:normal;font-weight:normal;}
+ol,ul{list-style:none;}
+table{border-collapse:collapse;border-spacing:0;}
+img,a img{border:0;}
+body{font:8px,Arial;color:#666;background-color:#eee;}
+.nav{width:auto;overflow:hidden;margin:0 auto;height:100%;position:relative;line-height:43px;}
+.nav ul{ position:absolute;left:0;top:0;width:auto;height: 100%;background-color:rgb(241,245,248);z-index:1;}
+.nav ul li{width:80px; float:left; overflow:hidden;}
+.top_banner_left_a{color:#fff;width:100%; display:block; text-decoration:none;padding-top: 6px; text-align:center;color: black;font-weight:600;box-shadow:inset 0px 15px 10px -20px #000;}
+.top_banner_left_a:hover{color:#2F91EA;;text-decoration: none;}
+.top_banner_right_span{font-size: 30px;color: rgba(0,0,0,0.6);}
+.top_banner_right_a{display: block;text-align: center;}
+.top_banner_right_a:hover{text-decoration: none;}
+.carousel-inner_img{height:160px;position: absolute;}

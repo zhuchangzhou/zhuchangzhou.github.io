@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>我的</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="css/me_center.css"/>
+		<script src="js/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/layer/2.3/layer.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+		<script src="./js/rem.js"></script>
+		<script type="text/javascript" src="js/ctx.js"></script>
+		<script type="text/javascript" src="js/wode.js"></script>
+		<script type="text/javascript" src="js/zishiyin.js"></script>
+		<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+	  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+	  <script type="text/javascript" src="js/all_bottom.js"></script>
+	</head>
+	<body>
+	  <div class="main_back">
+		<div class="top_t">
+		  <div class="top_t_left">
+		        <a class="top_t_left_a" data-toggle="dropdown" href="#">
+		        </a>
+			</div>
+			<div class="top_t_center">
+				<span class="top_t_center_span">我的</span>
+			</div>
+			<div class="top_t_right">
+				<a href="#" class="top_t_right_search">
+			    </a>
+			</div>
+		</div>
+		<div class="me_center">
+			
+			<div class="me_center_top">
+				
+			</div>
+			
+			<div class="me_center_center">
+				<a href="zaixuekechen.html">
+				<div class="me_center_center_main">
+					<div class="me_center_center_main_img">
+						<img class="me_center_center_main_img_img" src="img/book.png"/>
+					</div>
+					<div class="me_center_center_main_ming">
+						<span>在学课程</span>
+					</div>
+					<div class="me_center_center_main_you">
+						<img class="me_center_center_main_you_img" src="img/you.png"/>
+					</div>
+				</div>
+				</a>
+				<a href="wodeshoucang.html">
+				<div class="me_center_center_main">
+					<div class="me_center_center_main_img">
+						<img class="me_center_center_main_img_img" src="img/xinxin.png"/>
+					</div>
+					<div class="me_center_center_main_ming">
+						<span>我的收藏</span>
+					</div>
+					<div class="me_center_center_main_you">
+						<img class="me_center_center_main_you_img" src="img/you.png"/>
+					</div>
+				</div>
+				</a>
+				<a href="javascript:void(0)">
+				<div class="me_center_center_main">
+					<div class="me_center_center_main_img">
+						<img class="me_center_center_main_img_img" src="img/xinxin.png"/>
+					</div>
+					<div class="me_center_center_main_ming  point">
+						<span></span>
+					</div>
+					<div class="me_center_center_main_you">
+						<img class="me_center_center_main_you_img" src="img/you.png"/>
+					</div>
+				</div>
+				</a>
+			</div>
+			<a href="xiaoxigonggao.html">
+			<div class="me_center_bottom">
+				<div class="me_center_center_main_bottom">
+					<div class="me_center_center_main_img">
+						<img class="me_center_center_main_img_img" src="img/xiaoxixi.png"/>
+					</div>
+					<div class="me_center_center_main_ming">
+						<span>我的消息</span>
+					</div>
+					<div class="me_center_center_main_you">
+						<img class="me_center_center_main_you_img" src="img/you.png"/>
+					</div>
+				</div>
+			</div>
+			</a>
+			<div class="me_center_footer">
+				<div class="me_center_center_main_bottom">
+					<div class="me_center_center_main_img">
+						<img class="me_center_center_main_img_img" src="img/shezhizhi.png"/>
+					</div>
+					<div class="me_center_center_main_ming">
+						<span>修改密码</span>
+					</div>
+					<div class="me_center_center_main_you">
+						<img class="me_center_center_main_you_img" src="img/you.png"/>
+					</div>
+				</div>
+			</div>
+			
+			<div class="me_center_footer_b">
+			<div class="me_center_center_main_bottom">
+					<span class="me_center_center_main_ming_span">退出登录</span>
+			</div>
+			</div>
+		</div>
+		<footer>
+			<!-- 固定底部区 -->
+			<ul id="tabFootNav" class="bui-nav">
+				<li class="bui-btn bui-box-vertical firstpage"><i class="icon-home"></i>
+					<div class="span1 ">首页</div>
+				</li>
+				<li class="bui-btn bui-box-vertical mycourse"><i class="icon-camera"></i>
+					<div class="span1">课程</div>
+				</li>
+				<li class="bui-btn bui-box-vertical myjob"><i class="icon-edit"></i>
+					<div class="span1">作业</div>
+				</li>
+				<li class="bui-btn bui-box-vertical active myinfo"><i class="icon-people">&#xe67b;</i>
+					<div class="span1">我的</div>
+				</li>
+			</ul>
+		</footer>
+	  </div>
+	</body>
+	<script>
+		$(".firstpage").click(function(){
+			window.location.href="./index.html";
+		});
+		$(".mycourse").click(function(){
+			window.location.href="./kechen.html";
+		})
+		$(".myjob").click(function(){
+			 $.ajax({
+			  type:"POST",
+			  url:ctxLocal+'semester/getSemesterData.action',
+			  data:{userId:loginId},
+			  dataType:"json",
+			  async:false,
+			  success: function(res) {
+					if(res.code==0){
+						if(res.data!=null && res.data!=''){
+							window.location.href="./plus/tea_course_term_makeThree.html";
+						}else{
+							window.location.href="./plus/tea_course_term_makeOne.html";
+						}
+					}
+			  },
+			  error:function(e){
+				  console.log(e);
+			  }				
+			 });
+			
+		})
+		$(".myinfo").click(function(){
+			window.location.href="./plus/wode.html";
+			})
+		//积分根据角色状态的不同,显示不同的值
+		$(function(){
+			var loginType = localStorage.getItem("loginType");
+			if(loginType=='1'||loginType=='2'){
+				$(".point").find("span").text('积分排名');
+				$(".point").find("span").click(function(){
+					window.location.href="./plus/integral-all.html"
+				})
+			}else{
+				$(".point").find("span").text('我的积分');
+				$(".point").find("span").click(function(){
+					window.location.href="./plus/myPoint.html"
+				})
+				
+			}
+			
+		})
+		
+			
+	</script>
+</html>

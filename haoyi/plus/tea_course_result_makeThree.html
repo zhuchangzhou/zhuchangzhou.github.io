@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>学生的成绩列表</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<style>
+			.job_list{
+				width:96%;
+				margin:0 auto;
+				margin-top:0.16rem;
+				background:#fff;
+				border-radius: 0.12rem;
+			}
+			.job_list_top{
+				padding:0.30rem 0.34rem;
+				border-bottom: 0.01rem solid #ececec;
+			}
+			.job_list_top h3{
+				display: inline-block;
+				padding:0.04rem 0.24rem;
+				background:#2F8CE5;
+				font-size:0.28rem;
+				border-radius: 0.10rem;
+				color:#fff;
+				margin-right:0.20rem;
+			}
+			.job_list_top h4{
+				display: inline-block;
+				font-size:0.32rem;
+				color:#333333;
+			}
+			.job_list_top h6{
+				font-size:0.60rem;
+				color:#333333;
+				float:right;
+				line-height:60%;
+			}
+			.job_list_mid {
+				padding:0.46rem 0.34rem;
+				border-bottom:0.01rem solid #ececec;
+			}
+			.job_list_mid h3,.job_list_mid h4{
+				display:inline-block;
+				margin-right:0.36rem;
+				font-size:0.30rem;
+				color:#777777;
+				margin-bottom:0.16rem;
+			}
+			.job_list_mid h5,.job_list_mid h6{
+				font-size:0.28rem;
+				color:#AEAEAE;
+				margin-bottom:0.16rem;
+			}
+			.job_list_mid h6{
+				margin-bottom:0
+			}
+			.job_list_bot{
+				padding:0.28rem 0.34rem;
+				overflow: hidden;
+			}
+			.job_list_bot h3{
+				float:left;
+				font-size:0.28rem;
+				color:#FFBD4C;
+				margin-top:0.10rem;
+			}
+			.job_list_bot h4{
+				float:right;
+				font-size:0.28rem;
+				color:#fff;
+				background: #2F8CE5;
+				padding:0.10rem 0.60rem;
+				border-radius: 0.50rem;
+			}
+			.fin h4{
+				font-size:0.28rem;
+				padding:0.10rem  0.50rem;
+			}
+			.fin h3{
+				color:#ADADAD;
+			}
+			.overdue h3{
+				color:#FB493F;
+			}
+			.overdue h4{
+				background:#FB493F;
+			}
+			.completed h3{
+				color:#18D571;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem">
+				<div class="bui-bar-left">
+					<a href="tea_course_result_makeTwo.html" class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a>
+				</div>
+				<div class="bui-bar-main" style="color:#000000">作业</div>
+				<a  href="#" onclick="return false"   class="bui-bar-right" style="width:auto;height:0.88rem;line-height:0.88rem;color:#fff">xxx</a>
+			</header>
+			<main>
+				<!-- 内容区滚动 -->
+				<div id="uiTab" class="bui-tab">
+				
+				</div>
+
+			</main>
+			<!-- <footer>
+				<ul id="tabFootNav" class="bui-nav">
+					<li class="bui-btn bui-box-vertical active"><i class="icon-home"></i>
+						<div class="span1">首页</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-edit"></i>
+						<div class="span1">课程</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-chat"></i>
+						<div class="span1">作业</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-setting"></i>
+						<div class="span1">我的</div>
+					</li>
+				</ul>
+			</footer> -->
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script src="../js/common_zcz.js"></script>
+	<script>
+		// bui.ready(function() {
+		// 	//选项卡的切换
+		// 	var uiTab = bui.tab({
+		// 		id: "#uiTab"
+		// 	});
+		// 	//底部的切换
+		// 	var tab = bui.tab({
+		// 		id:"#tabFoot",
+		// 		menu:"#tabFootNav"
+		// 	})
+		// 	$(".edit").click(function(){
+		// 		window.location.href="./stu_course_job_complete.html";
+		// 	})
+		// })
+		bui.ready(function() {
+					//先取到课程的名称
+					var courseName = localStorage.getItem("courseName");
+					//选项卡的切换
+					var uiTab = bui.tab({
+						id: "#uiTab",
+						autoload: true,
+						template: function(data) {
+							var html = '';
+							//渲染菜单结构
+							// <div class="bui-tab-head">
+							// 	<ul class="bui-nav">
+							// 		<li class="bui-btn">全部</li>
+							// 		<li class="bui-btn">未发布</li>
+							// 		<li class="bui-btn">进行中</li>
+							// 		<li class="bui-btn">已完成</li>
+							// 		<li class="bui-btn">已逾期</li>
+							// 	</ul>
+							// </div>
+							//渲染菜单结构
+							html += '<div class="bui-tab-head"><ul class="bui-nav">';
+							data.forEach(function(item, i) {
+								html += '<li class="bui-btn">' + item.title + '</li>';
+							})
+							html += '</ul></div>';
+							//渲染内容结构
+							html += '<div class="bui-tab-main"><ul>';
+							data.forEach(function(item, i) {
+								html += '<li>';
+								//里面需要嵌套一层循环来实现列表的插入
+								html += '<ul>';
+								var dataChildren = item.list;
+								dataChildren.forEach(function(item1, j) {
+									if(item1.uHWState=='4'){
+										html +='<li class="job_list">';
+										html +='<div class="job_list_top">';
+										html +='<h3>'+courseName+'</h3>';
+										html +='<h4>'+item1.hwName+'</h4>';
+										html +='</div>';
+										html +='<div class="job_list_mid">';
+										html +='<h3>已交人数：<span>'+item1.finishedNum+'</span>/<span>'+item1.sumHWNum+'</span>人</h3> ';
+										html +='<h5>截止时间：'+format(item1.closingDate)+'</h5>';
+										html +='<h5>得分：0</h5>';
+										html +='</div>';
+										html +='<div class="job_list_bot fin">';
+										html +='<h3>未完成</h3>';
+										html +='<h4 class="edit linkBtn" data-hwId="'+item1.hwId+'" data-id="'+item1.id+'">查看</h4>';
+										html +='</div>';
+										html +='</li>';
+									}else if(item1.uHWState=='3'  || item1.uHWState=='5'){
+										html +='<li class="job_list">';
+										html +='<div class="job_list_top">';
+										html +='<h3>'+courseName+'</h3>';
+										html +='<h4>'+item1.hwName+'</h4>';
+										html +='</div>';
+										html +='<div class="job_list_mid">';
+										html +='<h3>已交人数：<span>'+item1.finishedNum+'</span>/<span>'+item1.sumHWNum+'</span>人</h3> ';
+										html +='<h5>截止时间：'+format(item1.closingDate)+'</h5>';
+										html +='<h6>提交时间：'+format(item1.createTime)+'</h6>';
+										html +='<h5>得分：'+item1.score+'</h5>';
+										html +='<h6>评语：'+item1.markContent+'</h6>';
+										html +='</div>';
+										html +='<div class="job_list_bot completed">';
+										html +='<h3>已完成</h3>';
+										html +='<h4 class="edit linkBtnCom" data-hwId="'+item1.hwId+'" data-id="'+item1.id+'">查看</h4>';
+										html +='</div>';
+										html +='</li>';
+									}
+								})
+								html += '</ul>';
+								html += '</li>';
+							})
+							html += '</ul></div>';
+							return html;
+						},
+					});
+					var stuId = localStorage.getItem("stuId");
+					
+					var courseId = localStorage.getItem("courseId");
+					
+					// 异步请求数据
+					// url:ctx+"homeWork/getHomeWorkData.action",
+					//url:'http://127.0.0.1:8080/general/homeWork/getHomeWorkData.action',
+					bui.ajax({
+						url: ctxLocal+"homeWork/getStuHWorkData.action",
+						data:{
+							uId:stuId,//用户Id     id//主键 作业Id   hwId  作业Id
+							courseId:courseId//课程Id
+						},
+						method:"POST"
+					}).then(function(res) {
+						if (res.code == 0) {
+							
+							var resArr = [];
+							var all = {
+								title:"全部",
+								list:res.data
+							}
+							resArr.push(all);
+							var midList = [];
+							var completedList = [];
+							var mid = {
+								title:"未完成",
+								list:[]
+							};
+						
+							var completed = {
+								title:"已完成",
+								list:[]
+							};
+							
+							res.data = res.data.reverse();
+							for(var i = 0;i<res.data.length;i++){
+								if(res.data[i].uHWState =="1"){
+									//对截至时间进行转换
+									res.data[i].closingDate = format(res.data[i].closingDate);
+									midList.push(res.data[i]);
+									var mid = {
+										title:"未完成",
+										list:midList
+									}
+									
+								}else if(res.data[i].uHWState =="3" || res.data[i].uHWState =="5"){
+									res.data[i].closingDate = format(res.data[i].closingDate);
+									
+									completedList.push(res.data[i]);
+									var completed = {
+										title:"已完成",
+										list:completedList
+									}
+									
+								}
+							}
+							
+							resArr.push(mid);
+							resArr.push(completed);
+							uiTab.option("data", resArr);
+							$(".linkBtn").click(function() {
+								var sHwId= $(this).attr("data-id");
+								var tHwId= $(this).attr("data-hwId");
+								localStorage.setItem("sHwId",sHwId);
+								localStorage.setItem("tHwId",tHwId);
+								window.location.href="./tea_course_result_makeFour.html";
+							})
+							$(".linkBtnCom").click(function() {
+								var sHwId= $(this).attr("data-id");
+								var tHwId= $(this).attr("data-hwId");
+								localStorage.setItem("sHwId",sHwId);
+								localStorage.setItem("tHwId",tHwId);
+								window.location.href="./tea_course_result_makeFour.html";
+							})
+						}
+					}, function(e) {
+						console.log(e);
+						var res = [{
+								title: "全部",
+								list: [
+									{
+										id: "1",
+										courseName: "英语",
+										hwName: "第八章作业",
+										finishedNum: "36",
+										sumHWNum: "36",
+										closingDate: "2019.08.21 05:24",
+										uHWState: "2",
+									}, {
+										id: "3",
+										courseName: "英语",
+										hwName: "第八章作业",
+										finishedNum: "36",
+										sumHWNum: "36",
+										closingDate: "2019.08.21 05:24",
+										createTime: "2019.08.21 05:24",
+										score:"89.00",
+										markContent:"不熟练，好好学习",
+										uHWState: "3",
+									},
+									
+								]
+							},
+							{
+								title: "未完成",
+								list: [{
+									id: "1",
+									courseName: "英语",
+									hwName: "第八章作业",
+									finishedNum: "36",
+									sumHWNum: "36",
+									closingDate: "2019.08.21 05:24",
+									uHWState: "2",
+								}]
+							},
+							{
+								title: "已完成",
+								list: [{
+									id: "3",
+									courseName: "英语",
+									hwName: "第八章作业",
+									finishedNum: "36",
+									sumHWNum: "36",
+									closingDate: "2019.08.21 05:24",
+									createTime: "2019.08.21 05:24",
+									score:"89.00",
+									markContent:"不熟练，好好学习",
+									uHWState: "3",
+								}]
+							}
+						];
+						uiTab.option("data", res);
+						$(".linkBtn").click(function() {
+							var hwId = $(this).attr("data-id");
+							localStorage.setItem("hwId",hwId);
+							window.location.href="./stu_course_job_do.html";
+						})
+						$(".linkBtnCom").click(function() {
+							var hwId = $(this).attr("data-id");
+							localStorage.setItem("hwId",hwId);
+							window.location.href="./stu_course_job_complete.html";
+						})
+					})
+				})
+	</script>
+</html>

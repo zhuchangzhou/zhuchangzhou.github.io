@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>教师课程列表</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<link rel="stylesheet" href="../css/layer.css">
+		<link rel="stylesheet" href="../css/common_zcz.css">
+		<link rel="stylesheet" href="../css/tea_course_list.css">
+		<style>
+			[v-cloak] {
+				display: none !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem;">
+				<div class="bui-bar-left">
+					<a  class="bui-btn" style="color:#fff"><i class="icon-back" style="color:#fff"></i>返回</a>
+				</div>
+				<div class="bui-bar-main" style="color:#000000">学期</div>
+				<div class="bui-bar-right"></div>
+			</header>
+			<main style="background: #EBEFF2;">
+				<div id="load" class="bui-btn primary  ring save " style="text-align:center;font-size:0.34rem;display: block;width:90%;line-height:150%;margin-top:0.25rem;margin-bottom:0.24rem;">创建学期</div>
+				<ul class="bui-list termList" v-cloak>
+					<li class="bui-btn bui-box load" style="padding:0.20rem 0.25rem;margin-bottom:0.12rem " v-for="(item,index) in objectArray" @click="linkTo(item.id,item.semesterName)">
+						<label class="bui-label" style="min-width:3.68rem;font-size:0.34rem;color:#000">{{item.semesterName}}</label>
+						<div class="span1">
+						</div>
+						<i class="icon-listright" style="font-size:0.28rem;color:#CECECE"></i>
+					</li>
+					<!-- <li class="bui-btn bui-box load" style="padding:0.20rem 0.25rem;margin-bottom:0.12rem ">
+						<label class="bui-label" style="min-width:3.68rem;font-size:0.34rem;color:#000">2019年下学期</label>
+						<div class="span1">
+						</div>
+						<i class="icon-listright" style="font-size:0.28rem;color:#CECECE"></i>
+					</li>
+					<li class="bui-btn bui-box load" style="padding:0.20rem 0.25rem;margin-bottom:0.12rem ">
+						<label class="bui-label" style="min-width:3.68rem;font-size:0.34rem;color:#000">2019年下学期</label>
+						<div class="span1">
+						</div>
+						<i class="icon-listright" style="font-size:0.28rem;color:#CECECE"></i>
+					</li>
+					<li class="bui-btn bui-box load" style="padding:0.20rem 0.25rem;margin-bottom:0.12rem ">
+						<label class="bui-label" style="min-width:3.68rem;font-size:0.34rem;color:#000">2019年下学期</label>
+						<div class="span1">
+						</div>
+						<i class="icon-listright" style="font-size:0.28rem;color:#CECECE"></i>
+					</li>
+					<li class="bui-btn bui-box load" style="padding:0.20rem 0.25rem;margin-bottom:0.12rem ">
+						<label class="bui-label" style="min-width:3.68rem;font-size:0.34rem;color:#000">2019年下学期</label>
+						<div class="span1">
+						</div>
+						<i class="icon-listright" style="font-size:0.28rem;color:#CECECE"></i>
+					</li> -->
+				</ul>
+
+			</main>
+				<footer>
+				<ul id="tabFootNav" class="bui-nav">
+					<li class="bui-btn bui-box-vertical firstpage"><i class="icon-home"></i>
+						<div class="span1 ">首页</div>
+					</li>
+					<li class="bui-btn bui-box-vertical mycourse"><i class="icon-camera"></i>
+						<div class="span1">课程</div>
+					</li>
+					<li class="bui-btn bui-box-vertical  active myjob"><i class="icon-edit"></i>
+						<div class="span1">作业</div>
+					</li>
+					<li class="bui-btn bui-box-vertical myinfo"><i class="icon-people">&#xe67b;</i>
+						<div class="span1">我的</div>
+					</li>
+				</ul>
+			</footer>
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script src="../js/common_zcz.js"></script>
+	<script>
+		
+		bui.ready(function() {
+					$(".firstpage").click(function(){
+				window.location.href="../index.html";
+			});
+			$(".mycourse").click(function(){
+				window.location.href="../kechen.html";
+			})
+			$(".myjob").click(function(){
+				window.location.href="./tea_course_term_makeThree.html";
+			})
+			$(".myinfo").click(function(){
+				window.location.href="../wode.html";
+			})
+			$(".save").click(function(){
+				window.location.href="./tea_course_term_makeTwo.html"
+			})
+			//生成vue实例
+			var vm = new Vue({
+				el:".termList",
+				data:{
+					objectArray:[]
+				},
+				methods:{
+					linkTo(dataId,dataName){
+						var termId = dataId;
+						var termName = dataName;
+						localStorage.setItem("termId",termId);
+						localStorage.setItem("termName",termName);
+						//根据学期下是否有课程跳转到不同的页面;
+						$.ajax({
+							type:"POST",
+							// url:ctx+"courseInfoMgr/coursePageInfo.action",
+							url:ctxLocal+'courseInfoMgr/coursePageInfo.action',
+							data:{
+								authorId:loginId,
+								semesterId:termId
+							},
+							success:function(res){
+								if(res.code==0){
+									if(res.data!=null &&res.data!=''){
+										window.location.href="./tea_course_makeTwo.html";
+									}else{
+										window.location.href="./tea_course_makeOne.html";
+									}
+									
+								}
+							},
+							error:function(e){
+								console.log(e)
+							},
+							
+						})
+					}	
+				}
+			})
+			//渲染列表
+			var loginId = localStorage.getItem("loginId");
+			bui.ajax({
+				url: ctxLocal+'semester/getSemesterData.action',
+				data: {
+					userId:loginId
+				},
+				
+			}).then(function(res) {
+				if(res.code ==0){
+					//赋值
+					vm.$data.objectArray = res.data;
+				}else{
+					alert("参数异常");
+					vm.$data.objectArray = [{
+						id:'1',
+						semesterName:"term1"
+					},{
+						id:'2',
+						semesterName:"term2"
+					},{
+						id:'3',
+						semesterName:"term3"
+					}]
+				}
+			}, function(res, status) {
+				console.log(status);
+			})
+		})
+	</script>
+</html>

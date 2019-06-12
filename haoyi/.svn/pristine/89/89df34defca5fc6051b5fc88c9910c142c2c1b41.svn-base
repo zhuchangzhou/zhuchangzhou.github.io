@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>首页</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="js/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/layer/2.3/layer.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+		<script src="./js/rem.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/jscript" src="js/index_banner.js"></script>
+		<script type="text/javascript" src="js/zishiyin.js"></script>
+		<script type="text/javascript" src="js/ctx.js"></script>
+		<script type="text/javascript" src="js/cookie.js"></script>
+	  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/all_bottom.js"></script>
+		<script type="text/javascript" src="js/hhSwipe.js"></script>
+		<script type="text/javascript">
+	     window.onload = function() {
+    		var course_one = document.getElementsByClassName("course_one");// 循环
+    		for(var i = 0; i < course_one.length; i++) {    
+     			(function(i) {    
+      				course_one[i].ontouchstart =function() {
+          			(this).css("box-shadow","0px 1px 11px black;");
+        			};        
+        			course_one[i].ontouchend =function() {            
+        	 			  $(this).css("box-shadow","");       
+        			};    
+       			})(i);
+     		}
+  	   };
+		</script>
+		<style type="text/css">
+		*{margin:0;padding:0;list-style-type:none;}
+		a,img{border:0;}
+		body{font:12px/180% Arial, Helvetica, sans-serif;}
+		
+		.addWrap{ position:relative; width:100%;background:#fff;margin:0; padding:0;}
+		.addWrap .swipe{overflow: hidden;visibility: hidden;position:relative;}
+		.addWrap .swipe-wrap{overflow:hidden;position:relative;}
+		.addWrap .swipe-wrap > div {float: left;width: 100%;position:relative;}
+		#position{ position:absolute; bottom:0; right:0; padding-right:8px; margin:0; opacity: 0.4; width:100%; filter: alpha(opacity=50);text-align:right;}
+		#position li{width:8px;height:8px;margin:0 2px;display:inline-block;-webkit-border-radius:5px;border-radius:5px;background-color:#AFAFAF;}
+		#position li.cur{background-color:rgb(47,145,234);}
+		.img-responsive { display: block; max-width:100%;height: auto;}
+		</style>
+	</head>
+	<body>
+	  <div class="main_back">
+		<!-- banner导航开始 -->
+		<!-- banner开始 -->
+		<div class="top_t">
+			<!-- <div class="top_t_left">
+				<a class="top_t_left_a" href="xiaoxigonggao.html">
+					<span style=""><img style="background-color:rgb(246,248,247)" width="25px" src="img/xiaoxi.png"></span>
+				</a>
+			</div>
+			<div class="top_t_center">
+				<span class="top_t_center_span">首页</span>
+			</div>
+			<div class="top_t_right">
+				<a href="sousuo.html" class="top_t_right_search">
+					<span class=""><img src="img/sousuo.png" style="width: 25px;" ></span>
+				</a>
+			</div> -->
+		</div>
+		<!-- banner开始 -->
+		<!-- banner导航结束 -->
+		<!-- 轮播图开始 -->
+		<div class="center_main">
+		<div class="rotation_chart">
+			<div class="addWrap">
+				<div class="swipe" id="mySwipe">
+					<div class="swipe-wrap">
+						<div><a href="javascript:;"><img class="img-responsive" src="img/shouye1.jpg"/></a></div>
+						<div><a href="javascript:;"><img class="img-responsive" src="img/shouye2.jpg" /></a></div>
+						<div><a href="javascript:;"><img class="img-responsive" src="img/shouye3.jpg"/></a></div>
+					</div>
+				</div>
+				<ul id="position">
+					<li class="cur"></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div><!--/addWrap-->
+		</div>
+		<!-- 轮播图结束 -->
+		<!-- 中间推荐课程开始 -->
+		<div class="center_a">
+			<div class="center_a_span_left">
+				<span class="center_a_span_left_span">推荐课程</span>
+			</div>
+			<div class="center_span_right">
+				<a href="kechen.html"><span class="center_a_span_right_span">更多></span></a>
+			</div>
+		</div>
+		<!-- 中间推荐课程结束 -->
+		<!-- 课程详细信息开始 -->
+		<div class="course">
+		</div>
+		<!-- 课程详细信息结束 -->
+		</div>
+		<!-- 底部开始 -->
+		<footer>
+			<!-- 固定底部区 -->
+			<ul id="tabFootNav" class="bui-nav">
+				<li class="bui-btn bui-box-vertical active firstpage"><i class="icon-home"></i>
+					<div class="span1 ">首页</div>
+				</li>
+				<li class="bui-btn bui-box-vertical mycourse"><i class="icon-camera"></i>
+					<div class="span1">课程</div>
+				</li>
+				<li class="bui-btn bui-box-vertical myjob"><i class="icon-edit"></i>
+					<div class="span1">作业</div>
+				</li>
+				<li class="bui-btn bui-box-vertical myinfo"><i class="icon-people">&#xe67b;</i>
+					<div class="span1">我的</div>
+				</li>
+			</ul>
+		</footer>
+		<!-- 底部结束 -->
+	  </div>
+		<script type="text/javascript">
+		var bullets = document.getElementById('position').getElementsByTagName('li');
+		
+		var banner = Swipe(document.getElementById('mySwipe'), {
+			auto: 4000,
+			continuous: true,
+			disableScroll:false,
+			callback: function(pos) {
+				var i = bullets.length;
+				while (i--) {
+					bullets[i].className = ' ';
+				}
+				bullets[pos].className = 'cur';
+			}
+		})
+		$(".firstpage").click(function(){
+			window.location.href="./index.html";
+		});
+		$(".mycourse").click(function(){
+			window.location.href="./kechen.html";
+		})
+		$(".myjob").click(function(){
+				 $.ajax({
+			 type:"POST",
+			 url:ctxLocal+'semester/getSemesterData.action',
+			 data:{userId:loginId},
+			 dataType:"json",
+			 async:false,
+			 success: function(res) {
+								if(res.code==0){
+									if(res.data!=null && res.data!=''){
+										window.location.href="./plus/tea_course_term_makeThree.html";
+									}else{
+										window.location.href="./plus/tea_course_term_makeOne.html";
+									}
+								}
+			 },
+			 error:function(e){
+							  console.log(e);
+			 }				
+			});
+		})
+		$(".myinfo").click(function(){
+			window.location.href="./wode.html";
+		})
+		</script>
+	</body>
+</html>

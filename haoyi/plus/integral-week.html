@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>学生课程的作业列表</title>
+         <link rel="stylesheet" type="text/css" href="../css/online_learning.css">
+         <link rel="stylesheet" type="text/css" href="../css/integral-all.css">
+        <style>
+            *{
+                margin:0;
+                padding:0;
+                list-style: none;
+                outline: none;
+                border:0;
+                font-size:0.32rem;
+            }
+            
+
+        </style>
+    </head>
+    <body>
+        <div class="phone">
+            <div class="head">积分排名</div>
+			<div class="back">返回</div>
+            <div class="all">
+                <div class="integral-01">
+                    <a href="integral-all.html" style="color:#999999">全部排名</a>
+                </div>
+                <div class="line">
+                    
+                </div>
+                <div class="integral-02">
+                    <a href="#" class="active">本周排名</a>
+                </div>
+            </div>
+            <div class="list">
+                 <ul class="list-01 rankList">    
+                    <!--  <li v-for="(item,index) in objectArray" @keys="index">
+                    						<div class="serial-me">{{index+1}}</div>
+                    						<a href="">
+                    						    <img  class="image-01" :src="item.courseJacket">
+                    						</a>
+                    						<div class="name-01">{{item.sname}}</div>
+                    						<div class="number-01">{item.sscore}}</div>
+                    						<div class="line-c"></div>
+                    					</li> -->
+                    
+                    <li >
+                        <div class="serial-me">1</div>
+                        <a href="">
+                            <img  class="image-01" src="../img/2.png">
+                        </a>
+                        <div class="name-01">宋茜茜</div>
+                        <div class="number-01">18635</div>
+                        <div class="line-c"></div>
+                    </li>
+                    <li >
+                        <div class="serial-me">2</div>
+                        <a href="">
+                            <img  class="image-01" src="../img/3.png">
+                        </a>
+                        <div class="name-01">王芳</div>
+                    
+                        <div class="number-01">18330</div>
+                        <div class="line-c"></div>
+                    </li>
+                    <li >
+                        <div class="serial-me">3</div>
+                        <a href="">
+                            <img  class="image-01" src="../img/4.png">
+                        </a>
+                        <div class="name-01">史大伟</div>
+                    
+                        <div class="number-01">17598</div>
+                        <div class="line-c"></div>
+                    </li>
+                    <li >
+                        <div class="serial-me">4</div>
+                        <a href="">
+                            <img  class="image-01" src="../img/5.png">
+                        </a>
+                        <div class="name-01">苏达</div>
+                    
+                        <div class="number-01">16635</div>
+                        <div class="line-c"></div>
+                    </li>
+                    <li >
+                        <div class="serial-me">5</div>
+                        <a href="">
+                            <img  class="image-01" src="../img/6.png">
+                        </a>
+                        <div class="name-01">李静</div>
+                    
+                        <div class="number-01">16421</div>
+                        <div class="line-c"></div>
+                    </li>
+                    <li >
+                        <div class="serial-me">6</div>
+                        <a href="">
+                            <img  class="image-01" src="../img/2.png">
+                        </a>
+                        <div class="name-01">李彦楠</div>
+                    
+                        <div class="number-01">12635</div>
+                        <div class="line-c"></div>
+                    </li>
+                    <li >
+                        <div class="serial-me">7</div>
+                        <a href="">
+                            <img  class="image-01" src="../img/3.png">
+                        </a>
+                        <div class="name-01">张燕</div>
+                    
+                        <div class="number-01">12498</div>
+                        <div class="line-c"></div>
+                    </li>
+                    <li >
+                        <div class="serial-me">8</div>
+                        <a href="">
+                            <img  class="image-01" src="../img/4.png">
+                        </a>
+                        <div class="name-01">朱珠</div>
+                    
+                        <div class="number-01">10569</div>
+                        <div class="line-c"></div>
+                    </li>
+                    <li >
+                        <div class="serial-me">9</div>
+                        <a href="">
+                            <img  class="image-01" src="../img/5.png">
+                        </a>
+                        <div class="name-01">倪好</div>
+                    
+                        <div class="number-01">9635</div>
+                        <div class="line-c"></div>
+                    </li>
+                    <li >
+                        <div class="serial-me">10</div>
+                        <a href="">
+                            <img  class="image-01" src="../img/6.png">
+                        </a>
+                        <div class="name-01">张明宇</div>
+                    
+                        <div class="number-01">8635</div>
+                        <div class="line-c"></div>
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="me" >
+                    <div class="serial-me">24</div>
+                    <a href="">
+                        <img  class="image-01" src="../img/2.png">
+                    </a>
+                    <div class="name-01">李某某</div>
+                    
+                    <div class="number-01">2635</div>
+                    
+            </div>
+        </div>
+    </body>
+   <script src="../js/jquery.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+   <script src="../js/rem.js"></script>
+   <script src="../js/vue.js"></script>
+   <script>
+      $(function(){
+   	   $(".back").click(function(){
+   		    window.location.href="../wode.html"
+   	   })
+      })
+      function getStuPointRank(){
+   	   var stuPointArr = [];
+   	   $.ajax({
+   		   url:ctxLocal+'',
+   		   type:'POST',
+   		   data:{
+   			   
+   		   },
+   		   dataType:'json',
+   		   success:function(res){
+   			   if(res.code==1){
+				   for(var i=0;i<res.data.length;i++){
+				   	res.data[i].courseJacket = ctxLocal+res.data[i].courseJacket;
+				   }
+   				   stuPointArr =res.data
+   			   }
+   		   },
+   		   error:function(e){
+   			   console.log(e);
+   		   }
+   			
+   	   })
+   	   var vm = new Vue({
+   		   el:".rankList",
+   		   data:{
+   			   objectArr:[]
+   		   },
+   		   methods:{
+   			   
+   		   }
+   	   })
+   	   vm.$data.objectArray = stuPointArr;
+   	   
+      }
+    </script>
+</html>

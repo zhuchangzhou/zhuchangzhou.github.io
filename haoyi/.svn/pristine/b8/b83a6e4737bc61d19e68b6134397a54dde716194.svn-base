@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>课程</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+	  <link rel="stylesheet" href="css/kechen_course.css"/>
+	  <script src="js/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/layer/2.3/layer.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+		<script src="./js/rem.js"></script>
+		<script type="text/javascript" src="js/kechen.js"></script>
+		<script type="text/javascript" src="js/zishiyin.js"></script>
+		<script type="text/javascript" src="js/ctx.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	  <script type="text/javascript" src="js/all_bottom.js"></script>
+	</head>
+	<body>
+	  <div class="main_back">
+		<!-- 顶部开始 -->
+		<div class="top_t">
+		    <div class="top_t_left">
+		        <a class="top_t_left_a" data-toggle="dropdown" href="#">
+		        </a>
+			</div>
+			<div class="top_t_center">
+				<span class="top_t_center_span">课程</span>
+			</div>
+			<div class="top_t_right">
+				<a href="javascript:;" class="top_t_right_search">
+				  <span class=""><img src="img/sousuo.png" style="width: 25px;" ></span>
+			    </a>
+			</div>
+		</div>
+		<!-- 顶部结束 -->
+		<!-- 滑动nav开始 -->
+	  <div class="top_banner">
+		</div>
+		<!-- 滑动nav结束 -->
+		<!-- 课程详情开始 -->
+		<div class="kechen_course">
+		  
+		</div>
+		<!-- 课程详情结束 -->
+     <!-- 底部开始 -->	
+		<footer>
+			<!-- 固定底部区 -->
+			<ul id="tabFootNav" class="bui-nav">
+				<li class="bui-btn bui-box-vertical firstpage"><i class="icon-home"></i>
+					<div class="span1 ">首页</div>
+				</li>
+				<li class="bui-btn bui-box-vertical  active mycourse"><i class="icon-camera"></i>
+					<div class="span1">课程</div>
+				</li>
+				<li class="bui-btn bui-box-vertical myjob"><i class="icon-edit"></i>
+					<div class="span1">作业</div>
+				</li>
+				<li class="bui-btn bui-box-vertical myinfo"><i class="icon-people">&#xe67b;</i>
+					<div class="span1">我的</div>
+				</li>
+			</ul>
+		</footer>
+		<!-- 底部结束 -->
+		</div>
+	</body>
+	<script>
+		$(".firstpage").click(function(){
+			window.location.href="./index.html";
+		});
+		$(".mycourse").click(function(){
+			window.location.href="./kechen.html";
+		})
+		$(".myjob").click(function(){
+				 $.ajax({
+			 type:"POST",
+			 url:ctxLocal+'semester/getSemesterData.action',
+			 data:{userId:loginId},
+			 dataType:"json",
+			 async:false,
+			 success: function(res) {
+								if(res.code==0){
+									if(res.data!=null && res.data!=''){
+										window.location.href="./plus/tea_course_term_makeThree.html";
+									}else{
+										window.location.href="./plus/tea_course_term_makeOne.html";
+									}
+								}
+			 },
+			 error:function(e){
+							  console.log(e);
+			 }				
+			});
+		})
+		$(".myinfo").click(function(){
+			window.location.href="./wode.html";
+		})
+	</script>
+</html>

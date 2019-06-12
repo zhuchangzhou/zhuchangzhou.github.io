@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>班级二维码</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<link rel="stylesheet" href="../css/layer.css">
+		<link rel="stylesheet" type="text/css" href="../css/online_learning.css">
+		<link rel="stylesheet" type="text/css" href="../css/classlist.css">
+		<link rel="stylesheet" type="text/css" href="../css/ma.css">
+		<link rel="stylesheet" href="../css/common_zcz.css">
+	</head>
+	<body background="#ccc">
+		<div class="top" style=" width:100%;height:0.88rem;background: #fff;">
+			<div class="back_scan" style="display: inline-block;width:20%;line-height:0.88rem;margin-left:0.28rem">返回</div>
+			<div class="head_scan" style="display: inline-block;width:60%;line-height:0.88rem;text-align: center;">班级</div>
+			<a href="javascript:void(0)" class="load" style="color:#fff">确定</a>
+			
+			<div class="content" style="background: #E8ECEF;">
+				<!-- <a id="makeClass" href="./tea_course_classRoom_makeTwo.html" class="bui-btn primary  ring save " style="text-align:center;font-size:0.34rem;display: block;width:3.64rem;line-height:120%;margin-top:0.20rem;color:#fff">创建班级</a> -->
+				<div class="list1" v-for="(item,index) in objectArray" @keys="index" @click="linkTo(item.id,item.cRomName)">
+					<div class="left">
+						<span class="class-icon">班</span>
+						<span class="name">{{item.cRomName}}</span>
+						<div class="bianma">
+							<i class="number"></i>
+							<span class="bianma_01">班级编码</span>
+							<span class="bianma_02">{{item.classBM}}</span>
+						</div>
+						<div class="people">
+							<i class="number_01"></i>
+							<span class="bianma_01">教师</span>
+							<span class="bianma_02">{{item.chargeId}}</span>
+							<i class="number_02"></i>
+							<span class="bianma_01">学生人数</span>
+							<span class="bianma_02">{{item.stuNum}}</span>
+						</div>
+					</div>
+					<div class="right"></div>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="mask" style="display: none;">
+			<div class="phone" style="display: none;">
+				<div class="content">
+					<div class="class-name">
+						<center>大学生创业基础课程3班（机械、物流、冶金）
+						</center>
+					</div>
+					<div class="class-number">
+						<center>班级编码：01002135</center>
+					</div>
+					<div class="class-ma">
+						<img src="../img/class-ma.png">
+					</div>
+					<div class="class-number-01">
+						<center>AHUMKE</center>
+					</div>
+					<div class="hui">
+
+					</div>
+					<div class="ps">
+						<center>请长按此二维码，转发给您的学生，
+							让学生按二维码进入您的班级</center>
+					</div>
+
+				</div>
+				<div class="close">
+					<img src="../img/close.png" style="width:20%;height:20%">
+				</div>
+			</div>
+
+		</div>
+ -->
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script src="../js/common_zcz.js"></script>
+	<script>
+		var w = wWidth();
+		var h = wHeight();
+		var loginId = localStorage.getItem("loginId",loginId);
+		var termId =localStorage.getItem("termId",termId);
+		$(function() {
+		
+			$(".back_scan").click(function() {
+				window.location.href = "./tea_course_class_job.html";
+			})
+
+// 			$(".load").on("click", function() {
+// 				$(".top").css({
+// 					"opacity": '0.6'
+// 				})
+// 				//出个弹窗
+// 				$(".mask").css({
+// 					"width": w,
+// 					"height": h,
+// 					"display": "block",
+// 					"background": "#000",
+// 					"zIndex": '900',
+// 					"opacity": '0.85',
+// 					"position": 'fixed',
+// 				})
+// 				$(".phone").css({
+// 					"display": "block",
+// 					"zIndex": '999',
+// 				})
+// 			})
+// 			$(".close").on("click", function() {
+// 				$(".mask").css({
+// 					"display": "none",
+// 
+// 				})
+// 				$(".top").css({
+// 					"opacity": '1.0'
+// 				})
+// 			})
+			//动态渲染数据
+			var vm = new Vue({
+				el: ".content",
+				data: {
+					objectArray: []
+				},
+				methods: {
+					linkTo: function(dataId,cRomName) {
+						var classId = dataId;
+						var cRomName = cRomName;
+						localStorage.setItem("classId",classId);
+						localStorage.setItem("cRomName",cRomName);
+						window.location.href = "./tea_course_result_makeTwo.html"
+					}
+				}
+			})	
+			//获取数据
+			$.ajax({
+				type: "POST",
+				url: ctxLocal+'classRoom/getClassRoomData.action',
+				data: {
+					uId:loginId,
+					semesterId:termId,
+					state:1
+				},
+				async: false,
+				contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+				success: function(res) {
+					if (res.code == 0) {
+						//需要处理的参数处理下
+						vm.$data.objectArray = res.data;
+					}
+				},
+				error:function(e){
+					console.log(e+'接口调取失败')
+				}
+			})
+			
+		})
+	</script>
+</html>

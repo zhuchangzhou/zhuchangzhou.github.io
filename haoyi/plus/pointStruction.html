@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>积分说明</title>
+	<link rel="stylesheet" href="../css/pointStruction.css">
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/ctx.js"></script>
+</head>
+<body>
+	<!-- 头部 -->
+	<header>
+		<div class="header-top">
+			<div class="return">
+				<a href="myPoint.html">返回</a>
+			</div>
+			<div class="header-title">
+				<span>积分说明</span>
+			</div>
+			<div class="pointStruction">
+				<span>积分说明</span>
+			</div>
+		</div>
+	</header>
+	<!-- 主体内容 -->
+	<section class="content">
+		<div class="content-title">
+			<h3>用户如何获取积分：</h3>
+			<p>您完成APP注册、使用APP功能、参与APP互动就可以获得相应积分。</p>
+		</div>
+		
+		<div class="content-list">
+			<h3>具体积分获取方式如下：</h3>
+			<ul class="content-list-ul">
+				<li v-for="(item,index) in objectArray"  :style="{ 'background-image': 'url(http://47.92.104.238:8080/general'+item.backGroundSrc+')','background-repeat':'no-repeat','background-size':'cover'}">
+					<div class="cl-left">
+						<h3>{{item.ruleTitle}}</h3>
+						<h4>{{item.integralDesc}}</h4>
+					</div>
+					<div class="cl-right">
+						<h3>+{{item.score}}</h3>
+						<h4 v-if="item.ruleTitle=='登录'">一次</h4>
+						<h4 v-else>多次</h4>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+</body>
+<script src="../js/rem.js"></script>
+<script src="../js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:".content-list-ul",
+		data:{
+			objectArray:[]
+		}
+	})
+	console.log(vm.$data.objectArray);
+	$.ajax({
+		type:"POST",
+		// url:ctx+"integralRule/getRuleInfoData.action",
+		url:ctxLocal+'integralRule/getRuleInfoData.action',
+		data:{
+			
+		},
+		success:function(res){
+			if(res.code ==1){
+				vm.$data.objectArray =res.data;
+			}else{
+				
+			}
+		},
+		error:function(e){
+			console.log(e);
+		}
+	})
+</script>
+</html>

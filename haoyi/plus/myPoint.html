@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<!-- 兼容苹果的各版本 -->
+		<meta name="viewport" content="width=320,maximum-scale=1.3,user-scalable=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>我的积分</title>
+		<link rel="stylesheet" href="../css/myPoint.css">
+		<link rel="stylesheet" href="../css/layer.css">
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/ctx.js"></script>
+		<script src="../js/layer.js"></script>
+		<style>
+			[v-cloak] {
+				display: none !important;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 头部的导航 -->
+		<header>
+			<div class="header-top">
+				<div class="return">
+					<a href="../wode.html">返回</a>
+				</div>
+				<div class="header-title">
+					<span>我的积分</span>
+				</div>
+				<div class="pointStruction">
+					<a href="pointStruction.html"><span>积分说明</span></a>
+				</div>
+			</div>
+			<div class="header-body">
+				<h3></h3>
+				<h4>当前积分</h4>
+			</div>
+		</header>
+		<!-- 列表内容部分 -->
+		<section class="content">
+			<ul class="content-list" v-cloak>
+				<li v-for="(item,index) in objectArray" :keys="index">
+					<div class="cl-left">
+						<h3>{{item.integralDesc}}</h3>
+						<h4>{{item.createTime}}</h4>
+					</div>
+					<div class="cl-right">
+						<span>+{{item.score}}</span>
+					</div>
+				</li>
+			</ul>
+		</section>
+	</body>
+	<script src="../js/rem.js"></script>
+	<script src="../js/vue.js"></script>
+	<script>
+		/*
+		 * @name: 时间转换函数
+		 * @Date: 2019-03-14 09:10:52 
+		 * @params: 
+		 * @return list
+		 */
+		function add0(m) {
+			return m < 10 ? '0' + m : m
+		}
+
+		function format(shijianchuo) {
+			var time = new Date(shijianchuo);
+			var y = time.getFullYear();
+			var m = time.getMonth() + 1;
+			var d = time.getDate();
+			var h = time.getHours();
+			var m = time.getMinutes();
+			var s = time.getSeconds();
+			return y + '-' + add0(m) + '-' + add0(d) + ' ' + add0(h) + ':' + add0(m) + ':' + add0(s);
+		}
+		/*
+		 * @name: 获取当前用户的积分
+		 * @Date: 2019-03-14 09:10:52 
+		 * @params: 
+		 * @return list
+		 */
+		function getNowPoint() {
+			$.ajax({
+				type: "POST",
+				// url:ctx+"integralRule/getUserRuleHistoryData.action",
+				url: 'http://127.0.0.1:8080/general/integralRule/addUserRuleInfo.action',
+				data: {
+					uId: loginId,
+					inteRuleId: 3
+				},
+				success: function(res) {
+
+				}
+			})
+		}
+		//内容部分采用vue实现比较方便
+		window.onload = function() {
+			var nowPoint = '';
+			//判断是否登录 //登陆id
+			loginId = localStorage.getItem("loginId");
+			console.log(loginId);
+			if (loginId == null || loginId == '') {
+				layer.confirm('您还没有登陆，请登陆？', {
+					btn: ['确定', '取消'] //按钮
+				}, function() {
+					window.location.href = '../loginsj.html';
+				}, function() {});
+			}
+			var vm = new Vue({
+				el: ".content-list",
+				data: {
+					objectArray: [{
+							id: 0,
+							name: "评论",
+							createTime: "2017-08-08 12:12:23",
+							pointValue: "+1"
+						},
+						{
+							id: 1,
+							name: "观看视频",
+							createTime: "2017-08-08 12:12:23",
+							pointValue: "+2"
+						},
+						{
+							id: 2,
+							name: "登陆",
+							createTime: "2017-08-08 12:12:23",
+							pointValue: "+1"
+						},
+						{
+							id: 3,
+							name: "注册",
+							createTime: "2017-08-08 12:12:23",
+							pointValue: "+1"
+						},
+						{
+							id: 1,
+							name: "观看视频",
+							createTime: "2017-08-08 12:12:23",
+							pointValue: "+2"
+						}
+					],
+				}
+			})
+			console.log(vm.$data.objectArray);
+
+			//通过$.ajax来获取数据
+			$.ajax({
+				type: "POST",
+				// url:ctx+"integralRule/getUserRuleHistoryData.action",
+				url: ctxLocal + 'integralRule/getUserRuleHistoryData.action',
+				data: {
+					uId: loginId
+				},
+				success: function(res) {
+					console.log(res.data);
+					if (res.code == 0) {
+						nowPoint = res.sumRule;
+						//每次进入页面的时候调取接口刷新积分.
+						$(".header-body").find("h3").html(nowPoint);
+						for (var i = 0; i < res.data.length; i++) {
+							res.data[i].createTime = format(res.data[i].createTime);
+						}
+						vm.$data.objectArray = res.data;
+					}
+				}
+			})
+		}
+	</script>
+</html>

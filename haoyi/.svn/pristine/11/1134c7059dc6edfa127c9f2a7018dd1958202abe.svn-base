@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>班级列表</title>
+        <link rel="stylesheet" type="text/css" href="../css/online_learning.css">
+        
+        <link rel="stylesheet" type="text/css" href="../css/classlist.css">
+        <style>
+            *{
+                margin:0;
+                padding:0;
+                list-style: none;
+                outline: none;
+                border:0;
+                font-size:0.3rem;
+			}
+        </style>
+    </head>
+    <body>
+        <div class="phone">
+            <div class="head">班级</div>
+            <div class="content">
+                <div class="list1">
+                    <div class="left">
+                        <span class="class-icon">班</span>
+                        <span class="name">班级名称</span>
+                        <div class="bianma">
+                            <i class="number"></i>
+                           <span class="bianma_01">班级编码</span>
+                           <span class="bianma_02">1213124</span>
+                        </div>
+                        <div class="people">
+                            <i class="number_01"></i>
+                           <span class="bianma_01">教师</span>
+                           <span class="bianma_02">徐晓曦</span>
+                           <i class="number_02"></i>
+                           <span class="bianma_01">学生人数</span>
+                           <span class="bianma_02">206</span>
+                        </div>
+                    
+                    </div>
+                    <div class="right"></div>
+                </div>
+                <div class="list1">
+                    <div class="left">
+                        <span class="class-icon">班</span>
+                        <span class="name">班级名称</span>
+                        <div class="bianma">
+                            <i class="number"></i>
+                           <span class="bianma_01">班级编码</span>
+                           <span class="bianma_02">1213124</span>
+                        </div>
+                        <div class="people">
+                            <i class="number_01"></i>
+                           <span class="bianma_01">教师</span>
+                           <span class="bianma_02">徐晓曦</span>
+                           <i class="number_02"></i>
+                           <span class="bianma_01">学生人数</span>
+                           <span class="bianma_02">67</span>
+                        </div>
+                    
+                    </div>
+                    <div class="right"></div>
+                </div>
+                <div class="list1">
+                    <div class="left">
+                        <span class="class-icon">班</span>
+                        <span class="name">班级名称</span>
+                        <div class="bianma">
+                            <i class="number"></i>
+                           <span class="bianma_01">班级编码</span>
+                           <span class="bianma_02">1213124</span>
+                        </div>
+                        <div class="people">
+                            <i class="number_01"></i>
+                           <span class="bianma_01">教师</span>
+                           <span class="bianma_02">徐晓曦</span>
+                           <i class="number_02"></i>
+                           <span class="bianma_01">学生人数</span>
+                           <span class="bianma_02">23</span>
+                        </div>
+                    
+                    </div>
+                    <div class="right"></div>
+                </div>
+                <div class="list1">
+                    <div class="left">
+                        <span class="class-icon">班</span>
+                        <span class="name">班级名称</span>
+                        <div class="bianma">
+                            <i class="number"></i>
+                           <span class="bianma_01">班级编码</span>
+                           <span class="bianma_02">1213124</span>
+                        </div>
+                        <div class="people">
+                            <i class="number_01"></i>
+                           <span class="bianma_01">教师</span>
+                           <span class="bianma_02">徐晓曦</span>
+                           <i class="number_02"></i>
+                           <span class="bianma_01">学生人数</span>
+                           <span class="bianma_02">96</span>
+                        </div>
+                    
+                    </div>
+                    <div class="right"></div>
+                </div>
+                <div class="list1">
+                    <div class="left">
+                        <span class="class-icon">班</span>
+                        <span class="name">班级名称</span>
+                        <div class="bianma">
+                            <i class="number"></i>
+                           <span class="bianma_01">班级编码</span>
+                           <span class="bianma_02">1213124</span>
+                        </div>
+                        <div class="people">
+                            <i class="number_01"></i>
+                           <span class="bianma_01">教师</span>
+                           <span class="bianma_02">徐晓曦</span>
+                           <i class="number_02"></i>
+                           <span class="bianma_01">学生人数</span>
+                           <span class="bianma_02">102</span>
+                        </div>
+                    
+                    </div>
+                    <div class="right"></div>
+                </div>
+                
+            </div>
+                
+                
+            <div class="bottom"></div>
+        </div>
+     
+           
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+    <script src="../js/rem.js"></script>
+    <script>
+       
+    </script>
+</html>

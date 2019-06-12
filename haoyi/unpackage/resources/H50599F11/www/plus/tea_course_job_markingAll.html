@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>课程的作业列表</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<style>
+
+			input::-webkit-input-placeholder{ /*WebKit browsers*/
+						color: #DCDCDC;
+					}
+input::-moz-input-placeholder{ /*Mozilla Firefox*/
+						color: #DCDCDC;
+					}
+input::-ms-input-placeholder{ /*Internet Explorer*/ 
+						color: #DCDCDC;
+					}
+						textarea::-webkit-input-placeholder{ /*WebKit browsers*/
+											color: #DCDCDC;
+										}
+					textarea::-moz-input-placeholder{ /*Mozilla Firefox*/
+											color: #DCDCDC;
+										}
+					textarea::-ms-input-placeholder{ /*Internet Explorer*/ 
+											color: #DCDCDC;
+										}
+					.icon-fj{
+						display: inline-block;
+						width:0.32rem;
+						height:0.32rem;
+						background: url(../img/fujian_zc.png) no-repeat center;
+						background-size:100% 100%;
+						margin-right:0.08rem;
+					}
+					.icon-ly{
+						display: inline-block;
+						width:0.32rem;
+						height:0.32rem;
+						background: url(../img/luying_zc.png) no-repeat center;
+						background-size:100% 100%;
+						margin-right:0.08rem;
+					}
+		</style>
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem">
+				<div class="bui-bar-left">
+					<a href="tea_course_list.html" class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a>
+				</div>
+				<div class="bui-bar-main" style="color:#000000">批量批阅</div>
+				<a href="tea_course_job_publish.html" class="bui-bar-right" style="width:auto;height:0.88rem;line-height:0.88rem;color:#fff">xxx</a>
+			</header>
+			<main>
+				<ul class="bui-list">
+					<li class="bui-btn bui-box clearactive">
+						<label class="bui-label" for="jobname">作业评分</label>
+						<div class="span1">
+							<div class="bui-input user-input">
+								<input id="jobname" type="text" value="" placeholder="请输入分值" style="text-align: right;padding-right:0.20rem">
+							</div>
+						</div>
+					</li>
+					<li class="bui-btn bui-box clearactive">
+						<label class="bui-label" for="jobcontent">作业评语</label>
+						<div class="span1">
+
+						</div>
+					</li>
+					<ul class="bui-list">
+						<li class="bui-btn clearactive" style="overflow: hidden;">
+							<div id="commentContent" class="bui-input">
+								<textarea class="bui-input" id="" cols="30" rows="4" placeholder="请输入作业评语"></textarea>
+							</div>
+							<a class="bui-btn" style="float:right;padding:0.08rem 0.18rem;background: #EDF0F2;border-radius: 0.30rem;color:#3791E7"><i
+								 class="icon-ly" style="color:#3791E7"></i>录音</a>
+							<a class="bui-btn" style="float:right;padding:0.08rem 0.18rem;background: #EDF0F2;border-radius: 0.30rem;color:#3791E7;margin-right:0.16rem"><i
+								 class="icon-fj" style="color:#3791E7"></i>附件</a>
+						</li>
+					</ul>
+				</ul>
+				<div class="bui-btn primary ring bui-box-vertical" style="width:70%;margin:0.72rem auto">
+					<a href="#" style="text-align: center;font-size:0.32rem;color:#fff;">批量提交</a>
+				</div>
+			</main>
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script>
+		bui.ready(function() {
+			//选项卡的切换
+			var uiTab = bui.tab({
+				id: "#uiTab"
+			});
+			//底部的切换
+			var tab = bui.tab({
+				id: "#tabFoot",
+				menu: "#tabFootNav"
+			})
+			$(".h4_mark").click(function() {
+				window.location.href = "./tea_course_job_mark.html";
+			})
+		})
+	</script>
+</html>

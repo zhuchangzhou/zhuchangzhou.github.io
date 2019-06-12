@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>上传网页</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<link rel="stylesheet" href="../css/layer.css">
+		<link rel="stylesheet" href="../css/common_zcz.css">
+		<link rel="stylesheet" href="../css/tea_course_list.css">
+		<style>
+			input::-webkit-input-placeholder {
+				/*WebKit browsers*/
+				color: #DCDCDC;
+			}
+
+			input::-moz-input-placeholder {
+				/*Mozilla Firefox*/
+				color: #DCDCDC;
+			}
+
+			input::-ms-input-placeholder {
+				/*Internet Explorer*/
+				color: #DCDCDC;
+			}
+
+			textarea::-webkit-input-placeholder {
+				/*WebKit browsers*/
+				color: #DCDCDC;
+			}
+
+			textarea::-moz-input-placeholder {
+				/*Mozilla Firefox*/
+				color: #DCDCDC;
+			}
+
+			textarea::-ms-input-placeholder {
+				/*Internet Explorer*/
+				color: #DCDCDC;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem;">
+				<div class="bui-bar-left">
+					<a  href="tea_course_resource_makeTwo.html"  class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a>
+				</div>
+				<div class="bui-bar-main" style="color:#000000">上传网页</div>
+				<div  id="btnOpen"  class="bui-bar-right" style="margin-top:0.20rem;">确定</div>
+			</header>
+			<main style="background: #ECECEC;">
+					<ul class="bui-list" style="margin-top:0.28rem">
+						<li class="bui-btn bui-box clearactive">
+							<label class="bui-label" for="shareTitle" style="color:#3E3E3E">标题</label>
+							<div class="span1">
+								<div id="shareTitleInput" class="bui-input user-input">
+									<input id="shareTitle" type="text" value="" placeholder="请输入标题" style="text-align: right;padding-right:0.20rem">
+								</div>
+							</div>
+						</li>
+						<li class="bui-btn bui-box clearactive">
+							<label class="bui-label" for="shareLink" style="color:#3E3E3E">链接</label>
+							<div class="span1">		
+							</div>
+						</li>
+						<ul class="bui-list">
+							<li class="bui-btn clearactive" style="overflow: hidden;">
+								<div class="bui-input" id="shareLinkInput">
+									<textarea class="bui-input" id="shareLink" cols="30" rows="4" placeholder="请输入链接"></textarea>
+								</div>
+							</li>
+						</ul>
+					</ul>
+			</main>
+			
+			<footer>
+
+			</footer>
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script src="../js/common_zcz.js"></script>
+	<script>
+		bui.ready(function() {
+			var shareTitleFlag = true;
+			var shareLinkFlag = true;
+			var regShareTitle =/^[\u4e00-\u9fa5]{1,10}$|^[\dA-Za-z_]{1,20}$/;
+			var regShareLink =/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
+			var tipsShareTitle = "最多不能超过10的中文或者20个字节的（字母，数字，下划线）";
+			var tipsShareLink = "请输入正确的链接地址格式";
+			var loginId = localStorage.getItem("loginId");
+			var termId = localStorage.getItem("termId");
+			checkInputDom('shareTitleInput','shareTitle',regShareTitle,tipsShareTitle,shareTitleFlag)
+			checkInputDom('shareLinkInput','shareLink',regShareLink,tipsShareLink,shareLinkFlag)
+			$("#btnOpen").on("click", function() {
+				$("#btnOpen").attr("disabled","disabled");
+				if(shareTitleFlag ==true && shareLinkFlag == true){
+					var shareTitle = $("#shareTitle").val();
+					var shareLink = $("#shareLink").val();
+					bui.ajax({
+						url: ctxLocal + 'resourceInfo/addResourceInfo.action',
+						data: {
+							uId: loginId,
+							type:localStorage.getItem("addResType"),
+							resouceName: shareTitle,
+							resourceDesc: shareLink
+						},
+					}).then(function(res) {
+						if (res.code == 1) {
+							console.log("分享成功");
+							bui.load({
+								url: "./tea_course_resource_makeTwo.html",
+								//对应的 每个学期的对应Id
+								// param: {
+								//"id": "123"
+								// }
+							})
+						} else {
+							console.log("数据库异常，增加失败");
+							$("#btnOpen").removeAttr("disabled");
+						}
+					}, function(res, status) {
+						console.log(status);
+						$("#btnOpen").removeAttr("disabled");
+					})
+				}else{
+					bui.hint("不能为空或者输入的格式有问题");
+				}
+			})
+		})
+	</script>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>修改密码</title>
+		<link rel="stylesheet" type="text/css" href="css/wangji.css" />
+	</head>
+	
+
+	<body>
+		<div class="top">
+			<div class="biaoti what">
+				<a href="javascript:history.go(-1)">取消</a>
+			</div>
+			<div class="biaoti " id="denglu"><a href="loginsj.html" style="color:black">找回密码</a></div>
+			<div class="biaoti what">
+				<a href="loginsj.html">登陆</a></div>
+		</div>
+		<div class="fengexian"></div>
+		
+		
+		<div class="biaodan">
+			<form id="kkk" action="javascript:;" method="post">
+				<ul>
+					<ol>
+						<div>
+						<div class='w-left'>用户名</div>
+						<input type="" name="u_loginname" id="u_loginname" value="" placeholder="请输入用户名" /><span id="yh"></span>
+						</div>
+						<p id="u_loginnameMsg"></p>
+					</ol>
+					<ol>
+						<div>
+						<div class='w-left'>手机号</div>
+						<input type="" name="u_cellphone" id="u_cellphone" value="" placeholder="请输入手机号"/><span id="sj"></span>
+						</div>
+						<p id="u_cellphoneMsg"></p>
+					</ol>
+					<!--<ol>
+						<div>
+						<div class='w-left'>邮箱</div>
+						<input type="" name="u_emil" id="u_emil" value="" placeholder="请输入邮箱" onblur="yx()"/><span id="yx"></span>
+						</div>
+						<p id="u_emilMsg"></p>
+					</ol>-->
+				</ul>
+
+				<input type="submit" class="btn" value="提交" id="login"></input>
+			</form>
+		</div>
+		
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/ctx.js"></script>
+	<script src="js/jquery-validate-1.19.js"></script>
+	<script src="https://cdn.bootcss.com/layer/2.3/layer.js"></script>
+	<script>
+	//表单验证
+	var a = 0;
+	var b = 0;
+	var c = 0;
+	var email = "";
+	var id = "";
+	var userName;
+	var u_phone;
+		$("#kkk").validate({
+				rules: {
+					u_loginname: {
+						required: true
+					},
+					u_cellphone: {
+						required: true,
+						minlength: 2
+					}/*,
+					u_emil: {
+						required: true,
+						email: true
+					}*/
+				},
+				messages: {
+					u_loginname: {
+						required: "请输入用户名！",
+
+					},
+					u_cellphone: {
+						required: "请输入手机号！",
+					}/*,
+					u_emil: {
+						required: "请输入邮箱！",
+						email:"您输入的邮箱格式不正确"
+					}*/
+				},
+				errorPlacement: function(error, element) {
+					name = element.attr('name');
+					
+					$('#'+name+'Msg').append(error);
+				}
+			});
+			$(function(){
+						//验证用户名是否注册
+						$('#u_loginname').blur(function(){
+											var yhm = $('#u_loginname').val();
+										$.ajax({
+											type:"POST",
+											url:ctx+"online_LearningCourse/get_userbycondition.action", //地址，就是json文件的请求路径
+											data:{"conditon":yhm},
+											success: function(result) {
+												console.log(result);
+												if(result.code==1){
+													$('#yh').text('✔');	
+													a = 1;
+													u_phone=result["map"]["User"]["u_cellphone"];
+												}else{
+													 
+												};
+											},
+											error:function(result){
+														layer.open({
+							
+															content: '该用户不存在'
+														}); 
+											}
+											})
+						})
+						$('#u_cellphone').blur(function(){
+							  		//验证手机号是否注册
+							  			//debugger
+							  				var phone = $('#u_cellphone').val();
+												var yhm = $('#u_loginname').val();
+							  			//
+							  			$.ajax({
+							  				type:"POST",
+							  				url:ctx+"online_LearningCourse/get_userbycondition.action", //地址，就是json文件的请求路径
+							  				data:{"conditon":phone},
+							  				success: function(result) {
+							  					if(result.code==1){
+							  					$('#sj').text('✔');	
+							  					b = 1;
+							  					email = result.map.User.ue_email;
+							  					id = result.map.User.u_id;
+													userName=result["map"]["User"]["u_loginname"];
+							  					}else{
+							  						layer.open({
+							  								content: '该手机号暂未注册'
+							  							});
+							  					};						
+							  				},
+							  				error:function(result){
+							  							layer.open({
+							  
+							  								content: '该用户不存在'
+							  							}); 
+							  				}
+							  				})
+						})
+						
+			})
+			
+			
+			//验证邮箱是否注册
+			/*function yx(){
+			    var emil = $('#u_emil').val();
+				$.ajax({
+					type:"POST",
+					url:ctx+"online_LearningCourse/get_userbycondition.action", //地址，就是json文件的请求路径
+					data:{"conditon":emil},
+					success: function(result) {
+						if(result.code==1){
+						$('#yx').text('✔');
+						c = 1;
+						console.log(result);
+						
+						}else{
+							layer.open({
+ 
+								  content: '该邮箱暂未注册'
+								}); 
+						};
+					},
+					error:function(result){
+								layer.open({
+ 
+								  content: '该用户不存在'
+								}); 
+					}
+			   })
+			}*/
+		$(".btn").click(function(){
+			var phone = $('#u_cellphone').val();
+			var yhm = $('#u_loginname').val();
+			
+			if(userName!=yhm && u_phone!=phone){
+				 alert("用户名和手机号不匹配，请重新输入");
+			}else{
+				 			$.ajax({
+				 				type:"POST",
+				 				url:ctx+"online_LearningCourse/resetting_user.action", //地址，就是json文件的请求路径
+				 				data:{"email":email,
+				 						"u_id":id
+				 				},
+				 				success: function(result) {
+				 						result = 'success'
+				 					if(result=='success'){
+				 						layer.open({
+				 							content: '您的密码已重置，新密码已发送至您的邮箱，请尽快查收并修改密码'
+				 						}); 
+				 					}else{
+				 						layer.open({
+				 							content: '密码重置失败，请重试'
+				 						}); 
+				 					};
+				 				},
+				 				error:function(result){
+				 							layer.open({
+				 
+				 								content: '密码重置失败，请重试'
+				 							}); 
+				 				}
+				 				})
+			}
+		})	
+			
+        
+			
+	</script>
+</html>

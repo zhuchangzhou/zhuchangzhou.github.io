@@ -1,0 +1,229 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/ctx.js"></script>
+		<title>头像修改</title>
+		<style>
+				* {
+				margin: 0px;
+			}
+			
+			.top_t {
+				width: 100%;
+				height: 8.5%;
+				background-color: #f5f8f7;
+				/* box-shadow: inset 0px -15px 8px -19px #000; */
+			}
+			
+			.top_t_left {
+				width: 30%;
+				height: 100%;
+				float: left;
+			}
+			
+			.top_t_left_a {
+				font-size: 20px;
+				margin-left: 12px;
+				display: block;
+			}
+			
+			.top_t_left_a_span_zou {
+				display: block;
+				float: left;
+				color: black;
+				font-family: "Microsoft YaHei";
+			}
+			
+			.top_t_left_a_span {
+				color: black;
+				display: block;
+				float: left;
+				font-family: "Microsoft YaHei";
+			}
+			
+			.kechen_course {
+				width: 100%;
+				height: 82.5%;
+				overflow-y: scroll;
+				float: left;
+				background-color: rgb(241, 245, 248);
+			}
+			
+			.top_t_center {
+				width: 40%;
+				height: 100%;
+				float: left;
+			}
+			
+			.top_t_center_span {
+				font-size: 21px;
+				height: 100%;
+				color: #333333;
+				text-align: center;
+				display: block;
+			}
+			
+			.top_t_right {
+				width: 30%;
+				height: 100%;
+				float: left;
+			}
+			
+			.top_t_right_search {
+				display: block;
+				color: black;
+				font-size: 18px;
+				text-align: right;
+				margin-right: 15px;
+			}
+			
+			.touxiang-2 {
+				width: 100%;
+				height: 91.5%;
+				background-color: #000000;
+			}
+			
+			.touxiang-3 {
+				background-image: url(src);
+				width: 100%;
+				height: 55%;
+				position: absolute;
+				top: 25%;
+			}
+			
+			.touxiang-4 {
+				width: 100%;
+				height: 100%;
+				
+			}
+			
+			.zhezhao {
+				position: absolute;
+				width: 100%;
+				height: 55%;
+				top: 25%;
+				left: 0;
+				border-radius: 50%;
+				opacity: 1.2;
+				filter: alpha(opacity=60);
+				position: absolute;
+				box-shadow: rgba(0, 0, 0, .6) 0 0 20px 91px;
+				}
+		</style>
+	</head>
+
+	<body>
+		<div class="top_t">
+
+			<div class="top_t_left">
+				<div class="top_t_left_a" style="line-height: 54px;">
+					<span class="top_t_left_a_span_zou" "=" " style="line-height: 54px; ">
+							<img style=" width: 20px;margin-top:18px " src="img/zuo.png ">
+						</span>
+	  				<a href="personalData.html"><span class="top_t_left_a_span " style="line-height: 54px; ">返回</span></a>
+	  				</div>
+	  			</div>
+	  				<div class="top_t_center ">
+	  					<span class="top_t_center_span " style="line-height: 54px; ">头像</span>
+	  				</div>
+	  				<div class="top_t_right " style="line-height: 54px; ">
+	  					<div class="top_t_right_search xuanze ">
+	  						<span class=" ">确定</span>
+	  					</div>
+	  				</div>
+	  		</div>
+	  		
+	  		<div class="touxiang-2 ">
+	  			<div class="touxiang-3 ">
+	  				<img class="touxiang-4" src="img/a1.jpg "/>
+	  			</div>
+	  		</div>
+	  		<div class="zhezhao ">
+	  			
+	  		</div>
+	
+
+	</body>
+	<script type="text/javascript">
+	    //var src = src;
+		var loginId;//登陆id
+        var loginType;//登陆类型
+		function getUrlParam(key) {
+			//console.log(src);
+			 // 获取参数
+			var url = window.location.search;
+			// 正则筛选地址栏
+			var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+			// 匹配目标参数
+			var result = url.substr(1).match(reg);
+			//返回参数值
+			return result ? decodeURIComponent(result[2]) : null;
+		}
+		
+		$(function(){
+			
+			password = localStorage.getItem("password");
+		 	login_name = localStorage.getItem("login_name");
+			loginId = localStorage.getItem("loginId");
+			loginType = localStorage.getItem("loginType");
+			
+			
+			var xingming=getUrlParam("src");
+			//var xingming=localStorage.getItem("src");
+			//alert(xingming);
+			$('.touxiang-4').attr('src',ctxImg+xingming);
+			console.log(xingming)
+			$('.top_t_right').click(function(){
+			   //
+			    $.ajax({
+					type:"POST",
+					url:ctx+"online_LearningCourse/update_user.action",
+					data:{"ue_pic":xingming,"u_id":loginId,"state":2},
+					success: function(result) {
+						if(result!=null && result!=''){
+							alert("修改成功");
+							$(".touxiang-4").attr("src","xingming")
+							location.href=document.referrer;
+						}else{
+							layer.confirm('服务器请求超时，请稍后重试', {
+							btn: ['确定','取消'] //按钮
+							}, function(){
+					  
+							}, function(){
+							
+							});
+						}
+					},
+					error:function(result){
+						layer.confirm('服务器请求超时，请稍后重试', {
+						btn: ['确定','取消'] //按钮
+						}, function(){
+							
+						}, function(){
+						
+						});
+			        }
+		         });
+			});
+			
+		})
+		
+		//获取当前账户id
+	//cookie开始
+	//获取cookie
+	function getCookie(name) {
+	  var cookies = document.cookie;
+	  var list = cookies.split(";");          // 解析出名/值对列表
+	      
+	  for(var i = 0; i < list.length; i++) {
+	    var arr = list[i].split("=");          // 解析出名和值
+	    if(arr[0] == name)
+	      return decodeURIComponent(arr[1]);   // 对cookie值解码
+	  } 
+	  return "";
+	}
+	</script>
+</html>

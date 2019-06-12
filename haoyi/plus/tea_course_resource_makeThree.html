@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>创建文件</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<link rel="stylesheet" href="../css/layer.css">
+		<link rel="stylesheet" href="../css/common_zcz.css">
+		<link rel="stylesheet" href="../css/tea_course_list.css">
+		<style>
+			input::-webkit-input-placeholder {
+				/*WebKit browsers*/
+				color: #DCDCDC;
+			}
+
+			input::-moz-input-placeholder {
+				/*Mozilla Firefox*/
+				color: #DCDCDC;
+			}
+
+			input::-ms-input-placeholder {
+				/*Internet Explorer*/
+				color: #DCDCDC;
+			}
+
+			textarea::-webkit-input-placeholder {
+				/*WebKit browsers*/
+				color: #DCDCDC;
+			}
+
+			textarea::-moz-input-placeholder {
+				/*Mozilla Firefox*/
+				color: #DCDCDC;
+			}
+
+			textarea::-ms-input-placeholder {
+				/*Internet Explorer*/
+				color: #DCDCDC;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem;">
+				<div class="bui-bar-left">
+					<a href="./tea_course_resource_makeOne.html" class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a>
+				</div>
+				<div class="bui-bar-main" style="color:#000000">新建文件夹</div>
+				<div class="bui-bar-right" id="btnOpen" style="margin-top:0.20rem;">确定</div>
+			</header>
+			<main style="background: #ECECEC;">
+					<ul class="bui-list" style="margin-top:0.28rem">
+						<li class="bui-btn bui-box clearactive">
+							<label class="bui-label" for="courseName" style="color:#3E3E3E">文件夹名称</label>
+							<div class="span1">
+								<div id="folderNameInput" class="bui-input user-input">
+									<input id="folderName" type="text" value="" placeholder="请输入名称" style="text-align: right;padding-right:0.20rem">
+								</div>
+							</div>
+						</li>
+						<!-- <li class="bui-btn bui-box clearactive">
+							<label class="bui-label" for="contentSummary" style="color:#3E3E3E">文件夹介绍</label>
+							<div class="span1">
+			
+							</div>
+						</li>
+						<ul class="bui-list">
+							<li class="bui-btn clearactive" style="overflow: hidden;">
+								<div class="bui-input" id="folderInfoInput">
+									<textarea class="bui-input" id="folderInfo" cols="30" rows="4" placeholder="请输入文件夹介绍"></textarea>
+								</div>
+							</li> 
+						</ul>-->
+					</ul>
+			</main>
+			
+			<footer>
+
+			</footer>
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script src="../js/common_zcz.js"></script>
+	<script>
+		//给个全部的判断
+			var folderNameFlag = true;
+			// var folderInfoFlag = true;
+			var regFolderName =/^[\u4e00-\u9fa5]{1,10}$|^[\dA-Za-z_]{1,20}$/;
+			// var regFolderInfo =/^[\u4e00-\u9fa5]{1,20}$|^[\dA-Za-z_]{1,40}$/;
+			var tipsFolderName = "最多不能超过10的中文或者20个字节的（字母，数字，下划线）";
+			// var tipsFolderInfo = "最多不能超过20的中文或者40个字节的（字母，数字，下划线）";
+			var loginId = localStorage.getItem("loginId");
+			var termId = localStorage.getItem("termId");
+		bui.ready(function() {
+			checkInputDom('folderNameInput','folderName',regFolderName,tipsFolderName,folderNameFlag)
+			// checkInputDom('folderInfoInput','folderInfo',regFolderInfo,tipsFolderInfo,folderInfoFlag)
+			$("#btnOpen").on("click", function() {
+				//点击完了以后改动不可操作
+				$("#btnOpen").attr("disabled","disabled");
+				// if(folderNameFlag ==true && folderInfoFlag == true){
+					 if(folderNameFlag ==true){
+						//有中文时候要进行转码操作
+					var folderName = $("#folderName").val();
+					// var folderInfo = $("#folderInfo").val();
+					bui.ajax({
+						url: ctxLocal + 'resourceInfo/addResourceIndex.action',
+						data: {
+							userId: loginId,
+							resourceSrc: folderName
+						},
+					}).then(function(res) {
+						if (res.code == 1) {
+							console.log("新建文件夹成功");
+							bui.load({
+								url: "./tea_course_resource_makeOne.html"
+							})
+						} else {
+							$("#btnOpen").removeAttr("disabled");
+						}
+					}, function(res, status) {
+						console.log(status);
+						$("#btnOpen").removeAttr("disabled");
+					})
+				}else{
+					bui.hint("不能为空或者输入的格式有问题");
+				}
+			})
+		})
+	</script>
+</html>

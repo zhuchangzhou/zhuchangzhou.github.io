@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>选择课程</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<link rel="stylesheet" href="../css/layer.css">
+		<link rel="stylesheet" href="../css/common_zcz.css">
+		<link rel="stylesheet" href="../css/tea_course_list.css">
+
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem;">
+				<div class="bui-bar-left">
+					<a href="./tea_course_makeTwo.html" class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a>
+				</div>
+				<div class="bui-bar-main" style="color:#000000">选择课程</div>
+				<div class="bui-bar-right" id="btnOpen" style="margin-top:0.20rem">确定</div>
+			</header>
+			<main>
+				<div id="selectCustom"></div>
+				<div class="container-y">
+					<div class="bui-box-space">
+						<div class="span1">
+							<div id="selectAll" class="bui-btn">全选</div>
+						</div>
+						<div class="span1">
+							<div id="selectNone" class="bui-btn">重置</div>
+						</div>
+						<div class="span1">
+							<div id="unselect" class="bui-btn">反选</div>
+						</div>
+					</div>
+				</div>
+			</main>
+			<footer>
+
+			</footer>
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script src="../js/common_zcz.js"></script>
+	<script>
+		var teaCourseArr = [];
+		var loginId = localStorage.getItem("loginId", loginId)
+		var termId = localStorage.getItem("termId", termId)
+		bui.ready(function() {
+
+
+			//动态绑定   注意这里应该设置同步的操作,拿到数据以后再执行后面的.
+			getCoursePageInfoData(loginId, termId, ctxLocal + 'semester/getCoursePageInfoData.action')
+			var uiSelectCustom = bui.select({
+				id: "#selectCustom",
+				popup: false,
+				type: "checkbox",
+				direction: "right",
+				data: teaCourseArr,
+				onChange: function(e) {
+					//获取所有的值
+					// var option = uiSelectCustom.option();
+					// console.log(option.data);
+					//获取选中的索引
+					var index = uiSelectCustom.index();
+					var value = uiSelectCustom.value();
+					//console.log(index);
+					//console.log(value);
+					//根据index值来获取对应的Id
+					bacthChooseCourseToSem(value,termId,ctxLocal+'semester/bacthChooseCourseToSem.action')
+				},
+			})
+
+			$("#selectAll").on("click", function(argument) {
+				console.log(argument);
+				uiSelectCustom.selectAll();
+				//全选的时候获取到所有的index value,
+				alert(uiSelectCustom.index());
+				alert(uiSelectCustom.value());
+			})
+
+			$("#selectNone").on("click", function(argument) {
+				uiSelectCustom.selectNone();
+				alert(uiSelectCustom.index());
+				alert(uiSelectCustom.value());
+			})
+
+			$("#unselect").on("click", function(argument) {
+				uiSelectCustom.unselect();
+				alert(uiSelectCustom.index());
+				alert(uiSelectCustom.value());
+			})
+			
+		})
+	</script>
+</html>

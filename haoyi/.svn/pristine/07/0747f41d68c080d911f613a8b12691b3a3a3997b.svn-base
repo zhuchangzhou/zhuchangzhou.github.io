@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>课程的作业列表</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<style>
+			.job_list_ul{
+				margin-top:0.20rem;
+				background:#EDF0F2;
+			}
+			.mark-btn-zc{
+				padding:0.16rem 0.36rem; 
+				background: #2F8CE5;
+			}
+			.mark-btn-zc span{
+				text-align:center;
+				font-size:0.30rem;
+				color:#fff;
+			}
+			.bui-choose{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem">
+				<div class="bui-bar-left">
+					<a href="tea_course_job.html" class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a>
+				</div>
+				<div class="bui-bar-main" style="color:#000000">作业</div>
+				<a id="selectAll" class="bui-bar-right" style="width:auto;height:0.88rem;line-height:0.88rem;color:#555555">批量</a>
+			</header>
+			<main>
+				<!-- 内容区滚动 -->
+				<div id="uiTab" class="bui-tab">
+					<div class="bui-tab-head">
+						<ul class="bui-nav">
+							<li class="bui-btn">全部</li>
+							<li class="bui-btn">未批阅</li>
+							<li class="bui-btn">未提交</li>
+							<li class="bui-btn">已批阅</li>
+							<li class="bui-btn">已逾期</li>
+						</ul>
+					</div>
+					<div class="bui-tab-main">
+						<ul>
+							<!-- 内容必须在li里面 -->
+							<li>
+								<ul class="bui-list bui-list-thumbnail" id="selectCustom2">
+									<li class="bui-btn bui-box">
+										<input id="check-1" type="checkbox" class="bui-choose" value="98.00" text="王洋洋">
+										<div class="bui-thumbnail"><img src="../img/mark01.png" alt=""></div>
+										<div class="span1">
+											<h3 class="item-title">王阳阳</h3>
+											<p class="item-text">学号：<span>15326987412</span></p>
+										</div>
+										<span class="grade"></span>
+										<div class="bui-btn primary ring mark-btn-zc"><span>批阅</span></div>
+									</li>
+									<li class="bui-btn bui-box">
+										<input id="check-2" type="checkbox" class="bui-choose" value="98.00" text="王洋洋">
+										<div class="bui-thumbnail"><img src="../img/mark01.png" alt=""></div>
+										<div class="span1">
+											<h3 class="item-title">王阳阳</h3>
+											<p class="item-text">学号：<span>15326987412</span></p>
+										</div>
+										<span class="grade">98.00</span>
+									</li>
+									<li class="bui-btn bui-box">
+										<input id="check-3" type="checkbox" class="bui-choose" value="98.00" text="王洋洋">
+										<div class="bui-thumbnail"><img src="../img/mark01.png" alt=""></div>
+										<div class="span1">
+											<h3 class="item-title">王阳阳</h3>
+											<p class="item-text">学号：<span>15326987412</span></p>
+										</div>
+										<span class="grade">98.00</span>
+									</li>
+									<li class="bui-btn bui-box">
+										<input id="check-4" type="checkbox" class="bui-choose" value="98.00" text="王洋洋">
+
+										<div class="bui-thumbnail"><img src="../img/mark01.png" alt=""></div>
+										<div class="span1">
+											<h3 class="item-title">王阳阳</h3>
+											<p class="item-text">学号：<span>15326987412</span></p>
+										</div>
+										<span class="grade">98.00</span>
+									</li>
+									<li class="bui-btn bui-box">
+										<input id="check-5" type="checkbox" class="bui-choose" value="98.00" text="王洋洋">
+
+										<div class="bui-thumbnail"><img src="../img/mark01.png" alt=""></div>
+										<div class="span1">
+											<h3 class="item-title">王阳阳</h3>
+											<p class="item-text">学号：<span>15326987412</span></p>
+										</div>
+										<span class="grade">98.00</span>
+									</li>
+									<li class="bui-btn bui-box">
+										<input id="check-6" type="checkbox" class="bui-choose" value="98.00" text="王洋洋">
+
+										<div class="bui-thumbnail" ><img src="../img/mark01.png" alt=""></div>
+										<div class="span1">
+											<h3 class="item-title">王阳阳</h3>
+											<p class="item-text">学号：<span>15326987412</span></p>
+										</div>
+										<span class="grade">98.00</span>
+									</li>
+									<li class="bui-btn bui-box">
+										<input id="check-7" type="checkbox" class="bui-choose" value="98.00" text="王洋洋">
+
+										<div class="bui-thumbnail"><img src="../img/mark01.png" alt=""></div>
+										<div class="span1">
+											<h3 class="item-title">王阳阳</h3>
+											<p class="item-text">学号：<span>15326987412</span></p>
+										</div>
+										<span class="grade">98.00</span>
+									</li>
+									<li class="bui-btn bui-box">
+										<input id="check-8" type="checkbox" class="bui-choose" value="98.00" text="王洋洋">
+
+										<div class="bui-thumbnail"><img src="../img/mark01.png" alt=""></div>
+										<div class="span1">
+											<h3 class="item-title">王阳阳</h3>
+											<p class="item-text">学号：<span>15326987412</span></p>
+										</div>
+										<span class="grade">98.00</span>
+									</li>
+								</ul>
+							</li>
+							<li style="display: none;"><img src="images/placeholder-page.png" alt="">
+								<ul>
+										<li class="bui-btn bui-box">
+										<div class="bui-thumbnail"><img src="../img/mark01.png" alt=""></div>
+										<div class="span1">
+											<h3 class="item-title">王阳阳</h3>
+											<p class="item-text">学号：<span>15326987412</span></p>
+										</div>
+										<span class="grade"></span>
+										<div class="bui-btn primary ring mark-btn-zc"><span>批阅</span></div>
+									</li>
+								</ul>
+							</li>
+							<li style="display: none;">
+								<ul>
+										<li class="bui-btn bui-box">
+											<div class="bui-thumbnail"><img src="../img/mark01.png" alt=""></div>
+											<div class="span1">
+												<h3 class="item-title">王阳阳</h3>
+												<p class="item-text">学号：<span>15326987412</span></p>
+											</div>
+											<span class="grade"></span>
+											<div class="bui-btn primary ring mark-btn-zc"><span>未提交</span></div>
+										</li>
+								</ul>
+							</li>
+							<li style="display: none;">
+								<ul>
+									<li class="bui-btn bui-box">
+										<div class="bui-thumbnail"><img src="../img/mark01.png" alt=""></div>
+										<div class="span1">
+											<h3 class="item-title">王阳阳</h3>
+											<p class="item-text">学号：<span>15326987412</span></p>
+										</div>
+										<span class="grade"></span>
+										<div class="bui-btn primary ring mark-btn-zc"><span>已批阅</span></div>
+									</li>
+								</ul>
+							</li>
+							<li style="display: none;">
+								<ul>
+									<li class="bui-btn bui-box">
+										<div class="bui-thumbnail"><img src="../img/mark01.png" alt=""></div>
+										<div class="span1">
+											<h3 class="item-title">王阳阳</h3>
+											<p class="item-text">学号：<span>15326987412</span></p>
+										</div>
+										<span class="grade"></span>
+										<div class="bui-btn primary ring mark-btn-zc"><span>已逾期</span></div>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+			</main>
+			<!-- <footer>
+				<ul id="tabFootNav" class="bui-nav">
+					<li class="bui-btn bui-box-vertical active"><i class="icon-home"></i>
+						<div class="span1">首页</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-edit"></i>
+						<div class="span1">课程</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-chat"></i>
+						<div class="span1">作业</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-setting"></i>
+						<div class="span1">我的</div>
+					</li>
+				</ul>
+			</footer> -->
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script>
+		bui.ready(function() {
+			//选项卡的切换
+			var uiTab = bui.tab({
+				id: "#uiTab"
+			});
+			   var uiSelectCustom2 = bui.select({
+				id: "#selectCustom2",
+				popup: false,
+				type: "checkbox",
+				onChange: function(e) {
+					
+				}
+			});
+			$("#selectAll").on("click",function(){
+				window.location.href="./tea_course_job_markAll.html";
+			});
+			$(".mark-btn-zc").on("click",function(){
+				window.location.href ="./tea_course_job_markOne.html";
+			})
+		})
+	</script>
+</html>

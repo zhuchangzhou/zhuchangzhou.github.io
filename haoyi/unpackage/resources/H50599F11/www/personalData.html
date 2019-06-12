@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>个人资料</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	  	<link rel="stylesheet" href="css/personalData.css"/>
+	  	<link rel="stylesheet" href="css/layui.css" media="all">
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/layui2.4.3/layui.js"></script>
+		<script type="text/javascript" src="js/ctx.js"></script>
+		<script type="text/javascript" src="js/gerenziliao.js"></script>
+		<script type="text/javascript" src="js/zishiyin.js"></script>
+		<script type="text/javascript" src="js/all_bottom.js"></script>	
+		<script src="https://cdn.bootcss.com/layer/2.3/layer.js"></script>
+		
+	</head>
+	<body>
+	  <div class="main_back">
+		<div class="top_t">
+			<a href="wode.html">
+		  <div class="top_t_left">
+		        <span class="top_t_left_a_span_zou"><img style=" width: 20px;margin-left: 8px;" src="img/zuo.png" /></span>
+		        <span class="top_t_left_a_span" style="font-size: 20px;">返回</span>
+			</div>
+			</a>
+			<div class="top_t_center">
+				<span class="top_t_center_span">个人资料</span>
+			</div>
+			<div class="top_t_right">
+				<a href="#" class="top_t_right_search">
+			    </a>
+			</div>
+		</div>
+		<div class="me_center">
+			<div class="me_center_top tantan">
+					
+			</div>
+			<div class="me_center_center">
+				<a href="jichuxinxi.html">
+				<div class="me_center_center_main">
+					<div class="me_center_center_main_ming">
+						<span>基础信息</span>
+					</div>
+					<div class="me_center_center_main_you">
+						<img class="me_center_center_main_you_img" src="img/you.png"/>
+					</div>
+				</div>
+				</a>
+				<a href="jieshao.html">
+				<div class="me_center_center_main">
+					<div class="me_center_center_main_ming">
+						<span>介绍</span>
+					</div>
+					<div class="me_center_center_main_you">
+						<img class="me_center_center_main_you_img" src="img/you.png"/>
+					</div>
+				</div>
+				</a>
+				<a href="lianxifangshi.html">
+				<div class="me_center_center_main">
+					<div class="me_center_center_main_ming">
+						<span>联系方式</span>
+					</div>
+					<div class="me_center_center_main_you">
+						<img class="me_center_center_main_you_img" src="img/you.png"/>
+					</div>
+				</div>
+				</a>
+				<!-- 头像-->
+				<div class="imageUpload"></div>
+				<div class="layui-upload" id="tu" style="display: block;margin-left: 23%;">
+				  <button class="layui-btn" id="test1" type="button" style="display:none">上传图片</button>
+				  <div class="layui-upload-list">
+					    <img class="layui-upload-img" id="demo1" style="height: 150px;width: 150px;display: None;">
+					    <p id="demoText"></p>
+				  </div>
+			  </div> 
+			</div>
+		</div>
+		
+	  </div>
+	  <div class="modal" style="display: none;"> 
+		<div id="tanchu" style="margin: 5px;">
+			<div class="tanzi1">
+				<div class="tanzizi1" id="upload-box" style="cursor:pointer;">选择照片</div>
+			</div>
+			<div class="tanzi2">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
+		</div>
+	  </div>
+	 <!-- <img id="sss" src=""/>	 -->
+	</body>
+	<!--<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.Huploadify.js"></script>-->
+	<script type="text/javascript">
+		
+	   var touxiang_ss = "";
+		
+		$('.tantan').click(function() {
+			
+			$('.modal').show();
+		});
+		$('.tanzi2').click(function() {
+			$('.modal').hide()
+		});
+		$(function () {
+        $("#upload-box").click(function () {
+            $("#test1").trigger("click");
+			//
+			
+        })
+		})
+layui.use('upload', function(){
+  var $ = layui.jquery, 
+  	  layer = layui.layer, 
+  	  upload = layui.upload;
+		//普通图片上传
+var uploadUrl = ctx+"/backboneSystem/backboneContentFile.action";
+var uploadInst = upload
+		.render({
+			elem : '#test1',
+			size : 1024*5,
+			multiple : true//多文件上传
+			,
+			auto : true//是否自动上传
+			,
+			accept : 'file',//文件类型
+			//bindAction : '#save',//触发提交后上传
+			number : 0//同时可上传的文件数量
+			,
+			url : uploadUrl,
+			choose: function(obj){
+				//预读本地文件示例，不支持ie8
+				obj.preview(function(index, file,result) {
+					var html = ''
+					html+='<p style="display:block;float:left" class="attch">'+file.name+'#</p >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="layui-icon" >&#xe640;</i></br>'
+					//$('#demoText').append(html);
+					$('#demo1').attr('src',result);
+					console.log(result);
+					$('#pic_Path').val(file.name);
+					//localStorage.setItem("src", file.name);
+					window.location.href="touxiang2.html?src="+file.name;
+					
+				});	
+			},
+			done : function(res) {
+				//如果上传失败
+				if (res.code > 0) {
+					layer.msg('上传成功', {
+						icon : 1
+					});
+					//上传成功
+					$("input[name=courseJacket]").val(
+							res.data.src);
+				} else {
+					return layer.msg('服务器繁忙，稍后重试！', {
+						icon : 2
+					})
+				}
+			},
+			error : function() {
+				//演示失败状态，并实现重传
+				var demoText = $('#demoText');
+				demoText
+						.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</ a>');
+				demoText.find('.demo-reload').on(
+						'click', function() {
+							uploadInst.upload();
+						});
+			}
+		});
+		});
+	</script>
+</html>

@@ -1,0 +1,25 @@
+.me_center{width: 100%;height:85%;background-color: rgb(241,245,248);}
+.me_center_top{width: 100%;height: 18%;background-color: white;float: left;margin-top: 12px;}
+.me_center_center{width: 100%;height: 33%;background-color: white;float: left;margin-top:8px;}
+.me_center_bottom{width: 100%;height: 11%;background-color: white;float: left;margin-top: 8px;}
+.me_center_footer{width: 100%;height: 11%;background-color: white;float: left;margin-top: 8px;}
+.me_center_footer_b{width: 100%;height: 11%;background-color: white;float: left;margin-top: 8px;text-align: center;}
+.me_center_top_touxiang{height: 100%;background-color:white;float: left;}
+.me_center_top_touxiang_main{width:60%;height:60%;float: left;border: 1px solid white;margin-left: 14.5px;margin-top: 15px;border-radius:50%;}
+.me_center_top_touxiang_main_img{width: 100%;height: 100%;border-radius:50%;}
+.me_center_top_xinxi{width: 45%;height: 100%;background-color:white;float: left;}
+.me_center_top_you{width: 14%;height: 100%;background-color:white;float:right;margin-right:6px;}
+.me_center_top_xinxi_xinming{float: left;width: 100%;height:25%;margin-top: 25px;color: black;font-size: 18px;font-weight: bold;}
+.me_center_top_xinxi_zhicheng{float: left;width: 100%;height:;color: rgb(155,155,155);font-weight: bold;}
+.me_center_top_xinxi_xinming:hover{text-decoration: none;}
+.me_center_top_xinxi_zhicheng:hover{text-decoration: none;}
+.me_center_top_you_img{float: left;margin-left: 28px;margin-top:35px;}
+.me_center_top_you_img_main{width: 22px;height: 22px;}
+.me_center_center_main{width: 100%;height:33.33%;margin-bottom: 1px;border-bottom:1px solid rgba(155,155,155,0.2);}
+.me_center_center_main_img{width: 10%;float: left;margin-left: 20px;}
+.me_center_center_main_img_img{width: 20px;height:20px;}
+.me_center_center_main_ming{width: 40%;float: left;color:#333333;font-size: 17px;}
+.me_center_center_main_ming_span{color:#333333;font-size: 17px;}
+.me_center_center_main_you{width:5%;float:left;}
+.me_center_center_main_you{margin-left:137px;}
+.me_center_center_main_you_img{width:22px;height: 22px;}

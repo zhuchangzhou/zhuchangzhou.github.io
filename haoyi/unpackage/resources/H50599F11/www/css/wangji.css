@@ -1,0 +1,92 @@
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "微软雅黑";
+}
+body{
+	background-color:#f8f8f8;
+}
+.top {
+    height: 50px;
+    text-align: center;
+}
+#login {
+    width: 78%;
+    height: 45px;
+    margin-top: 40px;
+    margin-left: 10.5%;
+    background-color: #2f91ea;
+    border-radius: 50px;
+    color: white;
+    font-size: 20px;
+}
+.biaoti {
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    width: 23%;
+    font-size: 16px;
+}
+#denglu {
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    width: 54%;
+    font-size: 20px;
+}
+.fengexian {
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.biaodan ul{
+	margin-top:5px;
+	background-color:white;
+}	
+.w-left{
+	margin-left:20px;
+	float:left;
+	width:18%;
+}	
+.biaodan ol>div {
+    height: 45px;
+    line-height: 45px;
+   
+    border-bottom: 1px solid #DDDDDD;
+}
+.biaodan input {
+    width: 53%;
+    outline: none;
+    border: none;
+    font-size: 17px;
+    padding-left: 14px;
+}
+form img {
+    height: 20px;
+    width: auto;
+    margin-left: 24px;
+    position: relative;
+    top: 3px;
+}
+.btn{
+	outline: none;
+    border: none;
+}	
+.biaoti a {
+    text-decoration: none;
+    color: #2F91EA;
+}
+.biaodan ol>p {
+    margin-left: 28%;
+    color: red;
+}
+#yh{
+	color:#2cf62c;
+}
+#sj{
+	color:#2cf62c;
+}
+#yx{
+	color:#2cf62c;
+}

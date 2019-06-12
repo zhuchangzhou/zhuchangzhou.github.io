@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>文件名称</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/online_learning.css">
+		<link rel="stylesheet" type="text/css" href="../css/decorate.css">
+		<link rel="stylesheet" type="text/css" href="../css/resources.css">
+
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				outline: none;
+				border: 0;
+				font-size: 0.32rem;
+			}
+			[v-cloak]{
+				display: none !important;
+			}
+
+		</style>
+	</head>
+	<body>
+		<header class="bui-bar" style="background: #fff;height:0.68rem;">
+			<div class="bui-bar-left">
+				<a href="./tea_course_class_job.html" class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a>
+			</div>
+			<div class="bui-bar-main" style="color:#000000;margin-top:0.16rem">课程资源</div>
+			<div class="bui-bar-right load" style="margin-top:0.20rem;">新建</div>
+		</header>
+		<main>
+			<div class="phone" v-cloak>
+				<div class="all">共{{dataLength}}个资源</div>
+				<div class="content">
+					<div class="list-01" v-for="(item,index) in objectArray" @keys="index" @click="linkTo(item.id,item.resourceSrc)">
+						<ul>
+							<div class="file"></div>
+							<div class="resources-xixin">
+								<li class="resources-name">{{item.resourceSrc}}</li>
+								<li class="time">{{item.createTime}}</li>
+								<li class="uploader">{{uploader}}</li>
+							</div>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</main>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script src="../js/common_zcz.js"></script>
+	<script>
+		
+		var resourceData = [];
+		var resourceLength = '';
+		var loginId = localStorage.getItem("loginId");
+		var login_name = localStorage.getItem("login_name");
+		
+		$(function() {
+			
+			getResourceIndexData(loginId);
+			console.log(resourceData);
+			var vm = new Vue({
+				el:".phone",
+				data:{
+					objectArray:[],
+					dataLength:'',
+					uploader:''
+				},
+				methods:{
+					linkTo:function(folerId,resourceSrc){
+						localStorage.setItem("folerId", folerId);
+						localStorage.setItem("resourceSrc", resourceSrc);
+						window.location.href="./tea_course_resource_makeTwo.html";
+					}
+				}
+			})
+			
+			vm.$data.objectArray = resourceData;
+			vm.$data.dataLength = resourceLength;
+			vm.$data.uploader = login_name;
+			$(".load").click(function() {
+				window.location.href = "./tea_course_resource_makeThree.html";
+			})
+		})
+	
+	</script>
+</html>

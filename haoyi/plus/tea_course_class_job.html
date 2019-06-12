@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>学生课程的作业列表</title>
+        <link rel="stylesheet" type="text/css" href="../css/online_learning.css">
+        <link rel="stylesheet" type="text/css" href="../css/function.css">
+        <style>
+            *{
+                margin:0;
+                padding:0;
+                list-style: none;
+                outline: none;
+                border:0;
+                font-size:0.32rem;
+			}
+			.classStu,.resources,.classHw,.results{
+				cursor:pointer;
+			}
+			[v-cloak]{
+				display: none !important;
+			}
+			.head{
+				position:relative;
+			}
+			.logo{
+				position:absolute;
+				left:3.6rem;
+				top:3.5rem;
+			}
+			.name{
+				margin-top:0.64rem;
+			}
+        </style>
+    </head>
+    <body>
+		
+        <div class="phone" v-cloak>
+            <div class="head"><span class="courseName" id="courseName"></span>
+				<div class="back">
+                    <img src="../img/back.png">
+                </div>
+                <div class="back-01 returnBtn">返回</div>
+                <div class="editor editBtn">编辑</div>
+                <div class="photo">
+                </div>
+                <div class="logo">
+                    <img src="../img/teacher.png">
+                </div>
+                <div class="name">张飒飒</div>
+                <div class="introduce courseInfo"  id="courseInfo"></div>
+
+            </div>
+            <div class="content">
+                <div class="student classStu">
+                    <div class="icon"></div>
+                    <div class="zi ">班级学生</div>
+                    <div class="number">{{objectArray.stuNum}}</div>
+                </div>
+                <div class="student work classHw">
+                    <div class="icon_2"></div>
+                    <div class="zi homework ">课程作业</div>
+                    <div class="number shu">{{objectArray.homeWorkNum}}</div>
+                </div>
+                <div class="student resources">
+                    <div class="icon_3"></div>
+                    <div class="zi yuan">课程资源</div>
+                    <div class="number se">{{objectArray.courseResourceNum}}</div>
+                </div>
+                <div class="student work results">
+                    <div class="icon_4"></div>
+                    <div class="zi ji ">学生成绩</div>
+                    <div class="number cheng">{{objectArray.stuNum}}</div>
+                </div>
+            </div>  
+        </div>
+     
+           
+    </body>
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/touch.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+  <script src="../js/ctx.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/layer.js"></script>
+  <script src="../js/vue.js"></script>
+  <script src="../js/rem.js"></script>
+  <script src="../js/common_zcz.js"></script>
+    <script>
+		var courseNameVal = '';
+		var courseInfoVal = '';
+		var termId =localStorage.getItem("termId");
+		var courseId = localStorage.getItem("courseId");
+		var loginId = localStorage.getItem("loginId");
+		//课程名称
+		//为了编辑更新通过接口来获取
+		// var courseName = localStorage.getItem("courseName");
+		var loginName = localStorage.getItem("login_name");
+		// var contentSummary = localStorage.getItem("contentSummary");
+		//截取
+		// contentSummary = cutString(contentSummary, 12, "...")
+       $(function(){
+		  $(".name").text(loginName);
+		  getCourseInfoById();
+		  $("#courseName").text(courseNameVal);
+		  $("#courseInfo").text(courseInfoVal);
+		   var vm = new Vue({
+			   el:".phone",
+			   data:{
+				   objectArray:[]
+			   },
+		   })
+		   $.ajax({
+			   type:"POST",
+			   url: ctxLocal+"semester/getSemesterBasicData.action",
+			   data:{
+				   semesterId:termId,
+				   courseId:courseId,
+				   uId:loginId
+			   },
+			   async:false,
+			   success:function(res){
+				   if(res.code==0){
+					   console.log(res.data);
+					   vm.$data.objectArray = res.data;
+				   }
+			   },
+			   error:function(e){
+				   console.log(e+"数据接口调取失败");
+			   }
+		   })
+
+		   $(".classStu").click(function(){
+			    window.location.href="./tea_course_classRoom_makeThree.html";
+		   })
+		   $(".classHw").click(function(){
+			   window.location.href="./tea_course_job.html";
+		   })
+		    $(".returnBtn").click(function(){
+			   window.location.href="./tea_course_makeTwo.html";
+		   })
+		   $(".editBtn").click(function(){
+			   window.location.href="./tea_course_editOne.html";
+		   })
+		   $(".resources").click(function(){
+			   window.location.href="./tea_course_resource_makeOne.html";
+		   })
+		   $(".results").click(function(){
+			   window.location.href="./tea_course_result_makeOne.html"
+		   })
+	   })
+    </script>
+</html>

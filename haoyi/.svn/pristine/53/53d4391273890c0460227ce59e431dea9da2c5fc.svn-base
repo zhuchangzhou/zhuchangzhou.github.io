@@ -1,0 +1,17 @@
+.me_center{width: 100%;height:91.5%;background-color: rgb(241,245,248);}
+.me_center_top{width: 100%;height: 18%;background-color: white;float: left;margin-top: 12px;}
+.me_center_center{width: 100%;height: 16%;background-color: white;float: left;margin-top:8px;}
+.me_center_bottom{width: 100%;height: 9%;background-color: white;float: left;margin-top: 8px;}
+.me_center_footer{width: 100%;height: 9%;background-color: white;float: left;margin-top: 8px;}
+.me_center_center_main{width: 100%;height:50%;margin-bottom: 1px;border-bottom:1px solid rgba(155,155,155,0.2);color: rgb(204,204,204);}
+.me_center_center_main_ming{width:40%;height:100%;float: left;margin-left: 20px;color:#333333;font-size: 16px;}
+.me_center_center_main_ming_right{width:50%;height: 100%;float: right;}
+.me_center_center_main_ming_right_xuanze{width:20px;height: 20px;}
+.me_center_center_main_ming_right_img{width:20px;height: 20px;float: right;margin-right:20px;margin-top:10px;}
+.me_top_left_ming{width: 40%;float: left;color:#333333;font-size: 16px;font-weight: bold;}
+.me_top_left_ming_ming{margin-left: 20px;}
+.top_t_left_a_span{color:black;display: block;float: left;font-family:"Microsoft YaHei";}
+.top_t_left_a_span_zou{display: block;float: left;color:black;font-family:"Microsoft YaHei";}
+.zhanghu_input{width: 95%;height:50%;margin-left: 15px;}
+input{background:none;outline:none;border:0px;}
+input[type="text"]:focus,input[type="password"]:focus {border:none;outline: none;}

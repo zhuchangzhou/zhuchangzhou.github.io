@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>图片的上传</title>
+		<style>
+			.addBorder{
+			  border:1px solid #ccc;
+			}
+
+			#imgDiv{
+				width:100px;
+				height:100px;
+			}
+
+			#imgContent{
+				width: 100%;
+				height:100%;
+			}
+		</style>
+	</head>
+	<body>
+		音频的上传：<input type="file" id="fileInputAudio"/><br>
+		视频的上传：<input type="file" id="fileInputVideo"/><br>
+		图片的上传：<input type="file" id="fileInputImage"/><br>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script type="text/javascript">
+		var fileInputAudio =document.querySelector("#fileInputAudio");
+		var fileInputVideo =document.querySelector("#fileInputVideo");
+		var fileInputImage =document.querySelector("#fileInputImage");
+		fileInputImage.onchange = function(){
+			var file = this.files[0];
+			console.log(file.type);
+			//图片的情况
+			if(!/image\/\w+/.test(file.type)){
+				console.log("请输入图片资源");
+				return false;
+			}
+			//创建读取文件的对象
+			var reader = new FileReader();
+			//正式的读取文件
+			reader.readAsDataURL(file);
+			reader.onload = function(){
+				console.log(reader.result);
+				console.log(file.type);
+				var imgBiob = base64ToBiob(reader.result,file.type);
+				console.log(imgBiob);
+				//调用接口
+				request("image",imgBiob);
+			}
+		}
+		//视频的上传
+		fileInputVideo.onchange = function(){
+			var file = this.files[0];
+			console.log(file.type);
+			//图片的情况
+			if(!/\\w*\\.[mp4|rmvb|flv|mpeg|avi|...]/ .test(file.type)){
+				console.log("请输入视频资源");
+				return false;
+			}
+			//创建读取文件的对象
+			var reader = new FileReader();
+			//正式的读取文件
+			reader.readAsDataURL(file);
+			reader.onload = function(){
+				console.log(reader.result);
+				console.log(file.type);
+				var videoBiob = base64ToBiob(reader.result,file.type);
+				console.log(videoBiob);
+				//调用接口
+				request("video",videoBiob);
+			}
+		}
+		//音频的上传
+		fileInputAudio.onchange = function(){
+			var file = this.files[0];
+			console.log(file.type);
+			//截取后面的元素
+			//图片的情况
+			if(!/audio\/\w+/.test(file.type)){
+				console.log("请输入音频资源");
+				return false;
+			}
+			//创建读取文件的对象
+			var reader = new FileReader();
+			//正式的读取文件
+			reader.readAsDataURL(file);
+			reader.onload = function(){
+				console.log(reader.result);
+				console.log(file.type);
+				var audioBiob = base64ToBiob(reader.result,file.type);
+				console.log(audioBiob);
+				//调用接口
+				request("audio",audioBiob);
+			}
+		}
+		//将文件转为二进制对象
+		function base64ToBiob(urlData,type){
+			var bytes=window.atob(urlData.split(',')[1]);
+			var ab = new ArrayBuffer(bytes.length); 
+			var ia = new Uint8Array(ab);  
+			console.log(bytes);
+			for (var i = 0; i < bytes.length; i++) {  
+				ia[i] = bytes.charCodeAt(i);  
+			}  
+			return new Blob( [ab] , {type : type});  
+		}
+		//调用接口
+		function request(type,Biob){
+			// 创建formData对象
+			var formData = new FormData();
+			console.log(formData);
+			formData.append("cover_img",Biob);
+			$.ajax({
+				url:"http://127.0.0.1/G/dms/img",
+				type:"POST",
+			    processData: false,
+				contentType: false,
+				data: formData,
+				dataType: 'json',
+				success:function(data){
+					console.log(data);
+					
+				}
+			})
+		}
+	</script>
+</html>

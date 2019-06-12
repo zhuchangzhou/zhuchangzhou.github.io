@@ -1,0 +1,73 @@
+.list1{
+	width: 6.9rem;
+	height: 2.1rem;
+	background-color: #fff;
+	border-radius: 0.1rem;
+	margin:0.20rem auto;
+}
+.class-icon{
+	display: inline-block;
+	width: 0.44rem;
+	height: 0.44rem;
+	background-color: #2f8be4;
+	color: #fff;
+	text-align: center;
+	line-height: 0.42rem;
+	border-radius: 0.06rem;
+	margin-left: 0.3rem;
+	margin-top: 0.3rem;
+}
+.name{
+	color: #2f8be4;
+	font-size: 0.38rem;
+}
+.number{
+	display: inline-block;
+	width: 0.25rem;
+	height: 0.25rem;
+	background-image: url(../img/9.png);
+	margin-left: 0.38rem;
+    margin-top: 0.2rem;
+    background-size: 100% 100%;
+}
+.bianma{
+	font-size: 0.28rem;
+}
+.bianma_01{
+	color: #999999;
+
+}
+.bianma_02{
+	color: #444444;
+    margin-left: 0.1rem;
+	
+}
+.number_01{
+	display: inline-block;
+	width: 0.25rem;
+	height: 0.25rem;
+	background-image: url(../img/8.png);
+	margin-left: 0.38rem;
+    margin-top: 0.2rem;
+    background-size: 100% 100%;
+}
+.number_02{
+	display: inline-block;
+	width: 0.25rem;
+	height: 0.25rem;
+	background-image: url(../img/7.png);
+	margin-left: 0.38rem;
+    margin-top: 0.2rem;
+    background-size: 100% 100%;
+}
+.right{
+	
+	width: 0.42rem;
+	height: 0.42rem;
+	background-repeat: no-repeat;
+    background-size: 100% 100%;
+	background-image: url(../img/ma.png);
+	margin-left: 6.1rem;
+    margin-top: -1rem;
+
+}

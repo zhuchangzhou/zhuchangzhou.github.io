@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>教师课程列表</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<link rel="stylesheet" href="../css/layer.css">
+		<link rel="stylesheet" href="../css/common_zcz.css">
+		<link rel="stylesheet" href="../css/tea_course_list.css">
+		<style>
+			 [v-cloak]{
+				display: none !important;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem;">
+				<div class="bui-bar-left">
+					<a href="tea_course_term_makeThree.html" class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a>
+				</div>
+				<div class="bui-bar-main" style="color:#000000">课程</div>
+				<div class="bui-bar-right"></div>
+			</header>
+			<main style="background: #EBEFF2;">
+				<div class="bui-box-center" style="height:auto;">
+					<img src="../img/noCourse.png" alt="" style="margin-top:1.42rem;display: block;">
+					
+				</div>
+				<div id="makeCourse"  class="bui-btn primary  ring save " style="text-align:center;font-size:0.34rem;display: block;width:3.30rem;line-height:120%;margin-top:0.60rem;float:left;margin-left:0.30rem">创建课程</div>
+				<div id="chooseCourse"  class="bui-btn primary  ring save " style="text-align:center;font-size:0.34rem;display: block;width:3.30rem;line-height:120%;margin-top:0.60rem;float:right;margin-right:0.30rem;background: #FFBB4C;border:0.01rem solid #FFBB4C">选择课程</div>
+			</main>
+			<footer>
+				
+			</footer>
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script src="../js/common_zcz.js"></script>
+	<script>
+		bui.ready(function() {
+			
+			//bui.load Class 页面的跳转
+			$("#chooseCourse").on("click",function(){
+				bui.load({
+					url:"./tea_course_choose.html"
+					// param: {
+					//"id": "123"
+					// }
+				})
+			})
+			$("#makeCourse").on("click",function(){
+				bui.load({
+					url:"./tea_course_makeThree.html"
+					// param: {
+					//"id": "123"
+					// }
+				})
+			})
+})
+	</script>
+</html>

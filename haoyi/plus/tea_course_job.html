@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>课程的作业列表</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<style>
+			.job_list {
+				width: 96%;
+				margin: 0 auto;
+				margin-top: 0.16rem;
+				background: #fff;
+				border-radius: 0.12rem;
+			}
+
+			.job_list_top {
+				padding: 0.30rem 0.34rem;
+				border-bottom: 0.01rem solid #ececec;
+			}
+
+			.job_list_top h3 {
+				display: inline-block;
+				padding: 0.04rem 0.24rem;
+				background: #2F8CE5;
+				font-size: 0.28rem;
+				border-radius: 0.10rem;
+				color: #fff;
+				margin-right: 0.20rem;
+			}
+
+			.job_list_top h4 {
+				display: inline-block;
+				font-size: 0.32rem;
+				color: #333333;
+			}
+
+			.job_list_top h6 {
+				font-size: 0.60rem;
+				color: #333333;
+				float: right;
+				line-height: 60%;
+			}
+
+			.job_list_mid {
+				padding: 0.46rem 0.34rem;
+				border-bottom: 0.01rem solid #ececec;
+			}
+
+			.job_list_mid h3,
+			.job_list_mid h4 {
+				display: inline-block;
+				margin-right: 0.36rem;
+				font-size: 0.30rem;
+				color: #777777;
+				margin-bottom: 0.16rem;
+			}
+
+			.job_list_mid h5,
+			.job_list_mid h6 {
+				font-size: 0.28rem;
+				color: #AEAEAE;
+				margin-bottom: 0.16rem;
+			}
+
+			.job_list_mid h6 {
+				margin-bottom: 0
+			}
+
+			.job_list_bot {
+				padding: 0.28rem 0.34rem;
+				overflow: hidden;
+			}
+
+			.job_list_bot h3 {
+				float: left;
+				font-size: 0.28rem;
+				color: #FFBD4C;
+				margin-top: 0.10rem;
+			}
+
+			.job_list_bot h4 {
+				float: right;
+				font-size: 0.28rem;
+				color: #fff;
+				background: #2F8CE5;
+				padding: 0.10rem 0.60rem;
+				border-radius: 0.50rem;
+			}
+
+			.fin h3 {
+				color: #18D571;
+			}
+
+			.overdue h3 {
+				color: #FB493F;
+			}
+
+			.unpublish h3 {
+				color: #A9A9A9;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem">
+				<div class="bui-bar-left">
+					<a href="tea_course_class_job.html" class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a>
+				</div>
+				<div class="bui-bar-main" style="color:#000000">作业</div>
+				<a href="tea_course_job_publish.html" class="bui-bar-right" style="width:auto;height:0.88rem;line-height:0.88rem;color:#555555">布置作业</a>
+			</header>
+			<main>
+				<!-- 内容区滚动 -->
+
+				<div id="uiTab" class="bui-tab"></div>
+			</main>
+			<!-- <footer>
+				<ul id="tabFootNav" class="bui-nav">
+					<li class="bui-btn bui-box-vertical active"><i class="icon-home"></i>
+						<div class="span1">首页</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-edit"></i>
+						<div class="span1">课程</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-chat"></i>
+						<div class="span1">作业</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-setting"></i>
+						<div class="span1">我的</div>
+					</li>
+				</ul>
+			</footer> -->
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script src="../js/common_zcz.js"></script>
+	<script>
+		bui.ready(function() {
+			//先取到课程的名称
+			var courseName = localStorage.getItem("courseName");
+			//选项卡的切换
+			var uiTab = bui.tab({
+				id: "#uiTab",
+				autoload: true,
+				template: function(data) {
+					var html = '';
+					//渲染菜单结构
+					// <div class="bui-tab-head">
+					// 	<ul class="bui-nav">
+					// 		<li class="bui-btn">全部</li>
+					// 		<li class="bui-btn">未发布</li>
+					// 		<li class="bui-btn">进行中</li>
+					// 		<li class="bui-btn">已完成</li>
+					// 		<li class="bui-btn">已逾期</li>
+					// 	</ul>
+					// </div>
+					//渲染菜单结构
+					html += '<div class="bui-tab-head"><ul class="bui-nav">';
+					data.forEach(function(item, i) {
+						html += '<li class="bui-btn">' + item.title + '</li>';
+					})
+					html += '</ul></div>';
+					//渲染内容结构
+					html += '<div class="bui-tab-main"><ul>';
+					data.forEach(function(item, i) {
+						html += '<li>';
+						//里面需要嵌套一层循环来实现列表的插入
+						html += '<ul>';
+						var dataChildren = item.list;
+						dataChildren.forEach(function(item1, j) {
+							html += '<li class="job_list">';
+							html += '<div class="job_list_top"><h3>' +courseName+'</h3><h4>' + item1.hwName +
+								'</h4><h6>...</h6></div>';
+							html += '<div class="job_list_mid"><h3>完成情况：<span>' + item1.finishedNum + '</span>/<span>' + item1.sumHWNum +
+								'</span>人</h3>';
+							html += '<h4>批阅情况：<span>' + item1.markedNum + '</span>/<span>' + item1.sumHWNum + '</span>人</h4>';
+							html += '<h5>截止日期：' + item1.closingDate + '</h5>'
+							html += '<h6>' + item1.hwDesc + '</h6></div>';
+							if (item1.hwState == "2") {
+								html += '<div class="job_list_bot">';
+								html += '<h3>进行中</h3><h4  data-id="' +item1.id + '" class="linkBtn">批阅</h4></div>';
+							} else if (item1.hwState == "3") {
+								html += '<div class="job_list_bot fin">';
+								html += '<h3>已完成</h3><h4 data-id="' +item1.id + '" class="linkBtn">查看</h4></div>';
+							} else if (item1.hwState == "1") {
+								html += '<div class="job_list_bot unpublish">';
+								html += '<h3>未发布</h3><h4 data-id="' + item1.id+ '" class="linkBtn">发布</h4></div>';
+							} else if (item1.hwState == "4") {
+								html += '<div class="job_list_bot overdue">';
+								html += '<h3>已逾期</h3><h4 data-id="' + item1.id + '" class="linkBtn">批阅</h4></div>';
+							}
+							html += '</li>';
+						})
+						html += '</ul>';
+						html += '</li>';
+					})
+					html += '</ul></div>';
+					return html;
+				},
+			});
+			var loginId = localStorage.getItem("loginId");
+			var termId = localStorage.getItem("termId");
+			var courseId = localStorage.getItem("courseId");
+			// 异步请求数据
+			// url:ctx+"homeWork/getHomeWorkData.action",
+			//url:'http://127.0.0.1:8080/general/homeWork/getHomeWorkData.action',
+			bui.ajax({
+				url: ctxLocal+"homeWork/getHomeWorkData.action",
+				data:{
+					uId:loginId,
+					courseId:courseId,
+					semesterId:termId
+				},
+				method:"POST"
+			}).then(function(res) {
+				if (res.code == 0) {
+					var resArr = [];
+					var all = {
+						title:"全部",
+						list:res.data
+					}
+					resArr.push(all);
+					var unpubList = [];
+					var midList = [];
+					var completedList = [];
+					var latedList = [];
+					var unpub = {
+						title:"未发布",
+						list:[]
+					};
+					var mid = {
+						title:"进行中",
+						list:[]
+					};
+					var completed = {
+						title:"已完成",
+						list:[]
+					};
+					var lated = {
+						title:"已逾期",
+						list:[]
+					}
+					for(var i = 0;i<res.data.length;i++){
+						if(res.data[i].hwState =="1"){
+							//对截至时间进行转换
+							res.data[i].closingDate = format(res.data[i].closingDate);
+							unpubList.push(res.data[i]);
+							var unpub = {
+								title:"未发布",
+								list:unpubList
+							}
+							
+						}else if(res.data[i].hwState =="2"){
+							res.data[i].closingDate = format(res.data[i].closingDate);
+							
+							midList.push(res.data[i]);
+							var mid = {
+								title:"进行中",
+								list:midList
+							}
+							
+						}else if(res.data[i].hwState =="3"){
+							res.data[i].closingDate = format(res.data[i].closingDate);
+							
+							completedList.push(res.data[i]);
+							var completed = {
+								title:"已完成",
+								list:completedList
+							}
+							
+						}else if(res.data[i].hwState =="4"){
+							res.data[i].closingDate = format(res.data[i].closingDate);
+							
+							latedList.push(res.data[i]);
+							var lated = {
+								title:"已逾期",
+								list:latedList
+							}
+							
+						}
+					}
+					resArr.push(unpub);
+					resArr.push(mid);
+					resArr.push(completed);
+					resArr.push(lated);
+					console.log(resArr)
+					uiTab.option("data", resArr);
+					$(".linkBtn").click(function() {
+						var hwId = $(this).attr("data-id");
+						localStorage.setItem("hwId",hwId);
+						if ($(this).text() == "批阅" || $(this).text() == "查看") {
+							window.location.href = "./tea_course_job_mark.html";
+						} else {
+							window.location.href = "./tea_course_job_publish.html?hwId="+hwId;
+						}
+				
+					})
+				}else{
+					var html = '';
+					html += '<div class="bui-box-center" style="height:auto;background:#F3F5F8">';
+					html += '<img src="../img/noCourse.png" alt="" style="margin-top:1.42rem;display: block;">';
+					html += '</div>';
+					$("#uiTab").append(html);
+				}
+			}, function(e) {
+				console.log(e);
+				// private Integer id;//主键
+	
+// 				private String hwName;//作业名称
+// 				
+// 				private String hwNum;//编号 唯一
+// 				
+// 				private String hwDesc;//作业描述
+// 				
+// 				private Integer pubId;//发布人ID
+// 				
+// 				private float sumScore;//总分
+// 				
+// 				private Integer hwType;//1视频 2语音 3doc\xls后缀  4无要求
+// 				
+// 				private Date closingDate;//作业提交截止日期
+// 				
+// 				private String classId;//班级ID,“,”号隔开
+// 				
+// 				private Integer overdueState;//是否允许逾期迟交作业  1允许 2不允许
+// 				
+// 				private Date createTime;//发布时间
+// 				
+// 				private String cRomName;//班级名称
+// 				
+// 				private Integer courseId;//课程ID add by wwj 2019-04-26
+// 				
+// 				private String courseName;//课程名称  add by wwj 2019-04-28
+// 				
+// 				private Integer hwState;//1保存未发布2进行中 3已经完成 4已逾期
+// 				
+// 				private Integer isDel;//1正常 2删除
+// 				
+// 				private String attSrc;//附件路径
+// 
+// 				private Integer sumHWNum;//作业批阅总量 add by wwj 2019-05-05
+// 				
+// 				private Integer markedNum;//已批阅总量 add by wwj 2019-05-05
+// 	
+				var res = [{
+						title: "全部",
+						list: [{
+								id: "0",
+								courseName: "英语",
+								hwName: "第八章作业",
+								finishedNum: "36",
+								sumHWNum: "36",
+								markedNum: "3",
+								sumHWNum: "8",
+								closingDate: "2019.08.21 05:24",
+								hwDesc: "做课后练习题",
+								hwState: "3",
+							},
+							{
+								id: "1",
+								courseName: "英语",
+								hwName: "第八章作业",
+								finishedNum: "36",
+								sumHWNum: "36",
+								markedNum: "3",
+								sumHWNum: "8",
+								closingDate: "2019.08.21 05:24",
+								hwDesc: "做课后练习题",
+								hwState: "2",
+							}, {
+								id: "3",
+								courseName: "英语",
+								hwName: "第八章作业",
+								finishedNum: "36",
+								sumHWNum: "36",
+								markedNum: "3",
+								sumHWNum: "8",
+								closingDate: "2019.08.21 05:24",
+								hwDesc: "做课后练习题",
+								hwState: "4",
+							},
+							{
+								id: "4",
+								courseName: "英语",
+								hwName: "第八章作业",
+								finishedNum: "36",
+								sumHWNum: "36",
+								markedNum: "3",
+								sumHWNum: "8",
+								closingDate: "2019.08.21 05:24",
+								hwDesc: "做课后练习题",
+								hwState: "1",
+							}
+						]
+					},
+					{
+						title: "未发布",
+						list: [{
+							id: "4",
+							courseName: "英语",
+							hwName: "第八章作业",
+							finishedNum: "36",
+							sumHWNum: "36",
+							markedNum: "3",
+							sumHWNum: "8",
+							closingDate: "2019.08.21 05:24",
+							hwDesc: "做课后练习题",
+							hwState: "1",
+						}]
+					},
+					{
+						title: "进行中",
+						list: [{
+							id: "1",
+							courseName: "英语",
+							hwName: "第八章作业",
+							finishedNum: "36",
+							sumHWNum: "36",
+							markedNum: "3",
+							sumHWNum: "8",
+							closingDate: "2019.08.21 05:24",
+							hwDesc: "做课后练习题",
+							hwState: "2",
+						}]
+					},
+					{
+						title: "已完成",
+						list: [{
+							id: "1",
+							courseName: "英语",
+							hwName: "第八章作业",
+							finishedNum: "36",
+							sumHWNum: "36",
+							markedNum: "3",
+							sumHWNum: "8",
+							closingDate: "2019.08.21 05:24",
+							hwDesc: "做课后练习题",
+							hwState: "3",
+						}]
+					},
+					{
+						title: "已逾期",
+						list: [{
+							id: "3",
+							courseName: "英语",
+							hwName: "第八章作业",
+							finishedNum: "36",
+							sumHWNum: "36",
+							markedNum: "3",
+							sumHWNum: "8",
+							closingDate: "2019.08.21 05:24",
+							hwDesc: "做课后练习题",
+							hwState: "4",
+						}]
+					}
+				];
+				uiTab.option("data", res);
+				$(".linkBtn").click(function() {
+					var dataId = $(this).attr("data-id");
+					if ($(this).text() == "批阅" || $(this).text() == "查看") {
+						window.location.href = "./tea_course_job_mark.html";
+					} else {
+						window.location.href = "./tea_course_job_publish.html";
+					}
+				})
+			})
+		})
+	</script>
+</html>

@@ -1,0 +1,16 @@
+.top_t_center_span_xiaoxi{display: block;float: left;font-size: 22px;margin-left: 30px;margin-top: 10px;color:black;border-bottom: 2px solid rgb(50,146,234);}
+.top_t_center_span_gonggao{display: block;float: left;font-size: 21px;margin-left: 5px;margin-top: 10px;color: rgb(161,161,161);border-bottom: px solid red;}
+.me_center_top{width: 100%;height: 100%;background-color: white;float: left;margin-top: 2px;}
+.me_center_top_a{display: block;width: 100%;height: 24%;}
+.me_center_top_a_gonggao{display: block;width: 100%;height:auto;}
+.me_center_top_touxiang{width:20%;height:53%;background-color:white;float: left;margin-top: 5px;}
+.me_center_top_touxiang_main{width:68%;height:73%;float: left;border: 1px solid white;margin-left: 14.5px;margin-top: 15px;border-radius:50%;}
+.me_center_top_touxiang_main_img{width: 100%;height: 100%;border-radius:50%;}
+.me_center_top_xinxi{width: 60%;height: 100%;background-color:white;float: left;}
+.me_center_top_you{width: 16%;height: 100%;background-color:white;float: left;}
+.me_center_top_xinxi_ming{float: left;width: 100%;height: 20%;margin-top:20px;color: black;font-size: 17px;}
+.me_center_top_xinxi_xinming{float: left;width: 100%;height:40%;color: black;font-size: 15px;font-family: "微软雅黑";font-weight: 500;}
+.me_center_top_xinxi_zhicheng{float: left;width: 100%;height:;color: rgb(155,155,155);font-weight: bold;}
+.me_center_top_xinxi_xinming:hover{text-decoration: none;}
+.me_center_top_xinxi_zhicheng:hover{text-decoration: none;}
+.me_center_top_xinxi_time{color: #C5CBD3;float: left;width:100 %;height: 15px;}

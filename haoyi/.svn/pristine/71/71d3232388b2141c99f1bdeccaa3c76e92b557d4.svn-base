@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>课程的编辑</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<link rel="stylesheet" href="../font/iconfont.css">
+		<link rel="stylesheet" href="../css/attachList.css">
+		<link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+		<style>
+
+			input::-webkit-input-placeholder{ /*WebKit browsers*/
+						color: #DCDCDC;
+					}
+input::-moz-input-placeholder{ /*Mozilla Firefox*/
+						color: #DCDCDC;
+					}
+input::-ms-input-placeholder{ /*Internet Explorer*/ 
+						color: #DCDCDC;
+					}
+						textarea::-webkit-input-placeholder{ /*WebKit browsers*/
+											padding-left:0.20rem;
+											color: #DCDCDC;
+										}
+					textarea::-moz-input-placeholder{ /*Mozilla Firefox*/
+											padding-left:0.20rem;
+											color: #DCDCDC;
+										}
+					textarea::-ms-input-placeholder{ /*Internet Explorer*/ 
+											padding-left:0.20rem;
+											color: #DCDCDC;
+										}
+								
+		</style>
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem">
+				<div class="bui-bar-left">
+					<a href="tea_course_class_job.html" class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a>
+				</div>
+				<div class="bui-bar-main" style="color:#000000">编辑课程</div>
+				<a href="tea_course_job_publish.html" class="bui-bar-right" style="width:auto;height:0.88rem;line-height:0.88rem;color:#fff">xxx</a>
+			</header>
+			<main>
+				<ul class="bui-list" style="padding-top:0.20rem">
+					<li class="bui-btn bui-box clearactive">
+						<label class="bui-label" for="courseName" style="color:#343434;padding-left:0.20rem">课程名称</label>
+						<div class="span1">
+							<div class="bui-input user-input" id ="courseNameInput">
+								<input id="courseName" type="text" value="" placeholder="请输入课程名称" style="text-align: right;padding-right:0.20rem">
+							</div>
+						</div>
+					</li>
+					<li class="bui-btn bui-box clearactive">
+						<label class="bui-label" for="courseInfo" style="color:#343434;padding-left:0.20rem">课程介绍</label>
+						<div class="span1">
+
+						</div>
+					</li>
+					<ul class="bui-list">
+						<li class="bui-btn clearactive" style="overflow: hidden;">
+							<div id="courseInfoInput" class="bui-input">
+								<textarea class="bui-input" id="courseInfo" cols="30" rows="4" placeholder="请输入课程介绍"></textarea>
+							</div>
+						</li>
+					</ul>
+				</ul>
+				<div class="bui-btn primary ring bui-box-vertical save" style="width:80%;margin:0 auto;text-align: center;font-size:0.32rem;color:#fff;margin-top:5.08rem">保存</div>
+				<div class="bui-btn primary ring bui-box-vertical del" style="width:80%;margin:0.24rem auto;text-align: center;font-size:0.32rem;color:#fff;background: #FF5F5F;border:0.01rem solid #FF5F5F">删除课程</div>
+			</main>
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script src="../js/common_zcz.js"></script>
+	<script src="../js/common_audio.js"></script>
+	<script>
+		var courseNameVal = '';
+		var courseInfoVal = '';
+		var courseNameFlag = true;
+		var courseInfoFlag = true;
+		var inputCourseNameReg = /^[\u4e00-\u9fa5]{1,10}$|^[\dA-Za-z_]{1,20}$/;
+		var inputCourseInfoReg = /^[\u4e00-\u9fa5]{1,20}$|^[\dA-Za-z_]{1,40}$/;
+		var loginId = localStorage.getItem("loginId");
+		var courseId = localStorage.getItem("courseId");
+		courseId = parseInt(courseId);
+		//回显
+		bui.ready(function() {		
+			getCourseInfoById()
+			$("#courseName").val(courseNameVal);
+			$("#courseInfo").val(courseInfoVal);
+			//编辑课程:
+			//正则的判断:
+			
+			checkInputDom("courseNameInput","courseName",inputCourseNameReg,'最长不得超过10个汉字，或个20字节(数字，字母和下划线)',courseNameFlag);
+			checkInputDom("courseInfoInput","courseInfo",inputCourseInfoReg,'最长不得超过20个汉字，或个40字节(数字，字母和下划线)',courseInfoFlag);
+			// courseInfoFlag = checkInputDom("courseInfoInput",/^[\u4e00-\u9fa5]{1,7}$|^[\dA-Za-z_]{1,14}$/,"最长不得超过7个汉字，或14个字节(数字，字母和下划线)");
+			//进入页面时先获取到对应的值,因为新增课程的时候做过正则判断所有不需要再做
+			//保存
+			$(".save").on("click", function() {
+				$(".save").attr("disabled", "disabled");
+				if(courseNameFlag == true && courseInfoFlag == true){
+					var courseName = $("#courseName").val();
+					var courseInfo = $("#courseInfo").val();	
+					bui.ajax({
+						url: ctxLocal+'courseInfoMgr/updateCourseInfoMgr.action',
+						data: {
+							courseId:courseId,
+							courseName: courseName,
+							contentSummary: courseInfo
+						},
+					}).then(function(res) {
+						if (res.code == 1) {
+							console.log("保存成功");
+							window.location.href="./tea_course_class_job.html"
+							// bui.load({
+							// 	url: "courseInfoMgr/tea_course_class_job.html",
+							// })
+						} else {
+							
+							console.log("数据库异常，课程增加失败");
+							$(".save").removeAttr("disabled");
+						}
+					}, function(res, status) {
+						console.log(status);
+						$(".save").removeAttr("disabled");
+					})
+				}
+				
+			})
+			//删除课程
+			$(".del").on("click", function() {
+				$(".del").attr("disabled", "disabled");
+					bui.ajax({
+						url: ctxLocal+'courseInfoMgr/deleteCourseInfoMgr.action',
+						data: {
+							id:courseId
+						},
+					}).then(function(res) {
+						if (res.code == 1) {
+							console.log("保存成功");
+							bui.load({
+								url: "./tea_course_makeTwo.html",
+							})
+						} else {
+							console.log("数据库异常，课程增加失败");
+							$(".del").removeAttr("disabled");
+						}
+					}, function(res, status) {
+						console.log(status);
+						$(".del").removeAttr("disabled");
+					})
+				
+			})
+		})
+	</script>
+</html>

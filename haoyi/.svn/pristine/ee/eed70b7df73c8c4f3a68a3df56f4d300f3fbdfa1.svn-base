@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>文件夹名称</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/online_learning.css">
+		<link rel="stylesheet" type="text/css" href="../css/decorate.css">
+		<link rel="stylesheet" type="text/css" href="../css/resources.css">
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				outline: none;
+				border: 0;
+				font-size: 0.32rem;
+			}
+
+			#please_01 {
+				color: red;
+			}
+			[v-cloak]{
+				display: none !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem;">
+				<div class="bui-bar-left">
+					<a class="bui-btn" style="color:#000" href="./tea_course_resource_makeOne.html"><i class="icon-back" style="color:#000"></i>返回</a>
+				</div>
+				<div class="bui-bar-main folderName" style="color:#000000"></div>
+				<div class="bui-bar-right" id="btnOpen"><img src="../img/diandiandian.png" alt="" style="width:0.50rem;height:0.50rem;margin-top:0.20rem"></div>
+			</header>
+			<main style="background: #EBEFF2;">
+				<div class="phone" v-cloak>
+					<div class="all">共{{dataLength}}个资源</div>
+					<div class="content">
+						<div class="list-01" v-for="(item,index) in objectArray" @keys="index" @click="linkTo(item.id)">
+							<ul>
+								<li class="resources-name">{{item.resouceName}}</li>
+								<li class="time">{{item.createTime}}</li>
+								<li class="uploader">{{uploader}}</li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</main>
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script src="../js/common_zcz.js"></script>
+	<script>
+		var resourceFileData = [];
+		var resourceFileLength = '';
+		var loginId = localStorage.getItem("loginId");
+		var resourceSrc = localStorage.getItem("resourceSrc");
+		var courseId = localStorage.getItem("courseId");
+		var login_name = localStorage.getItem("login_name");
+		bui.ready(function() {
+
+			$(".folderName").text(resourceSrc);
+
+			//内容部分采用vue实现比较方便
+			getResourceFileData(loginId, courseId);
+			console.log(resourceFileData);
+			var vm = new Vue({
+				el: ".phone",
+				data: {
+					objectArray: [],
+					dataLength: '',
+					uploader: ''
+				},
+				methods: {
+					linkTo: function(fileId, resourceSrc) {
+						localStorage.setItem("fileId", fileId);
+						localStorage.setItem("resourceSrc", resourceSrc);
+						window.location.href = "./tea_course_resource_makeTwo.html";
+					}
+				}
+			})
+
+			vm.$data.objectArray = resourceFileData;
+			vm.$data.dataLength = resourceFileLength;
+			vm.$data.uploader = login_name;
+			// 示例  这里的上传是将要上传的文件上传到平台的这个文件夹下.
+			var uiActionsheet = bui.actionsheet({
+				trigger: "#btnOpen",
+				buttons: [{
+					name: "本地上传",
+					value: "localUploadFile"
+				}, {
+					name: "网址上传",
+					value: "webUploadFile"
+				}, {
+					name: "编辑",
+					value: "editFile"
+				}],
+				callback: todo
+			})
+
+			function todo(e) {
+				var val = $(e.target).attr("value");
+				if (val == "localUploadFile") {
+					//getAttachList()
+				} else if (val == "webUploadFile") {
+					window.location.href = "./tea_course_resource_makeFive.html";
+				} else if (val == "editFile") {
+					window.location.href = "./tea_course_resource_makeSix.html";
+				} else {
+					this.hide();
+				}
+			}
+		})
+	</script>
+</html>

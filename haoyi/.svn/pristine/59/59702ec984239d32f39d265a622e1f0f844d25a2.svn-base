@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>学生列表</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<style>
+			.job_list_ul{
+				margin-top:0.20rem;
+				background:#EDF0F2;
+			}
+			.mark-btn-zc{
+				padding:0.16rem 0.36rem; 
+				background: #2F8CE5;
+			}
+			.mark-btn-zc span{
+				text-align:center;
+				font-size:0.30rem;
+				color:#fff;
+			}
+			.bui-choose{
+				display: none;
+			}
+			.grade{
+				color:#2F8CE5;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem">
+				<div class="bui-bar-left">
+					<a href="tea_course_result_makeOne.html" class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a>
+				</div>
+				<div class="bui-bar-main className" style="color:#000000"></div>
+				<a id="selectAll" class="bui-bar-right" style="width:auto;height:0.88rem;line-height:0.88rem;color:#fff" href="javascript:void(0)">批量</a>
+			</header>
+			<main>
+				<!-- 内容区滚动 -->
+				<ul class="bui-list bui-list-thumbnail" id="selectCustom2">
+					
+				</ul>
+
+			</main>
+			<!-- <footer>
+				<ul id="tabFootNav" class="bui-nav">
+					<li class="bui-btn bui-box-vertical active"><i class="icon-home"></i>
+						<div class="span1">首页</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-edit"></i>
+						<div class="span1">课程</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-chat"></i>
+						<div class="span1">作业</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-setting"></i>
+						<div class="span1">我的</div>
+					</li>
+				</ul>
+			</footer> -->
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script>
+		var classId = localStorage.getItem("classId",classId);
+		var cRomName = localStorage.getItem("cRomName",cRomName);
+		
+		bui.ready(function() {
+		//给头部赋值
+		$(".className").text(cRomName);
+		//获取班级学生数据
+		$.ajax({
+			type:"POST",
+			url:ctxLocal+'classRoom/getClassRoomStuData.action',
+			data:{
+				classId:classId
+			},
+			async:false,
+			success:function(res){
+				if(res.code==0){
+					console.log(res.data);
+					//结构不是很复杂,就直接熏染了
+					var html='';
+					for(var i =0;i<res.data.length;i++){
+						html+='<li class="bui-btn bui-box uhw"  data-id="'+res.data[i].id+'">';
+						html+='<input id="check-1" type="checkbox" class="bui-choose" value="98.00" text="王洋洋">';
+						html+='<div class="bui-thumbnail"><img src="../img/mark01.png" alt=""></div>';
+						html+='<div class="span1"><h3 class="item-title">' + res.data[i].ue_nickname +
+							'</h3><p class="item-text">学号：' + res.data[i].u_loginname + '</p></div>';
+						html+='<a data-id="'+res.data[i].id+'" class="bui-btn primary ring mark-btn-zc" href="javascript:void(0)"><span>'+res.data[i].sumScore+'</span></a>';	
+					}
+					$("#selectCustom2").append(html);
+				}else{
+					console.log(res.msg)
+				}
+			},
+			error:function(e){
+				console.log(e);
+			}
+		})
+			
+
+			//批量执行前的判断,如果所有的作业状态都是已批阅的状态,则不能点击
+			//html += '<a  data-uHWState="'+item1.uHWState+'"   data-id="'+item1.id+'" class="bui-btn primary ring mark-btn-zc" href="./tea_course_job_markOne.html"><span>批阅</span></a>';
+// 			$("#selectAll").on("click", function() {
+// 				var arr = [];
+// 				$('.uhw').each(function() {
+// 					arr.push($(this).attr("data-id"));
+// 				})
+// 
+// 				//循环数组
+// 				arr.forEach(v => {
+// 					window.location.href = './tea_course_job_markAll.html';
+// 				})
+// 			});
+
+			//点击每个学生进入对应的作业详情页
+			$(".uhw").click(function(){
+				var stuId = $(this).attr("data-id");
+				localStorage.setItem("stuId",stuId);
+				window.location.href="./tea_course_result_makeThree.html";
+			})
+
+		})
+	</script>
+</html>

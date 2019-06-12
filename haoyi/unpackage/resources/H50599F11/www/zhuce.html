@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>注册</title>
+		<link rel="stylesheet" type="text/css" href="css/loginsj.css" />
+	</head>
+
+	<body>
+		<div class="top">
+			<div class="biaoti what">
+				<a href="javascript:history.go(-1)">取消</a>
+			</div>
+			<div class="biaoti " id="denglu">注册</div>
+			<div class="biaoti what">
+				<a href="loginsj.html">登录</a></div>
+		</div>
+		<div class="fengexian"></div>
+		<!--<div class="tupian">
+			<img src="img/tgty.png" />
+		</div>
+		<div id="taigong">太工天宇</div>-->
+		<div class="biaodan">
+			<form id="kkk" action="javascript:;" method="post">
+				<ul>
+					
+					<ol>
+						<div>
+						<img src="img/yonghu.png" /><input style="height: 40px;" style="height: 40px;" type="" name="u_loginname" id="u_loginname" value="" placeholder="请输入用户名" />
+						</div>
+						<p id="u_loginnameMsg"></p>
+					</ol>
+					<ol>
+						<div>
+						<img src="img/shouji.png" /><input style="height: 40px;" style="width: 228px;lheight: 40px;" type="" name="u_cellphone" id="u_cellphone" value="" placeholder="请输入手机号" />
+						</div>
+						<p id="u_cellphoneMsg"></p>
+					</ol>
+					<ol>
+						<div>
+						<img src="img/youxiang.png" /><input style="width: 228px;height: 40px;" type="" name="u_emali" id="u_emali" value="" placeholder="请输入邮箱地址"></input>
+						</div>
+						<p id="u_passwordMsg"></p>
+					</ol>
+					<ol>
+						<div>
+						<img src="img/mima.png" /><input style="height: 40px;" type="" name="u_password" id="u_password1" value="" placeholder="请输入密码"></input>
+						</div>
+						<p id="u_passwordMsg"></p>
+					</ol>
+					<!--<ol>
+						<div>
+						<img src="img/mima.png" /><input style="height: 40px;" type="" name="aging" id="u_password2"  value="" placeholder="请再次输入密码"></input>
+						</div>
+						<p id="agingMsg"></p>
+					</ol>-->
+				</ul>
+
+				<input type="submit" class="btn" value="注册" id="login"></input>
+			</form>
+			
+		</div>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	
+	<script src="js/jquery-validate-1.19.js"></script>
+
+	<script src="js/bootstrap.min.js"></script>
+	
+	<script src="js/ctx.js"></script>
+	<script>
+		var ctx;
+		$("#kkk").validate({
+		
+						rules: {
+							u_loginname: {
+								required: true
+							},
+							u_cellphone: {
+								required: true,
+								minlength:11,
+								maxlength:11
+							},
+							u_password: {
+								required: true,
+								minlength: 2
+							},
+							u_email: {
+								required: true,
+								email:true
+							}/**,
+							aging: {
+								required: true,
+								equalTo:"#u_password1"
+							}*/
+						},
+						messages: {
+							u_loginname: {
+								required: "请输入用户名",
+		
+							},
+							u_cellphone: {
+								required: "请输入手机号",
+								minlength:"您输入的手机号码小于11位",
+								maxlength:"您输入的手机号码大于11位",
+							},
+							u_password: {
+								required: "请输入密码",
+								minlength: "密码长度不能小于 5 个字母"
+							},
+							aging: {
+								required: true,
+								email:'邮箱格式输入错误'
+							}/*,
+							aging: {
+								required: "请再次输入验证码！",
+								equalTo:"两次密码不一致，请重新输入"
+							}*/
+						},
+						errorPlacement: function(error, element) {
+							name = element.attr('name');
+							
+							$('#'+name+'Msg').append(error);
+						}
+					}); 
+		
+		//随机数生成
+		function RndNum(n){
+			var rnd="";
+			for(var i=0;i<n;i++)
+				rnd+=Math.floor(Math.random()*10);
+			return rnd;
+		}
+		$('#u_loginname').blur(function(){
+			       var condition = $('#u_loginname').val();
+						$.ajax({
+							type:"POST",
+							url:ctx+"registUser/checkUser.action", //地址，就是json文件的请求路径
+							data:{"condition":condition},
+							success: function(result) {
+								if(result.state=="y"){
+								   alert("该用户名已经存在");
+									 $('#u_loginname').val("");
+								}else{
+									
+								};						
+							},
+							error:function(result){
+								 alert("服务器相应超时，请稍后重试");
+							}
+							})
+		});
+		
+		$('#u_cellphone').blur(function(){
+						var  condition= $('#u_cellphone').val();
+						$.ajax({
+							type:"POST",
+							url:ctx+"registUser/checkUser.action", //地址，就是json文件的请求路径
+							data:{"condition":condition},
+							success: function(result) {
+								if(result.state=="y"){
+									alert("该手机号已经存在");
+									$('#u_cellphone').val("");
+								}else{
+									
+								};						
+							},
+							error:function(result){
+								alert("服务器相应超时，请稍后重试");
+							}
+							})
+		});
+		$('#u_emali').blur(function(){
+						var  condition= $('#u_emali').val();
+						$.ajax({
+							type:"POST",
+							url:ctx+"registUser/checkUser.action", //地址，就是json文件的请求路径
+							data:{"condition":condition},
+							success: function(result) {
+								if(result.state=="y"){
+									alert("该邮箱已经存在");
+									$('#u_emali').val("");
+								}else{
+									
+								};						
+							},
+							error:function(result){
+								alert("服务器相应超时，请稍后重试");
+							}
+							})
+		});
+		
+		$('#login').click(function () {
+			var a = $('#u_password1').val();
+			var c = $('#u_cellphone').val();
+			var d = $('#u_loginname').val();
+			var e = $('#u_emali').val();
+				$.get(ctx+'registUser/regist.action?u_password='+a+'&u_cellphone='+c+'&ue_username='+d+'&ue_email='+e+'&u_type=3', function(result) {
+					if(result=='success'){
+						alert("注册成功！！！");
+					}else{
+						location.href="loginsj.html";
+						alert("注册失败,该用户名已被占用");
+					}
+				});
+		
+		})
+	</script>
+
+</html>

@@ -1,0 +1,127 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 0.16rem;
+	border: 0;
+	color: #333;
+	outline: none;
+	text-decoration: none;
+}
+body{
+	height:100%;
+	background: #EDEDED;
+}
+header{
+	width:100%;
+	height:2.90rem;
+	background: url(../img/bg01.png) no-repeat center;
+	background-size:100% 100%;
+	top: 0;
+}
+header .header-top{
+	width: 100%;
+	height: 0.88rem;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+header .header-top .return{
+	margin-left:0.28rem;
+	cursor: pointer;
+}
+header .return a{
+	height:0.40rem;
+	background: url(../img/rt01.png) no-repeat left;
+	background-size:contain;
+	font-size:0.26rem;
+	color:#ffffff;
+	padding-left:0.26rem;
+}
+header .return span{
+	font-size:0.26rem;
+	text-align:center;
+	color:#fff;
+	line-height:0.88rem;
+	margin-right:0.10rem;
+}
+header .header-title span{
+	color:#fff;
+	font-size:0.36rem;
+}
+header .pointStruction{
+	margin-right: 0.28rem;
+}
+header .pointStruction a span{
+	font-size:0.26rem;
+	color:#fff;
+}
+header .header-body{
+	width:100%;
+	height:2.02rem;
+}
+header .header-body h3{
+	width:100%;
+	height:0.50rem;
+	text-align:center;
+	line-height:0.50rem;
+	font-size:0.42rem;
+	color:#ffffff;
+	margin-top:0.60rem;
+}
+header .header-body h4{
+	width:100%;
+	height:0.44rem;
+	text-align:center;
+	line-height:0.44rem;
+	font-size:0.26rem;
+	color:#ffffff;
+	margin-top:0.12rem;
+}
+.content{
+	margin-top:0.22rem;
+	padding-bottom:0.22rem;
+}
+.content .content-list{
+	width:100%;
+	background: #FFFFFF;
+}
+.content .content-list li{
+	width:100%;
+	height:1.10rem;
+	border-bottom: 0.01rem solid #ECECEC;
+	padding:0.30rem 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.content .content-list .cl-left{
+	height:0.88rem;
+	padding-left:0.28rem;
+	margin-top:0.08rem;
+} 
+.content .content-list .cl-left>h3{
+	text-align: left;
+	font-size:0.30rem;
+	color:#656565;
+	font-weight:normal;
+}
+.content .content-list .cl-left>h4{
+	margin-top:0.24rem;
+	text-align: left;
+	font-size:0.26rem;
+	color:#A2A2A2;
+	font-weight: normal;
+}
+.content .content-list .cl-right{
+	height:1.10rem;
+	padding-right:0.28rem;
+	margin-top:0.08rem;
+} 
+.content .content-list .cl-right span{
+	line-height:1.10rem;
+	text-align: left;
+	font-size:0.26rem;
+	color:#3694EA;
+}

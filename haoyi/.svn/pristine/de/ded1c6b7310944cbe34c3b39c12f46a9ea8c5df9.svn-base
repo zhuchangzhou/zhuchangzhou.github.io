@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>教师课程列表</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<link rel="stylesheet" href="../css/layer.css">
+		<link rel="stylesheet" href="../css/common_zcz.css">
+		<link rel="stylesheet" href="../css/tea_course_list.css">
+		<style>
+			 [v-cloak]{
+				display: none !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem;">
+				<div class="bui-bar-left">
+					<!-- <a class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a> -->
+				</div>
+				<div class="bui-bar-main" style="color:#000000">作业</div>
+				<div class="bui-bar-right"></div>
+			</header>
+			<main>
+				<!-- 内容区滚动 -->
+				<div class="bui-list-pic bui-fluid-space-2 mian-content" v-cloak>
+					<div class="span1" v-for="(item,index) in objectArray" :keys="index" @click="linkTo(item.courseId,item.courseName)">
+						<div class="bui-pic checkCourse">
+							<div class="bui-pic-img"><img :src="item.courseJacket" alt="" style="width:3.36rem;height:2.22rem"></div>
+							<div class="bui-pic-title" style="padding:0;padding-bottom:0.18rem">
+								<h3 class="item-title" style="color:#333333;padding-top:0.28rem; padding-left:0.18rem">{{item.courseName}}</h3>
+								<p class="item-text" style="color:#04C277; padding-top:0.18rem; padding-left:0.18rem;float:left">{{item.chargeForm}}</p>
+								<p class="item-text" style="color:#C1C7CF; padding-top:0.18rem; padding-right:0.18rem;float:right">{{item.commentNum}}人参加</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+			<footer>
+				<!-- 固定底部区 -->
+				<ul id="tabFootNav" class="bui-nav">
+					<li class="bui-btn bui-box-vertical firstpage"><i class="icon-home"></i>
+						<div class="span1 ">首页</div>
+					</li>
+					<li class="bui-btn bui-box-vertical mycourse"><i class="icon-camera"></i>
+						<div class="span1">课程</div>
+					</li>
+					<li class="bui-btn bui-box-vertical  active myjob"><i class="icon-edit"></i>
+						<div class="span1">作业</div>
+					</li>
+					<li class="bui-btn bui-box-vertical myinfo"><i class="icon-people">&#xe67b;</i>
+						<div class="span1">我的</div>
+					</li>
+				</ul>
+			</footer>
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script src="../js/common_zcz.js"></script>
+	<script>
+		bui.ready(function() {
+			$(".firstpage").click(function(){
+				window.location.href="../index.html";
+			});
+			$(".mycourse").click(function(){
+				window.location.href="../kechen.html";
+			})
+			$(".myjob").click(function(){
+				window.location.href="./tea_course_list.html";
+			})
+			$(".myinfo").click(function(){
+				window.location.href="../wode.html";
+			})
+			//按钮在tab外层,需要传id
+			var tab = bui.tab({
+				id: "#tabFoot",
+				menu: "#tabFootNav"
+			})
+			//内容部分采用vue实现比较方便
+			window.onload=function(){
+				//判断是否登录 //登陆id
+					loginId = localStorage.getItem("loginId");
+					if(loginId == null || loginId ==''){
+						layer.confirm('您还没有登陆，请登陆？', {
+							btn: ['确定','取消'] //按钮
+							}, function(){
+								window.location.href='../loginsj.html';
+							}, function(){
+						});
+					}
+				var vm = new Vue({
+					el:".mian-content",
+					data:{
+						objectArray:[]
+					},
+					methods:{
+						linkTo:function(dataId,dataName){
+							var courseId = dataId;
+							var courseName = dataName;
+							//将dataId放入到本地存储中
+							localStorage.setItem("courseId",courseId);
+							localStorage.setItem("courseName",courseName);
+							var loginType = localStorage.getItem("loginType");
+							if(loginType == '1'|| loginType =='2'){
+								window.location.href = "./tea_course_job.html";
+							}else{
+								window.location.href = "./stu_course_job.html";
+							}
+						}
+					}
+				})
+				var loginType = localStorage.getItem("loginType");
+				if(loginType == '1'|| loginType =='2'){
+					$.ajax({
+						type:"POST",
+						// url:ctx+"courseInfoMgr/coursePageInfo.action",
+						url:ctxLocal+'courseInfoMgr/coursePageInfo.action',
+						data:{
+							authorId:loginId
+						},
+						success:function(res){
+							
+							if(res.code==0){
+								//图片的路径的处理
+								for(var i=0;i<res.data.length;i++){
+									res.data[i].courseJacket = ctxLocal+res.data[i].courseJacket;
+								}
+								vm.$data.objectArray = res.data;
+							}
+						},
+						error:function(e){
+							vm.$data.objectArray = [{
+								courseId:'0',
+								courseName:"美女与形象设计",
+								courseJacket:"../img/zc01.png",
+								chargeForm:"免费",
+								commentNum:"201"
+							},
+							{
+								courseId:1,
+								courseName:"信息与计算科学",
+								courseJacket:"../img/zc01.png",
+								chargeForm:"免费",
+								commentNum:"201"
+							},
+							{
+								courseId:2,
+								courseName:"高等数学",
+								courseJacket:"../img/zc01.png",
+								chargeForm:"免费",
+								commentNum:"201"
+							},
+							{
+								courseId:3,
+								courseName:"线性代数",
+								courseJacket:"../img/zc01.png",
+								chargeForm:"免费",
+								commentNum:"201"
+							}]
+						}
+					})
+				}else{
+					$.ajax({
+					type:"POST",
+					// url:ctx+"courseInfoMgr/coursePageInfo.action",
+					url:ctxLocal+'courseInfoMgr/getStuCourseData.action',
+					data:{
+						uId:loginId
+					},
+					success:function(res){
+						if(res.code==0){
+							//图片的路径的处理
+							for(var i=0;i<res.data.length;i++){
+								res.data[i].courseJacket = ctxLocal+res.data[i].courseJacket;
+							}
+							vm.$data.objectArray = res.data;
+						}
+					},
+					error:function(){
+						vm.$data.objectArray = [{
+							courseId:'0',
+							courseName:"美女与形象设计",
+							courseJacket:"../img/zc01.png",
+							chargeForm:"免费",
+							commentNum:"201"
+						},
+						{
+							courseId:1,
+							courseName:"信息与计算科学",
+							courseJacket:"../img/zc01.png",
+							chargeForm:"免费",
+							commentNum:"201"
+						},
+						{
+							courseId:2,
+							courseName:"高等数学",
+							courseJacket:"../img/zc01.png",
+							chargeForm:"免费",
+							commentNum:"201"
+						},
+						{
+							courseId:3,
+							courseName:"线性代数",
+							courseJacket:"../img/zc01.png",
+							chargeForm:"免费",
+							commentNum:"201"
+						}]
+					}
+				//通过$.ajax来获取数据
+				
+			})
+		}
+	}
+})
+	</script>
+</html>

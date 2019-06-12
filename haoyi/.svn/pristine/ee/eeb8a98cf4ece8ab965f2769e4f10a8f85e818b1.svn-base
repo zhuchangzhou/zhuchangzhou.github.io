@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>课程的作业列表</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<style>
+			.job_list_ul{
+				margin-top:0.20rem;
+				background:#EDF0F2;
+			}
+			.mark-btn-zc{
+				padding:0.16rem 0.36rem; 
+				background: #2F8CE5;
+			}
+			.mark-btn-zc span{
+				text-align:center;
+				font-size:0.30rem;
+				color:#fff;
+			}
+			.bui-choose{
+				display: none;
+			}
+			.grade{
+				color:#2F8CE5;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem">
+				<div class="bui-bar-left">
+					<a href="tea_course_job.html" class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a>
+				</div>
+				<div class="bui-bar-main" style="color:#000000">作业</div>
+				<a id="selectAll" class="bui-bar-right" style="width:auto;height:0.88rem;line-height:0.88rem;color:#555555">批量</a>
+			</header>
+			<main>
+				<!-- 内容区滚动 -->
+				<div id="uiTab" class="bui-tab">
+				
+				</div>
+
+			</main>
+			<!-- <footer>
+				<ul id="tabFootNav" class="bui-nav">
+					<li class="bui-btn bui-box-vertical active"><i class="icon-home"></i>
+						<div class="span1">首页</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-edit"></i>
+						<div class="span1">课程</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-chat"></i>
+						<div class="span1">作业</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-setting"></i>
+						<div class="span1">我的</div>
+					</li>
+				</ul>
+			</footer> -->
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script>
+		bui.ready(function() {
+			
+			//选项卡的切换
+			var uiTab = bui.tab({
+				id: "#uiTab",
+				autoload: true,
+				template: function(data) {
+					
+					var html = '';
+					//渲染菜单结构
+					html += '<div class="bui-tab-head"><ul class="bui-nav">';
+					data.forEach(function(item, i) {
+						html += '<li class="bui-btn">' + item.title + '</li>';
+					})
+					html += '</ul></div>';
+					//渲染内容结构
+					html += '<div class="bui-tab-main"><ul>';
+					data.forEach(function(item, i) {
+						html += '<li>';
+						//里面需要嵌套一层循环来实现列表的插入
+						html += '<ul class="bui-list bui-list-thumbnail" id="selectCustom2">';
+						var dataChildren = item.list;
+						dataChildren.forEach(function(item1, j) {
+							html += '<li class="bui-btn bui-box uhw" data-uHWState="'+item1.uHWState+'" data-id="'+item1.id+'">';
+							html += '<input id="check-1" type="checkbox" class="bui-choose" value="98.00" text="王洋洋">';
+							html += '<div class="bui-thumbnail"><img src="../img/mark01.png" alt=""></div>';
+							html += '<div class="span1"><h3 class="item-title">'+item1.ue_nickname+'</h3><p class="item-text">学号：'+item1.u_loginname+'</p></div>';
+							
+							
+							if (item1.uHWState == "2"||item1.uHWState == "1"||item1.uHWState == "4") {
+								html += '<a data-id="'+item1.id+'"  data-uId="'+item1.uId+'" class="bui-btn primary ring mark-btn-zc" href="javascript:void(0)"><span>批阅</span></a>';
+							} else if (item1.uHWState == "3") {
+								html += '<span class="grade" style="margin-right:0.28rem">'+item1.score+'</span>';
+							}
+							html += '</li>';
+						})
+						html += '</ul>';
+						html += '</li>';
+					})
+					html += '</ul></div>';
+					return html;
+				},
+			});
+			var loginId = localStorage.getItem("loginId");
+			var hwId = localStorage.getItem("hwId");
+			// 异步请求数据
+			// url:ctx+"homeWork/getHomeWorkData.action",
+			//url:'http://127.0.0.1:8080/general/homeWork/getHomeWorkData.action',
+			bui.ajax({
+				url: ctxLocal+"homeWork/getUserHWorkData.action",
+				data:{
+					uId:loginId,
+					hwId:hwId
+				},
+				method:"POST"
+			}).then(function(res) {
+				
+				if (res.code == 0) {
+					var resArr = [];
+					var all = {
+						title:"全部",
+						list:res.data
+					}
+					resArr.push(all);
+					var unmarkList = [];
+					var untjList = [];
+					var markedList = [];
+					var latedList = [];
+					var unmark = {
+						title:"未批阅",
+						list:[]
+					};
+					var untj = {
+						title:"未提交",
+						list:[]
+					};
+					var marked = {
+						title:"已批阅",
+						list:[]
+					};
+					var lated = {
+						title:"已逾期",
+						list:[]
+					}
+					for(var i = 0;i<res.data.length;i++){
+						if(res.data[i].uHWState =="1"){
+							//对截至时间进行转换
+							unmarkList.push(res.data[i]);
+							var unmark = {
+								title:"未批阅",
+								list:unmarkList
+							}
+							
+						}else if(res.data[i].uHWState =="2"){
+							untjList.push(res.data[i]);
+							var untj = {
+								title:"未提交",
+								list:untjList
+							}
+							
+						}else if(res.data[i].uHWState =="3"){
+							markedList.push(res.data[i]);
+							var marked = {
+								title:"已批阅",
+								list:markedList
+							}
+							
+						}else if(res.data[i].uHWState =="4"){
+							latedList.push(res.data[i]);
+							var lated = {
+								title:"已逾期",
+								list:latedList
+							}
+							
+						}
+					}
+					resArr.push(unmark);
+					resArr.push(untj);
+					resArr.push(marked);
+					resArr.push(lated);
+					uiTab.option("data", resArr);
+					// $(".uhw").click(function(){
+					// 	var userId = $(this).attr("data-id");
+					// 	localStorage.setItem("userId",userId);
+					// 	if($(this).attr("data-uHWState") == '3'){
+					// 		window.location.href = "./tea_course_job_marked.html"
+					// 	}
+					// })
+						$(".mark-btn-zc").click(function(){
+							var sHwId = $(this).attr("data-id");
+							localStorage.setItem("sHwId",sHwId);
+						
+							var userId = $(this).attr("data-uId");
+						
+							localStorage.setItem("userId",userId);
+							window.location.href="./tea_course_job_markOne.html";
+						})
+				}
+			}, function(e) {
+				console.log(e);
+// 			private Integer id;//主键
+// 			
+// 			private Integer classId;//班级ID
+// 			
+// 			private String classBM;//班级编码
+// 			
+// 			private Integer userId;//学生、老师ID
+// 			
+// 			private String ue_nickname;//学生姓名
+// 			
+// 			private String u_loginname;//登录名、学号
+// 			
+// 			private String userNum;//人物编号
+// 			
+// 			private Integer type;//用户类型 1教师 2学生
+// 			
+// 			private Date createTime;//创建时间
+// 
+				var res = [{
+						title: "全部",
+						list: [{
+								id: "0",
+								ue_nickname:"王阳阳",
+								u_loginname:"15326987412",
+								uHWState: "3",
+							},
+							{
+								id: "1",
+								ue_nickname:"王阳阳",
+								u_loginname:"15326987412",
+								uHWState: "2",
+							}, {
+								id: "2",
+								ue_nickname:"王阳阳",
+								u_loginname:"15326987412",
+								uHWState: "4",
+							},
+							{
+								id: "3",
+								ue_nickname:"王阳阳",
+								u_loginname:"15326987412",
+								uHWState: "1",
+							}
+						]
+					},
+					{
+						title: "未批阅",
+						list: [{
+							id: "3",
+							ue_nickname:"王阳阳",
+							u_loginname:"15326987412",
+							uHWState: "1",
+						}]
+					},
+					{
+						title: "未提交",
+						list: [{
+							id: "1",
+							ue_nickname:"王阳阳",
+							u_loginname:"15326987412",
+							uHWState: "2",
+						}]
+					},
+					{
+						title: "已批阅",
+						list: [{
+							id: "0",
+							ue_nickname:"王阳阳",
+							u_loginname:"15326987412",
+							uHWState: "3",
+						}]
+					},
+					{
+						title: "已逾期",
+						list: [{
+							id: "2",
+							ue_nickname:"王阳阳",
+							u_loginname:"15326987412",
+							uHWState: "4",
+						}]
+					}
+				];
+				uiTab.option("data", res);
+				
+			})
+			   var uiSelectCustom2 = bui.select({
+				id: "#selectCustom2",
+				popup: false,
+				type: "checkbox",
+				onChange: function(e) {
+					
+				}
+			});
+			
+			//批量执行前的判断,如果所有的作业状态都是已批阅的状态,则不能点击
+			//html += '<a  data-uHWState="'+item1.uHWState+'"   data-id="'+item1.id+'" class="bui-btn primary ring mark-btn-zc" href="./tea_course_job_markOne.html"><span>批阅</span></a>';
+			
+			
+			
+			
+				$("#selectAll").on("click",function(){
+					var arr= [];
+					$('.uhw').each(function(){
+						arr.push($(this).attr("data-uHWState"));
+					})
+					
+					//循环数组
+					arr.forEach(v =>{
+						if(v == '1' ||v == '2' || v == '4'){
+							window.location.href = './tea_course_job_markAll.html';
+						}else{
+							return false;
+						}
+					})
+				});
+			
+		})
+	</script>
+</html>

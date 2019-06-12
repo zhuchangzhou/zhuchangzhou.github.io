@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>给每个学生批阅作业</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<style>
+			.line-vertical {
+				color: #2F8CE5;
+				font-size: 0.36rem;
+				font-weight: 700;
+				font-style: normal;
+				margin-right: 0.16rem;
+			}
+
+			.job-detail {
+				background: #fff;
+				padding: 0.28rem 0.32rem;
+			}
+			.job-detail h3{
+				font-size:0.32rem;
+				margin-bottom:0.26rem;
+			}
+			.job-detail h4,.job-detail h5{
+				font-size:0.28rem;
+				margin-bottom:0.16rem;
+				color:#A9A9A9;
+			}
+			.job-content {
+				margin-top: 0.20rem;
+				background: #fff;
+				padding: 0.28rem 0;
+			}
+
+			.job-content-title {
+				padding-bottom: 0.28rem;
+				border-bottom: 0.01rem solid #ECECEC;
+				padding-left: 0.34rem;
+			}
+
+			.job-content-title h3 {
+				display: inline-block;
+				text-align: left;
+				font-size: 0.36rem;
+			}
+			.icon-fj {
+				display: inline-block;
+				width: 0.32rem;
+				height: 0.32rem;
+				background: url(../img/fujian_zc.png) no-repeat center;
+				background-size: 100% 100%;
+				margin-right: 0.08rem;
+			}
+
+			.icon-ly {
+				display: inline-block;
+				width: 0.32rem;
+				height: 0.32rem;
+				background: url(../img/luying_zc.png) no-repeat center;
+				background-size: 100% 100%;
+				margin-right: 0.08rem;
+			}
+
+			input::-webkit-input-placeholder{ /*WebKit browsers*/
+						color: #DCDCDC;
+					}
+input::-moz-input-placeholder{ /*Mozilla Firefox*/
+						color: #DCDCDC;
+					}
+input::-ms-input-placeholder{ /*Internet Explorer*/ 
+						color: #DCDCDC;
+					}
+						textarea::-webkit-input-placeholder{ /*WebKit browsers*/
+											color: #DCDCDC;
+										}
+					textarea::-moz-input-placeholder{ /*Mozilla Firefox*/
+											color: #DCDCDC;
+										}
+					textarea::-ms-input-placeholder{ /*Internet Explorer*/ 
+											color: #DCDCDC;
+										}
+					
+
+			.tea-comment h3,.tea-comment h4,.tea-comment h5{
+				font-size:0.28rem;
+				color:#777777;
+				line-height: 180%;
+				padding-left:0.08rem;
+			}
+			.tea-comment h3 span,.tea-comment h4 span,.tea-comment h5 span{
+				margin-left:0.20rem;
+			}
+			.tea-comment h5 span i{
+				font-style: normal;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem">
+				<div class="bui-bar-left">
+					<a href="tea_course_list.html" class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a>
+				</div>
+				<div class="bui-bar-main" style="color:#000000">作业</div>
+				<a href="#" onclick="return false" class="bui-bar-right" style="width:auto;height:0.88rem;line-height:0.88rem;color:#fff">xxx</a>
+			</header>
+			<main>
+				<!-- 作业详情 -->
+				<dl id="accordion" class="bui-accordion">
+					<dt class="bui-btn bui-box" style="padding:0.32rem 0.28rem;">
+						<i class="line-vertical">|</i>
+						<div class="span1" style="font-size:0.32rem;color:#222222">学生信息</div>
+						<span style="margin-right:0.30rem;font-size:0.32rem;color:#FFBD4C">批阅情况：<i style="font-style: normal;">8</i>/<i style="font-style: normal;">26</i>人</span>
+						<span style="margin-right:0.06rem;font-size:0.32rem;color:#2F8CE5">详情</span><i class="icon-accordion" style="color:#2F8CE5"></i>
+					</dt>
+					<dd>
+						<div class="job-detail">
+							<h3>第八章作业</h3>
+							<h4>学生姓名：王阳阳</h4>
+							<h5>提交时间：2019.04.26   11：00</h5>
+						</div>
+					</dd>
+				</dl>
+				<!-- 作业内容 -->
+				<div class="job-content">
+					<div class="job-content-title">
+						<i class="line-vertical">|</i>
+						<h3>学生内容</h3>
+					</div>
+					<ul class="bui-list">
+						<li class="bui-btn clearactive" style="overflow: hidden;border-bottom:0">
+							<div id="jobContent" class="bui-input" style="padding-top:0.06rem;padding-left:0.18rem">
+								<textarea class="bui-input" id="" cols="30" rows="6">为中华崛起而读书.</textarea>
+							</div>
+						</li>
+						<li class="bui-btn bui-box" style="width:92%;margin:0 auto;padding:0.24rem 0.28rem; border-bottom:0.01rem solid #F1F1F1;border-top:0.01rem solid #F1F1F1">
+							<div class="icon"><i class="icon-setting primary"></i></div>
+							<div class="span1">图片名称.png</div>
+						</li>
+						<li class="bui-btn bui-box" style="width:92%;margin:0 auto;padding:0.24rem 0.28rem; border-bottom:0.01rem solid #F1F1F1">
+							<div class="icon"><i class="icon-setting primary"></i></div>
+							<div class="span1">录音20190425.mp3</div>
+						</li>
+					</ul>
+				</div>
+				<!-- 评分 -->
+				<ul class="bui-list" style="margin-top:0.20rem;">
+					<li class="bui-btn bui-box clearactive">
+						<label class="bui-label" for="jobname">作业评分</label>
+						<div class="span1">
+							<div class="bui-input user-input">
+								<input id="jobname" type="text" value="" placeholder="请输入分值" style="text-align: right;padding-right:0.20rem">
+							</div>
+						</div>
+					</li>
+					<li class="bui-btn bui-box clearactive">
+						<label class="bui-label" for="jobcontent">作业评语</label>
+						<div class="span1">
+				
+						</div>
+					</li>
+					<ul class="bui-list">
+						<li class="bui-btn clearactive" style="overflow: hidden;">
+							<div id="commentContent" class="bui-input">
+								<textarea class="bui-input" id="" cols="30" rows="4" placeholder="请输入作业评语"></textarea>
+							</div>
+							<a class="bui-btn" style="float:right;padding:0.08rem 0.18rem;background: #EDF0F2;border-radius: 0.30rem;color:#3791E7"><i
+								 class="icon-ly" style="color:#3791E7"></i>录音</a>
+							<a class="bui-btn" style="float:right;padding:0.08rem 0.18rem;background: #EDF0F2;border-radius: 0.30rem;color:#3791E7;margin-right:0.16rem"><i
+								 class="icon-fj" style="color:#3791E7"></i>附件</a>
+						</li>
+					</ul>
+				</ul>
+				<!-- 提交按钮 -->
+				<div class="bui-btn primary ring bui-box-vertical" style="width:70%;margin:0.72rem auto">
+					<a href="#" style="text-align: center;font-size:0.32rem;color:#fff;">提交批阅</a>
+				</div>
+			</main>
+			<!-- <footer>
+				<ul id="tabFootNav" class="bui-nav">
+					<li class="bui-btn bui-box-vertical active"><i class="icon-home"></i>
+						<div class="span1">首页</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-edit"></i>
+						<div class="span1">课程</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-chat"></i>
+						<div class="span1">作业</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-setting"></i>
+						<div class="span1">我的</div>
+					</li>
+				</ul>
+			</footer> -->
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script>
+		bui.ready(function() {
+			var uiAccordion = bui.accordion({
+				id: "#accordion"
+			});
+
+			// 展开第一个
+			uiAccordion.showFirst();
+			$(".edit").click(function() {
+				window.location.href = "./stu_course_job_complete.html";
+			})
+		})
+	</script>
+</html>

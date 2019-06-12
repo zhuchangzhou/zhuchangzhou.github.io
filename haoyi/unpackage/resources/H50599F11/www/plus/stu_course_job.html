@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>学生课程的作业列表</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<style>
+			.job_list{
+				width:96%;
+				margin:0 auto;
+				margin-top:0.16rem;
+				background:#fff;
+				border-radius: 0.12rem;
+			}
+			.job_list_top{
+				padding:0.30rem 0.34rem;
+				border-bottom: 0.01rem solid #ececec;
+			}
+			.job_list_top h3{
+				display: inline-block;
+				padding:0.04rem 0.24rem;
+				background:#2F8CE5;
+				font-size:0.28rem;
+				border-radius: 0.10rem;
+				color:#fff;
+				margin-right:0.20rem;
+			}
+			.job_list_top h4{
+				display: inline-block;
+				font-size:0.32rem;
+				color:#333333;
+			}
+			.job_list_top h6{
+				font-size:0.60rem;
+				color:#333333;
+				float:right;
+				line-height:60%;
+			}
+			.job_list_mid {
+				padding:0.46rem 0.34rem;
+				border-bottom:0.01rem solid #ececec;
+			}
+			.job_list_mid h3,.job_list_mid h4{
+				display:inline-block;
+				margin-right:0.36rem;
+				font-size:0.30rem;
+				color:#777777;
+				margin-bottom:0.16rem;
+			}
+			.job_list_mid h5,.job_list_mid h6{
+				font-size:0.28rem;
+				color:#AEAEAE;
+				margin-bottom:0.16rem;
+			}
+			.job_list_mid h6{
+				margin-bottom:0
+			}
+			.job_list_bot{
+				padding:0.28rem 0.34rem;
+				overflow: hidden;
+			}
+			.job_list_bot h3{
+				float:left;
+				font-size:0.28rem;
+				color:#FFBD4C;
+				margin-top:0.10rem;
+			}
+			.job_list_bot h4{
+				float:right;
+				font-size:0.28rem;
+				color:#fff;
+				background: #2F8CE5;
+				padding:0.10rem 0.60rem;
+				border-radius: 0.50rem;
+			}
+			.fin h4{
+				font-size:0.28rem;
+				padding:0.10rem  0.50rem;
+			}
+			.fin h3{
+				color:#ADADAD;
+			}
+			.overdue h3{
+				color:#FB493F;
+			}
+			.overdue h4{
+				background:#FB493F;
+			}
+			.completed h3{
+				color:#18D571;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem">
+				<div class="bui-bar-left">
+					<a href="tea_course_list.html" class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a>
+				</div>
+				<div class="bui-bar-main" style="color:#000000">作业</div>
+				<a  href="#" onclick="return false"   class="bui-bar-right" style="width:auto;height:0.88rem;line-height:0.88rem;color:#fff">xxx</a>
+			</header>
+			<main>
+				<!-- 内容区滚动 -->
+				<div id="uiTab" class="bui-tab">
+					<div class="bui-tab-head">
+						<ul class="bui-nav">
+							<li class="bui-btn">全部</li>
+							<li class="bui-btn">进行中</li>
+							<li class="bui-btn">待批阅</li>
+							<li class="bui-btn">已完成</li>
+							<li class="bui-btn">已逾期</li>
+						</ul>
+					</div>
+					<div class="bui-tab-main">
+						<ul>
+							<!-- 内容必须在li里面 -->
+							<li>
+								<ul>
+									<li class="job_list">
+										<div class="job_list_top">
+											<h3>英语</h3>
+											<h4>第八章作业</h4>
+										</div>
+										<div class="job_list_mid">
+											<h3>已交人数：<span>8</span>/<span>36</span>人</h3> 
+											<h5>截止时间：2019.08.21 05:24</h5>
+											<h6>提交时间：2019.08.21 05:24</h6>
+										</div>
+										<div class="job_list_bot">
+											<h3>待批阅</h3>
+											<h4 class="edit">编辑</h4>
+										</div>
+									</li>
+									<li class="job_list">
+										<div class="job_list_top">
+											<h3>英语</h3>
+											<h4>第八章作业</h4>
+										</div>
+										<div class="job_list_mid">
+											<h3>已交人数：<span>8</span>/<span>36</span>人</h3> 
+											<h5>截止时间：2019.08.21 05:24</h5>
+										</div>
+										<div class="job_list_bot fin">
+											<h3>进行中</h3>
+											<h4>去完成</h4>
+										</div>
+									</li>
+									
+									<li class="job_list">
+										<div class="job_list_top">
+											<h3>英语</h3>
+											<h4>第八章作业</h4>
+										</div>
+										<div class="job_list_mid">
+											<h3>已交人数：<span>8</span>/<span>36</span>人</h3> 
+											<h5>截止时间：2019.08.21 05:24</h5>
+											<h5>提交时间：2019.08.21 05:24</h5>
+											<h5>得分：89.00</h5>
+											<h6>评语：不熟练，好好预习</h6>
+										</div>
+										<div class="job_list_bot completed">
+											<h3>已完成</h3>
+											<h4>查看</h4>
+										</div>
+									</li>
+									<li class="job_list">
+										<div class="job_list_top">
+											<h3>英语</h3>
+											<h4>第八章作业</h4>
+										</div>
+										<div class="job_list_mid">
+											<h3>已交人数：<span>8</span>/<span>36</span>人</h3> 
+											<h5>截止时间：2019.08.21 05:24</h5>
+										</div>
+										<div class="job_list_bot overdue">
+											<h3>已逾期</h3>
+											<h4>补交</h4>
+										</div>
+									</li>
+								</ul>
+								
+							</li>
+							<li style="display: none;"><img src="images/placeholder-page.png" alt="">
+								<ul>
+									<li class="job_list">
+										<div class="job_list_top">
+											<h3>英语</h3>
+											<h4>第八章作业</h4>
+										</div>
+										<div class="job_list_mid">
+											<h3>已交人数：<span>8</span>/<span>36</span>人</h3> 
+											<h5>截止时间：2019.08.21 05:24</h5>
+										</div>
+										<div class="job_list_bot fin">
+											<h3>进行中</h3>
+											<h4>去完成</h4>
+										</div>
+									</li>
+								</ul>
+							</li>
+							<li style="display: none;">
+								<ul>
+										<li class="job_list">
+											<div class="job_list_top">
+												<h3>英语</h3>
+												<h4>第八章作业</h4>
+											</div>
+											<div class="job_list_mid">
+												<h3>已交人数：<span>8</span>/<span>36</span>人</h3> 
+												<h5>截止时间：2019.08.21 05:24</h5>
+												<h6>提交时间：2019.08.21 05:24</h6>
+											</div>
+											<div class="job_list_bot">
+												<h3>待批阅</h3>
+												<h4>编辑</h4>
+											</div>
+										</li>
+								</ul>
+							</li>
+							<li style="display: none;">
+								<ul>
+									<li class="job_list">
+										<div class="job_list_top">
+											<h3>英语</h3>
+											<h4>第八章作业</h4>
+										</div>
+										<div class="job_list_mid">
+											<h3>已交人数：<span>8</span>/<span>36</span>人</h3> 
+											<h5>截止时间：2019.08.21 05:24</h5>
+											<h5>提交时间：2019.08.21 05:24</h5>
+											<h5>得分：89.00</h5>
+											<h6>评语：不熟练，好好预习</h6>
+										</div>
+										<div class="job_list_bot completed">
+											<h3>已完成</h3>
+											<h4>查看</h4>
+										</div>
+									</li>
+								</ul>
+							</li>
+							<li style="display: none;">
+								<ul>
+									<li class="job_list">
+										<div class="job_list_top">
+											<h3>英语</h3>
+											<h4>第八章作业</h4>
+										</div>
+										<div class="job_list_mid">
+											<h3>已交人数：<span>8</span>/<span>36</span>人</h3> 
+											<h5>截止时间：2019.08.21 05:24</h5>
+										</div>
+										<div class="job_list_bot overdue">
+											<h3>已逾期</h3>
+											<h4>补交</h4>
+										</div>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+			</main>
+			<!-- <footer>
+				<ul id="tabFootNav" class="bui-nav">
+					<li class="bui-btn bui-box-vertical active"><i class="icon-home"></i>
+						<div class="span1">首页</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-edit"></i>
+						<div class="span1">课程</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-chat"></i>
+						<div class="span1">作业</div>
+					</li>
+					<li class="bui-btn bui-box-vertical"><i class="icon-setting"></i>
+						<div class="span1">我的</div>
+					</li>
+				</ul>
+			</footer> -->
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script>
+		bui.ready(function() {
+			//选项卡的切换
+			var uiTab = bui.tab({
+				id: "#uiTab"
+			});
+			//底部的切换
+			var tab = bui.tab({
+				id:"#tabFoot",
+				menu:"#tabFootNav"
+			})
+			$(".edit").click(function(){
+				window.location.href="./stu_course_job_complete.html";
+			})
+		})
+	</script>
+</html>

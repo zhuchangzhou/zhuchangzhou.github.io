@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>教师学期列表</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<link rel="stylesheet" href="../css/layer.css">
+		<link rel="stylesheet" href="../css/common_zcz.css">
+		<link rel="stylesheet" href="../css/tea_course_list.css">
+		<style>
+			/* 	[v-cloak] {
+				display: none !important;
+			} */
+		</style>
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem;">
+				<div class="bui-bar-left">
+					<a class="bui-btn" style="color:#fff"><i class="icon-back" style="color:#fff"></i>返回</a>
+				</div>
+				<div class="bui-bar-main" style="color:#000000">学期</div>
+				<div class="bui-bar-right"></div>
+			</header>
+			<main style="background: #EBEFF2;">
+				<div id="load" class="bui-btn primary  ring save " style="text-align:center;font-size:0.34rem;display: block;width:90%;line-height:150%;margin-top:0.25rem;margin-bottom:0.24rem;">创建学期</div>
+				<ul class="bui-list bui-listview" id="listview">
+
+					<!-- <li class="bui-btn bui-box load" style="padding:0.20rem 0.25rem;margin-bottom:0.12rem ">
+						<label class="bui-label" style="min-width:3.68rem;font-size:0.34rem;color:#000">2019年下学期</label>
+						<div class="span1">
+						</div>
+						<i class="icon-listright" style="font-size:0.28rem;color:#CECECE"></i>
+					</li>
+					<li class="bui-btn bui-box load" style="padding:0.20rem 0.25rem;margin-bottom:0.12rem ">
+						<label class="bui-label" style="min-width:3.68rem;font-size:0.34rem;color:#000">2019年下学期</label>
+						<div class="span1">
+						</div>
+						<i class="icon-listright" style="font-size:0.28rem;color:#CECECE"></i>
+					</li>
+					<li class="bui-btn bui-box load" style="padding:0.20rem 0.25rem;margin-bottom:0.12rem ">
+						<label class="bui-label" style="min-width:3.68rem;font-size:0.34rem;color:#000">2019年下学期</label>
+						<div class="span1">
+						</div>
+						<i class="icon-listright" style="font-size:0.28rem;color:#CECECE"></i>
+					</li>
+					<li class="bui-btn bui-box load" style="padding:0.20rem 0.25rem;margin-bottom:0.12rem ">
+						<label class="bui-label" style="min-width:3.68rem;font-size:0.34rem;color:#000">2019年下学期</label>
+						<div class="span1">
+						</div>
+						<i class="icon-listright" style="font-size:0.28rem;color:#CECECE"></i>
+					</li> -->
+				</ul>
+
+			</main>
+			<footer>
+				<ul id="tabFootNav" class="bui-nav">
+					<li class="bui-btn bui-box-vertical firstpage"><i class="icon-home"></i>
+						<div class="span1 ">首页</div>
+					</li>
+					<li class="bui-btn bui-box-vertical mycourse"><i class="icon-camera"></i>
+						<div class="span1">课程</div>
+					</li>
+					<li class="bui-btn bui-box-vertical  active myjob"><i class="icon-edit"></i>
+						<div class="span1">作业</div>
+					</li>
+					<li class="bui-btn bui-box-vertical myinfo"><i class="icon-people">&#xe67b;</i>
+						<div class="span1">我的</div>
+					</li>
+				</ul>
+			</footer>
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script src="../js/common_zcz.js"></script>
+	<script>
+		var uiListview = ''
+		bui.ready(function() {
+			$(".firstpage").click(function() {
+				window.location.href = "../index.html";
+			});
+			$(".mycourse").click(function() {
+				window.location.href = "../kechen.html";
+			})
+			$(".myjob").click(function() {
+				window.location.href = "./tea_course_term_makeThree.html";
+			})
+			$(".myinfo").click(function() {
+				window.location.href = "../wode.html";
+			})
+			$(".save").click(function() {
+				window.location.href = "./tea_course_term_makeTwo.html"
+			})
+
+			//渲染列表
+			var loginId = localStorage.getItem("loginId");
+			bui.ajax({
+				url: ctxLocal + 'semester/getSemesterData.action',
+				data: {
+					userId: loginId
+				},
+			}).then(function(res) {
+
+
+				if (res.code == 0) {
+					//通过template来赋值
+					var html = '';
+					if (res.data != "" && res.data != null) {
+						for (var i = 0; i < res.data.length; i++) {
+							html +=
+								'<li class="bui-btn bui-box load" style="padding:0.30rem 0.80rem;margin-bottom:0.12rem" >';
+							html += '<label class="bui-label" style="min-width:3.68rem;font-size:0.34rem;color:#000;padding:0.2rem">' +
+								res.data[i].semesterName + '</label>';
+							html += '<div class="span1">';
+							html += '</div>';
+							html += '<i class="icon-listright" style="font-size:0.28rem;color:#CECECE" onClick="delById(' +
+								i + ',' + res.data[i].id + ')"></i>';
+							html += '</li>';
+						}
+						$("#listview").append(html);
+					}
+
+
+
+
+				} else {
+					alert("参数异常");
+					vm.$data.objectArray = [{
+						id: '1',
+						semesterName: "term1"
+					}, {
+						id: '2',
+						semesterName: "term2"
+					}, {
+						id: '3',
+						semesterName: "term3"
+					}]
+				}
+			}, function(res, status) {
+				console.log(status);
+			})
+		})
+		// 演示交互,以下代码不需要
+		// 默认打开
+		function delById(index, dataId) {
+			uiListview = bui.listview({
+				id: "#listview",
+				data: [{
+					"text": "置顶",
+					"classname": "primary"
+				}, {
+					"text": "删除",
+					"classname": "danger"
+				}],
+				position: "right", //默认就是右边,所以可以不用传
+				//点击的回调函数
+				callback: function(e) {
+					//置顶
+					var clickText = e.target.innerText;
+					console.log(clickText);
+					if (clickText == "删除") {
+						bui.confirm("确定要删除吗", function(e) {
+							//this 是指点击的按钮
+							var text2 = $(e.target).text();
+							if (text2 == "确定") {
+								// 执行删除整行操作   执行接口的调取删除
+								bui.ajax({
+									async:false,
+									url: ctxLocal+'semester/delSemester.action',
+									data: {
+										id:dataId
+									},
+								}).then(function(res) {
+									if(res.code==1){
+										console.log("删除成功");
+										//刷新页面
+										bui.refresh ()
+									}
+								
+								}, function(res, status) {
+									console.log(status);
+								})
+
+							} else {
+								bui.refresh ()
+							}
+						})
+					}
+				}
+			});
+			//初始化
+
+			uiListview.open({
+				index: index
+			})
+			//当前的对象
+			var activeUI = uiListview.active()
+			console.log(activeUI);
+			//依赖的控件
+			var uiListviewWidget = uiListview.widget();
+			console.log(uiListviewWidget);
+			var init = uiListview.init();
+			console.log(init);
+		}
+	</script>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>学生查看作业</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<link rel="stylesheet" href="../font/iconfont.css">
+		<link rel="stylesheet" href="../css/attachList.css">
+		<style>
+			
+			.line-vertical {
+				color: #2F8CE5;
+				font-size: 0.36rem;
+				font-weight: 700;
+				font-style: normal;
+				margin-right: 0.16rem;
+			}
+
+			.job-detail {
+				background: #fff;
+				padding: 0.28rem 0.32rem;
+			}
+			.job-detail h3{
+				font-size:0.32rem;
+				margin-bottom:0.26rem;
+			}
+			.job-detail h4,.job-detail h5{
+				font-size:0.28rem;
+				margin-bottom:0.16rem;
+				color:#A9A9A9;
+			}
+			.job-content {
+				margin-top: 0.20rem;
+				background: #fff;
+				padding: 0.28rem 0;
+			}
+
+			.job-content-title {
+				padding-bottom: 0.28rem;
+				border-bottom: 0.01rem solid #ECECEC;
+				padding-left: 0.34rem;
+			}
+
+			.job-content-title h3 {
+				display: inline-block;
+				text-align: left;
+				font-size: 0.36rem;
+			}
+			.icon-fj {
+				display: inline-block;
+				width: 0.32rem;
+				height: 0.32rem;
+				background: url(../img/fujian_zc.png) no-repeat center;
+				background-size: 100% 100%;
+				margin-right: 0.08rem;
+			}
+
+			.icon-ly {
+				display: inline-block;
+				width: 0.32rem;
+				height: 0.32rem;
+				background: url(../img/luying_zc.png) no-repeat center;
+				background-size: 100% 100%;
+				margin-right: 0.08rem;
+			}
+
+			input::-webkit-input-placeholder{ /*WebKit browsers*/
+						color: #DCDCDC;
+					}
+input::-moz-input-placeholder{ /*Mozilla Firefox*/
+						color: #DCDCDC;
+					}
+input::-ms-input-placeholder{ /*Internet Explorer*/ 
+						color: #DCDCDC;
+					}
+						textarea::-webkit-input-placeholder{ /*WebKit browsers*/
+											color: #DCDCDC;
+										}
+					textarea::-moz-input-placeholder{ /*Mozilla Firefox*/
+											color: #DCDCDC;
+										}
+					textarea::-ms-input-placeholder{ /*Internet Explorer*/ 
+											color: #DCDCDC;
+										}
+					
+
+			.tea-comment h3,.tea-comment h4,.tea-comment h5{
+				font-size:0.28rem;
+				color:#777777;
+				line-height: 180%;
+				padding-left:0.08rem;
+			}
+			.tea-comment h3 span,.tea-comment h4 span,.tea-comment h5 span{
+				margin-left:0.20rem;
+			}
+			.tea-comment h5 span i{
+				font-style: normal;
+			}
+			.min{
+				width:1.00rem;
+				height:auto;
+			}
+			.max{
+				width:100%;
+				height:auto;
+			}
+			.job-detail-left{
+				padding-left:0.20rem;
+				font-size:0.24rem;
+				line-height:150%;
+			}
+			.job-detail-right{
+				font-size:0.24rem;
+			}
+			[v-cloak]{
+				display: none !important;
+			}
+
+		</style>
+		<link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8"/>
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem">
+				<div class="bui-bar-left">
+					<a href="stu_course_job.html" class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a>
+				</div>
+				<div class="bui-bar-main" style="color:#000000">作业</div>
+				<a href="#" onclick="return false" class="bui-bar-right" style="width:auto;height:0.88rem;line-height:0.88rem;color:#fff">xxx</a>
+			</header>
+			<main>
+				<!-- 作业详情 -->
+				<dl id="accordion" class="bui-accordion job-detail-box" v-cloak>
+					<dt class="bui-btn bui-box" style="padding:0.32rem 0.28rem;">
+						<i class="line-vertical">|</i>
+						<div class="span1" style="font-size:0.32rem;color:#222222">作业信息</div><span style="margin-right:0.30rem;font-size:0.32rem;color:#FFBD4C">批阅情况：<i style="font-style: normal;">{{objectArray.markedNum}}</i>/<i style="font-style: normal;">{{objectArray.sumHWNum}}</i>人</span>
+						<span style="margin-right:0.06rem;font-size:0.32rem;color:#2F8CE5">详情</span><i class="icon-accordion" style="color:#2F8CE5"></i>
+					</dt>
+					<dd>
+						<div class="job-detail">
+							<table>
+								<tr>
+									<td class="job-detail-left">作业名称：</td>
+									<td class="job-detail-right">{{objectArray.hwName}}</td>
+								</tr>
+								<tr>
+									<td class="job-detail-left">学生姓名：</td>
+									<td class="job-detail-right">{{objectArray.ue_nickname}}</td>
+								</tr>
+								
+								<tr>
+									<td class="job-detail-left">提交时间：</td>
+									<td class="job-detail-right">{{objectArray.createTime}}</td>
+								</tr>
+									<tr>
+									<td class="job-detail-left">作业内容：</td>
+									<td class="job-detail-right">{{objectArray.hwContent}}</td>
+								</tr>
+							</table>
+							
+						</div>
+						<ul class="bui-list stuAttList">
+						</ul>
+					</dd>
+				</dl>
+				<dl id="accordion2" class="bui-accordion job-detail-box1" v-cloak>
+					<dt class="bui-btn bui-box" style="padding:0.32rem 0.28rem;">
+						<i class="line-vertical">|</i>
+						<div class="span1" style="font-size:0.32rem;color:#222222">教师评语</div>
+						<span style="margin-right:0.06rem;font-size:0.32rem;color:#2F8CE5">详情</span><i class="icon-accordion" style="color:#2F8CE5"></i>
+					</dt>
+					<dd>
+						<div class="job-detail">
+							<table>
+								<tr>
+									<td class="job-detail-left">作业评分：</td>
+									<td class="job-detail-right">{{objectArray1.score}}</td>
+								</tr>
+								<tr>
+									<td class="job-detail-left">作业评语：</td>
+									<td class="job-detail-right">{{objectArray1.markContent}}</td>
+								</tr>
+								
+							</table>
+							
+						</div>
+						<ul class="bui-list teaAttList" style="padding-bottom: 0.80rem;">
+						</ul>
+					</dd>
+				</dl>
+				<!-- 老师的附件 -->
+			</main>
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="../js/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script src="../js/common_zcz.js"></script>
+	<script src="../js/common_audio.js"></script>
+	<script>
+		var filePathStr;
+		//通过学生的ID来获取该学生的相关作业信息
+		var loginId =localStorage.getItem("loginId");
+		//alert(loginId)
+		var hwId = localStorage.getItem("hwId");
+		//alert(hwId)
+		var userId = localStorage.getItem("userId");
+		// alert(userId)
+		var sHwId = localStorage.getItem("sHwId")
+		bui.ready(function() {
+			//接口动态获取学生的作业相关信息
+			var vm = new Vue({
+						el:".job-detail-box",
+						data:{
+							objectArray:[]
+						},
+						methods:{
+						}
+					})
+			var url = ctxLocal + "homeWork/getUserHWorkData.action";
+			bui.ajax({
+				url: url,
+				data: {
+					uId:loginId,
+					hwId:hwId
+				},
+			}).then(function(res) {
+				if (res.code == 0) {
+					
+					if(res.count>0){
+						
+						for(var i=0;i<res.data.length;i++){
+							if(res.data[i].id == sHwId){
+								
+								res.data[i].createTime =  format(res.data[i].createTime);
+								vm.$data.objectArray = res.data[i];
+							}
+						}
+					}
+					var uiAccordion = bui.accordion({
+					id: "#accordion"
+					});
+					
+					// 展开第一个
+					uiAccordion.showFirst();
+					
+				}
+			}, function(res, status) {
+				console.log(status);
+			})
+			getUserHomeWorkAttData(hwId,userId);
+		
+			//附件的下载
+			//老师的批阅信息的显示
+			// addListenPlusReady()
+			// getAttachList();
+			var vm2 = new Vue({
+						el:".job-detail-box1",
+						data:{
+							objectArray1:[]
+						},
+						methods:{
+						}
+					})
+			var url = ctxLocal + "homeWork/getUserHWorkData.action";
+			bui.ajax({
+				url: url,
+				data: {
+					uId:loginId,
+					hwId:hwId
+				},
+			}).then(function(res) {
+				if (res.code == 0) {
+					
+					if(res.count>0){
+						
+						for(var i=0;i<res.data.length;i++){
+							if(res.data[i].id == sHwId){
+								
+								res.data[i].createTime =  format(res.data[i].createTime);
+								vm2.$data.objectArray1 = res.data[i];
+							}
+						}
+					}
+					var uiAccordion2 = bui.accordion({
+					id: "#accordion2"
+					});
+					
+					// 展开第一个
+					uiAccordion2.showFirst();
+					
+				}
+			}, function(res, status) {
+				console.log(status);
+			})
+			getHomeWorkAttData(hwId);
+			//评语的字数限制
+			var comment = bui.input({
+				id: "#commentContent",
+				showLength: true,
+				showIcon: false,
+				maxLength: 200
+			})
+		})
+	</script>
+</html>

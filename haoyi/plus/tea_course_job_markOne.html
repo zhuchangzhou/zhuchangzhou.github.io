@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>给每个学生批阅作业</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.css" />
+		<link rel="stylesheet" href="../font/iconfont.css">
+		<link rel="stylesheet" href="../css/attachList.css">
+		<style>
+			.line-vertical {
+				color: #2F8CE5;
+				font-size: 0.36rem;
+				font-weight: 700;
+				font-style: normal;
+				margin-right: 0.16rem;
+			}
+
+			.job-detail {
+				background: #fff;
+				padding: 0.28rem 0.32rem;
+			}
+			.job-detail h3{
+				font-size:0.32rem;
+				margin-bottom:0.26rem;
+			}
+			.job-detail h4,.job-detail h5{
+				font-size:0.28rem;
+				margin-bottom:0.16rem;
+				color:#A9A9A9;
+			}
+			.job-content {
+				margin-top: 0.20rem;
+				background: #fff;
+				padding: 0.28rem 0;
+			}
+
+			.job-content-title {
+				padding-bottom: 0.28rem;
+				border-bottom: 0.01rem solid #ECECEC;
+				padding-left: 0.34rem;
+			}
+
+			.job-content-title h3 {
+				display: inline-block;
+				text-align: left;
+				font-size: 0.36rem;
+			}
+			.icon-fj {
+				display: inline-block;
+				width: 0.32rem;
+				height: 0.32rem;
+				background: url(../img/fujian_zc.png) no-repeat center;
+				background-size: 100% 100%;
+				margin-right: 0.08rem;
+			}
+
+			.icon-ly {
+				display: inline-block;
+				width: 0.32rem;
+				height: 0.32rem;
+				background: url(../img/luying_zc.png) no-repeat center;
+				background-size: 100% 100%;
+				margin-right: 0.08rem;
+			}
+
+			input::-webkit-input-placeholder{ /*WebKit browsers*/
+						color: #DCDCDC;
+					}
+input::-moz-input-placeholder{ /*Mozilla Firefox*/
+						color: #DCDCDC;
+					}
+input::-ms-input-placeholder{ /*Internet Explorer*/ 
+						color: #DCDCDC;
+					}
+						textarea::-webkit-input-placeholder{ /*WebKit browsers*/
+											color: #DCDCDC;
+										}
+					textarea::-moz-input-placeholder{ /*Mozilla Firefox*/
+											color: #DCDCDC;
+										}
+					textarea::-ms-input-placeholder{ /*Internet Explorer*/ 
+											color: #DCDCDC;
+										}
+					
+
+			.tea-comment h3,.tea-comment h4,.tea-comment h5{
+				font-size:0.28rem;
+				color:#777777;
+				line-height: 180%;
+				padding-left:0.08rem;
+			}
+			.tea-comment h3 span,.tea-comment h4 span,.tea-comment h5 span{
+				margin-left:0.20rem;
+			}
+			.tea-comment h5 span i{
+				font-style: normal;
+			}
+			.min{
+				width:1.00rem;
+				height:auto;
+			}
+			.max{
+				width:100%;
+				height:auto;
+			}
+			.job-detail-left{
+				padding-left:0.20rem;
+				font-size:0.24rem;
+				line-height:150%;
+			}
+			.job-detail-right{
+				font-size:0.24rem;
+			}
+		</style>
+		<link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8"/>
+	</head>
+	<body>
+		<div class="bui-page">
+			<!-- 固定顶部区 -->
+			<header class="bui-bar" style="background: #fff;height:0.88rem">
+				<div class="bui-bar-left">
+					<a href="tea_course_job_mark.html" class="bui-btn" style="color:#000"><i class="icon-back" style="color:#000"></i>返回</a>
+				</div>
+				<div class="bui-bar-main" style="color:#000000">作业</div>
+				<a href="#" onclick="return false" class="bui-bar-right" style="width:auto;height:0.88rem;line-height:0.88rem;color:#fff">xxx</a>
+			</header>
+			<main>
+				<!-- 作业详情 -->
+				<dl id="accordion" class="bui-accordion job-detail-box">
+					<dt class="bui-btn bui-box" style="padding:0.32rem 0.28rem;">
+						<i class="line-vertical">|</i>
+						<div class="span1" style="font-size:0.32rem;color:#222222">学生信息</div><span style="margin-right:0.30rem;font-size:0.32rem;color:#FFBD4C">批阅情况：<i style="font-style: normal;">{{objectArray.markedNum}}</i>/<i style="font-style: normal;">{{objectArray.sumHWNum}}</i>人</span>
+						<span style="margin-right:0.06rem;font-size:0.32rem;color:#2F8CE5">详情</span><i class="icon-accordion" style="color:#2F8CE5"></i>
+					</dt>
+					<dd>
+						<div class="job-detail">
+							<table>
+								<tr>
+									<td class="job-detail-left">作业名称：</td>
+									<td class="job-detail-right">{{objectArray.hwName}}</td>
+								</tr>
+								<tr>
+									<td class="job-detail-left">学生姓名：</td>
+									<td class="job-detail-right">{{objectArray.ue_nickname}}</td>
+								</tr>
+								
+								<tr>
+									<td class="job-detail-left">提交时间：</td>
+									<td class="job-detail-right">{{objectArray.createTime}}</td>
+								</tr>
+								
+							</table>
+							
+						</div>
+						<ul class="bui-list stuAttList">
+						</ul>
+					</dd>
+				</dl>
+				<!-- 老师的附件 -->
+				
+				
+				<ul class="bui-list" style="margin-top:0.20rem;" id="tea_val">
+					<li class="bui-btn bui-box">
+				<label class="bui-label">是否重做</label>
+				<div class="span1"></div>
+				<div class="bui-value">
+					<input id="reDo" type="checkbox" class="bui-switch" value="1" checked="checked">
+				</div>
+			</li>
+					<li class="bui-btn bui-box clearactive">
+						<label class="bui-label" for="jobname">作业评分</label>
+						<div class="span1">
+							<div class="bui-input user-input">
+								<input id="jobname" type="text" value="" placeholder="请输入分值" style="text-align: right;padding-right:0.20rem">
+							</div>
+						</div>
+					</li>
+					<li class="bui-btn bui-box clearactive">
+						<label class="bui-label" for="jobcontent">作业评语</label>
+						<div class="span1">
+
+						</div>
+					</li>
+					<ul class="bui-list">
+						<li class="bui-btn clearactive" style="overflow: hidden;">
+							<div id="commentContent" class="bui-input">
+								<textarea class="bui-input" id="comment" cols="30" rows="4" placeholder="请输入作业评语"></textarea>
+							</div>
+							
+						</li>
+					</ul>
+					
+				</ul>
+				<div id="btnOpen" class="button">添加附件</div>
+				<div class="button" onclick="startRecord()">开始录音</div>
+						<!-- History list -->
+						<ul id="history" class="dlist" style="text-align:left;">
+							<li id="empty" class="ditem-empty">无历史记录</li>
+						</ul>
+						<br/>
+						<div class="button button-waring" onclick="cleanHistory()">清空历史记录</div>
+						<div id="play" class="rp">
+							<div id="ptime" class="ptime">00:00:00/00:00:00</div><br/>
+							<div id="progress" class="progress"><div id="schedule" class="schedule"></div></div>
+							<br/>
+							<div class="stop" onclick="stopPlay(),outSet('停止播放！')"></div>
+						</div>
+						<div id="record" class="rp">
+							<div style="width:100%;height:20%;"></div>
+							<div class="rprogress"><div class="rschedule"></div></div>
+							<br/>
+							<div id="rtime" class="rtime">00:00:00</div><br/>
+							<div class="stop" onclick="stopRecord()"></div>
+						</div>
+				<!-- 提交按钮 -->
+				<a href="javascript:void(0)" class="bui-btn primary ring bui-box-vertical markSelect" style="width:3.60rem;margin-top:0.72rem;text-align: center;font-size:0.32rem;color:#fff;float:left;marin-left:0.30rem;background: #FFCC33;border:0.01rem solid #FFCC33">提交批阅</a>
+				<a href="javascript:void(0)" class="bui-btn primary ring bui-box-vertical announceRes" style="width:3.60rem;margin-top:0.72rem;text-align: center;font-size:0.32rem;color:#fff;float:right;marin-right:0.30rem">成绩公布</a>
+			</main>
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/touch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/zepto.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buijs/lib/latest/bui.js"></script>
+	<script src="../js/ctx.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/rem.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script src="../js/common_zcz.js"></script>
+	<script src="../js/common_audio.js"></script>
+	<script>
+		var filePathStr;
+		bui.ready(function() {
+			//通过学生的ID来获取该学生的相关作业信息
+			var loginId =localStorage.getItem("loginId");
+			// alert(loginId)
+			var hwId = localStorage.getItem("hwId");
+			// alert(hwId)
+			var userId = localStorage.getItem("userId");
+			// alert(userId)
+			var sHwId = localStorage.getItem("sHwId")
+			// alert(sHwId)
+			//接口动态获取学生的作业相关信息
+			var vm = new Vue({
+						el:".job-detail-box",
+						data:{
+							objectArray:[]
+						},
+						methods:{
+						}
+					})
+			var url = ctxLocal + "homeWork/getUserHWorkData.action";
+			bui.ajax({
+				url: url,
+				data: {
+					uId:loginId,
+					hwId:hwId
+				},
+			}).then(function(res) {
+				if (res.code == 0) {
+					if(res.data.length>0){
+						for(var i=0;i<res.data.length;i++){
+							if(res.data[i].id == sHwId){
+								res.data[i].createTime =  format(res.data[i].createTime);
+								vm.$data.objectArray = res.data[i];
+							}
+						}
+					}
+					var uiAccordion = bui.accordion({
+					id: "#accordion"
+					});
+					
+					// 展开第一个
+					uiAccordion.showFirst();
+					
+				}
+			}, function(res, status) {
+				console.log(status);
+			})
+			getUserHomeWorkAttData(hwId,userId);
+			//图片的点击预览
+			$("#showImg").click(function(){
+				$(this).toggleClass("min");
+				$(this).toggleClass("max");
+			})
+			//附件的下载
+			 // getAttachPublish();
+			//老师的批阅工作
+			addListenPlusReady()
+			getAttachList();
+			$(".markSelect").click(function() {
+				var reDoState = $("#reDo").val();
+				//评分
+				var markScore = $("#jobname").val();
+				//评语
+				var tea_comment = $("#comment").val();
+				filePathStr = arrToStr(filePath);
+				//单个的批阅    附件暂时还有问题,需要进一步
+				bui.ajax({
+					url: ctxLocal+'homeWork/markingUserHWork.action',
+					data: {
+						id:sHwId,
+						score:markScore,
+						markContent:tea_comment,
+						attSrc:filePathStr,
+						uHWState:5,
+						hwId:hwId,
+						uId:userId,
+						reDoState:reDoState   //重新来做的状态
+					},
+				}).then(function(res){
+					window.location.href="./tea_course_job_mark.html";
+				},function(res,status){
+					console.log(status);
+				})		
+			})
+			//成绩的公布
+			$(".announceRes").click(function() {
+				var reDoState = $("#reDo").val();
+				//评分
+				var markScore = $("#jobname").val();
+				//评语
+				var tea_comment = $("#comment").val();
+				filePathStr = arrToStr(filePath);
+				//单个的批阅    附件暂时还有问题,需要进一步
+				bui.ajax({
+					url: ctxLocal+'homeWork/markingUserHWork.action',
+					data: {
+						id:sHwId,
+						score:markScore,
+						markContent:tea_comment,
+						attSrc:filePathStr,
+						uHWState:3,
+						hwId:hwId,
+						uId:userId,
+						reDoState:reDoState   //重新来做的状态
+					},
+				}).then(function(res){
+					window.location.href="./tea_course_job_mark.html";
+				},function(res,status){
+					console.log(status);
+				})		
+			})
+			//评语的字数限制
+			var comment = bui.input({
+				id: "#commentContent",
+				showLength: true,
+				showIcon: false,
+				maxLength: 200
+			})
+		})
+	</script>
+</html>
